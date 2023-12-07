@@ -1,0 +1,16 @@
+package characterstream.streamreader;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+
+/**
+ * @author ronin
+ */
+public class InputStreamReaderTest {
+    public static void main(String[] args) throws FileNotFoundException {
+        FileInputStream fileInputStream = new FileInputStream("d:/a.txt");
+        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+
+    }
+}

@@ -1,0 +1,13 @@
+package characterstream.filereaderandwriter;
+
+import java.io.FileReader;
+
+/**
+ * @author ronin
+ */
+public class FileReaderAndFileWriterTest {
+    public static void main(String[] args) {
+        FileReader reader = new FileReader();
+        reader
+    }
+}

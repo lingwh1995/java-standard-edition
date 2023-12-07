@@ -1,0 +1,19 @@
+BEFORE/AFTER模式:
+    模型:
+        前置操作(获取锁)
+        try{
+            //释放锁
+        }finally{
+            //后置操作(释放锁)
+        }
+
+    伪代码:
+        before();
+        try{
+            //execute();
+        }finally{
+            //after();
+        }
+    作用:
+        保证execute()被调用前,before()一定会被调用,且不管出现什么原因,after()都会被调用
+

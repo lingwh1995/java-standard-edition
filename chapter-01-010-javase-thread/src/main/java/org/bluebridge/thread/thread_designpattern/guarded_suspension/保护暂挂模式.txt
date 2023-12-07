@@ -1,0 +1,7 @@
+Guarded Suspension(保护暂挂模式):
+角色分析:
+    GuardedObject(被守护的对象):
+        GuardedObject是一个持有被守护方法(guardedMethod)的类。当线程执行guardedMethod时,若守护条件成立,则
+        可以直接执行，若守护条件不成立,就要进行等待。守护条件会随着GuardedObject的状态不同而发生改变。除过guardedMethod
+        之外，GuardedObject还有stateChangeMethod方法
+        guardedMethod:通过while和wait()方法实现,stateChangeMethod:通过notify()和notifyAll()方法来实现

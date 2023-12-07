@@ -1,0 +1,4 @@
+lambda表达式语法:
+    (T t)->{body}
+    (t)->{body}
+    当只有一个参数时: p -> p*2(详见function.PredicateTest)

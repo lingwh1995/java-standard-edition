@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dragonsoft.foundation</groupId>
+    <artifactId>java-standard-edition</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <junit.version>5.10.0</junit.version>
+    </properties>
+
+    <modules>
+        <module>algorithm</module>
+        <module>apache</module>
+        <module>datastructure</module>
+        <module>designpattern</module>
+        <module>oracle</module>
+        <module>spring</module>
+        <module>xml</module>
+        <module>jdk-source</module>
+        <module>classloader</module>
+        <module>chapter-01-001-javase-javabase</module>
+        <module>javacc</module>
+        <module>tools</module>
+        <module>chapter-01-007-javase-io</module>
+        <module>chapter-01-008-javase-collection</module>
+        <module>chapter-01-009-javase-jdbc</module>
+        <module>chapter-01-006-javase-reflection</module>
+        <module>chapter-01-005-javase-annotation</module>
+        <module>chapter-01-002-javase-api</module>
+        <module>chapter-01-004-javase-enumeration</module>
+        <module>chapter-01-010-javase-thread</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--日志框架结束-->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

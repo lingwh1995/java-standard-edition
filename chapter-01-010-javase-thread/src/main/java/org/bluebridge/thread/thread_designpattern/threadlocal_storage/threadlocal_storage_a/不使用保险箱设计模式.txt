@@ -1,0 +1,4 @@
+现在public void execute(Context context)这个方法里面,Context是传递过来的,可以通过ThreadLocal来改善,把
+Context和当前线程绑定,存放在ThreadLocal中
+
+
