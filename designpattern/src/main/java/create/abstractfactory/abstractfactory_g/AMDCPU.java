@@ -8,6 +8,7 @@ package create.abstractfactory.abstractfactory_g;
  */
 public class AMDCPU implements CPUApi{
 
+
     /**
      * CPU的针脚数目
      */
