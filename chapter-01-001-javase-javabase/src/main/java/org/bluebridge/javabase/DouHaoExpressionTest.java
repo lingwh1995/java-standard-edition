@@ -1,4 +1,4 @@
-package javabase;
+package org.bluebridge.javabase;
 
 /**
  * 逗号表达式

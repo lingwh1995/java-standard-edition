@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dragonsoft.foundation</groupId>
+    <groupId>org.bluebridge</groupId>
     <artifactId>java-standard-edition</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <junit.version>5.10.0</junit.version>
+        <junit.version>4.9</junit.version>
     </properties>
 
     <modules>
@@ -34,14 +34,16 @@
         <module>chapter-01-002-javase-api</module>
         <module>chapter-01-004-javase-enumeration</module>
         <module>chapter-01-010-javase-thread</module>
+        <module>chapter-01-012-javase-new-features</module>
+        <module>chapter-01-011-javase-generics</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <!--日志框架结束-->
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
         </dependencies>

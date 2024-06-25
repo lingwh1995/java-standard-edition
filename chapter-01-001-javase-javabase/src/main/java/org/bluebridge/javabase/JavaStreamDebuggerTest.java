@@ -1,4 +1,4 @@
-package javabase;
+package org.bluebridge.javabase;
 
 import java.util.List;
 import java.util.stream.Collectors;

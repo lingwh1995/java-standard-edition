@@ -1,4 +1,4 @@
-package javabase;
+package org.bluebridge.javabase;
 
 
 import org.junit.Test;

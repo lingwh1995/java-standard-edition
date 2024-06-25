@@ -1,4 +1,4 @@
-package javabase;
+package org.bluebridge.javabase;
 
 public class QuitWhileLopTest {
     public static void main(String[] args) {
