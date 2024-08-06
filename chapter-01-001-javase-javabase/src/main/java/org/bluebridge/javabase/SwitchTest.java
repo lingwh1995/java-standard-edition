@@ -2,6 +2,10 @@ package org.bluebridge.javabase;
 
 import java.util.Scanner;
 
+/**
+ * 1.switch可以进行嵌套
+ * 2.switch中的case:后面的代码，可以使用{}括起来
+ */
 public class SwitchTest {
     public static void main(String[] args) {
         switchTest1();
