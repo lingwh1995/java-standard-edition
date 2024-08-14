@@ -21,29 +21,51 @@ import java.util.List;
  *    
  */
 public class ArraysApiTest {
-	
+
 	/**
 	 * 数组的copyOf()方法，此方法常用来增加数组长度
-	 * @return void
-	 * @throws
 	 */
 	@Test
-	public void copyOf(){
+	public void copyOfTest(){
 		String[] strs = {"a","b","c","d","e"};
 		String[] copyNewShortArray = Arrays.copyOf(strs,1);
 		System.out.println("新数组的长度比原数组的长度短:"+Arrays.toString(copyNewShortArray));
 		String[] copyNewLongArray = Arrays.copyOf(strs,15);
 		System.out.println("新数组的长度比原来数组长度长:"+Arrays.toString(copyNewLongArray));
 	}
-	
-	
+
 	/**
-	 * 数组的排序方法，采用优化的快速排序算法(默认从小到大排序)
-	 * @return void
-	 * @throws
+	 * 数组的copyOfRange()方法，此方法常用来增加数组长度
 	 */
 	@Test
-	public void sort(){
+	public void copyOfRangeTest(){
+		String[] strs = {"a","b","c","d","e"};
+		String[] copyNewShortArray = Arrays.copyOfRange(strs,1,3);
+		System.out.println("新数组的长度比原数组的长度短:"+Arrays.toString(copyNewShortArray));
+		String[] copyNewLongArray = Arrays.copyOfRange(strs,1,8);
+		System.out.println("新数组的长度比原来数组长度长:"+Arrays.toString(copyNewLongArray));
+	}
+
+	/**
+	 * 数组的copyOfRange()方法，此方法常用来增加数组长度
+	 */
+	@Test
+	public void arraycopyTest(){
+		String[] strs = {"a","b","c","d","e"};
+		String[] newStrs1 = {"null","null","null","null","null"};
+		System.arraycopy(strs, 0, newStrs1, 0, 2);
+		System.out.println("newStrs1:"+Arrays.toString(newStrs1));
+
+		String[] newStrs2 = {"null","null","null","null","null","null","null","null","null","null"};
+		System.arraycopy(strs, 1, newStrs2, 2, 3);
+		System.out.println("newStrs2:"+Arrays.toString(newStrs2));
+	}
+
+	/**
+	 * 数组的排序方法，采用优化的快速排序算法(默认从小到大排序)
+	 */
+	@Test
+	public void sortTest(){
 		Integer[] nums = {8,2,5,9,6,3,1};
 		Arrays.sort(nums);
 		System.out.println(Arrays.toString(nums));
@@ -51,40 +73,33 @@ public class ArraysApiTest {
 		Arrays.sort(chars);
 		System.out.println(Arrays.toString(chars));
 	}
-	
-	
+
+
 	/**
 	 * 数组的二分查找方法，注意:二分查找前提是数组有序
-	 * @return void
-	 * @throws
 	 */
 	@Test
-	public void binarySearch(){
+	public void binarySearchTest(){
 		Integer[] nums = {1,2,3,5,6,9,10};
 		int index = Arrays.binarySearch(nums,3);
 		System.out.println(index);
 	}
-	
+
 	/**
 	 * 数组的二分查找方法重载，注意:二分查找前提是数组有序
-	 * @param
-	 * @return void
-	 * @throws
 	 */
 	@Test
-	public void binarySearchOverload(){
+	public void binarySearchOverloadTest(){
 		Integer[] nums = {1,2,3,5,6,9,10};
 		int index = Arrays.binarySearch(nums,0,2,10);
 		System.out.println(index);
 	}
-	
+
 	/**
 	 * 把数组所有的元素的值设置为某个值
-	 * @return void
-	 * @throws
 	 */
 	@Test
-	public void fill(){
+	public void fillTest(){
 		String[] strs = new String[5];
 		Arrays.fill(strs,"H");
 		System.out.println(Arrays.toString(strs));
@@ -93,15 +108,12 @@ public class ArraysApiTest {
 		Arrays.fill(nums,88);
 		System.out.println(Arrays.toString(nums));
 	}
-	
+
 	/**
 	 * 数组的大小相同，对应下标位置的元素也相同，则返回true
-	 * @param
-	 * @return void
-	 * @throws
 	 */
 	@Test
-	public void equals(){
+	public void equalsTest(){
 		String[] strs1 = {"1","2","3","4","5"};
 		String[] strs2 = {"1","2","3","4","5"};
 		String[] strs3 = new String[]{"1","2","3","4","5"};
@@ -110,16 +122,10 @@ public class ArraysApiTest {
 	}
 
 	/**
-	 * @Title: equals
-	 * @Description: 把数组转换成为List
-	 * 			Array->List:Arrays.asList()
-	 * 			List->Array:List.toArray()
-	 * @param
-	 * @return void
-	 * @throws
+	 * 把数组转换成为List	Array->List:Arrays.asList()  List->Array:List.toArray()
 	 */
 	@Test
-	public void asList(){
+	public void asListTest(){
 		List<String> list = Arrays.asList("1", "2", "3", "4", "5");
 		Iterator<String> iterator = list.iterator();
 		while(iterator.hasNext()){
