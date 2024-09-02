@@ -1,6 +1,7 @@
 package org.bluebridge.api;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * Thread类的API

@@ -1,9 +1,9 @@
 package org.bluebridge.javabase;
 
 /**
- * java中的值传递
+ *  java中的值传递
  *  值传递: 就是把字面值复制一份作为实参传递给方法
- * 注意: 在C语言中有值传递和引用传递,引用传递就是指针传递
+ *  注意: 在C语言中有值传递和引用传递,引用传递就是指针传递
  */
 public class ValueDeliverTest {
     public static void main(String[] args) {

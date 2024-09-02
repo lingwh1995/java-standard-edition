@@ -1,6 +1,7 @@
 package org.bluebridge.api;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * java.lang.Class<T>高级API
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * @date 2019年3月28日  
  *    
  */
-public class ClassApiTest {
+public class ClassTest {
 	
 	/**
 	 * 根据Class信息判断一个对象是不是数组
@@ -17,10 +18,10 @@ public class ClassApiTest {
 	 * @throws
 	 */
 	@Test
-	public void isArray(){
-		int[] nums = {1,2,3,4,5};
+	public void isArrayTest(){
+		int[] arr = {1,2,3,4,5};
 		String  str = "zhagnsan";
-		System.out.println(nums.getClass().isArray());
+		System.out.println(arr.getClass().isArray());
 		System.out.println(str.getClass().isArray());
 	}
 	
@@ -31,7 +32,7 @@ public class ClassApiTest {
 	 * @throws
 	 */
 	@Test
-	public void getSuperClass(){
+	public void getSuperClassTest(){
 		int[] nums = {1,2,3,4,5};
 		String  str = "zhagnsan";
 		Class<? extends int[]> numsClass = nums.getClass();
@@ -50,7 +51,7 @@ public class ClassApiTest {
 	 * @throws
 	 */
 	@Test
-	public void getComponentType(){
+	public void getComponentTypeTest(){
 		Integer[] nums = new Integer[4];
 		/**
 		 * 获取返回表示数组组件类型的 Class
@@ -70,9 +71,16 @@ public class ClassApiTest {
 	 * @throws
 	 */
 	@Test
-	public void isEnum(){
+	public void isEnumTest(){
 		Integer[] nums = new Integer[4];
 		System.out.println("判断对象是不是枚举:"+nums.getClass().isEnum());
+	}
+
+	@Test
+	public void getNameAndGetSimpleName() {
+		String str = "hello world~";
+		System.out.println("str.getClass().getSimpleName() = " + str.getClass().getSimpleName());
+		System.out.println("str.getClass().getName() = " + str.getClass().getName());
 	}
 
 }

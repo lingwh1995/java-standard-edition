@@ -8,7 +8,8 @@
 package org.bluebridge.api;
 
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -20,7 +21,7 @@ import java.util.List;
  * @date 2019年3月11日  
  *    
  */
-public class ArraysApiTest {
+public class ArraysTest {
 
 	/**
 	 * 数组的copyOf()方法，此方法常用来增加数组长度
@@ -28,10 +29,10 @@ public class ArraysApiTest {
 	@Test
 	public void copyOfTest(){
 		String[] strs = {"a","b","c","d","e"};
-		String[] copyNewShortArray = Arrays.copyOf(strs,1);
-		System.out.println("新数组的长度比原数组的长度短:"+Arrays.toString(copyNewShortArray));
-		String[] copyNewLongArray = Arrays.copyOf(strs,15);
-		System.out.println("新数组的长度比原来数组长度长:"+Arrays.toString(copyNewLongArray));
+		String[] newShortThanOldArray = Arrays.copyOf(strs,1);
+		System.out.println("新数组的长度比原数组的长度短:"+Arrays.toString(newShortThanOldArray));
+		String[] newShortThanLongArray = Arrays.copyOf(strs,15);
+		System.out.println("新数组的长度比原来数组长度长:"+Arrays.toString(newShortThanLongArray));
 	}
 
 	/**
@@ -40,25 +41,10 @@ public class ArraysApiTest {
 	@Test
 	public void copyOfRangeTest(){
 		String[] strs = {"a","b","c","d","e"};
-		String[] copyNewShortArray = Arrays.copyOfRange(strs,1,3);
-		System.out.println("新数组的长度比原数组的长度短:"+Arrays.toString(copyNewShortArray));
-		String[] copyNewLongArray = Arrays.copyOfRange(strs,1,8);
-		System.out.println("新数组的长度比原来数组长度长:"+Arrays.toString(copyNewLongArray));
-	}
-
-	/**
-	 * 数组的copyOfRange()方法，此方法常用来增加数组长度
-	 */
-	@Test
-	public void arraycopyTest(){
-		String[] strs = {"a","b","c","d","e"};
-		String[] newStrs1 = {"null","null","null","null","null"};
-		System.arraycopy(strs, 0, newStrs1, 0, 2);
-		System.out.println("newStrs1:"+Arrays.toString(newStrs1));
-
-		String[] newStrs2 = {"null","null","null","null","null","null","null","null","null","null"};
-		System.arraycopy(strs, 1, newStrs2, 2, 3);
-		System.out.println("newStrs2:"+Arrays.toString(newStrs2));
+		String[] newShortThanOldArray = Arrays.copyOfRange(strs,1,3);
+		System.out.println("新数组的长度比原数组的长度短:"+Arrays.toString(newShortThanOldArray));
+		String[] newShortThanLongArray = Arrays.copyOfRange(strs,1,8);
+		System.out.println("新数组的长度比原来数组长度长:"+Arrays.toString(newShortThanLongArray));
 	}
 
 	/**
@@ -97,6 +83,7 @@ public class ArraysApiTest {
 
 	/**
 	 * 把数组所有的元素的值设置为某个值
+	 * 		注意：这个方法会把数组中所有的元素都替换掉
 	 */
 	@Test
 	public void fillTest(){
@@ -129,8 +116,8 @@ public class ArraysApiTest {
 		List<String> list = Arrays.asList("1", "2", "3", "4", "5");
 		Iterator<String> iterator = list.iterator();
 		while(iterator.hasNext()){
-			String ele = iterator.next();
-			System.out.println(ele);
+			String element = iterator.next();
+			System.out.println(element);
 		}
 	}
 

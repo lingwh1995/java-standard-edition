@@ -1,9 +1,9 @@
 package org.bluebridge.api;
 
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-public class StringBufferApiTest {
+public class StringBufferTest {
     /**
      * 测试StringBuffer初始化容量和不初始化容量以及直接使用+=拼接字符串 性能差别:
      *      不初始化容量:161ms
@@ -11,7 +11,7 @@ public class StringBufferApiTest {
      *      使用+=直接拼接:无限制长的时间
      */
     @Test
-    public void fun(){
+    public void appTest(){
         long begin1 = System.currentTimeMillis();
         StringBuffer stringBuffer1 = new StringBuffer();
         for (int i = 0; i < 1000000; i++) {
