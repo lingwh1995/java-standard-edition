@@ -1,0 +1,14 @@
+1996-01-23 Oak(橡树)
+初代版本，伟大的一个里程碑，但是是纯解释运行，使用外挂JIT，性能比较差，运行速度慢。
+
+https://blog.csdn.net/furtherskyq/article/details/90514730
+
+自动拆装箱
+https://www.cnblogs.com/niceyoo/p/12977541.html
+
+图形数据库 neo4j
+js数据库lowdb  https://www.cnblogs.com/tugenhua0707/p/11403202.html
+js类库 lodash
+
+vue-press theme-hope主题
+https://theme-hope.vuejs.press/zh/get-started/create.html
