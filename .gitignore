@@ -27,3 +27,7 @@ target
 hs_err_pid*
 
 /.metadata/
+.classpath
+.project
+.settings
+bin
