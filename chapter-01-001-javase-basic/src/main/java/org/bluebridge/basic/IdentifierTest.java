@@ -17,8 +17,14 @@ public class IdentifierTest {
 	 */
 	@Test
 	public void testIdentifier() {
-		//标识符也可以使用$开头
+		//标识符可以使用$开头
 		int $i = 10;
 		System.out.println("$i:" + $i);
+		
+		//为什么标识符不能以数字开头?
+		//如果允许数字开头，则如下的声明编译就可以通过：
+		//int 123L = 12;
+		//进而，如下的声明中l的值到底是123？还是变量123L对应的取值12呢？ 出现歧义了。
+		//long l = 123L;
 	}
 }
