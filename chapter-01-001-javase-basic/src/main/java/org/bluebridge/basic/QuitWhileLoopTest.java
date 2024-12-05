@@ -1,7 +1,14 @@
 package org.bluebridge.basic;
 
-public class QuitWhileLopTest {
-    public static void main(String[] args) {
+import org.junit.Test;
+
+public class QuitWhileLoopTest {
+    
+	/**
+	 * 测试推出while循环
+	 */
+	@Test
+	public void testQuitWhileLoop() {
         boolean loop = true;
         int i = 0;
         while(loop){
@@ -11,5 +18,5 @@ public class QuitWhileLopTest {
                 loop = false;
             }
         }
-    }
+	}
 }

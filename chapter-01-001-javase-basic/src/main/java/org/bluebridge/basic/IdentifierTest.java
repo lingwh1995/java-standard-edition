@@ -1,5 +1,7 @@
 package org.bluebridge.basic;
 
+import org.junit.Test;
+
 /**
  * java标识符命名规范：
  *     1. 由26个英文字母大小写，0-9 ，_或 $ 组成
@@ -10,4 +12,13 @@ package org.bluebridge.basic;
  */
 public class IdentifierTest {
 
+	/**
+	 * 测试标识符
+	 */
+	@Test
+	public void testIdentifier() {
+		//标识符也可以使用$开头
+		int $i = 10;
+		System.out.println("$i:" + $i);
+	}
 }

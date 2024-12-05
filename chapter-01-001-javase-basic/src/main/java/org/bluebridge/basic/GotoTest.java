@@ -1,12 +1,16 @@
 package org.bluebridge.basic;
 
+import org.junit.Test;
+
 import java.util.Random;
 
 /**
  * java中没有goto,但是可以使用break和continue实现类似于goto的效果
  */
 public class GotoTest {
-    public static void main(String[] args) {
+	
+	@Test
+	public void testGoto() {
         outer:
         for (int i = 0; i < 10; i++) {
             System.out.println("outer_loop:" + i);
@@ -24,5 +28,5 @@ public class GotoTest {
             }
         }
         System.out.println("------>>>所有循环执行完毕！");
-    }
+	}
 }
