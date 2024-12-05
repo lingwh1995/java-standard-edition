@@ -47,7 +47,7 @@ public class DataTypeTest {
 
 	/**
 	 * 测试float和double类型数据精度
-	 * 		通过测试可以看到浮点数在计算时有时会丢失精度，所以在金融等领域要求精确计算时不能使用浮点类型来定义小数
+	 * 		通过测试可以看到浮点数在计算时有时会引入舍入丢失精度，所以在金融等领域要求精确计算时不能使用浮点类型来定义小数
 	 */
 	@Test
 	public void testFloatAndDoubleAccuracy() {
