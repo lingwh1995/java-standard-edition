@@ -23,7 +23,7 @@
         <module>xml</module>
         <module>jdk-source</module>
         <module>classloader</module>
-        <module>chapter-01-001-javase-javabase</module>
+        <module>chapter-01-001-javase-basic</module>
         <module>javacc</module>
         <module>tools</module>
         <module>chapter-01-007-javase-io</module>

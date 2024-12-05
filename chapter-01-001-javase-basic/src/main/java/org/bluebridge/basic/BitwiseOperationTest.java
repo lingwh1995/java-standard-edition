@@ -1,4 +1,4 @@
-package org.bluebridge.javabase;
+package org.bluebridge.basic;
 
 /**
  * 位运算
@@ -12,6 +12,6 @@ package org.bluebridge.javabase;
  *      >> 	右移 	各二进位全部右移若干位，高位补0或符号位补齐
  *      -------------------------------------------------
  */
-public class BitwiseOperation {
+public class BitwiseOperationTest {
 
 }

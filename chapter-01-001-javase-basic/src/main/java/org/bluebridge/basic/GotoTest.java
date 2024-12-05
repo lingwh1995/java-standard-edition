@@ -1,4 +1,4 @@
-package org.bluebridge.javabase;
+package org.bluebridge.basic;
 
 import java.util.Random;
 

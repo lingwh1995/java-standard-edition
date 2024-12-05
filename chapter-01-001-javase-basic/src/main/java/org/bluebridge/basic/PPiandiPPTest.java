@@ -1,4 +1,4 @@
-package org.bluebridge.javabase;
+package org.bluebridge.basic;
 
 /**
  * i++和++i

@@ -1,11 +1,17 @@
-package org.bluebridge.javabase;
+package org.bluebridge.basic;
+
+import org.junit.Test;
 
 /**
  * 逗号表达式
  */
-public class DouHaoExpressionTest {
-    public static void main(String[] args) {
+public class CommaExpressionTest {
 
+    /**
+     * 测试逗号表达式
+     */
+    @Test
+    public void testCommaExpression() {
         /**
          * 下面代码在c语言中是可以执行成功的,在java中无法通过编译,说明: java支持的逗号表达式能力是有限的,一次
          *   性定义多个变量是可以的,但是赋值时使用多个表达式是不允许的

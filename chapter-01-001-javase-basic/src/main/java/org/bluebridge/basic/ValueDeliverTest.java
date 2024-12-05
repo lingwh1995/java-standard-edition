@@ -1,4 +1,4 @@
-package org.bluebridge.javabase;
+package org.bluebridge.basic;
 
 /**
  *  java中的值传递
