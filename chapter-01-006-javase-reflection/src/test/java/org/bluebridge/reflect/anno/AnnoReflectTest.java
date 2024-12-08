@@ -1,10 +1,11 @@
 package org.bluebridge.reflect.anno;
 
-import org.junit.jupiter.api.Test;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import org.junit.Test;
 
 /**
  * 测试反射读取注解

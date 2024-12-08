@@ -30,7 +30,6 @@ import org.junit.Test;
  */
 public class BitwiseOperationTest {
 
-
 	/**
 	 * 测试位运算的左右移位
 	 * 	1.整型数据(包括正数和负数)支持左右移位，浮点类型数据不支持左右移位

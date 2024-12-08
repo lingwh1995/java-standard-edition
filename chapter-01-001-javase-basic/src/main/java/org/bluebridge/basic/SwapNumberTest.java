@@ -7,10 +7,10 @@ import org.junit.Test;
  *  值传递: 就是把字面值复制一份作为实参传递给方法
  *  注意: 在C语言中有值传递和引用传递,引用传递就是指针传递
  */
-public class ValueDeliverTest {
+public class SwapNumberTest {
 	
 	@Test
-    public void testValueDeliver() {
+    public void testSwapNumber() {
         //测试交换失败
         int a = 1;
         int b = 2;

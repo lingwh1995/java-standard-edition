@@ -1,11 +1,12 @@
 package org.bluebridge.reflect.base;
 
-import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+
+import org.junit.Test;
 
 /**
  * 测试反射操作Person类
