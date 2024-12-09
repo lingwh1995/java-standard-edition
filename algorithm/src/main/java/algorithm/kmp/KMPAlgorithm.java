@@ -1,6 +1,5 @@
 package algorithm.kmp;
 
-import java.util.Arrays;
 
 /**
  * @author ronin
