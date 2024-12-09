@@ -1,4 +1,4 @@
-package com.dragonsoft.collection;
+package org.bluebridge.map;
 
 
 import java.util.*;

@@ -1,4 +1,4 @@
-package com.dragonsoft.collection;
+package org.bluebridge.collection;
 
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ import java.util.*;
  * @date 2019年4月16日  
  *    
  */
-public class CollectionAPI {
+public class CollectionAPI2 {
 	public static void main(String[] args) {
 		ArrayList<String> list1 = new ArrayList<String>();
 		list1.add("1");

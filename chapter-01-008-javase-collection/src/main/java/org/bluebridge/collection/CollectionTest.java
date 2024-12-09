@@ -2,64 +2,97 @@ package org.bluebridge.collection;
 
 import java.util.*;
 
+import org.junit.Test;
+
 /**
  * @author ronin
  */
-public class CollectionApi {
-    public static void main(String[] args) {
+public class CollectionTest {
+	
+	/**
+	 * 测试addAll()
+	 */
+	@Test
+	public void testCollectionAddAll() {
+        Collection<String> c1 = new ArrayList<>();
+        c1.add("a");
+        c1.add("b");
+        c1.add("c");
+        System.out.println(c1);
+        
+        Collection<String> c2 = new ArrayList<>();
+        c2.add("d");
+        c2.add("e");
+        c2.add("f");
+        System.out.println(c2);
+        
+        //把c2中的元素全部添加到c1中
+        c1.addAll(c2);
+        
+        System.out.println(c1);
+	}
+	
+	/**
+	 * 测试removeAll()
+	 * 		1.相当于从c1中移除c1、c2交集部分
+	 * 		2.只要移除了就返回true
+	 */
+	@Test
+	public void testCollectionRemoveAll() {
+		Collection<String> c1 = new ArrayList<>();
+		c1.add("a");
+		c1.add("b");
+		c1.add("c");
+		c1.add("d");
+		c1.add("e");
+		System.out.println(c1);
+		
+		Collection<String> c2 = new ArrayList<>();
+		c2.add("b");
+		c2.add("c");
+		c2.add("x");
+		System.out.println(c2);
+		
+		Collection<String> c3 = new ArrayList<>();
+		c3.add("d");
+		c3.add("e");
+		c3.add("y");
+		System.out.println(c3);
+		
+		//从c1中移除所有存在于c2且存在于c1中的元素
+		System.out.println(c1.removeAll(c2));
+		System.out.println(c1);
+		
+		//从c1中移除所有存在于c3且存在于c1中的元素
+		System.out.println(c1.removeAll(c3));
+		System.out.println(c1);
+	}
+	
+	/**
+	 * 测试contains()和containsAll()
+	 */
+	@Test
+	public void testCollectionContainsAndContainsAll() {
         Collection<String> c1 = new ArrayList<>();
         c1.add("a");
         c1.add("b");
         c1.add("c");
         Collection<String> c2 = new ArrayList<>();
-        c2.add("d");
-        c2.add("e");
-        c2.add("f");
-        System.out.println(c1);
-        System.out.println(c2);
-        System.out.println("--------------------");
-        System.out.println(c1.addAll(c2));
-        System.out.println(c1);
-        System.out.println(c2);
-
-        System.out.println("--------------------");
+        c2.add("b");
+        c2.add("c");
         Collection<String> c3 = new ArrayList<>();
-        c3.add("a");
         c3.add("b");
         c3.add("c");
-        Collection<String> c4 = new ArrayList<>();
-        c4.add("c");
-        c4.add("d");
-        c4.add("e");
-        Collection<String> c5 = new ArrayList<>();
-        c5.add("d");
-        c5.add("e");
+        c3.add("d");
 
-        System.out.println(c3);
-        //只要remove()了就返回true
-        System.out.println(c3.removeAll(c4));
-        System.out.println(c3.removeAll(c5));
-        System.out.println(c3);
+        System.out.println(c1.contains(c2));
+        System.out.println(c1.contains(c3));
+        System.out.println(c1.containsAll(c2));
+        System.out.println(c1.containsAll(c3));
 
-        System.out.println("--------------------");
-        Collection<String> c6 = new ArrayList<>();
-        c6.add("a");
-        c6.add("b");
-        c6.add("c");
-        Collection<String> c7 = new ArrayList<>();
-        c7.add("b");
-        c7.add("c");
-        Collection<String> c8 = new ArrayList<>();
-        c8.add("b");
-        c8.add("c");
-        c8.add("d");
-
-        System.out.println(c6.contains(c7));
-        System.out.println(c6.contains(c8));
-        System.out.println(c6.containsAll(c7));
-        System.out.println(c6.containsAll(c8));
-
-        System.out.println("--------------------");
+	}
+	
+    public static void main(String[] args) {
         Collection<String> c9 = new ArrayList<>();
         c9.add("a");
         c9.add("b");
