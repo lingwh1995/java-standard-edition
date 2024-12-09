@@ -1,4 +1,4 @@
-package search.BinarySearch.binarysearch_a;
+package search.binarysearch.binarysearch_a;
 
 /**
  * 二分查找

@@ -1,4 +1,4 @@
-package search.InsertSearch.insertValuesearch_a;
+package search.insertsearch.insertValuesearch_a;
 
 /**
  * 插值查找

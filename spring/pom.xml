@@ -7,18 +7,7 @@
         <artifactId>java-standard-edition</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>6</source>
-                    <target>6</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring</artifactId>
@@ -26,7 +15,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.9</version>
         </dependency>
         <dependency>
             <groupId>dom4j</groupId>
@@ -54,5 +42,17 @@
             <version>1.9.3</version>
         </dependency>
     </dependencies>
-
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

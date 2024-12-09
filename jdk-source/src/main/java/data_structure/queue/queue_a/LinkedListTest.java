@@ -1,6 +1,5 @@
 package data_structure.queue.queue_a;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
