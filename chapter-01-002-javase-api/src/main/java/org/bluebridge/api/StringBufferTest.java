@@ -4,6 +4,7 @@ package org.bluebridge.api;
 import org.junit.Test;
 
 public class StringBufferTest {
+	
     /**
      * 测试StringBuffer初始化容量和不初始化容量以及直接使用+=拼接字符串 性能差别:
      *      不初始化容量:161ms
@@ -32,7 +33,7 @@ public class StringBufferTest {
         System.out.println(end2-begin2);
 
         long begin3 = System.currentTimeMillis();
-        String test  = "";
+        String test = "";
         for (int i = 0; i < 10000; i++) {
             String temp = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
             test += temp;

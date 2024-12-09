@@ -9,7 +9,7 @@ import org.junit.Test;
  * @date 2019年3月28日  
  *    
  */
-public class ThreadApiTest {
+public class ThreadTest {
 	/**
 	 * 获取当前类的全限定名(有两种方式):适用于非静态方法
 	 * @param

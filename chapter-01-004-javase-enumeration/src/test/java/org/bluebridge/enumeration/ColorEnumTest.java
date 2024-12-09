@@ -16,12 +16,14 @@ public class ColorEnumTest {
 
 
     /**
-     * 知道枚举的对象,得到枚举的名称和下标
+     * 测试枚举对象api：知道枚举的对象,得到枚举对象的名称和下标
+     * 		name()：获取枚举对象名称
+     * 		ordinal()：获取枚举对象下标
      * @return void
      * @throws
      */
     @Test
-    public void fun1(){
+    public void testEnumNameAndOrdinalApi(){
         //得到枚举对象
         ColorEnum red = ColorEnum.RED;
         //得到枚举名称
@@ -33,12 +35,13 @@ public class ColorEnumTest {
     }
 
     /**
-     * 知道枚举的名称,得到枚举的对象和下标
+     * 测试根据枚举名称获取枚举对象：知道枚举的名称,得到枚举的对象和下标
+     * 		valueOf()：根据枚举对象的名称获取枚举对象
      * @return void    返回类型
      * @throws
      */
     @Test
-    public void fun2(){
+    public void testEnumValueOfApi(){
         //得到枚举名称
         String nameGreen = "GREEN";
         //得到枚举对象，方法一
@@ -51,12 +54,13 @@ public class ColorEnumTest {
     }
 
     /**
-     * 知道枚举下标，得到枚举名称和对象
+     * 测试获取所有枚举对象：一次性获取所有枚举对象，并且根据枚举下标，得到枚举名称和对象
+     * 		values()：获取所有的枚举对象
      * @return void    返回类型
      * @throws
      */
     @Test
-    public void fun3(){
+    public void testEnumValuesApi(){
         //得到枚举下标
         int idx = 2;
         //根据下标得到枚举对象

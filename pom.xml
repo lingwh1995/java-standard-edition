@@ -24,7 +24,6 @@
         <module>jdk-source</module>
         <module>chapter-01-001-javase-basic</module>
         <module>javacc</module>
-        <module>tools</module>
         <module>chapter-01-007-javase-io</module>
         <module>chapter-01-008-javase-collection</module>
         <module>chapter-01-009-javase-jdbc</module>

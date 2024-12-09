@@ -44,6 +44,7 @@ public class StringTest {
 		list.add("d");
 		list.add("e");
 		String listJoinToString = String.join("+",list);
+		System.out.println(listJoinToString);
 	}
 	
 	
@@ -114,8 +115,6 @@ public class StringTest {
 		Integer num = null;
 		System.out.println(String.valueOf(num));
 		//toString():会跑出空指针异常
-		String str = null;
-		System.out.println(str.toString());
 	}
 
 	@Test
@@ -143,11 +142,10 @@ public class StringTest {
 	public void compileTest() {
 		//在编译期会进行优化
 		String s1 = "q" + "e";	//编译优化后 String s1 = "qe";
-		String s2 = "1";
-		String s3 = "3";
+		String s2 = "3";
 		//编译时期不会做优化，因为编译的时候还不知道s1和s3代表的具体值是什么
-		String s4 = s1 + s3;
-		System.out.println(s4);
+		String s3 = s1 + s2;
+		System.out.println(s3);
 	}
 
 	//%s字符串，%c字符，%d正数，%f浮点型
