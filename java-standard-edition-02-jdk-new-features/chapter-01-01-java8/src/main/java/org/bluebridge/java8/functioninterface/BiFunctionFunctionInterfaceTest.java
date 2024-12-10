@@ -1,4 +1,4 @@
-//package org.bluebridge.java8.functioninterface;
+package org.bluebridge.java8.functioninterface;//package org.bluebridge.java8.functioninterface;
 //
 //import java.util.function.BiFunction;
 //import java.util.function.Function;
