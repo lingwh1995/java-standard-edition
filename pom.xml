@@ -21,19 +21,12 @@
         <module>oracle</module>
         <module>spring</module>
         <module>xml</module>
-        <module>jdk-source</module>
-        <module>chapter-01-001-javase-basic</module>
-        <module>javacc</module>
-        <module>chapter-01-007-javase-io</module>
-        <module>chapter-01-008-javase-collection</module>
-        <module>chapter-01-009-javase-jdbc</module>
-        <module>chapter-01-006-javase-reflection</module>
-        <module>chapter-01-005-javase-annotation</module>
-        <module>chapter-01-002-javase-api</module>
-        <module>chapter-01-004-javase-enumeration</module>
-        <module>chapter-01-010-javase-thread</module>
-        <module>chapter-01-012-javase-new-features</module>
-        <module>chapter-01-011-javase-generics</module>
+        <module>java-standard-edition-01-jdk-basic</module>
+        <module>java-standard-edition-02-jdk-new-features</module>
+        <module>java-standard-edition-03-jdk-source</module>
+        <module>java-standard-edition-04-jdk-github</module>
+        <module>java-standard-edition-05-gui-swing</module>
+        <module>java-standard-edition-06-gui-javafx</module>
     </modules>
 
     <dependencyManagement>
