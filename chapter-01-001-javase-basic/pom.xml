@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chapter-01-001-javase-basic</artifactId>
+    <artifactId>chapter-01-01-javase-basic</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

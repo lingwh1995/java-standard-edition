@@ -10,7 +10,7 @@ import org.junit.Test;
 public class CollectionTest {
 	
 	/**
-	 * 测试addAll()
+	 * 测试addAll()	把B的值全部添加到A里面
 	 */
 	@Test
 	public void testCollectionAddAll() {
@@ -33,7 +33,7 @@ public class CollectionTest {
 	}
 	
 	/**
-	 * 测试removeAll()
+	 * 测试removeAll()	从A里面移除B中的全部元素，前提是B里面的元素在A里面也有，只要移除了最少一个元素就返回true
 	 * 		1.相当于从c1中移除c1、c2交集部分
 	 * 		2.只要移除了就返回true
 	 */
@@ -69,7 +69,8 @@ public class CollectionTest {
 	}
 	
 	/**
-	 * 测试contains()和containsAll()
+	 * 测试contains()		A里面是否包含某个元素，包含返回true
+	 * 测试containsAll()		A里面是否包含集合B中的全部元素，全部包含返回true
 	 */
 	@Test
 	public void testCollectionContainsAndContainsAll() {
@@ -92,51 +93,33 @@ public class CollectionTest {
 
 	}
 	
-    public static void main(String[] args) {
-        Collection<String> c9 = new ArrayList<>();
-        c9.add("a");
-        c9.add("b");
-        c9.add("c");
-        Collection<String> c10 = new ArrayList<>();
-        c10.add("b");
-        Collection<String> c11 = new ArrayList<>();
-        c11.add("a");
-        c11.add("b");
-        c11.add("c");
-        Collection<String> c12 = new ArrayList<>();
-        c12.add("d");
-        c12.add("e");
-        //A与B做交集，交集的值保存在A中，方法执行完成后,如果A的值发生了改变,则返回true，如果A的值没发生改变,则返回false
-        System.out.println(c9.retainAll(c10));
-        System.out.println(c9);
-        System.out.println(c11.retainAll(c12));
-        System.out.println(c11);
-
-
-        //使用for循环遍历集合
-        List<String> list = new ArrayList<String>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
-        list.add("d");
-        list.add("e");
-        list.add("f");
-        for(Iterator<String> iterator = list.iterator();iterator.hasNext();){
-            System.out.println(iterator.next());
-        }
-        list.clear();
-        System.out.println("调用了clear():"+list);
-
-        Collection<String> c13 = new ArrayList<>();
-        c13.add("d");
-        c13.add("e");
-        System.out.println(Arrays.toString(c13.toArray()));
-
-        System.out.println("---------------------------------");
-        List<String> c14 = new ArrayList<String>();
-        c14.add("a");
-        c14.add("b");
-        //contains(Object object)底层是Object类的equals()方法
-        System.out.println(c14.contains("a"));
-    }
+	/**
+	 * 测试retainAll()	A与B做交集，交集的值保存在A中，方法执行完成后,如果A的值发生了改变,则返回true，如果A的值没发生改变,则返回false
+	 */
+	@Test
+	public void testCollectionRetainAll() {
+		Collection<String> c1 = new ArrayList<>();
+		c1.add("a");
+		c1.add("b");
+		c1.add("c");
+		Collection<String> c2 = new ArrayList<>();
+		c2.add("b");
+		c2.add("c");
+		
+		System.out.println(c1.retainAll(c2));
+		System.out.println(c1);
+	}
+	
+	/**
+	 * 测试clear()	清除集合中的所有元素
+	 */
+	@Test
+	public void testCollectionClear() {
+		Collection<String> c = new ArrayList<>();
+		c.add("a");
+		c.add("b");
+		c.add("c");
+		c.clear();
+		System.out.println(c);
+	}
 }
