@@ -15,18 +15,17 @@
 
     <modules>
         <module>algorithm</module>
-        <module>apache</module>
         <module>datastructure</module>
         <module>designpattern</module>
         <module>oracle</module>
         <module>spring</module>
-        <module>xml</module>
         <module>java-standard-edition-01-jdk-basic</module>
         <module>java-standard-edition-02-jdk-new-features</module>
         <module>java-standard-edition-03-jdk-source</module>
-        <module>java-standard-edition-04-jdk-github</module>
-        <module>java-standard-edition-05-gui-swing</module>
-        <module>java-standard-edition-06-gui-javafx</module>
+        <module>java-standard-edition-05-jdk-github</module>
+        <module>java-standard-edition-06-gui-swing</module>
+        <module>java-standard-edition-07-gui-javafx</module>
+        <module>java-standard-edition-04-jdk-libs</module>
     </modules>
 
     <dependencyManagement>
