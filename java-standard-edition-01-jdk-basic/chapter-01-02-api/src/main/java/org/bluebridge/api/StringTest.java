@@ -11,6 +11,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**  
  * String类高级API
@@ -19,6 +20,34 @@ import java.util.List;
  *    
  */
 public class StringTest {
+	/**
+	 * 测试String的split()方法：把字符串根据分隔符转换成数组
+	 */
+	@Test
+	public void testSplit() {
+		String nums = "1,2,3,4,5";
+		String[] numsArr = nums.split(",");
+		System.out.println(Arrays.toString(numsArr));
+		
+		String letters = "abcdef";
+		String[] letterArray = letters.split("");
+		System.out.println(Arrays.toString(letterArray));
+	}
+	
+	/**
+	 * 测试String的StringTokenizer对象：把字符串根据分隔符转换成数组
+	 * 	和split()的区别：当分隔符是.等特殊字符时，split()无法分割，使用StringTokenizer对象可以分割该对象
+	 */
+	@Test
+	public void testStringToken() {
+		String nums = "1,2,3,4,5";
+		String separator = ",";
+		StringTokenizer numStringTokenizer = new StringTokenizer(nums,separator);
+		while(numStringTokenizer.hasMoreTokens()) {
+			String numToken = numStringTokenizer.nextToken();
+			System.out.println(numToken);
+		}
+	}
 	
 	/**
 	 * String的Join方法:使用指定的拼接符号把数组/集合中每一个元素拼接起来,拼成一个字符串
@@ -27,7 +56,7 @@ public class StringTest {
 	 * @throws
 	 */
 	@Test
-	public void joinTest(){
+	public void testJoin(){
 		/*
 		 * 拼接数组
 		 */
@@ -55,7 +84,7 @@ public class StringTest {
 	 * @throws
 	 */
 	@Test
-	public void equalsIgnoreCaseTest(){
+	public void testEqualsIgnoreCase(){
 		String s1 = "HELLO";
 		String s2 = "hello";
 		System.out.println(s1.equals(s2));
@@ -66,7 +95,7 @@ public class StringTest {
 	 * 返回索引位置的字符的ascii码
 	 */
 	@Test
-	public void codePointTest(){
+	public void testcCodePoint(){
 		String str = "abcde";
 		System.out.println("str.codePointAt(0) = " + str.codePointAt(0));
 	}
@@ -75,7 +104,7 @@ public class StringTest {
 	 * 返回索引位置的前一个字符的ascii码，如果前面没有字符，即index<=0抛出下标越界异常
 	 */
 	@Test
-	public void codePointBeforeTest(){
+	public void testCodePointBefore(){
 		String str = "abcde";
 		System.out.println("str.codePointBefore(1) = " + str.codePointBefore(1));
 	}
@@ -86,21 +115,12 @@ public class StringTest {
 	 * 			这个emoj	 😂	 的编码是 \uD83D和\uDE02，这个emoj的长度是2，码点数是1
 	 */
 	@Test
-	public void codePointCount() {
+	public void testCodePointCount() {
 		String str = "abcde\uD83D\uDE02";
 		System.out.println("str.length() = " + str.length());
 		System.out.println("str.codePointCount(1, str.length()) = " + str.codePointCount(1, str.length()));
 	}
 
-	/**
-	 * split:如果不传入分隔符，则把一个字符串转换为字符数组
-	 */
-	@Test
-	public void splitTest() {
-		String source = "abcdef";
-		String[] split = source.split("");
-		System.out.println(Arrays.toString(split));
-	}
 
 	/**
 	 * valueOf和toString():
@@ -110,7 +130,7 @@ public class StringTest {
 	 * }
 	 */
 	@Test
-	public void valueOfAndToStringTest(){
+	public void testValueOfAndToString(){
 		//valueOf():不会抛空指针异常
 		Integer num = null;
 		System.out.println(String.valueOf(num));
@@ -118,14 +138,14 @@ public class StringTest {
 	}
 
 	@Test
-	public void concatTest() {
+	public void testConcat() {
 		String str1 = "abc";
 		String str2 = "de";
 		System.out.println("str1.concat(str2) = " + str1.concat(str2));
 	}
 
 	@Test
-	public void replaceTest() {
+	public void testReplace() {
 		String str1 = "abcdea";
 		//替换全部target字符串，不支持正则
 		System.out.println(str1.replace("a", "a_"));
@@ -138,8 +158,11 @@ public class StringTest {
 		System.out.println(str2.replace("1", "first"));
 	}
 
+	/**
+	 * 测试编译期优化
+	 */
 	@Test
-	public void compileTest() {
+	public void testCompileOptimize() {
 		//在编译期会进行优化
 		String s1 = "q" + "e";	//编译优化后 String s1 = "qe";
 		String s2 = "3";
