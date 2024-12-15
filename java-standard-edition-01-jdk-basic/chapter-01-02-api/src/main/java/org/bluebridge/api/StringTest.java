@@ -34,20 +34,6 @@ public class StringTest {
 		System.out.println(Arrays.toString(letterArray));
 	}
 	
-	/**
-	 * 测试String的StringTokenizer对象：把字符串根据分隔符转换成数组
-	 * 	和split()的区别：当分隔符是.等特殊字符时，split()无法分割，使用StringTokenizer对象可以分割该对象
-	 */
-	@Test
-	public void testStringToken() {
-		String nums = "1,2,3,4,5";
-		String separator = ",";
-		StringTokenizer numStringTokenizer = new StringTokenizer(nums,separator);
-		while(numStringTokenizer.hasMoreTokens()) {
-			String numToken = numStringTokenizer.nextToken();
-			System.out.println(numToken);
-		}
-	}
 	
 	/**
 	 * String的Join方法:使用指定的拼接符号把数组/集合中每一个元素拼接起来,拼成一个字符串
@@ -78,6 +64,22 @@ public class StringTest {
 	
 	
 	/**
+	 * 测试String的StringTokenizer对象：把字符串根据分隔符转换成数组
+	 * 	和split()的区别：当分隔符是.等特殊字符时，split()无法分割，使用StringTokenizer对象可以分割该对象
+	 */
+	@Test
+	public void testStringToken() {
+		String nums = "1,2,3,4,5";
+		String separator = ",";
+		StringTokenizer numStringTokenizer = new StringTokenizer(nums,separator);
+		while(numStringTokenizer.hasMoreTokens()) {
+			String numToken = numStringTokenizer.nextToken();
+			System.out.println(numToken);
+		}
+	}
+	
+	
+	/**
 	 * 判断两个字符串是否相等，不区分大小写的情况
 	 * @param
 	 * @return String
@@ -91,6 +93,7 @@ public class StringTest {
 		System.out.println(s1.equalsIgnoreCase(s2));
 	}
 
+	
 	/**
 	 * 返回索引位置的字符的ascii码
 	 */
@@ -100,6 +103,7 @@ public class StringTest {
 		System.out.println("str.codePointAt(0) = " + str.codePointAt(0));
 	}
 
+	
 	/**
 	 * 返回索引位置的前一个字符的ascii码，如果前面没有字符，即index<=0抛出下标越界异常
 	 */
@@ -109,6 +113,7 @@ public class StringTest {
 		System.out.println("str.codePointBefore(1) = " + str.codePointBefore(1));
 	}
 
+	
 	/**
 	 * 从指定索引位置开始算，返回指定索引位置到结尾处的码点数
 	 * 		码点和长度的区别:
@@ -137,6 +142,7 @@ public class StringTest {
 		//toString():会跑出空指针异常
 	}
 
+
 	@Test
 	public void testConcat() {
 		String str1 = "abc";
@@ -144,6 +150,7 @@ public class StringTest {
 		System.out.println("str1.concat(str2) = " + str1.concat(str2));
 	}
 
+	
 	@Test
 	public void testReplace() {
 		String str1 = "abcdea";
@@ -158,6 +165,7 @@ public class StringTest {
 		System.out.println(str2.replace("1", "first"));
 	}
 
+	
 	/**
 	 * 测试编译期优化
 	 */
