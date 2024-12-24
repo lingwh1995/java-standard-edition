@@ -1,12 +1,36 @@
-package com.dragonsoft.identifier;
+package org.bluebridge.basic;
 
+import org.junit.Test;
 
 /**  
  * this的用法
  * @author ronin
  * @date 2019年4月10日  
  */
-public class This_Identifier {
+public class ThisTest {
+	
+	@Test
+	public void test() {
+		/**
+		 * 测试区分二义性
+		 */
+		This_Identifier this_Identifier = new This_Identifier();
+		this_Identifier.say(5);
+		
+		/**
+		 * 测试调用有参无参方法
+		 */
+		new This_Identifier(1,2,3);
+	}
+	
+}
+
+/**  
+ * this的用法
+ * @author ronin
+ * @date 2019年4月10日  
+ */
+class This_Identifier {
 	
 	/**
 	 * this的用法:

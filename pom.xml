@@ -11,6 +11,7 @@
 
     <properties>
         <junit.version>4.9</junit.version>
+        <hessian.version>4.0.38</hessian.version>
     </properties>
 
     <modules>
@@ -36,6 +37,12 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
+            <!-- hessian序列化工具 -->
+            <dependency>
+	            <groupId>com.caucho</groupId>
+	            <artifactId>hessian</artifactId>
+	            <version>${hessian.version}</version>
+	        </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

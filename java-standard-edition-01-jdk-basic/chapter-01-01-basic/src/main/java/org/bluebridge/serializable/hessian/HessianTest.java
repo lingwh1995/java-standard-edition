@@ -1,30 +1,46 @@
-package com.dragonsoft.serializable.hessian;
+package org.bluebridge.serializable.hessian;
 
-import com.caucho.hessian.io.HessianInput;
-import com.caucho.hessian.io.HessianOutput;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import org.junit.Test;
+
+import com.caucho.hessian.io.HessianInput;
+import com.caucho.hessian.io.HessianOutput;
+
 /**
  * @author ronin
  */
 public class HessianTest {
-    public static void main(String[] args) {
+   
+	/**
+	 * 测试Hessian序列化
+	 */
+	@Test
+	public void testHessian() {
         Person person = new Person("zs", "123456","35");
+        //序列化
         byte[] serialize = serialize(person);
+        //反序列化
         Person deserialize = (Person)deserialize(serialize);
         System.out.println(deserialize);
-    }
+	}
 
+	/**
+	 * 序列化
+	 * @param <T>
+	 * @param obj
+	 * @return
+	 */
     public static <T> byte[] serialize(T obj) {
         byte[] bytes = null;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        HessianOutput hessianOutput = new HessianOutput(bos);
+        HessianOutput ho = new HessianOutput(bos);
         try {
             //obj必须实现Serializable接口
-            hessianOutput.writeObject(obj);
+        	ho.writeObject(obj);
             bytes = bos.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,15 +48,21 @@ public class HessianTest {
         return bytes;
     }
 
+    /**
+     * 反序列化
+     * @param <T>
+     * @param data
+     * @return
+     */
     public static <T> T deserialize(byte[] data) {
         if (data == null) {
             return null;
         }
         ByteArrayInputStream bis = new ByteArrayInputStream(data);
-        HessianInput hessianInput = new HessianInput(bis);
+        HessianInput hi = new HessianInput(bis);
         Object object = null;
         try {
-            object = hessianInput.readObject();
+            object = hi.readObject();
         } catch (IOException e) {
             e.printStackTrace();
         }

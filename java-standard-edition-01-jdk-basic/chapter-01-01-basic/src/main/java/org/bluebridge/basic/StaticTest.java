@@ -1,4 +1,4 @@
-package com.dragonsoft.identify;
+package org.bluebridge.basic;
 
 /**
  * @author ronin
@@ -9,12 +9,12 @@ package com.dragonsoft.identify;
 public class StaticTest {
     public static void main(String[] args) {
         //调用eat方法,构造方法并未执行，验证static是和类绑定的，不是和类的实例绑定的
-        Demo.eat();
+    	StaticClass.eat();
     }
 }
 
-class Demo {
-    public Demo(){
+class StaticClass {
+    public StaticClass(){
         System.out.println("Demo Constructors....");
     }
     public static void eat(){

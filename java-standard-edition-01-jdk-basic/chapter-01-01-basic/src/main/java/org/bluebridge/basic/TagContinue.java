@@ -1,4 +1,4 @@
-package com.dragonsoft.identifier;
+package org.bluebridge.basic;
 
 /**  
  * 模拟goto:打印101到150之间的质数

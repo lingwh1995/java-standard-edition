@@ -1,4 +1,4 @@
-package com.dragonsoft.serializable.hessian;
+package org.bluebridge.serializable.hessian;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -22,6 +22,7 @@ public class Person implements Externalizable {
         Date date=new Date();
         out.writeObject(password);
         out.writeObject(userName);
+        //不序列化age对象
         out.writeObject(date);
     }
 
