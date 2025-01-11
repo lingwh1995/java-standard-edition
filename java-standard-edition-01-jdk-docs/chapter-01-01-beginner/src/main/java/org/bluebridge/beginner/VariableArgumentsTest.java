@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * 可变参数
  */
-public class VariableParametersTest {
+public class VariableArgumentsTest {
     /**
      * 可变参数:
      * 		1.只有最后一个形参才能被定义成可变参数
@@ -19,24 +19,25 @@ public class VariableParametersTest {
      * 测试java的可变参数
      */
     @Test
-    public void testVariableParameters() {
+    public void testVariableArguments() {
         /**
          * 传递多个String类型参数
          */
-        testVarArgs1(1,"乒乓","篮球");
+    	testVariableArguments1(1,"乒乓","篮球");
         /**
          * 传递一个String[]类型的参数
          */
-        testVarArgs1(2,new String[]{"唱歌","听音乐"});
+    	testVariableArguments1(2,new String[]{"唱歌","听音乐"});
         /**
          * 接收并转发可变参数
          */
-        testVarArgs2(3,new String[]{"吃饭","睡觉"});
+    	testVariableArguments2(3,new String[]{"吃饭","睡觉"});
 
         /**
          * 可变参数和泛型配合使用
          */
-        testVarArgs3(4,"dd",7897);
+    	testVariableArguments3(4,"hello",123);
+    	testVariableArguments3(4,123,"world");
     }
 
     /**
@@ -48,10 +49,10 @@ public class VariableParametersTest {
      * @return void
      * @throws
      */
-    private static void testVarArgs1(int age,String... favorites) {
+    private static void testVariableArguments1(int age,String... favorites) {
         System.out.println("#可变参数接收多个String字符串/一个String[]:");
-        System.out.println("第一个参数:"+age);
-        //System.out.println("可变参数的类型:"+favorites.getClass().getName());
+        System.out.println("第一个参数:" + age);
+        System.out.println("可变参数的类型:" + favorites.getClass().getSimpleName());
         System.out.print("第二个参数:");
         for(String favorite:favorites){
             System.out.print(favorite+" ");
@@ -66,9 +67,9 @@ public class VariableParametersTest {
      * @return void
      * @throws
      */
-    private static void testVarArgs2(int age,String... favorites) {
+    private static void testVariableArguments2(int age,String... favorites) {
         System.out.println("#可变参数转发:");
-        testVarArgs1(age,favorites);
+        testVariableArguments1(age,favorites);
     }
 
     /**
@@ -78,10 +79,10 @@ public class VariableParametersTest {
      * @return void
      * @throws
      */
-    private static <T> void testVarArgs3(int age,T... favorites) {
+    private static <T> void testVariableArguments3(int age,T... favorites) {
         System.out.println("#可变参数和泛型配合使用:");
-        System.out.println("第一个参数:"+age);
-        //System.out.println("可变参数的类型:"+favorites.getClass().getName());
+        System.out.println("第一个参数:" + age);
+        System.out.println("可变参数的类型:" + favorites.getClass().getSimpleName());
         System.out.print("第二个参数:");
         for(T favorite:favorites){
             System.out.print(favorite+" ");
