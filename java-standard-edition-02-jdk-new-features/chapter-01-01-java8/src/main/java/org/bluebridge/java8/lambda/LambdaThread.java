@@ -1,5 +1,7 @@
 package org.bluebridge.java8.lambda;
 
+import org.junit.Test;
+
 /**
  * @author ronin
  */
