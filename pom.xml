@@ -12,6 +12,7 @@
     <properties>
         <junit.version>4.9</junit.version>
         <hessian.version>4.0.38</hessian.version>
+        <lombok.version>1.18.4</lombok.version>
     </properties>
 
     <modules>
@@ -43,6 +44,12 @@
 	            <artifactId>hessian</artifactId>
 	            <version>${hessian.version}</version>
 	        </dependency>
+	        <dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 </project>
