@@ -1,5 +1,6 @@
 package org.bluebridge.java8.stream;
 
+import lombok.var;
 import org.junit.Test;
 
 public class StreamTest {
@@ -9,6 +10,7 @@ public class StreamTest {
 	 */
 	@Test
 	public void testCreateStream() {
-		
+		var x = "xx";
+		System.out.println(x.getClass().getSimpleName());
 	}
 }
