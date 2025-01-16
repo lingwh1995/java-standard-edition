@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamTest {
+public class StreamCreateTest {
 	/**
 	 *	通过集合创建	 			集合对象.stream()/集合对象.parallelStream()
 	 *  通过数组创建   			Arrays.stream(数组)
