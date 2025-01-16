@@ -1,15 +1,18 @@
 package org.bluebridge.java8.stream;
 
-import lombok.var;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamTest {
 	/**
-	 *	通过集合创建
-	 *  通过数组创建
-	 *  通过值创建
+	 *	通过集合创建	 			集合对象.stream()/集合对象.parallelStream()
+	 *  通过数组创建   			Arrays.stream(数组)
+	 *  通过可变参数创建			Stream.of(可变参数列表)
+	 *  通过可变参数创建			Stream.of(可变参数列表)
+	 *  构建一个不包容任何元素的流
 	 *  通过方法创建
 	 *  从文件中获得
 	 */
@@ -20,7 +23,7 @@ public class StreamTest {
 	 * 	.parallelStream()	: 创建一个并行执行的流
 	 */
 	@Test
-	public void testCreateStream() {
+	public void testCreateStreamByCollection() {
 		/**
 		 * 基于Set集合对象创建流
 		 */
@@ -78,5 +81,65 @@ public class StreamTest {
 		treeSet.stream().forEach(ts -> System.out.println(ts));
 		treeSet.parallelStream().forEach(ts -> System.out.println(ts));
 		System.out.println("------------------04------------------");
+	}
+
+	/**
+	 * 创建Steam的六种方式：第二种	通过数组创建
+	 * 	.stream()			: 创建一个顺序执行的流
+	 * 	.parallelStream()	: 创建一个并行执行的流
+	 */
+	@Test
+	public void testCreateStreamByArray() {
+		//通过整型数组创建一个Stream对象
+		IntStream intStream = Arrays.stream(new int[]{1, 2, 3});
+		intStream.forEach(n -> System.out.println(n));
+
+		//通过字符串数组创建一个Stream对象
+		Stream<String> stream = Arrays.stream(new String[]{"a", "b", "c"});
+		stream.forEach(s -> System.out.println(s));
+
+		String[] names = {"Ken", "Jeff", "Chris", "Ellen"};
+		Stream<String> namesStream = Arrays.stream(names);
+		namesStream.forEach(name -> System.out.println(name));
+	}
+
+	/**
+	 * 创建Steam的六种方式：第三种	通过可变参数创建
+	 * 	.stream()			: 创建一个顺序执行的流
+	 * 	.parallelStream()	: 创建一个并行执行的流
+	 */
+	@Test
+	public void testCreateStreamByVariableArguments() {
+		Stream<String> stream = Stream.of("a", "b", "c");
+		stream.forEach(s -> System.out.println(s));
+	}
+
+	/**
+	 * 创建Steam的六种方式：第四种	通过StreamBuilder创建
+	 * 	.stream()			: 创建一个顺序执行的流
+	 * 	.parallelStream()	: 创建一个并行执行的流
+	 */
+	@Test
+	public void testCreateStreamByStreamBuilder() {
+		Stream.Builder<String> builder = Stream.builder();
+		Stream<String> build = builder.add("a")
+									  .add("b")
+									  .add("c")
+									  .build();
+		build.forEach(s -> System.out.println(s));
+	}
+
+
+	/**
+	 * 创建Steam的六种方式：第五种	构建一个不包容任何元素的流
+	 * 	.stream()			: 创建一个顺序执行的流
+	 * 	.parallelStream()	: 创建一个并行执行的流
+	 */
+	@Test
+	public void testCreateEmptyStream() {
+		//构建一个空的字符串流
+		Stream<String> stream = Stream.empty();
+		//构建一个空的整数流
+		IntStream numbers = IntStream.empty();
 	}
 }
