@@ -1,4 +1,4 @@
-package org.bluebridge.java8.lambda;
+package org.bluebridge.java8.test;
 
 import java.util.Arrays;
 import java.util.List;
