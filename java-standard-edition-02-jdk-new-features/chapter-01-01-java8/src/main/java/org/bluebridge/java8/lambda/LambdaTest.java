@@ -46,6 +46,7 @@ public class LambdaTest {
 		t3.run();
 	}
 
+
 	/**
 	 * 测试使用匿名内部类方式和lambda方式调用参数为 IntBinaryOperator 接口方法
 	 */
@@ -93,6 +94,7 @@ public class LambdaTest {
 		return operator.applyAsInt(10, 20);
 	}
 
+
 	/**
 	 * 测试使用匿名内部类方式和lambda方式调用参数为 IntBinaryOperator 接口方法
 	 */
@@ -124,7 +126,7 @@ public class LambdaTest {
 	/**
 	 * 这个方法的参数是一个接口
 	 * 
-	 * @param operator
+	 * @param predicate
 	 * @return
 	 */
 	public static void filterNum(IntPredicate predicate) {
