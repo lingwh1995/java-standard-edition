@@ -19,7 +19,7 @@
     </properties>
 
     <modules>
-        <module>chapter-01-01-beginner</module>
+        <module>chapter-01-01-basic</module>
         <module>chapter-01-02-library</module>
         <module>chapter-01-03-enumeration</module>
         <module>chapter-01-04-annotation</module>
