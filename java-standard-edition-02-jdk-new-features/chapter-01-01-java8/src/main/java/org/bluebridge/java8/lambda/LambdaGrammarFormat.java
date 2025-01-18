@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import org.junit.Test;
 
 /**
- * Lambda表达式的六种语法格式
+ * Lambda表达式(有六种语法格式)
  * 	1.举例 (o1, o2) -> Integer.compare(o1, o2)
  *  2.格式
  *  	左边		lambda形参列表(实际上就是接口中的抽象方法的形参列表)
@@ -17,6 +17,9 @@ import org.junit.Test;
  *  3.lambda使用总结
  *  	左边		lambda形参列表的参数类型可以省略，如果lambda形参列表只有一个参数，包裹这个参数的小括号也可以省略
  *  	右边		lambda体应该使用一对{}包裹，如果lambda体只有一条执行语句(可能是return语句)，可以省略return和这一对大括号
+ *  4.lambda表达式的本质	作为函数式接口的实例，lambda表达式要想使用，必然依赖于函数式接口
+ *  5.函数式接口	只包含一个抽象方法的接口，称为函数式接口
+ *  	
  */
 public class LambdaGrammarFormat {
 
