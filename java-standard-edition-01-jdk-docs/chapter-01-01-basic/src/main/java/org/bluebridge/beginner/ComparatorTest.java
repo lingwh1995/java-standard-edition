@@ -15,10 +15,10 @@ public class ComparatorTest {
     @Test
     public void testComparator() {
         //创建数组
-        User[] users = new User[6];
+        User[] users = new User[3];
         users[0] = new User("张三",28);
-        users[0] = new User("李四",18);
-        users[0] = new User("王五",30);
+        users[1] = new User("李四",18);
+        users[2] = new User("王五",30);
 
         //数组排序
         Arrays.sort(users,new Comparator<User>() {
