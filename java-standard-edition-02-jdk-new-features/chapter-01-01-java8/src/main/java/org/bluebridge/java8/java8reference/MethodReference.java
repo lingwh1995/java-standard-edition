@@ -19,11 +19,10 @@ import org.junit.Test;
  * 当要传递给lambda体的操作，已经有了实现方法了，可以使用方法引用
  * 方法引用可以看做是lambda表达式深层次的表达。实际上，方法引用就是lambda表达式，也就是函数式接口的一个实例，通过方法的名字来指向一个方法
  * 
- * 方法引用的四种使用方式
- * 		静态方法引用 	 	类名 :: staticMethodName
- * 		实例方法引用	 	instanceReference::instanceMethodName 
- * 		构造方法引用	 	类名::new
- * 		类成员方法引用  	类名::methodName
+ * 方法引用的三种使用方式
+ * 		情况一: 	静态方法引用 	 	类名 :: staticMethodName
+ * 		情况二: 	实例方法引用	 	instanceReference :: instanceMethodName
+ * 		情况三: 	构造方法引用	 	类名 :: new
  *
  * lambda要求：	实现接口的抽象方法的参数列表和返回值类型，必须与方法引用的方法的参数列表和返回值类型保持一直
  * @author ronin
@@ -31,11 +30,11 @@ import org.junit.Test;
 public class MethodReference {
 	
 	/**
-	 * 情况一: 静态方法引用
-	 * 		Integer::parseInt
+	 * 情况一:	静态方法引用(类名 :: staticMethodName)
+	 * 			案例一: Function<String,Integer> function = Integer :: parseInt
 	 */
 	@Test
-	public void test1(){
+	public void testStaticMethodReference1(){
 		//匿名内部类
 		Function<String,Integer> function = new Function<String,Integer>() {
 			@Override
@@ -43,122 +42,58 @@ public class MethodReference {
 				return Integer.parseInt(t);
 			}
 		};
-		Integer apply = function.apply("100");
+		Integer apply = function.apply("10");
 		System.out.println(apply.getClass().getSimpleName());
-		
+		System.out.println("------------------------------");
+
 		//lambda表达式
-		(t) -> System.out.println(t);
-		
+		function = (t) -> Integer.parseInt(t);
+		apply = function.apply("20");
+		System.out.println(apply.getClass().getSimpleName());
+		System.out.println("------------------------------");
+
 		//方法引用
-		Function<String, Integer> stringToInteger = Integer::parseInt;
-		int number = stringToInteger.apply("123");// number = 123
+		function = Integer :: parseInt;
+		int number = function.apply("30");
 		System.out.println(number);
-	}
-	
-	/**
-	 * 实例方法引用
-	 */
-	@Test
-	public void test2(){
-		String test = "test";
-		Supplier<Boolean> notEmpty = test::isEmpty;
-		boolean result = notEmpty.get(); // result = false
-		System.out.println(result);
-	}
-	
-	/**
-	 * 构造方法引用
-	 */
-	@Test
-	public void test3(){
-		Supplier<ArrayList<Integer>> listSupplier = ArrayList::new;
-		ArrayList<Integer> list = listSupplier.get();
-		System.out.println(list);
-	}
-	
-	/**
-	 * 类成员方法引用
-	 */
-	@Test
-	public void test4(){
-		Consumer<String> printer = MyClass::printMessage;
-		printer.accept("Hello, World!"); // 输出 "Hello, World!"
-		System.out.println(printer);
+		System.out.println("------------------------------");
 	}
 
-	
-	
-	
-	
+
 	/**
-	 * 情况一： 对象::实例方法
-	 * Consumer		中 	void accept(t)方法
-	 * System.out	中	println
+	 * 情况一:	静态方法引用(类名 :: staticMethodName)
+	 *  		案例二: MyClass :: printMessage
 	 */
 	@Test
-	public void testMethodReference1() {
+	public void testStaticMethodReference2(){
 		//匿名内部类
-		Consumer<Integer> consumer = new Consumer<Integer>() {
+		Consumer<String> consumer = new Consumer<String>() {
 			@Override
-			public void accept(Integer i) {
-				System.out.println(i);
+			public void accept(String s) {
+				MyClass.printMessage(s);
 			}
 		};
-		consumer.accept(1);
+		consumer.accept("10");
 		System.out.println("------------------------------");
-		
-		
+
 		//lambda表达式
-		consumer = i -> System.out.println(i);
-		consumer.accept(10);
+		consumer = s -> MyClass.printMessage(s);
+		consumer.accept("20");
 		System.out.println("------------------------------");
-		
-		
+
 		//方法引用
-		PrintStream ps = System.out;
-		consumer = ps::println;
-		consumer.accept(100);
+		consumer = MyClass :: printMessage;
+		consumer.accept("30");
 		System.out.println("------------------------------");
 	}
-	
+
+
 	/**
-	 * 情况一： 对象::实例方法
-	 * Supplier		中	T 	get()
+	 * 情况一:	静态方法引用(类名 :: staticMethodName)
+	 * 			案例三: Comparator<Integer> comparator = Integer :: compare;
 	 */
 	@Test
-	public void testMethodReference2() {
-		Person person = new Person("张三",128);
-		//匿名内部类
-		Supplier<String> supplier = new Supplier<String>() {
-			@Override
-			public String get() {
-				return person.getUsername();
-			}
-		};
-		System.out.println(supplier.get());
-		System.out.println("------------------------------");
-		
-		
-		//lambda表达式
-		supplier = () -> person.getUsername();
-		System.out.println(supplier.get());
-		System.out.println("------------------------------");
-		
-		
-		//方法引用
-		supplier = person :: getUsername;
-		System.out.println(supplier.get());
-		System.out.println("------------------------------");
-	}
-	
-	
-	/**
-	 * 情况二： 类::静态方法
-	 * Comparator 中 int compare(T t1, T t2)
-	 * Integer    中 int compare(T t1, T t2)
- 	 */
-	@Test
-	public void testMethodReference3() {
+	public void testStaticMethodReference3() {
 		//匿名内部类
 		Comparator<Integer> comparator = new Comparator<Integer>() {
 			@Override
@@ -168,27 +103,25 @@ public class MethodReference {
 		};
 		System.out.println(comparator.compare(10, 20));
 		System.out.println("------------------------------");
-		
-		
+
 		//lambda表达式
 		comparator = (t1,t2) -> Integer.compare(t1, t2);
 		System.out.println(comparator.compare(20, 10));
 		System.out.println("------------------------------");
-		
-		
+
 		//方法引用
 		comparator = Integer :: compare;
 		System.out.println(comparator.compare(10, 20));
 		System.out.println("------------------------------");
 	}
-	
-	
+
+
 	/**
-	 * 情况二： 类::静态方法
-	 * Math		中 round()
- 	 */
+	 * 情况一:	静态方法引用(类名 :: staticMethodName)
+	 * 			案例四: Function<Double, Long> function = Math :: round;
+	 */
 	@Test
-	public void testMethodReference4() {
+	public void testStaticMethodReference4() {
 		//匿名内部类
 		Function<Double, Long> function = new Function<Double, Long>() {
 			@Override
@@ -198,51 +131,144 @@ public class MethodReference {
 		};
 		System.out.println(function.apply(12.3));
 		System.out.println("------------------------------");
-		
-		
+
 		//lambda表达式
 		function = d -> Math.round(d);
 		System.out.println(function.apply(15.6));
 		System.out.println("------------------------------");
-		
-		
+
 		//方法引用
 		function = Math :: round;
 		System.out.println(function.apply(18.3));
 		System.out.println("------------------------------");
 	}
-	
-	
-	
+
+
 	/**
-	 * 情况二： 类::实例方法
-	 * Comparator	中的  int compare(T t1, T t2)
-	 * String		中的  int t1.compareTo(t2)
- 	 */
+	 * 情况二: 	实例方法引用(instanceReference::instanceMethodName)
+	 * 			案例一: String s = "method reference";
+	 * 				   Supplier<Boolean> supplier = s :: isEmpty
+	 */
 	@Test
-	public void testMethodReference5() {
+	public void testInstanceReference1(){
+		String s = "method reference";
 		//匿名内部类
-		Comparator<String> comparator = (s1,s2) -> s1.compareTo(s2);
+		Supplier<Boolean> supplier = new Supplier<Boolean>() {
+			@Override
+			public Boolean get() {
+				return s.isEmpty();
+			}
+		};
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+
+		//lambda表达式
+		supplier = () -> s.isEmpty();
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+
+		//方法引用
+		supplier = s :: isEmpty;
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+	}
+
+
+	/**
+	 * 情况二: 	实例方法引用(instanceReference::instanceMethodName)
+	 * 			案例二: PrintStream ps = System.out;
+	 * 				   Consumer<String> consumer = ps :: println;
+	 */
+	@Test
+	public void testInstanceReference2() {
+		//匿名内部类
+		Consumer<String> consumer = new Consumer<String>() {
+			@Override
+			public void accept(String i) {
+				System.out.println(i);
+			}
+		};
+		consumer.accept("10");
+		System.out.println("------------------------------");
+
+		//lambda表达式
+		consumer = i -> System.out.println(i);
+		consumer.accept("20");
+		System.out.println("------------------------------");
+
+		//方法引用
+		PrintStream ps = System.out;
+		consumer = ps :: println;
+		consumer.accept("30");
+		System.out.println("------------------------------");
+	}
+
+
+	/**
+	 * 情况二: 	实例方法引用(instanceReference::instanceMethodName)
+	 * 			案例三: Person person = new Person("张三",23);
+	 * 				   person :: getUsername;
+	 */
+	@Test
+	public void testInstanceReference3() {
+		Person person = new Person("张三",23);
+		//匿名内部类
+		Supplier<String> supplier = new Supplier<String>() {
+			@Override
+			public String get() {
+				return person.getUsername();
+			}
+		};
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+
+		//lambda表达式
+		supplier = () -> person.getUsername();
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+
+		//方法引用
+		supplier = person :: getUsername;
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+	}
+
+
+	/**
+	 * 情况二: 	实例方法引用(instanceReference::instanceMethodName)
+	 * 			案例四: Comparator<String> comparator = String :: compareTo;
+	 */
+	@Test
+	public void testInstanceReference4() {
+		//匿名内部类
+		Comparator<String> comparator = new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.compareTo(o2);
+			}
+		};
+
+		//lambda
+		comparator = (s1,s2) -> s1.compareTo(s2);
 		System.out.println(comparator.compare("abc", "abd"));
 		System.out.println("------------------------------");
-		
-		
+
 		//方法引用
 		comparator = String :: compareTo;
 		System.out.println(comparator.compare("abc", "abc"));
 		System.out.println("------------------------------");
 	}
-	
-	
+
+
 	/**
-	 * BiPredicate函数接口
+	 * 情况二: 	实例方法引用(instanceReference::instanceMethodName)
+	 * 			案例五: Comparator<String> comparator = String :: compareTo;
 	 */
-	
 	/**
 	 * 情况二： 类::实例方法
 	 * Comparator	中的  int compare(T t1, T t2)
 	 * String		中的  int t1.compareTo(t2)
- 	 */
+	 */
 	@Test
 	public void testBiPredicate() {
 		//匿名内部类
@@ -254,19 +280,37 @@ public class MethodReference {
 		};
 		System.out.println(biPredicate.test("aaa", "aaa"));
 		System.out.println("--------------------------------------");
-		
-		
+
+
 		//lambda表达式
 		biPredicate = (a,b) -> a.equals(b);
 		System.out.println(biPredicate.test("bbb", "bbb"));
 		System.out.println("--------------------------------------");
-		
-		
+
+
 		//方法引用
 		biPredicate = String :: equals;
 		System.out.println(biPredicate.test("ccc", "ccc"));
 		System.out.println("--------------------------------------");
 	}
+
+
+	/**
+	 * 情况三: 	构造方法引用(类名::new)
+	 * 			案例一: ArrayList::new
+	 */
+	@Test
+	public void testConstructorReference1(){
+		Supplier<ArrayList<Integer>> supplier = ArrayList :: new;
+		System.out.println(supplier.get());
+	}
+
+
+	
+	
+	/**
+	 * BiPredicate函数接口
+	 */
 	
 	
 	/**
