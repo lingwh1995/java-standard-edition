@@ -20,13 +20,75 @@ import org.junit.Test;
  * 方法引用可以看做是lambda表达式深层次的表达。实际上，方法引用就是lambda表达式，也就是函数式接口的一个实例，通过方法的名字来指向一个方法
  * 
  * 方法引用的四种使用方式
- * 		对象:: 实例方法名
- * 		类  :: 静态方法名
- * 		类	:: 实例方法名
+ * 		静态方法引用 	 	类名 :: staticMethodName
+ * 		实例方法引用	 	instanceReference::instanceMethodName 
+ * 		构造方法引用	 	类名::new
+ * 		类成员方法引用  	类名::methodName
+ *
  * lambda要求：	实现接口的抽象方法的参数列表和返回值类型，必须与方法引用的方法的参数列表和返回值类型保持一直
  * @author ronin
  */
 public class MethodReference {
+	
+	/**
+	 * 情况一: 静态方法引用
+	 * 		Integer::parseInt
+	 */
+	@Test
+	public void test1(){
+		//匿名内部类
+		Function<String,Integer> function = new Function<String,Integer>() {
+			@Override
+			public Integer apply(String t) {
+				return Integer.parseInt(t);
+			}
+		};
+		Integer apply = function.apply("100");
+		System.out.println(apply.getClass().getSimpleName());
+		
+		//lambda表达式
+		(t) -> System.out.println(t);
+		
+		//方法引用
+		Function<String, Integer> stringToInteger = Integer::parseInt;
+		int number = stringToInteger.apply("123");// number = 123
+		System.out.println(number);
+	}
+	
+	/**
+	 * 实例方法引用
+	 */
+	@Test
+	public void test2(){
+		String test = "test";
+		Supplier<Boolean> notEmpty = test::isEmpty;
+		boolean result = notEmpty.get(); // result = false
+		System.out.println(result);
+	}
+	
+	/**
+	 * 构造方法引用
+	 */
+	@Test
+	public void test3(){
+		Supplier<ArrayList<Integer>> listSupplier = ArrayList::new;
+		ArrayList<Integer> list = listSupplier.get();
+		System.out.println(list);
+	}
+	
+	/**
+	 * 类成员方法引用
+	 */
+	@Test
+	public void test4(){
+		Consumer<String> printer = MyClass::printMessage;
+		printer.accept("Hello, World!"); // 输出 "Hello, World!"
+		System.out.println(printer);
+	}
+
+	
+	
+	
 	
 	/**
 	 * 情况一： 对象::实例方法
@@ -372,5 +434,12 @@ class Person {
                 "username='" + username + '\'' +
                 ", age=" + age +
                 '}';
+    }
+}
+
+
+class MyClass {
+    static void printMessage(String message) {
+        System.out.println(message);
     }
 }
