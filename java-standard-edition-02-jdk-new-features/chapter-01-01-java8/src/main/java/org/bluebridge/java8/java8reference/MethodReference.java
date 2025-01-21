@@ -6,26 +6,24 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.BiPredicate;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 import org.junit.Test;
 
 /**
- * 方法引用用来替换部分lambda表达式,方法引用是lambda的一种语法糖
- * 
- * 当要传递给lambda体的操作，已经有了实现方法了，可以使用方法引用
- * 方法引用可以看做是lambda表达式深层次的表达。实际上，方法引用就是lambda表达式，也就是函数式接口的一个实例，通过方法的名字来指向一个方法
- * 
- * 方法引用的三种使用方式
- * 		情况一: 	静态方法引用 	 	类名 :: staticMethodName
- * 		情况二: 	实例方法引用	 	instanceReference :: instanceMethodName
- * 		情况三: 	构造方法引用	 	类名 :: new
- *
- * lambda要求：	实现接口的抽象方法的参数列表和返回值类型，必须与方法引用的方法的参数列表和返回值类型保持一直
- * @author ronin
+ * 1.方法引用简介
+ * 		方法引用就是lambda表达式，也就是函数式接口的一个实例，通过方法的名字来指向一个方法，是lambda的一种语法糖，可以看做是lambda表达式深层次的表达。
+ * 2.什么情况下可以使用方法引用
+ * 		当要传递给lambda体的操作，已经有了实现方法了，可以使用方法引用
+ * 3.方法引用的四种使用方式
+ * 		情况一: 	静态方法引用 	 		类名 :: staticMethodName
+ * 		情况二: 	实例方法引用
+ * 				格式一	instanceReference :: instanceMethodName
+ * 				格式二	类名 :: instanceMethodName
+ * 		情况三: 	构造方法引用	 		类名 :: new
+ * 		情况四: 	数组构造方法引用		数据类型[]::new
+ * 5.方法引用参数问题
+ * 		方法参数由编译器自动识别
  */
 public class MethodReference {
 	
@@ -141,6 +139,51 @@ public class MethodReference {
 		function = Math :: round;
 		System.out.println(function.apply(18.3));
 		System.out.println("------------------------------");
+	}
+
+
+	/**
+	 * 情况一:	静态方法引用(类名 :: staticMethodName)
+	 * 			案例五: Function<String, String> function = String :: toUpperCase;
+	 */
+	@Test
+	public void testStaticMethodReference5() {
+		//匿名内部类
+		Function<String, String> function = new Function<String, String>() {
+			@Override
+			public String apply(String s) {
+				return s.toUpperCase();
+			}
+		};
+		System.out.println(function.apply("abc"));
+		System.out.println("------------------------------");
+
+		//lambda表达式
+		function = s -> s.toUpperCase();
+		System.out.println(function.apply("abc"));
+		System.out.println("------------------------------");
+
+		//方法引用
+		function = String :: toUpperCase;
+		System.out.println(function.apply("abc"));
+		System.out.println("------------------------------");
+	}
+
+
+	/**
+	 * 情况一:	静态方法引用(类名 :: staticMethodName)
+	 * 			案例六: System.out::println
+	 */
+	@Test
+	public void testStaticMethodReference6() {
+		//lambda表达式
+        List<String> list = Arrays.asList("a", "b", "c", "d", "e");
+        list.forEach(item -> System.out.println(item));
+        System.out.println("------------------------------------");
+
+		//方法引用
+        list.forEach(System.out::println);
+		System.out.println("------------------------------------");
 	}
 
 
@@ -264,13 +307,8 @@ public class MethodReference {
 	 * 情况二: 	实例方法引用(instanceReference::instanceMethodName)
 	 * 			案例五: Comparator<String> comparator = String :: compareTo;
 	 */
-	/**
-	 * 情况二： 类::实例方法
-	 * Comparator	中的  int compare(T t1, T t2)
-	 * String		中的  int t1.compareTo(t2)
-	 */
 	@Test
-	public void testBiPredicate() {
+	public void testMethodReference5() {
 		//匿名内部类
 		BiPredicate<String, String> biPredicate = new BiPredicate<String,String>() {
 			@Override
@@ -281,12 +319,10 @@ public class MethodReference {
 		System.out.println(biPredicate.test("aaa", "aaa"));
 		System.out.println("--------------------------------------");
 
-
 		//lambda表达式
 		biPredicate = (a,b) -> a.equals(b);
 		System.out.println(biPredicate.test("bbb", "bbb"));
 		System.out.println("--------------------------------------");
-
 
 		//方法引用
 		biPredicate = String :: equals;
@@ -294,29 +330,9 @@ public class MethodReference {
 		System.out.println("--------------------------------------");
 	}
 
-
 	/**
-	 * 情况三: 	构造方法引用(类名::new)
-	 * 			案例一: ArrayList::new
-	 */
-	@Test
-	public void testConstructorReference1(){
-		Supplier<ArrayList<Integer>> supplier = ArrayList :: new;
-		System.out.println(supplier.get());
-	}
-
-
-	
-	
-	/**
-	 * BiPredicate函数接口
-	 */
-	
-	
-	/**
-	 * 情况一： 对象::实例方法
-	 * Consumer		中 	void accept(t)方法
-	 * System.out	中	println
+	 * 情况二: 	实例方法引用(类名::instanceMethodName)
+	 * 			案例流: Function<Person, String> function = Person :: getUsername;
 	 */
 	@Test
 	public void testMethodReference6() {
@@ -330,28 +346,92 @@ public class MethodReference {
 		};
 		System.out.println(function.apply(person));
 		System.out.println("------------------------------");
-		
-		
+
+
 		//lambda表达式
 		function = p -> p.getUsername();
 		System.out.println(function.apply(person));
 		System.out.println("------------------------------");
-		
-		
+
+
 		//方法引用
 		function = Person :: getUsername;
 		System.out.println(function.apply(person));
 		System.out.println("------------------------------");
 	}
-	
-	
+
+	/**
+	 * 情况三: 	构造方法引用(类名::new)
+	 * 			案例一: ArrayList::new
+	 */
+	@Test
+	public void testConstructorReference1(){
+		Supplier<ArrayList<Integer>> supplier = ArrayList :: new;
+		System.out.println(supplier.get());
+	}
+
+
+	/**
+	 * 情况四: 	数组构造方法引用		数据类型[]::new
+	 * 			案例一: 使用方法引用创建空的String类型数组
+	 */
+	@Test
+	public void testArrayConstructorReference1(){
+		//lambda表达式(初始化一个长度为10的String类型数组)
+		Function<Integer,String[]> function = l ->new String[l];
+		String[] apply = function.apply(10);
+		System.out.println(apply);
+
+		//数组构造引用(初始化一个长度为10的String类型数组)
+		function = String[] :: new;
+		apply = function.apply(10);
+		System.out.println(apply);
+	}
+
+
+	/**
+	 * 情况四: 	数组构造方法引用		数据类型[]::new
+	 * 			案例二: 使用方法引用创建空的int类型数组
+	 */
+	@Test
+	public void testArrayConstructorReference2(){
+		//lambda表达式(初始化一个长度为10的int类型数组)
+		Function<Integer, int[]> function = int[]::new;
+		int[] apply = function.apply(10);
+		System.out.println(Arrays.toString(apply));
+
+		//数组构造引用(初始化一个长度为10的int类型数组)
+		function = int[]::new;
+		apply = function.apply(10);
+		System.out.println(Arrays.toString(apply));
+	}
+
+
+	/**
+	 * 情况四: 	数组构造方法引用		数据类型[]::new
+	 */
+	@Test
+	public void testArrayConstructorReference3(){
+		//1.创建集合并添加元素
+		ArrayList<Integer> list = new ArrayList<>();
+		Collections.addAll(list, 1, 2, 3, 4, 5);
+		//2.收集到数组当中
+		Integer[] nums = list.stream().toArray(new IntFunction<Integer[]>() {
+			@Override
+			public Integer[] apply(int value) {
+				return new Integer[value];
+			}
+		});
+
+		//方法引用
+		Integer[] arr2 = list.stream()
+				// 此时它会去创建一个Integer类型的数组，长度和流里面数组的个数是一样的，并把流里面的数据放到数组中
+				.toArray(Integer[]::new);
+		System.out.println(Arrays.toString(arr2));
+	}
+
 	//https://blog.csdn.net/a_beiyo/article/details/142216688
     public static void main(String[] args) {
-//        /**
-//         * 1.静态方法引用:方法参数由编译器自动识别
-//         */
-//        Function<String, String> function = String::toUpperCase;
-//        System.out.println(function.getClass().getInterfaces()[0]);
 //
 //        List<String> list = Arrays.asList("a", "b", "c", "d", "e");
 //        list.forEach(item -> System.out.println(item));
