@@ -409,8 +409,78 @@ public class MethodReference {
 	 */
 	@Test
 	public void testConstructorReference2(){
-		Supplier<Person> supplier = Person :: new;
+		//匿名内部类
+		Supplier<Person> supplier = new Supplier<Person>() {
+			@Override
+			public Person get() {
+				return new Person();
+			}
+		};
 		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+
+		//lambda表达式
+		supplier = () -> new Person();
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+
+		supplier = Person :: new;
+		System.out.println(supplier.get());
+		System.out.println("------------------------------");
+	}
+
+
+	/**
+	 * 情况三: 	构造方法引用(类名::new)
+	 * 			案例三: Person::new
+	 */
+	@Test
+	public void testConstructorReference3(){
+		//匿名内部类
+		Function<Integer, Person> function = new Function<Integer, Person>() {
+			@Override
+			public Person apply(Integer id) {
+				return new Person(id);
+			}
+		};
+		System.out.println(function.apply(10));
+		System.out.println("------------------------------");
+
+		//lambda表达式
+		function = (id) -> new Person(id);
+		System.out.println(function.apply(20));
+		System.out.println("------------------------------");
+
+		function = Person :: new;
+		System.out.println(function.apply(30));
+		System.out.println("------------------------------");
+	}
+
+
+	/**
+	 * 情况三: 	构造方法引用(类名::new)
+	 * 			案例三: Person::new
+	 */
+	@Test
+	public void testConstructorReference4(){
+		//匿名内部类
+		BiFunction<String, Integer, Person> biFunction = new BiFunction<String, Integer, Person>() {
+			@Override
+			public Person apply(String username, Integer id) {
+				return new Person(username,id);
+			}
+		};
+		System.out.println(biFunction.apply("张三",10));
+		System.out.println("------------------------------");
+
+		//lambda表达式
+		biFunction = (username, id) -> new Person(username, id);
+		System.out.println(biFunction.apply("李四",20));
+		System.out.println("------------------------------");
+
+		biFunction = Person :: new;
+		System.out.println(biFunction.apply("王五",30));
+		System.out.println("------------------------------");
 	}
 
 
@@ -433,7 +503,7 @@ public class MethodReference {
 
 
 	/**
-	 * 情况四: 	数组构造方法引用		数据类型[]::new
+	 * 情况四: 	数组构造方法引用		数据类型[] :: new
 	 * 			案例二: 使用方法引用创建空的int类型数组
 	 */
 	@Test
@@ -451,7 +521,7 @@ public class MethodReference {
 
 
 	/**
-	 * 情况四: 	数组构造方法引用		数据类型[]::new
+	 * 情况四: 	数组构造方法引用		数据类型[] :: new
 	 */
 	@Test
 	public void testArrayConstructorReference3(){
@@ -485,6 +555,10 @@ class Person {
 
     public Person(String username, Integer age) {
         this.username = username;
+        this.age = age;
+    }
+
+    public Person(Integer age) {
         this.age = age;
     }
 

@@ -8,8 +8,14 @@ import java.util.function.UnaryOperator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamCreateTest {
+public class StreamCreateStreamTest {
 	/**
+	 * 	Stream流和Collection集合的区别
+	 * 		1.Collection集合是一种静态的内存数据结构，主要面向内存，而Stream流是和计算有关的，主要面向CPU实现计算
+	 * 		2.Stream流是延迟执行的，需要结果(只有调用终止操作)的时候才执行
+	 * 		3.Stream流相当于一个中间管道
+	 * 		4.Steam流支持链式操作
+	 *
 	 * 	创建流的八种方式
 	 *		1.通过集合创建	 		集合对象.stream()/集合对象.parallelStream()
 	 *  	2.通过数组创建   			Arrays.stream(数组)

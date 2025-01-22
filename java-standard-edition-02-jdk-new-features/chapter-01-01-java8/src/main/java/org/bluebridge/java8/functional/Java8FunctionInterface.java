@@ -37,8 +37,7 @@ public class Java8FunctionInterface {
 		};
 		consumer.accept(1);
 		System.out.println("--------------------------------------");
-		
-		
+
 		//lambda方式使用Consumer接口
 		consumer = t -> System.out.println(t);
 		consumer.accept(10);
@@ -60,7 +59,6 @@ public class Java8FunctionInterface {
 		});
 		System.out.println("--------------------------------------");
 		
-		
 		//lambda方式使用Consumer接口
 		show(10,t -> System.out.println(t));
 		System.out.println("--------------------------------------");
@@ -81,7 +79,6 @@ public class Java8FunctionInterface {
 	    Consumer<Integer> consumer = t -> System.out.println(t);
 	    list.stream().forEach(consumer);
 	    System.out.println("--------------------------------------");
-	    
 	    
 	    //使用Consumer类型对象作为forEach()参数
 	    list = Arrays.asList(2,4,6,8,10);
@@ -105,8 +102,7 @@ public class Java8FunctionInterface {
 		});
 		System.out.println(filterResult);
 		System.out.println("--------------------------------------");
-		
-		
+
 		//lambda方式使用Predicate接口
 		filterResult = filter(list, s -> s.contains("冬"));
 		System.out.println(filterResult);
@@ -138,7 +134,6 @@ public class Java8FunctionInterface {
 		};
 		System.out.println(biPredicate.test(10, 5));
 		System.out.println("--------------------------------------");
-		
 		
 		//lambda表达式
 		biPredicate = (a,b) -> a > b;
