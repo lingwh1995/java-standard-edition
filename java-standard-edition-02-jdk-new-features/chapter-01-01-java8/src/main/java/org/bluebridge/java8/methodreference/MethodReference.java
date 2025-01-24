@@ -1,4 +1,4 @@
-package org.bluebridge.java8.java8reference;
+package org.bluebridge.java8.methodreference;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -509,7 +509,7 @@ public class MethodReference {
 	@Test
 	public void testArrayConstructorReference2(){
 		//lambda表达式(初始化一个长度为10的int类型数组)
-		Function<Integer, int[]> function = int[]::new;
+		Function<Integer, int[]> function = n-> new int[n];
 		int[] apply = function.apply(10);
 		System.out.println(Arrays.toString(apply));
 

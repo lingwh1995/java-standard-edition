@@ -1,4 +1,6 @@
-package org.bluebridge.java8.stream;
+package org.bluebridge.java8.test;
+
+import org.bluebridge.java8.stream.Person;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;

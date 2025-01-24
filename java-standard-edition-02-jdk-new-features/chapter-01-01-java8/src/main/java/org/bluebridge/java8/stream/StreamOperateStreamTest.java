@@ -106,19 +106,42 @@ public class StreamOperateStreamTest {
     }
 
     /**
+     * 映射成int类型数据
+     */
+    @Test
+    public void testStreamMapToInt() {
+        //sum()
+        List<String> nums = Arrays.asList("1", "2", "3", "4");
+        System.out.println(nums.stream().mapToInt(item -> Integer.parseInt(item)).sum());
+        System.out.println("----------------------------------------");
+
+        //max()
+        nums = Arrays.asList("1", "2", "3", "4");
+        nums.stream().mapToInt(item -> Integer.parseInt(item)).max().ifPresent(System.out::println);
+        System.out.println("----------------------------------------");
+
+        //min()
+        nums = Arrays.asList("1", "2", "3", "4");
+        nums.stream().mapToInt(item -> Integer.parseInt(item)).min().ifPresent(System.out::println);
+        System.out.println("----------------------------------------");
+    }
+
+    /**
      * FlatMap： 接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流
      *          嵌套列表的扁平化
      */
     @Test
     public void testStreamFlatMap() {
         List<List<String>> nestedList = Arrays.asList(
-                Arrays.asList("1", "2", "3"),
-                Arrays.asList("4", "4", "6"),
-                Arrays.asList("7", "8", "9")
+                Arrays.asList("1"),
+                Arrays.asList("2", "3"),
+                Arrays.asList("4", "5", "6")
         );
+        //lambda表达式写法
         List<String> collect = nestedList.stream().flatMap(list -> list.stream()).collect(Collectors.toList());
         System.out.println(collect);
 
+        //方法引用写法
         collect = nestedList.stream().flatMap(List::stream).collect(Collectors.toList());
         System.out.println(collect);
     }

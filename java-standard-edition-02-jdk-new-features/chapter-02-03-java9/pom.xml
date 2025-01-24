@@ -5,19 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.bluebridge</groupId>
-        <artifactId>java-standard-edition</artifactId>
+        <artifactId>java-standard-edition-02-jdk-new-features</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-standard-edition-02-jdk-new-features</artifactId>
-	<packaging>pom</packaging>
-
-    <modules>
-        <module>chapter-01-01-java8</module>
-        <module>chapter-02-01-java9-module01</module>
-        <module>chapter-02-02-java9-module02</module>
-        <module>chapter-02-03-java9</module>
-    </modules>
+    <artifactId>chapter-02-03-java9</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -29,11 +21,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

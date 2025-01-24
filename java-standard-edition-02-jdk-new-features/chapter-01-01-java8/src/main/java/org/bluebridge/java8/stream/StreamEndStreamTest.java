@@ -145,8 +145,10 @@ public class StreamEndStreamTest {
         List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         Integer result = nums.stream().reduce(0, Integer::sum);
         System.out.println(result);
+        System.out.println("------------------");
 
         Optional<Integer> resultOptional = nums.stream().reduce(Integer::sum);
         System.out.println(resultOptional.get());
+        System.out.println("------------------");
     }
 }

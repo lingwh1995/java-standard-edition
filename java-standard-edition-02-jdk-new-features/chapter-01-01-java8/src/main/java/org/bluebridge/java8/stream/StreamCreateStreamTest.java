@@ -15,6 +15,7 @@ public class StreamCreateStreamTest {
 	 * 		2.Stream流是延迟执行的，需要结果(只有调用终止操作)的时候才执行
 	 * 		3.Stream流相当于一个中间管道
 	 * 		4.Steam流支持链式操作
+	 * 		5.Steam流操作具有短路的特性
 	 *
 	 * 	创建流的八种方式
 	 *		1.通过集合创建	 		集合对象.stream()/集合对象.parallelStream()
@@ -133,6 +134,13 @@ public class StreamCreateStreamTest {
 		intStream.forEach(n -> System.out.println(n));
 		System.out.println("------------------");
 
+		//3-8,不包含8
+		IntStream.range(3,8).forEach(System.out::println);
+		System.out.println("------------------");
+		//3-8,包含8
+		IntStream.rangeClosed(3,8).forEach(System.out::println);
+		System.out.println("------------------");
+
 		//通过字符串数组创建一个Stream对象(使用Arrays.stream()方式创建)
 		Stream<String> stream = Arrays.stream(new String[]{"a", "b", "c"});
 		stream.forEach(s -> System.out.println(s));
@@ -225,7 +233,7 @@ public class StreamCreateStreamTest {
 	 *  注意：这种方式可以构建出元素数目无限的"无限流"，因此，通常都会使用 limit() 方法限定要生成 的元素个数。
 	 */
 	@Test
-	public void testCreateStreamByGenerate() {
+	public void testCreateStreamByGenerate1() {
 		// 定义一个随机数生成器，生成 [0, 100) 范围内的随机整数
 		Supplier<Integer> intFactory = () -> (int) (Math.random() * 100);
 
@@ -234,6 +242,23 @@ public class StreamCreateStreamTest {
 
 		// 打印流中的元素
 		stream.forEach(System.out::println);
+	}
+
+	/**
+	 * 随机生成十个UUID
+	 */
+	@Test
+	public void testCreateStreamByGenerate2() {
+		//lambda表达式语法
+		Supplier<String> uuidFactory = () -> UUID.randomUUID().toString();
+		Stream<String> generate = Stream.generate(uuidFactory).limit(10);
+		generate.forEach(s -> System.out.println(s));
+		System.out.println("------------------");
+
+		//方法引用语法
+		generate = Stream.generate(UUID.randomUUID()::toString).limit(10);
+		generate.forEach(System.out::println);
+		System.out.println("------------------");
 	}
 
 	/**
