@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-standard-edition-04-jdk-libs</artifactId>
+    <artifactId>java-standard-edition-05-jdk-libs</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>chapter-01-01-dom4j</module>
