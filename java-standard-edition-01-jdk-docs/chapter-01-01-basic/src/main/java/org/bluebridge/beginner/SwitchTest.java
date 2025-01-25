@@ -44,4 +44,50 @@ public class SwitchTest {
                 break;
         }
     }
+
+    /**
+     * 测试switch配合枚举使用
+     */
+    @Test
+    public void testSwitchEnum() {
+        Color color = Color.RED;
+        switch (color) {
+            case RED:
+                System.out.println("红色...");
+                break;
+            case GREEN:
+                System.out.println("绿色...");
+                break;
+            case BLUE:
+                System.out.println("蓝色...");
+                break;
+            default:
+                System.out.println("暂无该颜色...");
+                break;
+        }
+    }
+
+    /**
+     * 测试case穿透
+     */
+    @Test
+    public void testCasePenetrate() {
+        int i = 0;
+        switch (i) {
+            case 0:
+            case 1:
+            case 2:
+                System.out.println("测试case穿透...");
+                break;
+            case 3:
+                System.out.println("i的值是3...");
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+enum Color {
+    RED,GREEN,BLUE
 }
