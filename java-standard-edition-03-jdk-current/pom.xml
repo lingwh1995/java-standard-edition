@@ -13,8 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>chapter-01-01-jmh-performance</module>
-        <module>chapter-01-02-thread-create</module>
+        <module>chapter-01-01-thread</module>
     </modules>
 
     <properties>
