@@ -1,5 +1,7 @@
 package org.bluebridge.java8.functioninterface;//package org.bluebridge.java8.functioninterface;
 
+import org.junit.Test;
+
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -7,7 +9,8 @@ import java.util.function.Function;
  * @author ronin
  */
 public class BiFunctionFunctionInterfaceTest {
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         BiFunctionFunctionInterfaceTest function = new BiFunctionFunctionInterfaceTest();
         /**
          * 加法运算
