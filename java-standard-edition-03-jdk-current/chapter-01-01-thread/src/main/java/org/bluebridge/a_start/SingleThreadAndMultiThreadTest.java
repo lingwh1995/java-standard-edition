@@ -40,8 +40,12 @@ public class SingleThreadAndMultiThreadTest {
         Arrays.fill(ARRAY, 1);
     }
 
+    /**
+     * 多线程计算
+     * @throws Exception
+     */
     @Test
-    public void test1() throws Exception {
+    public void testMultiThread() throws Exception {
         long start = System.currentTimeMillis();
         int[] array = ARRAY;
         FutureTask<Integer> t1 = new FutureTask<>(()->{
@@ -78,14 +82,18 @@ public class SingleThreadAndMultiThreadTest {
         new Thread(t4).start();
 
         int total = t1.get() + t2.get() + t3.get() + t4.get();
-        System.out.println(total);
+        System.out.println("total = " + total);
         long end = System.currentTimeMillis();
         System.out.println("Total time (ms): " + (end - start));
     }
 
 
+    /**
+     * 单线程计算
+     * @throws Exception
+     */
     @Test
-    public void test2() throws Exception {
+    public void testSingleThread() throws Exception {
         long start = System.currentTimeMillis();
         int[] array = ARRAY;
         FutureTask<Integer> t1 = new FutureTask<>(()->{
@@ -98,7 +106,7 @@ public class SingleThreadAndMultiThreadTest {
         new Thread(t1).start();
 
         int total = t1.get();
-        System.out.println(total);
+        System.out.println("total = " + total);
         long end = System.currentTimeMillis();
         System.out.println("Total time (ms): " + (end - start));
     }
