@@ -4,11 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -132,7 +131,7 @@ public class StreamOperateStreamTest {
      *          嵌套列表的扁平化
      */
     @Test
-    public void testStreamFlatMap() {
+    public void testStreamFlatMap1() {
         List<List<String>> nestedList = Arrays.asList(
                 Arrays.asList("1"),
                 Arrays.asList("2", "3"),
@@ -145,6 +144,24 @@ public class StreamOperateStreamTest {
         //方法引用写法
         collect = nestedList.stream().flatMap(List::stream).collect(Collectors.toList());
         System.out.println(collect);
+    }
+
+    @Test
+    public void testStreamFlatMap2() {
+        List<String> list1 = Arrays.asList("hi", "hello");
+        List<String> list2 = Arrays.asList("zs", "ls","ww");
+        list1.stream().flatMap(item1 -> list2.stream().map(item2 -> item1 + "," + item2)).collect(Collectors.toList())
+                .forEach(System.out::println);
+    }
+
+    /**
+     * 去重:输出hello world stream
+     */
+    @Test
+    public void testStreamFlatMap3() {
+        List<String> list = Arrays.asList("hello", "hello world", "hello world stream");
+        list.stream().map(item -> item.split(" ")).flatMap(Arrays::stream).distinct()
+                .forEach(System.out::println);
     }
 
     /**
@@ -161,24 +178,56 @@ public class StreamOperateStreamTest {
     }
 
     /**
-     * 分组
+     * 根据firstName分组
      */
     @Test
-    public void testStreamGroup() {
-        Person zs = new Person("zs", 10);
-        Person ls = new Person("ls", 28);
-        Person ww = new Person("ww", 38);
-        Person zs1 = new Person("zs", 20);
-        List<Person> people = Arrays.asList(zs, ls, ww, zs1);
-        Map<String, List<Person>> collect = people.stream().collect(Collectors.groupingBy(Person::getUsername));
-        collect.entrySet().forEach(entry-> System.out.println(entry.getKey()+"--"+entry.getValue()));
+    public void testStreamGroupByFirstName() {
+        Person p1 = new Person("张","三", 10);
+        Person p2 = new Person("李","四", 10);
+        Person p3 = new Person("王","五", 20);
+        Person p4 = new Person("王","铭", 10);
+        List<Person> persons = Arrays.asList(p1, p2, p3, p4);
+        Map<String, List<Person>> groupingByResult1 = persons.stream().collect(Collectors.groupingBy(Person::getFirstName));
+        groupingByResult1.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
         //select name,count(*) from user group by name;
         System.out.println("----------------------------------");
-        Map<String, Long> collect1 = people.stream().collect(Collectors.groupingBy(Person::getUsername, Collectors.counting()));
-        collect1.entrySet().forEach(entry-> System.out.println(entry.getKey()+"--"+entry.getValue()));
+
+        Map<String, Long> groupingByResult2 = persons.stream().collect(Collectors.groupingBy(Person::getFirstName, Collectors.counting()));
+        groupingByResult2.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
         System.out.println("----------------------------------");
+
         //先分组再求平均值
-        Map<String, Double> collect2 = people.stream().collect(Collectors.groupingBy(Person::getUsername, Collectors.averagingInt(Person::getAge)));
-        collect2.entrySet().forEach(entry-> System.out.println(entry.getKey()+"--"+entry.getValue()));
+        Map<String, Double> groupingByResult3 = persons.stream().collect(Collectors.groupingBy(Person::getFirstName, Collectors.averagingInt(Person::getAge)));
+        groupingByResult3.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
+    }
+
+    /**
+     * 根据年龄进行分区
+     *      分为大于等于20的和不满足这个条件的
+     */
+    @Test
+    public void testStreamPartitioningByAge() {
+        Person p1 = new Person("张","三", 10);
+        Person p2 = new Person("李","四", 20);
+        Person p3 = new Person("王","五", 30);
+        Person p4 = new Person("王","铭", 40);
+        List<Person> persons = Arrays.asList(p1, p2, p3, p4);
+        Map<Boolean, List<Person>> collect = persons.stream().collect(Collectors.partitioningBy(person -> person.getAge() >= 20));
+        collect.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
+    }
+
+
+    /**
+     * 分别使用串行和并行的方式查找出第一个长度为5的单词
+     */
+    @Test
+    public void testStreamFindStr() {
+        //串行
+        List<String> source = Arrays.asList("hello", "world", "hello stream!");
+        source.stream().filter(item -> item.length() == 5).findFirst().ifPresent(System.out::println);
+        System.out.println("----------------------------------");
+
+        //并行
+        source.parallelStream().filter(item -> item.length() == 5).findFirst().ifPresent(System.out::println);
     }
 }

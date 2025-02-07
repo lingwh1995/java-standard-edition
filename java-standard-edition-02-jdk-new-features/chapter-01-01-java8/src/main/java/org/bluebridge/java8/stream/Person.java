@@ -4,23 +4,33 @@ package org.bluebridge.java8.stream;
  * @author ronin
  */
 public class Person {
-    private String username;
+    private String firstName;
+    private String lastName;
     private Integer age;
 
     public Person() {
     }
 
-    public Person(String username, Integer age) {
-        this.username = username;
+    public Person(String firstName, String lastName, Integer age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
     }
 
-    public String getUsername() {
-        return username;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getAge() {
@@ -34,7 +44,8 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "username='" + username + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 '}';
     }
