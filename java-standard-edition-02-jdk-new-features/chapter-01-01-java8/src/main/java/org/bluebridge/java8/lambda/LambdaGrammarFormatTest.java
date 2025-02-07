@@ -21,7 +21,7 @@ import org.junit.Test;
  *  5.函数式接口	只包含一个抽象方法的接口，称为函数式接口
  *  	
  */
-public class LambdaGrammarFormat {
+public class LambdaGrammarFormatTest {
 
 	/**
 	 * 语法格式一：无参，无返回值

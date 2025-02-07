@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Stream的Collectors
+ * 收集流中元素到各种集合中
  */
 public class StreamCollectorsTest {
     private List<Employee> employees;

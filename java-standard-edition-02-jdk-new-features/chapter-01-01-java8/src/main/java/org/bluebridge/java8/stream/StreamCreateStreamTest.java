@@ -8,6 +8,9 @@ import java.util.function.UnaryOperator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * 创建流
+ */
 public class StreamCreateStreamTest {
 	/**
 	 * 	Stream流和Collection集合的区别

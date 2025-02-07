@@ -7,12 +7,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Stream中间操作
+ * Stream流中间操作
  */
 public class StreamOperateStreamTest {
     private List<Employee> employees;
@@ -157,5 +158,27 @@ public class StreamOperateStreamTest {
         //创建流
         Stream<Employee> stream = employees.stream();
         stream.sorted((e1,e2) -> Integer.compare(e1.getAge(),e2.getAge())).forEach(System.out::println);
+    }
+
+    /**
+     * 分组
+     */
+    @Test
+    public void testStreamGroup() {
+        Person zs = new Person("zs", 10);
+        Person ls = new Person("ls", 28);
+        Person ww = new Person("ww", 38);
+        Person zs1 = new Person("zs", 20);
+        List<Person> people = Arrays.asList(zs, ls, ww, zs1);
+        Map<String, List<Person>> collect = people.stream().collect(Collectors.groupingBy(Person::getUsername));
+        collect.entrySet().forEach(entry-> System.out.println(entry.getKey()+"--"+entry.getValue()));
+        //select name,count(*) from user group by name;
+        System.out.println("----------------------------------");
+        Map<String, Long> collect1 = people.stream().collect(Collectors.groupingBy(Person::getUsername, Collectors.counting()));
+        collect1.entrySet().forEach(entry-> System.out.println(entry.getKey()+"--"+entry.getValue()));
+        System.out.println("----------------------------------");
+        //先分组再求平均值
+        Map<String, Double> collect2 = people.stream().collect(Collectors.groupingBy(Person::getUsername, Collectors.averagingInt(Person::getAge)));
+        collect2.entrySet().forEach(entry-> System.out.println(entry.getKey()+"--"+entry.getValue()));
     }
 }

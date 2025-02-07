@@ -32,7 +32,7 @@ public class StreamTest2 {
         /**
          * 分区
          */
-        //groupbyUserName();
+        groupbyUserName();
         /**
          * 分组
          */
