@@ -35,9 +35,9 @@ import java.util.concurrent.FutureTask;
  * 单线程和多线程运行效率对比
  */
 public class SingleThreadAndMultiThreadTest {
-    static int[] ARRAY = new int[1000_000_00];
+    static int[] ARRAY = new int[1000_000_000];
     static {
-        Arrays.fill(ARRAY, 1);
+        Arrays.fill(ARRAY, 10);
     }
 
     /**
@@ -50,29 +50,29 @@ public class SingleThreadAndMultiThreadTest {
         int[] array = ARRAY;
         FutureTask<Integer> t1 = new FutureTask<>(()->{
             int sum = 0;
-            for(int i = 0; i < 250_000_00;i++) {
+            for(int i = 0; i < 250_000_000;i++) {
                 sum += array[0+i];
             }
             return sum;
         });
         FutureTask<Integer> t2 = new FutureTask<>(()->{
             int sum = 0;
-            for(int i = 0; i < 250_000_00;i++) {
-                sum += array[250_000_00+i];
+            for(int i = 0; i < 250_000_000;i++) {
+                sum += array[250_000_000+i];
             }
             return sum;
         });
         FutureTask<Integer> t3 = new FutureTask<>(()->{
             int sum = 0;
-            for(int i = 0; i < 250_000_00;i++) {
-                sum += array[500_000_00+i];
+            for(int i = 0; i < 250_000_000;i++) {
+                sum += array[500_000_000+i];
             }
             return sum;
         });
         FutureTask<Integer> t4 = new FutureTask<>(()->{
             int sum = 0;
-            for(int i = 0; i < 250_000_00;i++) {
-                sum += array[750_000_00+i];
+            for(int i = 0; i < 250_000_000;i++) {
+                sum += array[750_000_000+i];
             }
             return sum;
         });
@@ -98,7 +98,7 @@ public class SingleThreadAndMultiThreadTest {
         int[] array = ARRAY;
         FutureTask<Integer> t1 = new FutureTask<>(()->{
             int sum = 0;
-            for(int i = 0; i < 1000_000_00;i++) {
+            for(int i = 0; i < 1000_000_000;i++) {
                 sum += array[0+i];
             }
             return sum;
