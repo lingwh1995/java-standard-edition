@@ -2,13 +2,16 @@ package org.bluebridge.java12;
 
 import org.junit.Test;
 
-public class CaseTest {
+/**
+ * java12提供了更强的 switch 使用语法
+ */
+public class SwitchTest {
 
     /**
-     * java12提供了更强的 switch 使用语法
+     * 配合lambda表达式使用
      */
     @Test
-    public void testSwitch() {
+    public void testSwitchWithLambda() {
         Food food = Food.RICE;
         switch (food) {
             case RICE -> System.out.println("主食...");
