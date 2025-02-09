@@ -23,7 +23,7 @@
  * questions.
  */
 
-package org.bluebridge.a_start;
+package org.bluebridge.a_compare;
 
 
 import org.junit.Test;

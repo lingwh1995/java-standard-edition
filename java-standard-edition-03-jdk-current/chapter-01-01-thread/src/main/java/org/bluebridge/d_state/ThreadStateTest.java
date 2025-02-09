@@ -1,10 +1,13 @@
-package org.bluebridge.c_state;
+package org.bluebridge.d_state;
 
 /**
  * 获取线程状态
  *      创建了线程       NEW
  *      启动线程后       RUNNABLE
  *      线程阻塞时       TIMED_WAITING
+ *                      BLOCKED
+ *                      WAITING
+ *                      TERMINATED
  */
 public class ThreadStateTest {
     public static void main(String[] args) {
