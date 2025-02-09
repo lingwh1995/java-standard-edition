@@ -14,14 +14,14 @@ public class JoinTest {
         /**
          * join()测试1:要求线程执行顺序为:thread1->thread2->thread3
          */
-        final Thread t1 = new Thread(new Runnable() {
+        Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 System.out.println("thread1 is running......");
             }
         });
 
-        final Thread t2 = new Thread(new Runnable() {
+        Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -46,14 +46,12 @@ public class JoinTest {
                 }
             }
         });
-//        t1.list();
-//        t2.list();
-//        t3.list();
+
 
         /**
          * join()测试2:执行完子线程，再执行主线程
          */
-        final Thread t4 = new Thread(new Runnable() {
+        Thread t4 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 100; i++) {
