@@ -1,4 +1,4 @@
-package org.bluebridge.b_create.way_3;
+package org.bluebridge.thread_create.way_3;
 
 import java.util.concurrent.Callable;
 

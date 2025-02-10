@@ -1,4 +1,4 @@
-package org.bluebridge.e_sleep;
+package org.bluebridge.thread_sleep;
 
 /**
  * sleep() 应用

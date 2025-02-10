@@ -1,4 +1,4 @@
-package org.bluebridge.e_sleep;
+package org.bluebridge.thread_sleep;
 
 /**
  * 线程睡眠
@@ -10,7 +10,8 @@ package org.bluebridge.e_sleep;
  *      3. 睡眠结束后的线程未必会立刻得到执行
  *      4. 建议用 TimeUnit 的 sleep 代替 Thread 的 sleep 来获得更好的可读性
  */
-public class ThreadSleepTest {
+public class SleepTest {
+
     public static void main(String[] args) throws InterruptedException {
         Thread t = new Thread(() -> {
             try {

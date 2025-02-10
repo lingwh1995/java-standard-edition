@@ -23,8 +23,7 @@
  * questions.
  */
 
-package org.bluebridge.a_compare;
-
+package org.bluebridge.thread_start;
 
 import org.junit.Test;
 
@@ -35,6 +34,7 @@ import java.util.concurrent.FutureTask;
  * 单线程和多线程运行效率对比
  */
 public class SingleThreadAndMultiThreadTest {
+
     static int[] ARRAY = new int[1000_000_000];
     static {
         Arrays.fill(ARRAY, 10);

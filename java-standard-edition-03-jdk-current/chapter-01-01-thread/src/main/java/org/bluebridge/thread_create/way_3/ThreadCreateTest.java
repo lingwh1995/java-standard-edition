@@ -1,11 +1,11 @@
-package org.bluebridge.b_create.way_3;
+package org.bluebridge.thread_create.way_3;
 
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
-public class MyThreadTest {
+public class ThreadCreateTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //传统方式实现Callable接口创建线程

@@ -1,11 +1,15 @@
-package org.bluebridge.c_demo;
+package org.bluebridge.thread_start;
 
-public class ThreadDemo {
+/**
+ * 一个简单的多线程案例
+ */
+public class ThreadStartTest {
+
     public static void main(String[] args) {
         new Thread(()-> {
             while (true){
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(500);
                     System.out.println("Thread " + Thread.currentThread().getName() + " is running...");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -16,7 +20,7 @@ public class ThreadDemo {
         new Thread(()-> {
             while (true){
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(500);
                     System.out.println("Thread " + Thread.currentThread().getName() + " is running...");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);

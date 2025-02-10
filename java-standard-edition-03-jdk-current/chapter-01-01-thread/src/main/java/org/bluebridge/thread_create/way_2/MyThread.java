@@ -1,6 +1,6 @@
-package org.bluebridge.b_create.way_1;
+package org.bluebridge.thread_create.way_2;
 
-public class MyThread extends Thread {
+public class MyThread implements Runnable {
 
     @Override
     public void run() {

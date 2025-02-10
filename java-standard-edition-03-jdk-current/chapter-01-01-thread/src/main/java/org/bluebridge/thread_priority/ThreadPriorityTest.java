@@ -1,13 +1,9 @@
-package org.bluebridge.f_yield;
+package org.bluebridge.thread_priority;
 
 /**
- * yield
- *      1. 调用 yield 会让当前线程从 Running 进入 Runnable 就绪状态，然后调度执行其它线程
- *      2. 具体的实现依赖于操作系统的任务调度器
- *
- * 注意：yield和设置线程优先级都不能真正的做到设置优先，这个仅仅是对调度器的一个提示
+ * 注意：yield和设置线程优先级都不能真正的做到设置优先，这个仅仅是对操作系统的任务调度器的一个提示
  */
-public class YieldTest {
+public class ThreadPriorityTest {
 
     public static void main(String[] args) {
         //t1线程
@@ -20,6 +16,10 @@ public class YieldTest {
                 }
             }
         }, "t1");
+
+        //设置线程优先级为最大优先级
+        t1.setPriority(Thread.MAX_PRIORITY);
+
         t1.start();
 
         //t2线程
@@ -28,11 +28,14 @@ public class YieldTest {
             @Override
             public void run() {
                 while (true) {
-                    Thread.yield();
                     System.out.println("Thread " + Thread.currentThread().getName() + " " + count++);
                 }
             }
         }, "t2");
+
+        //设置线程优先级为最小优先级
+        t2.setPriority(Thread.MIN_PRIORITY);
+
         t2.start();
     }
 }

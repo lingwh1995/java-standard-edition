@@ -1,9 +1,11 @@
-package org.bluebridge.g_priority;
+package org.bluebridge.thread_yield;
 
 /**
- * 注意：yield和设置线程优先级都不能真正的做到设置优先，这个仅仅是对调度器的一个提示
+ * yield
+ *      1. 调用yield会暂停当前正在执行的线程，并执行其他同等优先级的线程
+ *      2. yield和设置线程优先级都不能真正的做到设置优先，这个仅仅是对操作系统的任务调度器的一个提示
  */
-public class PriorityTest {
+public class ThreadYieldTest {
 
     public static void main(String[] args) {
         //t1线程
@@ -16,8 +18,6 @@ public class PriorityTest {
                 }
             }
         }, "t1");
-        //设置线程优先级
-        t1.setPriority(Thread.MAX_PRIORITY);
         t1.start();
 
         //t2线程
@@ -26,12 +26,12 @@ public class PriorityTest {
             @Override
             public void run() {
                 while (true) {
+                    //t2 调用线程礼让方法
+                    Thread.yield();
                     System.out.println("Thread " + Thread.currentThread().getName() + " " + count++);
                 }
             }
         }, "t2");
-        //设置线程优先级
-        t2.setPriority(Thread.MIN_PRIORITY);
         t2.start();
     }
 }
