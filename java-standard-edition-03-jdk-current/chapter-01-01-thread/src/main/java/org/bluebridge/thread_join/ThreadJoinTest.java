@@ -110,4 +110,25 @@ public class ThreadJoinTest {
         System.out.println("timeRange = " + (end - start));
     }
 
+    /**
+     * 测试使用 join(long millis) 实现线程同步
+     *      限时同步
+     * @throws InterruptedException
+     */
+    @Test
+    public void testThreadJoin4() throws InterruptedException {
+        AtomicInteger i = new AtomicInteger(1);
+        Thread t1 = new Thread(() -> {
+            try {
+                TimeUnit.MILLISECONDS.sleep(2000);
+                i.set(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        t1.start();
+        //如果不使用 join() 实现线程同步的话，获取到的i的值是 1，如果使用 join() 实现线程同步，获取到的i的值是 10
+        t1.join(1000);
+        System.out.println("i = " + i.get());
+    }
 }
