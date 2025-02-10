@@ -10,7 +10,7 @@ public class ThreadCreateTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //传统方式实现Callable接口创建线程
         //创建线程对象
-        MyThread thread = new MyThread();
+        Callable thread = new MyThread();
         //使用FutureTask来包装线程对象
         FutureTask<Integer> futureTask1 = new FutureTask<>(thread);
         //FutureTask对象作为Thread对象的target创建新的线程
@@ -41,7 +41,7 @@ public class ThreadCreateTest {
         //线程进入到就绪状态
         t2.start();
         //主线程阻塞，等待task执行完的结果
-        final Integer r2 = futureTask2.get();
+        Integer r2 = futureTask2.get();
         System.out.println("Thread " + t2.getName() + " 执行结果是: " + r2);
 
 
@@ -60,7 +60,7 @@ public class ThreadCreateTest {
         //线程进入到就绪状态
         t3.start();
         //主线程阻塞，等待task执行完的结果
-        final Integer r3 = futureTask3.get();
+        Integer r3 = futureTask3.get();
         System.out.println("Thread " + t3.getName() + " 执行结果是: " + r3);
 
 

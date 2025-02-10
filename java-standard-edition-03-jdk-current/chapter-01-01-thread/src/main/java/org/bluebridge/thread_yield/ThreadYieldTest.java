@@ -1,7 +1,7 @@
 package org.bluebridge.thread_yield;
 
 /**
- * yield
+ * yield()  提示线程调度器让出当前线程对CPU的使用
  *      1. 调用yield会暂停当前正在执行的线程，并执行其他同等优先级的线程
  *      2. yield和设置线程优先级都不能真正的做到设置优先，这个仅仅是对操作系统的任务调度器的一个提示
  */

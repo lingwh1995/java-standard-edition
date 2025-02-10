@@ -6,6 +6,7 @@ public class ThreadCreateTest {
 
     @Test
     public void test() {
+
        //传统方式继承Thread类接口创建线程
        Thread t1 = new MyThread();
        //不设置线程名称注掉下面这行

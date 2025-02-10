@@ -3,6 +3,7 @@ package org.bluebridge.thread_create.way_2;
 public class ThreadCreateTest {
 
     public static void main(String[] args) {
+
         //传统方式实现Runnable接口创建线程
         Thread t1 = new Thread(new MyThread());
             //不设置线程名称注掉下面这行
