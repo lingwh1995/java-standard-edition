@@ -25,8 +25,6 @@
 
 package org.bluebridge.thread_start;
 
-import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.concurrent.FutureTask;
 
@@ -35,6 +33,13 @@ import java.util.concurrent.FutureTask;
  */
 public class SingleThreadAndMultiThreadTest {
 
+    public static void main(String[] args) throws Exception {
+        //测试多线程计算
+        testMultiThread();
+
+        //测试单线程计算
+        testSingleThread();
+    }
     static int[] ARRAY = new int[1000_000_000];
     static {
         Arrays.fill(ARRAY, 10);
@@ -44,8 +49,7 @@ public class SingleThreadAndMultiThreadTest {
      * 多线程计算
      * @throws Exception
      */
-    @Test
-    public void testMultiThread() throws Exception {
+    public static void testMultiThread() throws Exception {
         long start = System.currentTimeMillis();
         int[] array = ARRAY;
         FutureTask<Integer> t1 = new FutureTask<>(()->{
@@ -82,9 +86,9 @@ public class SingleThreadAndMultiThreadTest {
         new Thread(t4).start();
 
         int total = t1.get() + t2.get() + t3.get() + t4.get();
-        System.out.println("total = " + total);
+        System.out.println("多线程 - total = " + total);
         long end = System.currentTimeMillis();
-        System.out.println("Total time (ms): " + (end - start));
+        System.out.println("多线程 - Total time (ms): " + (end - start));
     }
 
 
@@ -92,8 +96,7 @@ public class SingleThreadAndMultiThreadTest {
      * 单线程计算
      * @throws Exception
      */
-    @Test
-    public void testSingleThread() throws Exception {
+    public static void testSingleThread() throws Exception {
         long start = System.currentTimeMillis();
         int[] array = ARRAY;
         FutureTask<Integer> t1 = new FutureTask<>(()->{
@@ -106,8 +109,8 @@ public class SingleThreadAndMultiThreadTest {
         new Thread(t1).start();
 
         int total = t1.get();
-        System.out.println("total = " + total);
+        System.out.println("单线程 - total = " + total);
         long end = System.currentTimeMillis();
-        System.out.println("Total time (ms): " + (end - start));
+        System.out.println("单线程 - Total time (ms): " + (end - start));
     }
 }

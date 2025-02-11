@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class TimeUnitTest {
 
-    @Test
-    public void test() throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("TimeUnit test start...");
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.MILLISECONDS.sleep(2000);
+        //TimeUnit.SECONDS.sleep(2);
         System.out.println("TimeUnit test end...");
     }
 }

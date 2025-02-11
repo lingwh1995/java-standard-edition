@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
  * isAlive(): 判断线程是否还存活
  */
 public class ThreadIsAliveTest {
+
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
             try {
