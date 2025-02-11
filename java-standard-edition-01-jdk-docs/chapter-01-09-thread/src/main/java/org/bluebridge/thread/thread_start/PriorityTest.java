@@ -36,7 +36,7 @@ public class PriorityTest {
         //优先级为5
         t2.setPriority(Thread.NORM_PRIORITY);
         //优先级为10
-        t2.setPriority(Thread.MAX_PRIORITY);
+        t3.setPriority(Thread.MAX_PRIORITY);
         t1.start();
         t2.start();
         t3.start();

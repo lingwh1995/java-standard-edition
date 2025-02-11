@@ -25,7 +25,7 @@
         <module>oracle</module>
         <module>spring</module>
         <module>java-standard-edition-01-jdk-docs</module>
-        <module>java-standard-edition-02-jdk-new-features</module>
+        <module>java-standard-edition-02-jdk-features</module>
         <module>java-standard-edition-03-jdk-current</module>
         <module>java-standard-edition-04-jdk-source</module>
         <module>java-standard-edition-06-jdk-github</module>
