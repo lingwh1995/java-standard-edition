@@ -16,13 +16,13 @@
         <module>chapter-01-01-java8</module>
         <module>chapter-02-01-java9-module01</module>
         <module>chapter-02-02-java9-module02</module>
-        <module>chapter-02-03-java9</module>
-        <module>chapter-02-03-java10</module>
-        <module>chapter-02-03-java11</module>
-        <module>chapter-02-03-java12</module>
-        <module>chapter-02-03-java13</module>
-        <module>chapter-02-03-java17</module>
-        <module>chapter-02-03-java21</module>
+        <module>chapter-03-01-java9</module>
+        <module>chapter-04-01-java10</module>
+        <module>chapter-05-01-java11</module>
+        <module>chapter-06-01-java12</module>
+        <module>chapter-07-01-java13</module>
+        <module>chapter-08-01-java17</module>
+        <module>chapter-09-01-java21</module>
     </modules>
 
     <properties>
