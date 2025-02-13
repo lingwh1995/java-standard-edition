@@ -9,7 +9,7 @@ public class DaemonThreadTest {
                 try {
                     Thread.sleep(500); // 模拟任务执行
                 } catch (InterruptedException e) {
-                    System.out.println("Daemon thread interrupted.");
+                    System.out.println("Daemon thread interrupted...");
                 }
             }
         });
