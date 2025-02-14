@@ -1,4 +1,4 @@
-package org.bluebridge.thread_14_makeTea;
+package org.bluebridge.thread_14_make_tea;
 
 
 import java.text.SimpleDateFormat;

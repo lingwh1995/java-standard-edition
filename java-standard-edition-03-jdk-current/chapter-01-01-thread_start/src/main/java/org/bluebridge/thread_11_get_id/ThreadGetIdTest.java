@@ -1,4 +1,4 @@
-package org.bluebridge.thread_11_getId;
+package org.bluebridge.thread_11_get_id;
 
 /**
  * getId() 获取线程id

@@ -1,4 +1,4 @@
-package org.bluebridge.thread_10_isAlive;
+package org.bluebridge.thread_10_is_alive;
 
 import java.util.concurrent.TimeUnit;
 

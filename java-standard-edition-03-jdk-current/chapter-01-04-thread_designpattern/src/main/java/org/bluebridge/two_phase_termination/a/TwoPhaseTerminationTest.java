@@ -1,4 +1,4 @@
-package org.bluebridge.twoPhaseTermination.a;
+package org.bluebridge.two_phase_termination.a;
 
 import java.util.concurrent.TimeUnit;
 

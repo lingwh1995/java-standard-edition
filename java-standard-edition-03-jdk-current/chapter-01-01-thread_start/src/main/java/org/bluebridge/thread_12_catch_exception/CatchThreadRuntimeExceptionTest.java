@@ -1,4 +1,4 @@
-package org.bluebridge.thread_12_catchException;
+package org.bluebridge.thread_12_catch_exception;
 
 /**
  * 捕获线程运行时异常

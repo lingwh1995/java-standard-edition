@@ -1,4 +1,4 @@
-package org.bluebridge.twoPhaseTermination.b;
+package org.bluebridge.two_phase_termination.b;
 
 public class TwoPhaseTerminationTest {
 
