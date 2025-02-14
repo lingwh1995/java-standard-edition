@@ -1,5 +1,13 @@
-package org.bluebridge.thread_daemon;
+package org.bluebridge.thread_13_daemon;
 
+/**
+ * 什么守护线程?
+ *      有一种特殊的线程叫做守护线程，只要其它非守护线程运行结束了，即使守护线程的代码没有执行完，也会强制结束。
+ *
+ * 为什么主线程运行结束后，如果不将t1线程设置为守护线程，t1线程仍然会继续运行?
+ *      因为Java进程启动后，内部会有多个线程同时工作，主线程只是其中的一个线程
+ *
+ */
 public class DaemonThreadTest {
     public static void main(String[] args) {
         // 创建一个守护线程
@@ -12,7 +20,7 @@ public class DaemonThreadTest {
                     System.out.println("Daemon thread interrupted...");
                 }
             }
-        });
+        },"t1");
 
         // 设置为守护线程
         daemonThread.setDaemon(true);
