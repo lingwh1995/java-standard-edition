@@ -5,15 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.bluebridge</groupId>
-        <artifactId>java-standard-edition-03-jdk-current</artifactId>
+        <artifactId>java-standard-edition-02-jdk-features</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-01-01-thread_start</artifactId>
+    <artifactId>chapter-06-01-java14</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 </project>

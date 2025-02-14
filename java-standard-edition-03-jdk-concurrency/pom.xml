@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-standard-edition-03-jdk-current</artifactId>
+    <artifactId>java-standard-edition-03-jdk-concurrency</artifactId>
     <packaging>pom</packaging>
 
     <modules>

@@ -19,15 +19,15 @@
         <module>chapter-03-01-java9</module>
         <module>chapter-04-01-java10</module>
         <module>chapter-05-01-java11</module>
-        <module>chapter-06-01-java12</module>
+        <module>chapter-06-01-java14</module>
         <module>chapter-07-01-java13</module>
         <module>chapter-08-01-java17</module>
         <module>chapter-09-01-java21</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

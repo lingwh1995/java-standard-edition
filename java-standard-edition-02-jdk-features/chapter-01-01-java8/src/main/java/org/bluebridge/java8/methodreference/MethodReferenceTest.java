@@ -25,7 +25,7 @@ import org.junit.Test;
  * 5.方法引用参数问题
  * 		方法参数由编译器自动识别
  */
-public class MethodReference {
+public class MethodReferenceTest {
 	
 	/**
 	 * 情况一:	静态方法引用(类名 :: staticMethodName)

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.bluebridge</groupId>
-        <artifactId>java-standard-edition-03-jdk-current</artifactId>
+        <artifactId>java-standard-edition-03-jdk-concurrency</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-01-02-thread_stackframe</artifactId>
+    <artifactId>chapter-01-04-thread_designpattern</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
