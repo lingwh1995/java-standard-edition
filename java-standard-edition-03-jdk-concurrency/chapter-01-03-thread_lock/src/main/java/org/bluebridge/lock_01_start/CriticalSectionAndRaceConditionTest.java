@@ -1,4 +1,4 @@
-package org.bluebridge.lock;
+package org.bluebridge.lock_01_start;
 
 /**
  * 临界区（Critical Section）
@@ -11,7 +11,7 @@ package org.bluebridge.lock;
  * 不使用锁测试
  *  由于临界区的竞态条件而导致 counter 的值是无法预料的
  *
- * 为了避免临界区的竞态条件发生，可以使用下面方法来处理
+ * 为了避免临界区中发生竞态条件，可以使用下面方法来处理
  *      阻塞式的解决方案：synchronized，Lock
  *      非阻塞式的解决方案：原子变量
  */
@@ -20,6 +20,7 @@ package org.bluebridge.lock;
  * 临界区和竞态条件测试
  */
 public class CriticalSectionAndRaceConditionTest {
+
     static int counter = 0;
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
