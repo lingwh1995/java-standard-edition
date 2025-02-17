@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class TicketWindowTest {
     public static void main(String[] args) {
-        TicketWindow ticketWindow = new TicketWindow(2000);
+        TicketWindow ticketWindow = new TicketWindow(1000);
         List<Thread> list = new ArrayList<>();
         // 用来存储买出去多少张票
         List<Integer> sellCount = new Vector<>();
@@ -27,10 +27,8 @@ public class TicketWindowTest {
                 e.printStackTrace();
             }
         });
-        // 买出去的票求和
-        System.out.println("selled count:" + sellCount.stream().mapToInt(c -> c).sum());
-        // 剩余票数
-        System.out.println("remainder count:" + ticketWindow.getCount());
+        System.out.println("卖出的票数:" + sellCount.stream().mapToInt(c -> c).sum());
+        System.out.println("余票:" + ticketWindow.getCount());
     }
 
     // Random 为线程安全
