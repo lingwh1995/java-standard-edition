@@ -1,9 +1,8 @@
 package org.bluebridge.beginner;
 
-import org.junit.Test;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;

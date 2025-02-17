@@ -1,4 +1,4 @@
-package org.bluebridge.java10;
+package org.bluebridge.java11;
 
 import org.junit.Test;
 

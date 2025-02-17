@@ -3,30 +3,13 @@ package org.bluebridge.thread_03_state;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 获取线程状态
- *      创建了线程       NEW
- *      启动线程后       RUNNABLE
- *      线程阻塞时       TIMED_WAITING
- *                     BLOCKED
- *                     WAITING
- *                     TERMINATED
+ * 线程状态
+ *  五种状态    操作系统层面
+// *  六种状态    JavaAPI层面，Thread.State枚举中体现
  */
 public class ThreadStateTest {
 
     public static void main(String[] args) throws InterruptedException {
-        /*
-        Thread t = new Thread(() -> System.out.println("Thread " + Thread.currentThread().getName() + " is running..."),"t1");
-
-        System.out.println("当前线程 " + t.getName() + " 状态: " + t.getState());
-
-        t.start();
-
-        System.out.println("当前线程 " + t.getName() + " 状态: " + t.getState());
-
-        System.out.println("Thread " + Thread.currentThread().getName() + " thread is running...");
-        */
-
-
         //NEW
         Thread t1 = new Thread(() -> {
             System.out.println("Thread " + Thread.currentThread().getName() + " is running...");
