@@ -68,7 +68,7 @@ public class StringTest {
 	 * 	和split()的区别：当分隔符是.等特殊字符时，split()无法分割，使用StringTokenizer对象可以分割该对象
 	 */
 	@Test
-	public void testStringToken() {
+	public void testStringTokenizer() {
 		String nums = "1,2,3,4,5";
 		String separator = ",";
 		StringTokenizer numStringTokenizer = new StringTokenizer(nums,separator);

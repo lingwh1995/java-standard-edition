@@ -80,11 +80,20 @@ public class StreamOperateStreamTest {
      * 去重
      */
     @Test
-    public void testStreamDistinct() {
+    public void testStreamDistinct1() {
         //创建流
         Stream<Employee> stream = employees.stream();
         //去重
         stream.distinct().forEach(System.out::println);
+    }
+
+    /**
+     * 去重
+     */
+    @Test
+    public void testStreamDistinct2() {
+        List<Integer> list = Arrays.asList(1, 2, 2, 3, 3, 4, 5, 6);
+        list.stream().distinct().forEach(System.out::println);
     }
 
     /**
