@@ -6,7 +6,7 @@
     2.synchronized在JVM里的实现都是基于进入和退出Monitor象来实现方法同步和代码块同步。虽然具体实现细节不一样，但是都
       可以通过成对的MonitorEnter和MonitorExit指令来实现。
 # 3.同步方法和同步代码块通过monitor锁实现同步的原理及验证
-## 3.1.同步方法通过monitorEnter和monitorexit实现同步的原理
+## 3.1.同步代码块通过monitorEnter和monitorexit实现同步
     monitorEnter
       当monitor被占用时就会处于锁定状态，线程执行monitorenter指令时尝试获取monitor的所有权，过程如下：
         a. 如果monitor的进入数为0，则该线程进入monitor，然后将进入数设置为1，该线程即为monitor的所有者
@@ -17,7 +17,7 @@
       0，那线程退出monitor，不再是这个monitor的所有者。其他被这个monitor阻塞的线程可以尝试去获取这个 monitor 的所有权。
     如何验证
         javac .\MonitorSynchronizedMethodTest.java -> javap -v .\MonitorSynchronizedMethodTest.class -> 可以查看到编译结果中有monitorEnter和monitorexit
-## 3.2.同步代码块
+## 3.2.同步方法通过添加 ACC_SYNCHRONIZED 实现同步
     原理:
         当方法调用时，调用指令将会检查方法的 ACC_SYNCHRONIZED 访问标志是否被设置，如果设置了，执行线程将先获取monitor，
         获取成功之后才能执行方法体，方法执行完后再释放monitor。在方法执行期间，其他任何线程都无法再获得同一个monitor对象。
