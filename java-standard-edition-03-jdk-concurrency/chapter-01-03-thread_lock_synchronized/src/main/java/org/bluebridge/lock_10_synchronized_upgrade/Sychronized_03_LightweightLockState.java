@@ -1,0 +1,43 @@
+package org.bluebridge.lock_10_synchronized_upgrade;
+
+import org.openjdk.jol.info.ClassLayout;
+
+/**
+ * 轻量级锁状态   000
+ *      当两个或者以上线程交替获取锁，当没有在对象上并发的获取锁时，偏向锁升级为轻量级锁。在此阶段，线程采取CAS的自旋锁方式尝试获取锁，避免阻塞线程造成的CPU在用户态和内核态间转换的消耗。
+ *
+ * 锁升级过程：
+ *  Thread t1首先尝试获取lock对象上的锁，这时锁会进入偏向锁状态。
+ *  Thread t2随后尝试获取同一把锁，这时锁会从偏向锁状态升级为轻量级锁状态。
+ *  Thread t1中的Thread.sleep(5000)语句模拟了长时间运行的情况，这使得Thread t2在Thread t1释放锁之前就有机会尝试获取锁。
+ *  当Thread t2尝试获取锁时，由于Thread t1已经持有锁，因此Thread t2将进行自旋，等待锁的释放。
+ */
+public class Sychronized_03_LightweightLockState {
+
+    // 定义一个锁对象
+    private static final Object lock = new Object();
+
+    public static void main(String[] args) throws InterruptedException {
+        // 主线程尝试获取锁
+        synchronized (lock) {
+            System.out.println("线程main " + Thread.currentThread().getId() + " 已经获取了偏向锁......");
+        }
+
+        // 创建第二个线程
+        Thread t = new Thread(() -> {
+            // 第二个线程尝试获取锁
+            synchronized (lock) {
+                System.out.println("线程 " + Thread.currentThread().getId() + " 正在尝试获取轻量锁......");
+                System.out.println("---------------------------------------------------------------");
+                System.out.println(ClassLayout.parseInstance(lock).toPrintable());
+                System.out.println("---------------------------------------------------------------");
+            }
+        });
+
+        // 启动第二个线程
+        t.start();
+
+        System.out.println("所有线程已执行完毕......");
+    }
+
+}
