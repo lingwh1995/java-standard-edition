@@ -3,7 +3,7 @@ package org.bluebridge.lock_10_synchronized_upgrade;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
- * 轻量级锁状态   000
+ * 轻量级锁   000
  *      当两个或者以上线程交替获取锁，当没有在对象上并发的获取锁时，偏向锁升级为轻量级锁。在此阶段，线程采取CAS的自旋锁方式尝试获取锁，避免阻塞线程造成的CPU在用户态和内核态间转换的消耗。
  *
  * 锁升级过程：
@@ -12,7 +12,7 @@ import org.openjdk.jol.info.ClassLayout;
  *  Thread t1中的Thread.sleep(5000)语句模拟了长时间运行的情况，这使得Thread t2在Thread t1释放锁之前就有机会尝试获取锁。
  *  当Thread t2尝试获取锁时，由于Thread t1已经持有锁，因此Thread t2将进行自旋，等待锁的释放。
  */
-public class Sychronized_03_LightweightLockState {
+public class Sychronized_03_LightweightLock {
 
     // 定义一个锁对象
     private static final Object lock = new Object();

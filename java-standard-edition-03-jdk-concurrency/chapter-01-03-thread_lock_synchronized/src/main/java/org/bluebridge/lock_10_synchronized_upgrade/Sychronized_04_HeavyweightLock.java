@@ -6,7 +6,7 @@ import org.openjdk.jol.info.ClassLayout;
  * 重量级锁状态   010
  *      两个或者以上线程并发的在一个对象上进行同步时，为了避免无用自旋锁cpu，轻量级锁就会升级成重量级锁。
  */
-public class Sychronized_04_HeavyweightLockState {
+public class Sychronized_04_HeavyweightLock {
 
     // 定义一个锁对象
     private static final Object lock = new Object();

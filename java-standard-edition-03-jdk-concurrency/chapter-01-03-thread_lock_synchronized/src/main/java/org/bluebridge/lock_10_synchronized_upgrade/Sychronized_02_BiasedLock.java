@@ -3,10 +3,10 @@ package org.bluebridge.lock_10_synchronized_upgrade;
 import org.openjdk.jol.info.ClassLayout;
 
 /**
- * 偏向锁状态    101
+ * 偏向锁    101
  *      在锁对象的对象头中记录一下当前获取到该锁的线程ID，该线程下次如果又来获取该锁就可以直接获取到了，也就是支持锁重入。偏向锁作用，主要是解决可重入问题，当线程重复获取锁的时候，就判断该锁是否有线程ID
  */
-public class Sychronized_02_BiasedLockState {
+public class Sychronized_02_BiasedLock {
 
     public static void main(String[] args) throws InterruptedException {
         Thread.sleep(5000); //等待jvm开启偏向锁
