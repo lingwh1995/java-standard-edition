@@ -12,16 +12,21 @@
     <artifactId>chapter-01-03-thread_lock_synchronized</artifactId>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.openjdk.jol</groupId>-->
+<!--            <artifactId>jol-core</artifactId>-->
+<!--            <version>0.17</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-core</artifactId>
-            <version>0.17</version>
+            <artifactId>jol-core-0.9-summer-extend</artifactId>
+            <version>0.9</version>
         </dependency>
     </dependencies>
 </project>

@@ -4,7 +4,7 @@ package org.bluebridge.lock_02_synchronized;
  * 使用 synchronized 避免临界区中发生竞态条件
  */
 public class SynchronizedTest {
-    static final Object lock = new Object();
+    private static final Object lock = new Object();
 
     static int counter = 0;
     public static void main(String[] args) throws InterruptedException {

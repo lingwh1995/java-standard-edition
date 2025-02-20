@@ -107,7 +107,7 @@ public class StreamOperateStreamTest {
         //stream.map(e -> e.getName()).forEach(System.out::println);
         stream.map(Employee :: getName).filter(name -> name.length() > 2).forEach(System.out::println);
 
-        List<String> list = Arrays.asList("a", "b", "c");
+        List<String> list = Arrays.asList("apple", "banana", "cherry");
         //list.stream().map(s -> s.toUpperCase()).forEach(System.out::println);
         list.stream().map(String :: toUpperCase).forEach(System.out::println);
     }
@@ -189,16 +189,19 @@ public class StreamOperateStreamTest {
      */
     @Test
     public void testStreamGroupByFirstName() {
-        Person p1 = new Person("张","三", 10);
-        Person p2 = new Person("李","四", 10);
-        Person p3 = new Person("王","五", 20);
-        Person p4 = new Person("王","铭", 10);
+        Person p1 = new Person("张", "三", 10);
+        Person p2 = new Person("李", "四", 20);
+        Person p3 = new Person("王", "五", 30);
+        Person p4 = new Person("王", "铭", 40);
         List<Person> persons = Arrays.asList(p1, p2, p3, p4);
+
+        //根据firstName值进行分组，firstName值相同的Person对象放入到map的一个Entry中
         Map<String, List<Person>> groupingByResult1 = persons.stream().collect(Collectors.groupingBy(Person::getFirstName));
         groupingByResult1.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
         //select name,count(*) from user group by name;
         System.out.println("----------------------------------");
 
+        //根据firstName值进行分组，统计firstName值相同的Person对象的个数放入到一个Entry中
         Map<String, Long> groupingByResult2 = persons.stream().collect(Collectors.groupingBy(Person::getFirstName, Collectors.counting()));
         groupingByResult2.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
         System.out.println("----------------------------------");
@@ -206,6 +209,21 @@ public class StreamOperateStreamTest {
         //先分组再求平均值
         Map<String, Double> groupingByResult3 = persons.stream().collect(Collectors.groupingBy(Person::getFirstName, Collectors.averagingInt(Person::getAge)));
         groupingByResult3.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
+    }
+
+    /**
+     * 根据age进行分区
+     *      根据指定的布尔条件将流中的元素分区到一个Map中，键为true和false。
+     */
+    @Test
+    public void testStreamPartitioningByFirstName() {
+        Person p1 = new Person("张", "三", 10);
+        Person p2 = new Person("李", "四", 20);
+        Person p3 = new Person("王", "五", 30);
+        Person p4 = new Person("王", "铭", 40);
+        List<Person> persons = Arrays.asList(p1, p2, p3, p4);
+        Map<Boolean, List<Person>> partitionMap = persons.stream().collect(Collectors.partitioningBy(p -> p.getAge() > 20));
+        System.out.println(partitionMap);
     }
 
     /**
@@ -236,5 +254,20 @@ public class StreamOperateStreamTest {
 
         //并行
         source.parallelStream().filter(item -> item.length() == 5).findFirst().ifPresent(System.out::println);
+    }
+
+    /**
+     * 方法主要用于调试，它允许你在流的每个元素上执行某个操作（例如打印），而不会改变流中的元素。
+     */
+    @Test
+    public void testStreamPeek() {
+        List<String> list = Arrays.asList("apple", "banana", "cherry");
+        List<String> result = list.stream()
+                // 打印每个元素
+                .peek(s -> System.out.println("Processing: " + s))
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        // 输出: [APPLE, BANANA, CHERRY]
+        System.out.println(result);
     }
 }
