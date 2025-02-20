@@ -1,9 +1,14 @@
 package org.bluebridge.lock_08_synchronized_object_header;
 
+import org.junit.Test;
 import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.info.GraphLayout;
 import org.openjdk.jol.vm.VM;
 
 /**
+ * 参考博客     https://www.cnblogs.com/kuangdaoyizhimei/p/18422634
+ *
+ *
  * 64位虚拟机中Object Header中markword结构
  * |-----------------------------------------------------------------------------------------------------------------|
  * |                                             Object Header(128bits)                                              |
@@ -27,7 +32,11 @@ import org.openjdk.jol.vm.VM;
  */
 public class ObjectHeaderTest {
 
-    public static void main(String[] args) throws InterruptedException {
+    /**
+     * 测试打印当前jvm参数、普通对象头信息、数组对象头信息
+     */
+    @Test
+    public void testPrintObjectHeaderHelloWorld() {
         //对象
         Object obj = new Object();
         //数组
@@ -43,5 +52,36 @@ public class ObjectHeaderTest {
         // 打印数组对象头信息
         System.out.println(ClassLayout.parseInstance(array).toPrintable());
         System.out.println("---------------------------------------------------------------");
+    }
+
+
+    /**
+     * 查看计算hashcode前后 object header: mark 的值
+     */
+    @Test
+    public void testPrintObjectHeaderBeforeAndAfterCalcHashcode() {
+        //对象
+        Object obj = new Object();
+
+        // 计算hashcode前打印普通对象头信息
+        System.out.println(ClassLayout.parseInstance(obj).toPrintable());
+        System.out.println("---------------------------------------------------------------");
+
+        //计算hashcode
+        System.out.printf("十进制hashCode: %s，十六进制hashCode: %s%n", obj.hashCode(), Integer.toHexString(obj.hashCode()));
+        System.out.println("---------------------------------------------------------------");
+
+        // 计算hashcode后打印普通对象头信息
+        System.out.println(ClassLayout.parseInstance(obj).toPrintable());
+    }
+
+    /**
+     * 查看对象总大小
+     */
+    @Test
+    public void testPrintObjectTotalSize() {
+        //对象
+        Object object = new Object();
+        System.out.println("Object total size: " + GraphLayout.parseInstance(object).totalSize() + " bytes");
     }
 }

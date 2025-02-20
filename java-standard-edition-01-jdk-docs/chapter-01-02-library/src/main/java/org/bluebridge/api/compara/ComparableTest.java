@@ -31,10 +31,10 @@ public class ComparableTest {
         personList.add(new Person("c",10));
 
         //打印list的原始序列
-        System.out.printf("原始序列： %s" + personList);
+        System.out.printf("原始序列： %s\n",personList.toString());
 
         //使用内部比较器接口Comparable<String>进行排序
         Collections.sort(personList);
-        System.out.println("按名字进行排序(内部比较器接口Comparable)： %s" + personList);
+        System.out.printf("按名字进行排序(内部比较器接口Comparable)： %s\n",personList.toString());
     }
 }

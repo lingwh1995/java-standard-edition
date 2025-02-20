@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.9</junit.version>
         <hessian.version>4.0.38</hessian.version>
-        <lombok.version>1.18.4</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
     </properties>
 
     <modules>
@@ -52,7 +52,6 @@
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
-				<scope>provided</scope>
 			</dependency>
         </dependencies>
     </dependencyManagement>
