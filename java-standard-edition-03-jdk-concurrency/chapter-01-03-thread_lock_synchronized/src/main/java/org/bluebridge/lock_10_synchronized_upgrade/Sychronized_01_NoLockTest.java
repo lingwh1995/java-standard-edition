@@ -14,4 +14,5 @@ public class Sychronized_01_NoLockTest {
 
         System.out.println("无锁：" + ClassLayout.parseInstance(lock).toPrintableSimple());
     }
+
 }
