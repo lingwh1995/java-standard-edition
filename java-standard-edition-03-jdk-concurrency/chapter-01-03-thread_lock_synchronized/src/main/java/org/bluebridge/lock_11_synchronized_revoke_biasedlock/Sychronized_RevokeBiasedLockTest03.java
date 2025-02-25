@@ -11,6 +11,7 @@ import org.openjdk.jol.info.ClassLayout;
  *      调用 wait/notify 涉及到了monitor对象，锁会升级到重量锁
  */
 public class Sychronized_RevokeBiasedLockTest03 {
+
     public static void main(String[] args) throws InterruptedException {
         Object o = new Object();
         new Thread(() -> {

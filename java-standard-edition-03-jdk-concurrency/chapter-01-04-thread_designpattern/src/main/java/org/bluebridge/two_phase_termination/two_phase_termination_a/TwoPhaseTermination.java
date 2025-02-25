@@ -1,4 +1,4 @@
-package org.bluebridge.two_phase_termination.a;
+package org.bluebridge.two_phase_termination.two_phase_termination_a;
 
 /**
  * 两阶段终止模式说明
