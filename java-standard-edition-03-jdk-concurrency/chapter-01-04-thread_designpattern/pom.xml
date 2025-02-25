@@ -17,4 +17,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core-0.9-summer-extend</artifactId>
+            <version>0.9</version>
+        </dependency>
+    </dependencies>
 </project>

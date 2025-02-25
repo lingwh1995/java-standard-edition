@@ -62,7 +62,9 @@ public class ThreadInterruptTest2 {
         Thread t = new Thread(() -> {
             try {
                 TimeUnit.MILLISECONDS.sleep(2000);
+                System.out.println("sleep执行完成(打印此代码说明没有执行打断操作).....");
             } catch (InterruptedException e) {
+                //收到打断信号后，使用 抛出异常方式 直接中断当前线程运行
                 throw new RuntimeException(e);
             }
         });
@@ -83,10 +85,14 @@ public class ThreadInterruptTest2 {
     private static Object lock = new Object();
     public static void testInterruptWaitThread() throws InterruptedException {
         Thread t = new Thread(() -> {
-            try {
-                lock.wait(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            synchronized (lock) {
+                try {
+                    lock.wait(2000);
+                    System.out.println("wait执行完成(打印此代码说明没有执行打断操作).....");
+                } catch (InterruptedException e) {
+                    //收到打断信号后，使用 抛出异常方式 直接中断当前线程运行
+                    throw new RuntimeException(e);
+                }
             }
         }, "t1");
         t.start();

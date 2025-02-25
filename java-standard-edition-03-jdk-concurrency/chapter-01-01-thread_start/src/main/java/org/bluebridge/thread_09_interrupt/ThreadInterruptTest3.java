@@ -46,7 +46,6 @@ public class ThreadInterruptTest3 {
      * @throws InterruptedException
      */
     private static Object lock = new Object();
-
     private static void testInterruptWaitThread() throws InterruptedException {
         Thread t = new Thread(() -> {
             while (true) {

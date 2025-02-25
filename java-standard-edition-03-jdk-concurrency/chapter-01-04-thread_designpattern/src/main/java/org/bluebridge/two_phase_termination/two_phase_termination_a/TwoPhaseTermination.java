@@ -1,5 +1,7 @@
 package org.bluebridge.two_phase_termination.two_phase_termination_a;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 两阶段终止模式说明
  *     在一个线程t1中优雅地终止另一个线程t2，终止线程t2前，让线程t2有一个料理后事的机会
@@ -23,7 +25,7 @@ public class TwoPhaseTermination {
 
                try {
                    Thread.sleep(1000);
-                   System.out.println("执行监控...");
+                   System.out.println("执行监控......");
                } catch (InterruptedException e) {
                    //e.printStackTrace();
                    System.out.println("打断标记： " + current.isInterrupted());
@@ -49,6 +51,6 @@ public class TwoPhaseTermination {
      *    尤其是释放锁资源，这样可以防止因为暴力终止线程而导致的死锁情况的发生
      */
     public void releaseResource() {
-        System.out.println("释放资源...");
+        System.out.println("释放资源......");
     }
 }

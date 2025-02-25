@@ -32,10 +32,10 @@ public class ThreadInterruptTest1 {
         t.start();
         t.interrupt();
 
-        System.out.println("第一次调用thread.isInterrupted()：" + t.isInterrupted());
-        System.out.println("第二次调用thread.isInterrupted()：" + t.isInterrupted());
-        System.out.println("调用interrupted()方法，值为：" + Thread.interrupted());
-        System.out.println("调用interrupted()方法，值为：" +Thread.interrupted());
+        System.out.println("第一次调用 t.isInterrupted()：" + t.isInterrupted());
+        System.out.println("第二次调用 t.isInterrupted()：" + t.isInterrupted());
+        System.out.println("调用Thread.interrupted()方法，值为：" + Thread.interrupted());
+        System.out.println("调用Thread.interrupted()方法，值为：" + Thread.interrupted());
         System.out.println("Thread " + t.getName() + " 存活状态： "+ t.isAlive());
     }
 
@@ -46,8 +46,8 @@ public class ThreadInterruptTest1 {
         Thread.currentThread().interrupt();
         System.out.println("第一次调用isInterrupted()方法，值为：" + Thread.currentThread().isInterrupted());
         System.out.println("调用interrupted()方法，值为：" + Thread.currentThread().interrupted());
-        System.out.println("调用interrupted()方法，值为：" +Thread.currentThread().interrupted());
-        System.out.println("Thread " + Thread.currentThread().getName() + " 存活状态： "+ Thread.currentThread().isAlive());
+        System.out.println("调用interrupted()方法，值为：" + Thread.currentThread().interrupted());
+        System.out.println("Thread " + Thread.currentThread().getName() + " 存活状态： " + Thread.currentThread().isAlive());
     }
 
     /**
@@ -57,14 +57,16 @@ public class ThreadInterruptTest1 {
         Thread t = new Thread(() -> {
             while (true) {
                 Thread currentThread = Thread.currentThread();
-                System.out.println(currentThread.getName() + " is running...");
+                System.out.println("Thread " + currentThread.getName() + " is running......");
+                System.out.println("currentThread.isInterrupted()： " + currentThread.isInterrupted());
                 if (currentThread.isInterrupted()) {//检查中断状态
                     System.out.println("第一个interrupted()： " + currentThread.interrupted());
                     System.out.println("第二个interrupted()： " + currentThread.interrupted());
                     break;
                 }
             }
-            System.out.println("检测到线程中断，线程执行结束");
+            //只有上面的while循环退出了，代码才可以执行到这里 -> 只有中断状态为true，才可以退出while循环
+            System.out.println("检测到线程中断，线程执行结束......");
         },"t1");
         t.start();
         t.interrupt();

@@ -32,13 +32,13 @@ public class TwoPhaseTermination {
             try {
                 while (!terminated) {
                     // 模拟工作
-                    System.out.println("Working...");
+                    System.out.println("Working......");
                     Thread.sleep(500);
                 }
             } catch (InterruptedException e) {
                 //e.printStackTrace();
                 // 捕获中断异常，处理中断
-                System.out.println("Thread was interrupted...");
+                System.out.println("Thread was interrupted......");
             } finally {
                 // 第二阶段：执行清理工作
                 cleanup();
@@ -58,7 +58,7 @@ public class TwoPhaseTermination {
          * 清理工作
          */
         private void cleanup() {
-            System.out.println("Cleaning up resources start...");
+            System.out.println("Cleaning up resources start......");
 
             //模拟清理工作花费了 3s
             try {
@@ -67,7 +67,7 @@ public class TwoPhaseTermination {
                 throw new RuntimeException(e);
             }
 
-            System.out.println("Cleaning up resources end...");
+            System.out.println("Cleaning up resources end......");
         }
     }
 }
