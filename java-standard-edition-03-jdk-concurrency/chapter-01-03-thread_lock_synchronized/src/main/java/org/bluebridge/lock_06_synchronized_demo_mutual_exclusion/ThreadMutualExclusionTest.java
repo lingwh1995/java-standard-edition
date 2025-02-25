@@ -16,7 +16,10 @@ public class ThreadMutualExclusionTest {
                 System.out.println("Thread " + Thread.currentThread().getName() + " has get lock......");
                 //模拟获取锁之后阻塞5秒......
                 try {
+                    //sleep()会占有锁对象
                     TimeUnit.MILLISECONDS.sleep(5000);
+                    //wait()会释放锁对象
+                    //lock.wait(5000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -28,6 +31,6 @@ public class ThreadMutualExclusionTest {
             synchronized (lock) {
                 System.out.println("Thread " + Thread.currentThread().getName() + " has get lock......");
             }
-        },"t1").start();
+        },"t2").start();
     }
 }
