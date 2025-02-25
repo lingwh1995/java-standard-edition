@@ -1,4 +1,4 @@
-package org.bluebridge.lock_12_synchronized_wait_notify;
+package org.bluebridge.lock_14_synchronized_wait_notify;
 
 import java.util.concurrent.TimeUnit;
 

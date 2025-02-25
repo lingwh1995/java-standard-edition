@@ -1,4 +1,4 @@
-package org.bluebridge.lock_13_synchronized_wait_notify_demo;
+package org.bluebridge.lock_15_synchronized_wait_notify_demo;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
  * notify 只能随机唤醒一个 WaitSet 中的线程，这时如果有其它线程也在等待，那么就可能唤醒不了正确的线 程，称之为【虚假唤醒】
  * 解决方法，改为 notifyAll
  */
-public class SynchronizedWaitNotifyTest4 {
+public class SynchronizedWaitNotifyTest5 {
     static final Object room = new Object();
     static boolean hasCigarette = false;
     static boolean hasTakeout = false;
@@ -15,7 +15,7 @@ public class SynchronizedWaitNotifyTest4 {
         new Thread(() -> {
             synchronized (room) {
                 System.out.println("有烟没......" + hasCigarette);
-                if (!hasCigarette) {
+                while (!hasCigarette) {
                     System.out.println("没烟，先歇会......");
                     try {
                         room.wait();

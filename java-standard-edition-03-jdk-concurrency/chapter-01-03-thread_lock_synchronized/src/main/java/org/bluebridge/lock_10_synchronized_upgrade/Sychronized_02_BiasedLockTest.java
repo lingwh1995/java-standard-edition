@@ -28,4 +28,5 @@ public class Sychronized_02_BiasedLockTest {
         // 当前线程释放锁后，对象保持偏向锁状态，直到有其他线程尝试获取锁
         System.out.println("解锁：" + ClassLayout.parseInstance(lock).toPrintableSimple());
     }
+
 }
