@@ -1,4 +1,4 @@
-package org.bluebridge.lock_10_synchronized_upgrade;
+package org.bluebridge.lock_11_synchronized_revoke_biasedlock;
 
 import org.openjdk.jol.info.ClassLayout;
 
@@ -7,13 +7,18 @@ import org.openjdk.jol.info.ClassLayout;
  *      1.JDK版本设置为1.8
  *      2.VM配置参数设置为 -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0
  *
- *  撤销偏向锁方式二：其他线程使用对象，下面代码实际上是偏向锁升级到轻量级锁，也属于撤消偏向锁的一种情况
+ *  撤销偏向锁方式一：调用对象的hashcode()
+ *      偏向锁的对象MarkWord中存储的是线程id，如果调用hashcode会导致偏向锁被撤销
+ *      轻量锁会在锁记录中记录hashcode
+ *      重量锁会在Monitor中记录hashcode
  */
-public class Sychronized_02_RevocationBiasedLockTest02 {
+public class Sychronized_RevokeBiasedLockTest01 {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         // 创建新对象，初始为无锁状态
         Object lock = new Object();
+        //调用对象hashcode()后会禁用对象偏向锁，也称撤销对象的可偏向状态
+        System.out.println("hashCode: "+ Integer.toBinaryString(lock.hashCode()));
         System.out.println("初始：" + ClassLayout.parseInstance(lock).toPrintableSimple());
 
         // 第一个线程获取锁，将进入偏向锁状态
@@ -22,16 +27,6 @@ public class Sychronized_02_RevocationBiasedLockTest02 {
             System.out.println("Thread " + Thread.currentThread().getName() + " 已经获取到了偏向锁......");
             System.out.println("偏向锁：" + ClassLayout.parseInstance(lock).toPrintableSimple());
         }
-
-        Thread t = new Thread(() -> {
-            // 第二个线程获取锁，将进入 偏向锁升级 -> 轻量锁 状态
-            synchronized (lock) {
-                System.out.println("Thread " + Thread.currentThread().getName() + " 偏向锁已经升级到了轻量锁......");
-                System.out.println("轻量锁：" + ClassLayout.parseInstance(lock).toPrintableSimple());
-            }
-        });
-        t.start();
-        t.join();
 
         // 当前线程释放锁后，对象保持偏向锁状态，直到有其他线程尝试获取锁
         System.out.println("解锁：" + ClassLayout.parseInstance(lock).toPrintableSimple());

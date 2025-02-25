@@ -1,12 +1,14 @@
-package org.bluebridge.lock_12_synchronized_wait_notify_demo;
+package org.bluebridge.lock_13_synchronized_wait_notify_demo;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * 解决了其它干活的线程阻塞的问题
- *      但如果有其它线程也在等待条件呢？
+ * 其它干活的线程，都要一直阻塞，效率太低
+ *      小南线程必须睡足 2s 后才能醒来，就算烟提前送到，也无法立刻醒来
+ *      加了 synchronized (room) 后，就好比小南在里面反锁了门睡觉，烟根本没法送进门，main 没加 synchronized 就好像 main 线程是翻窗户进来的
+ *      解决方法，使用 wait - notify 机制
  */
-public class SynchronizedWaitNotifyTest2 {
+public class SynchronizedWaitNotifyTest1 {
     static final Object room = new Object();
     static boolean hasCigarette = false;
     static boolean hasTakeout = false;
@@ -18,9 +20,9 @@ public class SynchronizedWaitNotifyTest2 {
                 if (!hasCigarette) {
                     System.out.println("没烟，先歇会......");
                     try {
-                        room.wait(2000);
+                        TimeUnit.MILLISECONDS.sleep(2000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        throw new RuntimeException(e);
                     }
                 }
                 System.out.println("有烟没......" + hasCigarette);
@@ -41,11 +43,9 @@ public class SynchronizedWaitNotifyTest2 {
         TimeUnit.MILLISECONDS.sleep(1000);
 
         new Thread(() -> {
-            synchronized (room) {
-                hasCigarette = true;
-                System.out.println("烟到了噢......");
-                room.notify();
-            }
+            // 这里能不能加 synchronized (room)？
+            hasCigarette = true;
+            System.out.println("烟到了噢......");
         }, "送烟的").start();
     }
 }
