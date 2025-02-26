@@ -19,21 +19,21 @@
     </properties>
 
     <modules>
-        <module>chapter-01-01-basic</module>
-        <module>chapter-01-02-library</module>
-        <module>chapter-01-03-enumeration</module>
-        <module>chapter-01-04-annotation</module>
-        <module>chapter-01-05-reflect</module>
-        <module>chapter-01-06-io</module>
-        <module>chapter-01-07-collection</module>
-        <module>chapter-01-08-jdbc</module>
-        <module>chapter-01-09-thread</module>
-        <module>chapter-01-10-generics</module>
-        <module>chapter-01-11-serialize</module>
-        <module>chapter-01-12-clone</module>
-        <module>chapter-01-13-memory</module>
-        <module>chapter-01-14-rmi</module>
-        <module>chapter-01-15-innerclass</module>
+        <module>chapter-01-basic</module>
+        <module>chapter-02-library</module>
+        <module>chapter-03-enumeration</module>
+        <module>chapter-04-annotation</module>
+        <module>chapter-05-reflect</module>
+        <module>chapter-06-io</module>
+        <module>chapter-07-collection</module>
+        <module>chapter-08-jdbc</module>
+        <module>chapter-09-thread</module>
+        <module>chapter-10-generics</module>
+        <module>chapter-11-serialize</module>
+        <module>chapter-12-clone</module>
+        <module>chapter-13-memory</module>
+        <module>chapter-14-rmi</module>
+        <module>chapter-15-innerclass</module>
     </modules>
 
     <dependencies>

@@ -12,8 +12,8 @@
     <artifactId>java-standard-edition-05-jdk-libs</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>chapter-01-01-dom4j</module>
-        <module>chapter-01-02-apache</module>
+        <module>chapter-01-dom4j</module>
+        <module>chapter-02-apache</module>
     </modules>
 
     <properties>

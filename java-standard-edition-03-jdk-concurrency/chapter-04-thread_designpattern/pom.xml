@@ -5,18 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.bluebridge</groupId>
-        <artifactId>java-standard-edition</artifactId>
+        <artifactId>java-standard-edition-03-jdk-concurrency</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-standard-edition-11-gui-javafx</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>chapter-04-thread_designpattern</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <modules>
-    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core-0.9-summer-extend</artifactId>
+            <version>0.9</version>
+        </dependency>
+    </dependencies>
 </project>

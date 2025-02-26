@@ -19,6 +19,6 @@
     </properties>
 
     <modules>
-        <module>chapter-01-01-headfirst</module>
+        <module>chapter-01-headfirst</module>
     </modules>
 </project>

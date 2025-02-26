@@ -5,18 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.bluebridge</groupId>
-        <artifactId>java-standard-edition</artifactId>
+        <artifactId>java-standard-edition-05-jdk-libs</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-standard-edition-04-jdk-source</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>chapter-01-data-structure</module>
-        <module>chapter-02-design-pattern</module>
-        <module>chapter-03-spring-source</module>
-    </modules>
+    <artifactId>chapter-01-dom4j</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -24,4 +17,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.9</version>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+    </dependencies>
 </project>

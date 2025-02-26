@@ -5,18 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.bluebridge</groupId>
-        <artifactId>java-standard-edition</artifactId>
+        <artifactId>java-standard-edition-03-jdk-concurrency</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-standard-edition-04-jdk-source</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>chapter-01-data-structure</module>
-        <module>chapter-02-design-pattern</module>
-        <module>chapter-03-spring-source</module>
-    </modules>
+    <artifactId>chapter-03-thread_lock_synchronized</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -24,4 +17,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.openjdk.jol</groupId>-->
+<!--            <artifactId>jol-core</artifactId>-->
+<!--            <version>0.10</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core-0.9-summer-extend</artifactId>
+            <version>0.9</version>
+        </dependency>
+    </dependencies>
 </project>
