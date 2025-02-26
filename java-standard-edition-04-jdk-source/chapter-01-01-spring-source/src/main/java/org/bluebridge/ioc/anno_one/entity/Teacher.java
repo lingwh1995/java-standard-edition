@@ -1,6 +1,7 @@
-package org.bluebridge.ioc.xml_two.entiry;
+package org.bluebridge.ioc.anno_one.entity;
 
 /**
+ * @ClassName: Teacher
  * @author ronin
  * @date 2019年3月15日
  * 

@@ -1,4 +1,4 @@
-package org.bluebridge.ioc.xml_two.entiry;
+package org.bluebridge.ioc.xml_two.entity;
 
 /**
  * @author ronin

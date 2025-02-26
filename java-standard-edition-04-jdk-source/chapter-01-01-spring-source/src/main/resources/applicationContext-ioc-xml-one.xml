@@ -1,0 +1,6 @@
+<beans>
+    <bean id="user" class="org.bluebridge.ioc.xml_one.User">
+        <property name="name" value="张三"/>
+        <property name="age" value="18"/>
+    </bean>
+</beans>

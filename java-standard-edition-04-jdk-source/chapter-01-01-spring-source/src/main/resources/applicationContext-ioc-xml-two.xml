@@ -1,0 +1,15 @@
+<beans>
+    <bean id="student" class="org.bluebridge.ioc.xml_two.entity.Student">
+        <property name="name" value="张三"/>
+        <property name="age" value="18"/>
+    </bean>
+
+    <bean id="teacher" class="org.bluebridge.ioc.xml_two.entity.Teacher">
+        <property name="student" ref="student"/>
+    </bean>
+
+    <bean id="person" class="org.bluebridge.ioc.xml_two.entity.Person">
+        <property name="student" ref="student"/>
+        <property name="teacher" ref="teacher"/>
+    </bean>
+</beans>

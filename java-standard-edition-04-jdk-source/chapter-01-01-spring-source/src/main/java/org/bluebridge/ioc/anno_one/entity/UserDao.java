@@ -1,4 +1,4 @@
-package org.bluebridge.ioc.anno_one.entiry;
+package org.bluebridge.ioc.anno_one.entity;
 
 
 import org.bluebridge.ioc.anno_one.anno.Repository;

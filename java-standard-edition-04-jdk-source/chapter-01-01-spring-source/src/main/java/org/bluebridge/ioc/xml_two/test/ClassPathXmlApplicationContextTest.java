@@ -1,6 +1,6 @@
 package org.bluebridge.ioc.xml_two.test;
 
-import org.bluebridge.ioc.xml_two.entiry.Student;
+import org.bluebridge.ioc.xml_two.entity.Student;
 import org.bluebridge.ioc.xml_two.factory.BeanFactory;
 import org.bluebridge.ioc.xml_two.factory.ClassPathXmlApplicationContext;
 
