@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
+import org.bluebridge.reflect.domain.Person;
 import org.junit.Test;
 
 /**
@@ -28,11 +29,11 @@ public class PersonReflectTest {
         Class<? extends Object> clazz2 = person.getClass();
         System.out.println(clazz2);
         //方式3:Class的静态方法获取:体现反射的动态性
-        Class<? extends Object> clazz3 = Class.forName("org.bluebridge.reflect.base.Person");
+        Class<? extends Object> clazz3 = Class.forName("org.bluebridge.reflect.domain.Person");
         System.out.println(clazz3);
         //方式4:通过类加载器获取
         ClassLoader classLoader = this.getClass().getClassLoader();
-        Class<? extends Object> clazz4 = classLoader.loadClass("org.bluebridge.reflect.base.Person");
+        Class<? extends Object> clazz4 = classLoader.loadClass("org.bluebridge.reflect.domain.Person");
         System.out.println(clazz4);
     }
 
@@ -43,7 +44,7 @@ public class PersonReflectTest {
     @Test
     public void testReflectCreateInstanceByNoArgsConstructor () throws Exception{
         //1.获取class对象
-        Class<? extends Object> clazz = getClass().forName("org.bluebridge.reflect.base.Person");
+        Class<? extends Object> clazz = getClass().forName("org.bluebridge.reflect.domain.Person");
         System.out.println("包名+类名:" + clazz.getName());
         System.out.println("类名:" + clazz.getSimpleName());
         //2.得到Person实例，反射操作无参构造方法
@@ -63,7 +64,7 @@ public class PersonReflectTest {
     @Test
     public void testReflectCreateInstanceByRequiredArgsConstructor() throws Exception{
         //1.获取class对象
-        Class<? extends Object> clazz = Class.forName("org.bluebridge.reflect.base.Person");
+        Class<? extends Object> clazz = Class.forName("org.bluebridge.reflect.domain.Person");
         //2.使用class获取有参构造方法的构造器，注意：传入的参数类型为Class类型的
             //获取有参构造器方式1:直接传入两个参数的数据类型的class
         Person person1 = (Person)clazz.getDeclaredConstructor(String.class,String.class).newInstance("张三","18");
@@ -80,7 +81,7 @@ public class PersonReflectTest {
     @Test
     public void testReflectGetFieldInfoAndSetFieldInfo() throws Exception{
         //1.获取class对象
-        Class clazz = Class.forName("org.bluebridge.reflect.base.Person");
+        Class clazz = Class.forName("org.bluebridge.reflect.domain.Person");
         //2.得到Person对象
         Person person = (Person)clazz.newInstance();
         //3.得到name属性
@@ -110,7 +111,7 @@ public class PersonReflectTest {
     @Test
     public void testReflectInvokePublicMethod() throws Exception{
         //1.获取class对象
-        Class clazz = Class.forName("org.bluebridge.reflect.base.Person");
+        Class clazz = Class.forName("org.bluebridge.reflect.domain.Person");
         //2.得到Person对象
         Person person = (Person)clazz.newInstance();
         //3.操作普通方法
@@ -128,7 +129,7 @@ public class PersonReflectTest {
     @Test
     public void testReflectInvokePrivateMethod() throws Exception{
         //1.获取class对象
-        Class clazz = getClass().forName("org.bluebridge.reflect.base.Person");
+        Class clazz = getClass().forName("org.bluebridge.reflect.domain.Person");
         //2.获取Person实例
         Person person = (Person)clazz.newInstance();
         //3.使用反射操作私有方法
@@ -147,7 +148,7 @@ public class PersonReflectTest {
     @Test
     public void testReflectInvokeStaticMethod() throws Exception{
         //1.获取class对象
-        Class clazz = getClass().forName("org.bluebridge.reflect.base.Person");
+        Class clazz = getClass().forName("org.bluebridge.reflect.domain.Person");
         //2.获取方法操作器
         Method declaredMethod = clazz.getDeclaredMethod("sleep", String.class);
         //3.设置可以操作私有方法
@@ -164,7 +165,7 @@ public class PersonReflectTest {
     @Test
     public void testReflectGetPrivateMethod() throws Exception{
         //1.获取class对象
-        Class clazz = getClass().forName("org.bluebridge.reflect.base.Person");
+        Class clazz = getClass().forName("org.bluebridge.reflect.domain.Person");
         //2.获取属性
         Field nameFiled = clazz.getDeclaredField("name");
         //3.获取属性的修饰符

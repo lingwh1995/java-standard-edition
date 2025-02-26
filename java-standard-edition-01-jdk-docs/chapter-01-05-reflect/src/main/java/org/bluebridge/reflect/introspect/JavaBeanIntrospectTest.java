@@ -1,5 +1,6 @@
-package org.bluebridge.reflect.base;
+package org.bluebridge.reflect.introspect;
 
+import org.bluebridge.reflect.domain.Person;
 import org.junit.Test;
 
 import java.beans.BeanInfo;
@@ -27,7 +28,7 @@ public class JavaBeanIntrospectTest {
 	@Test
 	public void testJavaBeanIntrospect() throws IntrospectionException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
 		// 通过Introspector.getBeanInfo方法获取指定JavaBean类的BeanInfo信息
-        BeanInfo beanInfo = Introspector.getBeanInfo(Person.class);
+        BeanInfo beanInfo = Introspector.getBeanInfo(org.bluebridge.reflect.domain.Person.class);
         // 通过Introspector.getBeanInfo方法的重载方法获取指定JavaBean类的BeanInfo信息，并剔除Object类的方法
         //BeanInfo beanInfo = Introspector.getBeanInfo(Person.class,Object.class);
         /*
@@ -45,18 +46,17 @@ public class JavaBeanIntrospectTest {
              *  	如果落单的话，也算一个，因此，我们会看到，额外输出的属性名单中有我们的v，因为该JavaBean中有String getV()方法
              */
             String propName = pd.getName();
-            //System.out.println(propName);
+            System.out.println("propName = " + propName);
             // 获取属性的类型
             Class propType = pd.getPropertyType();
-            //System.out.println(propType);
+            System.out.println("propType = " + propType);
             // 获取属性对应的get方法
             Method writeMethod = pd.getWriteMethod();
-            //System.out.println(writeMethod);
+            System.out.println("writeMethod = " + writeMethod);
             // 获取属性对应的set方法
             Method readMethod = pd.getReadMethod();
-            Person person = new Person();
-            writeMethod.invoke(person,"10");
-            System.out.println(person);
+            System.out.println("readMethod = " + readMethod);
         }
 	}
+
 }

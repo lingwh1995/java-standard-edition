@@ -10,9 +10,9 @@ import java.lang.reflect.Modifier;
  * @version V1.0
  * @since 2019/10/16 11:41
  */
-public class ReflectParseClass {
+public class ReflectParseClassTest {
     public static void main(String[] args) throws ClassNotFoundException {
-        Class<?> clazz = Class.forName("org.bluebridge.reflect.base.Person");
+        Class<?> clazz = Class.forName("org.bluebridge.reflect.domain.Person");
         //类
         System.out.println("类名简称:"+clazz.getSimpleName());
         System.out.println("类上的注解:");

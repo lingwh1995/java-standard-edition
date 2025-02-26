@@ -1,5 +1,6 @@
 package org.bluebridge.reflect.base;
 
+import org.bluebridge.reflect.domain.Person;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;

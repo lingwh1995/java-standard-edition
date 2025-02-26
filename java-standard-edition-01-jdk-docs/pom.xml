@@ -23,7 +23,7 @@
         <module>chapter-01-02-library</module>
         <module>chapter-01-03-enumeration</module>
         <module>chapter-01-04-annotation</module>
-        <module>chapter-01-05-reflection</module>
+        <module>chapter-01-05-reflect</module>
         <module>chapter-01-06-io</module>
         <module>chapter-01-07-collection</module>
         <module>chapter-01-08-jdbc</module>
