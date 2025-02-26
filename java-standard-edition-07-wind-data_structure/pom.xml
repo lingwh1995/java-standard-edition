@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>datastructure</artifactId>
+    <artifactId>java-standard-edition-07-wind-data_structure</artifactId>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

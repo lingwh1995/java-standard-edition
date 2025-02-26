@@ -20,16 +20,16 @@
     </properties>
 
     <modules>
-        <module>algorithm</module>
-        <module>datastructure</module>
-        <module>designpattern</module>
+        <module>java-standard-edition-08-wind-algorithm</module>
+        <module>java-standard-edition-07-wind-data_structure</module>
+        <module>java-standard-edition-09-wind-design_patterns</module>
         <module>java-standard-edition-01-jdk-docs</module>
         <module>java-standard-edition-02-jdk-features</module>
         <module>java-standard-edition-03-jdk-concurrency</module>
         <module>java-standard-edition-04-jdk-source</module>
         <module>java-standard-edition-06-jdk-github</module>
-        <module>java-standard-edition-07-gui-swing</module>
-        <module>java-standard-edition-08-gui-javafx</module>
+        <module>java-standard-edition-10-gui-swing</module>
+        <module>java-standard-edition-11-gui-javafx</module>
         <module>java-standard-edition-05-jdk-libs</module>
     </modules>
 

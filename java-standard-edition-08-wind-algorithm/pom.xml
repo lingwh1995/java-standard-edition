@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>algorithm</artifactId>
+    <artifactId>java-standard-edition-08-wind-algorithm</artifactId>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
