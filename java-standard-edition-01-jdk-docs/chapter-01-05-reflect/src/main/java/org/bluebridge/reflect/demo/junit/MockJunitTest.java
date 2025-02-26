@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-public class MockJunitTesterTest {
+public class MockJunitTest {
 
     /**
      * 反射模拟junit:
@@ -23,8 +23,8 @@ public class MockJunitTesterTest {
 
     public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException {
         //1.获取测试类的Class文件
-        Class clazz = Class.forName("org.bluebridge.reflect.demo.junit.MockJunitTester");
-        MockJunitTester mockJunitTester = (MockJunitTester)clazz.newInstance();
+        Class clazz = Class.forName("org.bluebridge.reflect.demo.junit.MockJunit");
+        MockJunit mockJunitTester = (MockJunit)clazz.newInstance();
         //2.反射获取测试类中所有public方法
         Method[] methods = clazz.getMethods();
         //3.创建集合

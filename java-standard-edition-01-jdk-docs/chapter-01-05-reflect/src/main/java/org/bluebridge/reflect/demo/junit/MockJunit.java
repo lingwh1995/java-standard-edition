@@ -1,6 +1,6 @@
 package org.bluebridge.reflect.demo.junit;
 
-public class MockJunitTester {
+public class MockJunit {
     @Before
     public void before(){
         System.out.println("before方法执行了...");
