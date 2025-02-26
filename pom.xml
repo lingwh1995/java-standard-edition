@@ -16,14 +16,13 @@
         <junit.version>4.9</junit.version>
         <hessian.version>4.0.38</hessian.version>
         <lombok.version>1.18.30</lombok.version>
+        <commons-io.version>2.2</commons-io.version>
     </properties>
 
     <modules>
         <module>algorithm</module>
         <module>datastructure</module>
         <module>designpattern</module>
-        <module>oracle</module>
-        <module>spring</module>
         <module>java-standard-edition-01-jdk-docs</module>
         <module>java-standard-edition-02-jdk-features</module>
         <module>java-standard-edition-03-jdk-concurrency</module>
@@ -53,6 +52,11 @@
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

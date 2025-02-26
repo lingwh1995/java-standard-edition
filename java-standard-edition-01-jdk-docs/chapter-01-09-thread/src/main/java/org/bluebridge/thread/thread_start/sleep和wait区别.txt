@@ -1,6 +1,0 @@
-1.sleep()是线程的方法,wait()是Object的方法
-2.sleep()不需要monitor(锁),wait()需要monitor(锁)
-3.sleep()不会释放锁,wait()会释放锁并且会把锁加入到监控队列中，等待被唤醒，如果没有没有被唤醒，就放弃
-    了CPU执行权,进入了block()状态
-4.sleep()不需要定义sychronized(),而wait()需要
-5.wait()会放弃CPU执行权

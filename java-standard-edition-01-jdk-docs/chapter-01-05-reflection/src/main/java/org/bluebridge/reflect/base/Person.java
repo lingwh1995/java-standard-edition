@@ -1,47 +1,61 @@
 package org.bluebridge.reflect.base;
 
+
+/**  
+ * 反射操作的类
+ * @author ronin  
+ * @date 2019年3月10日  
+ *    
+ */
 public class Person {
-    String id;
-    private String name;
+	private String name;
+	private String age;
+	
+	public Person() {
+		super();
+		System.out.println("我是无参构造方法...");
+	}
+	
+	public Person(String name, String age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
 
-    public Person() {
-    }
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
 
-    public Person(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    private void drink(String beverage) {
-        System.out.println("喝" + beverage);
-    }
-
-    private static String sleep(String bed) {
-        System.out.println("在" + bed + "睡觉...");
-        return bed;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
+	/**
+	 * 测试没有对应的属性时，内省嫩不能拿到这个 方法只要有返回值，就可以拿到这个方法
+	 * @param
+	 * @return String
+	 * @throws
+	 */
+	public String getV(){
+		return "100";
+	}
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + "]";
+	}
+	
+	private String testReflectOperatePrivateMethod(String param){
+		System.out.println("传入的参数:"+param);
+		return param;
+	}
+	
+	private static String testReflectOperateStaticMentod(String param){
+		System.out.println("传入的参数:"+param);
+		return param;
+	}
 }

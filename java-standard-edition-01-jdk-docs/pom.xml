@@ -33,6 +33,7 @@
         <module>chapter-01-12-clone</module>
         <module>chapter-01-13-memory</module>
         <module>chapter-01-14-rmi</module>
+        <module>chapter-01-15-innerclass</module>
     </modules>
 
     <dependencies>
@@ -43,6 +44,10 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
         </dependency>
     </dependencies>
 </project>
