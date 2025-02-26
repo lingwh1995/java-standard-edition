@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
+ * 反射解析类
  * @author ronin
  * @version V1.0
  * @since 2019/10/16 11:41
@@ -18,7 +19,7 @@ public class ReflectParseClassTest {
         System.out.println("类上的注解:");
         Annotation[] classAnnotations = clazz.getAnnotations();
         for (Annotation classAnnotation : classAnnotations) {
-            String aannotationInfo = filter(classAnnotation);
+            String aannotationInfo = filterAnnotation(classAnnotation);
             System.out.println(aannotationInfo);
         }
         System.out.println("-----------------------------------------");
@@ -28,7 +29,7 @@ public class ReflectParseClassTest {
         for (Field field : fields) {
             Annotation[] fieldAnnotations = field.getDeclaredAnnotations();
             for (Annotation fieldAnnotation : fieldAnnotations) {
-                String aannotationInfo = filter(fieldAnnotation);
+                String aannotationInfo = filterAnnotation(fieldAnnotation);
                 System.out.println(aannotationInfo);
             }
             StringBuilder fieldInfobulider = new StringBuilder();
@@ -44,7 +45,7 @@ public class ReflectParseClassTest {
         for (Method method : methods) {
             Annotation[] methodAnnotations = method.getAnnotations();
             for (Annotation methodAnnotation : methodAnnotations) {
-                String aannotationInfo = filter(methodAnnotation);
+                String aannotationInfo = filterAnnotation(methodAnnotation);
                 System.out.println(aannotationInfo);
             }
             StringBuilder methodInfobulider = new StringBuilder();
@@ -70,7 +71,7 @@ public class ReflectParseClassTest {
      * 转换为:@RequestMapping(value=[wsmbDeleted])
      * @param annotation 注解对象,包括字段、类、方法上的注解
      */
-    private static String filter(Annotation annotation) {
+    private static String filterAnnotation(Annotation annotation) {
         //获取注解简称,如:RequestMapping
         String annotationSimpleName = annotation.annotationType().getSimpleName();
         //获取注解全称,如:

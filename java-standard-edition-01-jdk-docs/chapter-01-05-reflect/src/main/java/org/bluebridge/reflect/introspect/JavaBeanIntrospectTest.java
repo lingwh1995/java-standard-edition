@@ -1,6 +1,5 @@
 package org.bluebridge.reflect.introspect;
 
-import org.bluebridge.reflect.domain.Person;
 import org.junit.Test;
 
 import java.beans.BeanInfo;

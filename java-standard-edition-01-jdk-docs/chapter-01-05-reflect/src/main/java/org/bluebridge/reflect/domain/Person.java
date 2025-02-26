@@ -43,4 +43,21 @@ public class Person {
 				", age='" + age + '\'' +
 				'}';
 	}
+
+	/**
+	 * 私有方法
+	 * @param drinkName 饮料名称
+	 */
+	private void drink(String drinkName) {
+		System.out.println(drinkName);
+	}
+
+	/**
+	 * 私有方法
+	 * @param bedName 床名称
+	 */
+	private static int sleep(String bedName) {
+		System.out.println("在" + bedName + "睡觉......");
+		return 10;
+	}
 }

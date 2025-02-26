@@ -6,12 +6,13 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import org.junit.Test;
-/**  
+/**
+ * 反射操作数组
  * @author ronin
  * @date 2019年3月28日  
  *    
  */
-public class ReflectArrayTest {
+public class ReflectOperateArrayTest {
 	/**
 	 * 数组增强:
 	 * 		1.数组对象并不是从某个类实例化而来的，而是JVM动态创建的.
