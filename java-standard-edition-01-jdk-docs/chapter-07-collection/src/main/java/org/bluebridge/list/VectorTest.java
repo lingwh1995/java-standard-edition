@@ -1,18 +1,24 @@
-package org.bluebridge.other;
+package org.bluebridge.list;
+
+import org.junit.Test;
 
 import java.util.Enumeration;
 import java.util.Vector;
 
 /**
- * Vector集合特有的方法:
- *      elements()
- *      hasMoreElements
- *      nextElement
- *      elementAt
- * @author ronin
+ * Vector是ArrayList的线程安全版本，Vector的底层实现是数组，所以Vector的增删改查性能比ArrayList差
  */
 public class VectorTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void testVector() {
+        Vector<Integer> nums = new Vector<>();
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        System.out.println("nums = " + nums);
+        System.out.println("-----------------------------------");
+
         Vector<String> vector = new Vector<>();
         vector.add("a");
         vector.add("b");

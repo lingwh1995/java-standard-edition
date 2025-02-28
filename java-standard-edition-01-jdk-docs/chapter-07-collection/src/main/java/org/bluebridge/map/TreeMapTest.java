@@ -8,7 +8,7 @@ import java.util.TreeMap;
  * TreeMap存储对象类型数据,并实现排序
  * @author ronin
  */
-public class TreeMapApi {
+public class TreeMapTest {
     public static void main(String[] args) {
         //自然排序
         Map<Student,String> treeMapComparable = new TreeMap<>();

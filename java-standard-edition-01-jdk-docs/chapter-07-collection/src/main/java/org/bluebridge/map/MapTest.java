@@ -36,6 +36,5 @@ public class MapTest {
         System.out.println("keySet():"+strings);
         Collection<String> values = map.values();
         System.out.println("values():"+values);
-
     }
 }

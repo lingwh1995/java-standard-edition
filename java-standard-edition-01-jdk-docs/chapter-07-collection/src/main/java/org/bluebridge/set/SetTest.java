@@ -12,7 +12,7 @@ import java.util.HashSet;
  *      HashTable:使用Comparator或者Comparable保证实现元素唯一性
  * @author ronin
  */
-public class SetApi {
+public class SetTest {
     public static void main(String[] args) {
         Student s1 = new Student("zs", "18");
         Student s2 = new Student("zs", "18");
