@@ -3,7 +3,7 @@ package org.bluebridge.other;
 /**
  * @author ronin
  */
-public class ObjectApi {
+public class ObjectTest {
     public static void main(String[] args) {
         Person p1 = new Person();
         Person p2 = new Person();

@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * @author ronin
  */
-public class MapApi {
+public class MapTest {
     public static void main(String[] args) {
         Map<String, String> map = new HashMap<>();
         //第一次存储,返回null,直接存储

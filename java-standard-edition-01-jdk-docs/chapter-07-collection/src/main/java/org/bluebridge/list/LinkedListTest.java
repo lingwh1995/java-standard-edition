@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * @author ronin
  */
-public class LinkedListApi {
+public class LinkedListTest {
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
         list.add("xxx");

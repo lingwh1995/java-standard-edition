@@ -8,7 +8,7 @@ import java.util.ListIterator;
  * 如何ConcurrentModificationException
  * @author ronin
  */
-public class CollectionConcurrentModificationException {
+public class CollectionConcurrentModificationExceptionTest {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         list.add("a");

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * @author ronin
+ * 真正随机数
  */
-public class ReallyRandom {
+public class RealRandomTest {
     public static void main(String[] args) {
         Random random = new Random();
         ArrayList<Integer> repository = new ArrayList<>();

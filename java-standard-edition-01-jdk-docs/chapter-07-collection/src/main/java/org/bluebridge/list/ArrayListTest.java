@@ -6,7 +6,7 @@ import java.util.ListIterator;
 /**
  * @author ronin
  */
-public class ListApi {
+public class ArrayListTest {
     public static void main(String[] args) {
         ArrayList<String> list = new ArrayList<>();
         list.add("a");

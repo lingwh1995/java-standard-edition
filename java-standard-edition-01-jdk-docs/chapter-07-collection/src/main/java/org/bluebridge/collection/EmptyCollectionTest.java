@@ -11,7 +11,7 @@ import java.util.*;
  * @desc 避免抛出空指针异常的
  * @since 2019/7/9 15:29
  */
-public class EmptyCollection {
+public class EmptyCollectionTest {
     /**
      * 测试获取空的List集合
      */

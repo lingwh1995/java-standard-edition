@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author ronin
  */
-public class CollectionsApi {
+public class CollectionsTest {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
@@ -44,63 +44,5 @@ public class CollectionsApi {
             }
         });
         System.out.println(dogs);
-    }
-}
-
-class Student implements Comparable<Student>{
-    private String name;
-    private Integer age;
-
-    public Student(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    @Override
-    public int compareTo(Student student) {
-        int age = student.age - this.age;
-        return age == 0 ? this.name.compareTo(student.name) : age;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
-}
-
-class Dog{
-    private String name;
-    private Integer age;
-
-    public Dog(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Dog{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
     }
 }

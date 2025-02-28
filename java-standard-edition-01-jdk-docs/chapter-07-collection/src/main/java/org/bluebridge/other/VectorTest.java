@@ -11,7 +11,7 @@ import java.util.Vector;
  *      elementAt
  * @author ronin
  */
-public class VectorApi {
+public class VectorTest {
     public static void main(String[] args) {
         Vector<String> vector = new Vector<>();
         vector.add("a");

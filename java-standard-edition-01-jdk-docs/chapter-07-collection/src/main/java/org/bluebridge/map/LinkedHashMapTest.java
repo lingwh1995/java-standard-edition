@@ -11,7 +11,7 @@ import java.util.*;
  *      当key/value为数字类型或String类型的数字时，遍历时Map时会自动排序
  *      当key/value为不是数字类型或不是String类型的数字时，遍历时LinkedHashMap时会自动排序，Map不会自动排序
  */
-public class LinkHashMapTest {
+public class LinkedHashMapTest {
     private static Map<String, String> linkedHashMap = new LinkedHashMap<String, String>();
     private static Map<String, String> map  = new HashMap<String, String>();
     static {
@@ -53,6 +53,13 @@ public class LinkHashMapTest {
          * 测试Map集合的valuesAPI
          */
         valuesAPI(map);
+
+        Map<Door,String> pigMap = new LinkedHashMap<>();
+        pigMap.put(new Door("aa",18),"1");
+        pigMap.put(new Door("bb",28),"2");
+        pigMap.put(new Door("cc",38),"3");
+        pigMap.put(new Door("aa",18),"4");
+        System.out.println(pigMap);
     }
 
     /**
@@ -90,4 +97,45 @@ public class LinkHashMapTest {
         System.out.println("-----------------测试"+map.getClass().getSimpleName()+"结values()方法结束-----------------------");
     }
 
+}
+class Door {
+    private String name;
+    private Integer age;
+
+    public Door(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Door door = (Door) o;
+
+        if (name != null ? !name.equals(door.name) : door.name != null) {
+            return false;
+        }
+        return age != null ? age.equals(door.age) : door.age == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (age != null ? age.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Door{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
