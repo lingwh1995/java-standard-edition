@@ -15,7 +15,7 @@
     <modules>
         <module>chapter-01-thread_start</module>
         <module>chapter-02-thread_stackframe</module>
-        <module>chapter-03-thread_lock_synchronized</module>
+        <module>chapter-03-thread_lock</module>
         <module>chapter-04-thread_designpattern</module>
     </modules>
 
