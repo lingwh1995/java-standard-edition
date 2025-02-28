@@ -2,9 +2,11 @@ package org.bluebridge.guarded_suspension.guarded_suspension_c;
 
 public class People extends Thread {
 
+    /**
+     * 收信
+     */
     @Override
     public void run() {
-        //收信
         GuardedObject guardedObject = Mailboxes.createGuardedObject();
         System.out.printf("开始收信 id: %s\n", guardedObject.getId());
         Object mail = guardedObject.get(5000);

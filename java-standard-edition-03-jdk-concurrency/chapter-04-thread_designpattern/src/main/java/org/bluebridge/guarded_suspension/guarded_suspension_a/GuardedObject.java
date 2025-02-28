@@ -5,7 +5,7 @@ import org.openjdk.jol.info.ClassLayout;
 import java.util.Optional;
 
 /**
- * 单任务版GuardedObject
+ * 关联对象-GuardedObject
  */
 public class GuardedObject {
     //结果

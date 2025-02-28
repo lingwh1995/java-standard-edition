@@ -10,10 +10,13 @@ public class Postman extends Thread {
         this.mail = mail;
     }
 
+    /**
+     * 送信
+     */
     @Override
     public void run() {
         GuardedObject guardedObject = Mailboxes.getGuardedObject(id);
-        System.out.printf("送信 id:%s, 内容:%s\n", id, mail);
+        System.out.printf("送出信 id: %s, 内容: %s\n", id, mail);
         guardedObject.complete(mail);
     }
 }

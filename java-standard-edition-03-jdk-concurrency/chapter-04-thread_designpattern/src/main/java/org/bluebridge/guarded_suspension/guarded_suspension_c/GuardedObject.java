@@ -1,5 +1,8 @@
 package org.bluebridge.guarded_suspension.guarded_suspension_c;
 
+/**
+ * 关联对象-GuardedObject
+ */
 public class GuardedObject {
 
     //标识 GuardedObject

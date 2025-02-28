@@ -1,5 +1,8 @@
 package org.bluebridge.guarded_suspension.guarded_suspension_b;
 
+/**
+ * 关联对象-GuardedObject
+ */
 public class GuardedObject {
     //结果
     private Object response;
