@@ -9,6 +9,8 @@ import java.util.concurrent.locks.LockSupport;
  *
  * 恢复线程运行
  * LockSupport.unpark(thread);
+ *
+ * wait/notify依赖于锁资源，所以要在synchronized中使用，park()和unpark()不依赖于锁资源
  */
 public class LockSupportTest {
     public static void main(String[] args) {
