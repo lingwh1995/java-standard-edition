@@ -1,4 +1,4 @@
-package org.bluebridge.lock_07_synchronized_demo_ticket;
+package org.bluebridge.lock_07_synchronized_demo_ticket.ticket_06_ticket_window;
 
 public class TicketWindow {
     private int count;
