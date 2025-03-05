@@ -23,6 +23,10 @@ import java.util.concurrent.TimeUnit;
  * 死锁与活锁的区别
  *     死锁是因为线程互相持有对象想要的锁，并且都不释放，最后线程阻塞，停止运行的现象。
  *     活锁是因为线程间修改了对方的结束条件，而导致代码一直在运行，却一直运行不完的现象。
+ *
+ * JVM工具查看死锁
+ *     1. jps -> 获取DeadLockTest的进程号 -> jstack 进程号
+ *     2. jconsole -> DeadLockTest -> 选择线程标签页
  */
 public class DeadLockTest {
     public static void main(String[] args) {

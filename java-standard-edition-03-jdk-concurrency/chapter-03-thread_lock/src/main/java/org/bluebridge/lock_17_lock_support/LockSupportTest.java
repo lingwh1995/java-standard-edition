@@ -1,4 +1,4 @@
-package org.bluebridge.lock_17_LockSupport;
+package org.bluebridge.lock_17_lock_support;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;

@@ -1,4 +1,4 @@
-package org.bluebridge.lock_20_dead_lock;
+package org.bluebridge.lock_21_live_lock;
 
 import java.util.concurrent.TimeUnit;
 
