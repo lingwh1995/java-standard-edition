@@ -1,6 +1,9 @@
 package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_05_condition;
 
-public class Test {
+/**
+ * wait notify 版
+ */
+public class Test2 {
     // 用来同步的对象
     static Object obj = new Object();
     // t2 运行标记， 代表 t2 是否执行过
