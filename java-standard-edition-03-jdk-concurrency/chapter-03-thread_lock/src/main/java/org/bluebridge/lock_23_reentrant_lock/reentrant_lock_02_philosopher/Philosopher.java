@@ -1,4 +1,4 @@
-package org.bluebridge.lock_22_reentrant_lock.reentrant_lock_02_philosopher;
+package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_02_philosopher;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,13 +6,15 @@ import java.util.concurrent.TimeUnit;
  * 哲学家类
  */
 public class Philosopher extends Thread {
-    Chopstick left;
-    Chopstick right;
+    private Chopstick left;
+    private Chopstick right;
+
     public Philosopher(String name, Chopstick left, Chopstick right) {
         super(name);
         this.left = left;
         this.right = right;
     }
+
     @Override
     public void run() {
         while (true) {
@@ -33,6 +35,7 @@ public class Philosopher extends Thread {
             }
         }
     }
+
     private void eat() {
         System.out.println("Thread " + Thread.currentThread().getName() + " eating......");
         try {

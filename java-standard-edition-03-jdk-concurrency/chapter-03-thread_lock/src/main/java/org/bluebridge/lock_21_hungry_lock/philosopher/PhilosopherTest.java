@@ -1,8 +1,8 @@
-package org.bluebridge.lock_22_reentrant_lock.reentrant_lock_02_philosopher;
-
+package org.bluebridge.lock_21_hungry_lock.philosopher;
 
 /**
- * 哲学家就餐问题测试类
+ * 哲学家就餐模拟饥饿锁
+ *      会发现：有几个哲学家始终无法吃到东西，但是却不是因为死锁或者活锁，这就是饥饿锁现象
  */
 public class PhilosopherTest {
     public static void main(String[] args) {
@@ -15,6 +15,6 @@ public class PhilosopherTest {
         new Philosopher("柏拉图", c2, c3).start();
         new Philosopher("亚里士多德", c3, c4).start();
         new Philosopher("赫拉克利特", c4, c5).start();
-        new Philosopher("阿基米德", c5, c1).start();
+        new Philosopher("阿基米德", c1, c5).start();
     }
 }

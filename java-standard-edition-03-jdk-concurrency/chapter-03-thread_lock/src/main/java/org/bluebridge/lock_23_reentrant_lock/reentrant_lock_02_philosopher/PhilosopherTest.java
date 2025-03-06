@@ -1,7 +1,8 @@
-package org.bluebridge.lock_20_dead_lock.philosopher;
+package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_02_philosopher;
+
 
 /**
- * 哲学家就餐模拟死锁
+ * 哲学家就餐问题测试类
  */
 public class PhilosopherTest {
     public static void main(String[] args) {

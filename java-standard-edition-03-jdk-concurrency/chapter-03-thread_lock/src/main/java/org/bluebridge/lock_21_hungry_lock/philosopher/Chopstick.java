@@ -1,4 +1,4 @@
-package org.bluebridge.lock_20_dead_lock.philosopher;
+package org.bluebridge.lock_21_hungry_lock.philosopher;
 
 /**
  * 筷子类

@@ -1,4 +1,4 @@
-package org.bluebridge.lock_22_reentrant_lock.reentrant_lock_05_condition;
+package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_05_condition;
 
 public class Test {
     // 用来同步的对象

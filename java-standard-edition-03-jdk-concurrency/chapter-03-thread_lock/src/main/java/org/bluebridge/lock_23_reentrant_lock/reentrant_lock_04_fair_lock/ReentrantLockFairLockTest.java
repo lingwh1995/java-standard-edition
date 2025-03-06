@@ -1,12 +1,12 @@
-package org.bluebridge.lock_22_reentrant_lock.reentrant_lock_03_unfair_lock;
+package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_04_fair_lock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ReentrantLockUnFairLockTest {
+public class ReentrantLockFairLockTest {
     public static void main(String[] args) {
-        //使用非公平锁
-        ReentrantLock lock = new ReentrantLock(false);
+        //使用公平锁
+        ReentrantLock lock = new ReentrantLock(true);
         lock.lock();
         for (int i = 0; i < 500; i++) {
             new Thread(() -> {

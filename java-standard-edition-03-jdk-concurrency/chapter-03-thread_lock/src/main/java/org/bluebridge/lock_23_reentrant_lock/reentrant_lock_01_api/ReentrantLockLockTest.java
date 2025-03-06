@@ -1,19 +1,19 @@
-package org.bluebridge.lock_22_reentrant_lock.reentrant_lock_01_api;
+package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_01_api;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- *  tryLock(long time, TimeUnit unit)方法
- *      可设置获取锁超时时间的重载方法则可被中断
+ * lock()方法
+ *      等待锁时不能被打断
  */
-public class ReentrantLockTryLockTimeoutTest {
+public class ReentrantLockLockTest {
     public static void main(String[] args) throws InterruptedException {
         Lock lock = new ReentrantLock();
         Thread t1 = new Thread(() -> {
             try {
-                lock.tryLock();
+                lock.lock();
                 System.out.println("Thread " + Thread.currentThread().getName() + " 得到锁......");
                 //死循环
                 for (int i = 0; i < 3; i++) {
@@ -31,26 +31,20 @@ public class ReentrantLockTryLockTimeoutTest {
         },"t1");
 
         Thread t2 = new Thread(() -> {
-            boolean alreadyLock = false;
             try {
-                alreadyLock = lock.tryLock(2, TimeUnit.SECONDS);
-                if (alreadyLock)
-                    System.out.println("Thread " + Thread.currentThread().getName() + " 释放锁......");
-            }catch (Exception e){
-                e.printStackTrace();
+                lock.lock();
+                System.out.println("Thread " + Thread.currentThread().getName() + " 得到锁......");
             }finally {
-                if (alreadyLock){
-                    lock.unlock();
-                }
+                lock.unlock();
+                System.out.println("Thread " + Thread.currentThread().getName() + " 释放锁......");
             }
-            System.out.println("Thread " + Thread.currentThread().getName() + " 结束......");
         },"t2");
 
-        t1.start();
         //让thread1先执行
+        t1.start();
         TimeUnit.MILLISECONDS.sleep(50);
-        t2.start();
 
+        t2.start();
         //主线程阻塞一会让所有子线程启动
         TimeUnit.MILLISECONDS.sleep(100);
 

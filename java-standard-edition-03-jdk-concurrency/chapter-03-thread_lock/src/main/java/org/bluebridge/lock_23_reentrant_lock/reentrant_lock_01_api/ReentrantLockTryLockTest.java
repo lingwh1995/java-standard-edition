@@ -1,4 +1,4 @@
-package org.bluebridge.lock_22_reentrant_lock.reentrant_lock_01_api;
+package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_01_api;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;

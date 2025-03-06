@@ -1,5 +1,6 @@
-package org.bluebridge.lock_20_dead_lock.philosopher;
+package org.bluebridge.lock_21_hungry_lock.philosopher;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -16,7 +17,7 @@ public class Philosopher extends Thread {
     }
 
     private void eat() {
-        System.out.println("Thread " + Thread.currentThread().getName() + " eating......");
+        System.out.println("Thread " + Thread.currentThread().getName() + " eating...... " + LocalDateTime.now());
         try {
             TimeUnit.MILLISECONDS.sleep(1000);
         } catch (InterruptedException e) {
