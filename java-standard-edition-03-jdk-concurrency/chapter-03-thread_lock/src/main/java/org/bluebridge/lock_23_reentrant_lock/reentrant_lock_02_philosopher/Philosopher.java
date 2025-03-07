@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 哲学家类
  */
-public class Philosopher extends Thread {
+public class  Philosopher extends Thread {
     private Chopstick left;
     private Chopstick right;
 
@@ -13,6 +13,11 @@ public class Philosopher extends Thread {
         super(name);
         this.left = left;
         this.right = right;
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override

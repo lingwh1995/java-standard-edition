@@ -23,11 +23,12 @@ public class ReentrantLockConditionTest {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("等到了它的烟......");
+                System.out.println("Thread " + Thread.currentThread().getName() + " 等到了它的烟......");
             } finally {
                 lock.unlock();
             }
-        }).start();
+        },"t1").start();
+
         new Thread(() -> {
             try {
                 lock.lock();
@@ -38,11 +39,11 @@ public class ReentrantLockConditionTest {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("等到了它的早餐......");
+                System.out.println("Thread " + Thread.currentThread().getName() + " 等到了它的早餐......");
             } finally {
                 lock.unlock();
             }
-        }).start();
+        },"t2").start();
         try {
             TimeUnit.MILLISECONDS.sleep(1000);
         } catch (InterruptedException e) {
@@ -60,7 +61,7 @@ public class ReentrantLockConditionTest {
     private static void sendCigarette() {
         lock.lock();
         try {
-            System.out.println("送烟来了......");
+            System.out.println("Thread " + Thread.currentThread().getName() + " 送烟来了......");
             hasCigrette = true;
             waitCigaretteQueue.signal();
         } finally {
@@ -71,7 +72,7 @@ public class ReentrantLockConditionTest {
     private static void sendBreakfast() {
         lock.lock();
         try {
-            System.out.println("送早餐来了......");
+            System.out.println("Thread " + Thread.currentThread().getName() + " 送早餐来了......");
             hasBreakfast = true;
             waitbreakfastQueue.signal();
         } finally {

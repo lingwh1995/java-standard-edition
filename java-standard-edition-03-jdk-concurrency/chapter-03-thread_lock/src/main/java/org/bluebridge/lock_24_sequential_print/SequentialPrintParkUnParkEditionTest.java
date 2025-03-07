@@ -1,14 +1,18 @@
-package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_05_condition;
+package org.bluebridge.lock_24_sequential_print;
 
 import java.util.concurrent.locks.LockSupport;
 
 /**
  * Park Unpark 版
  */
-public class Test4 {
+public class SequentialPrintParkUnParkEditionTest {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
-            try { Thread.sleep(1000); } catch (InterruptedException e) { }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             // 当没有『许可』时，当前线程暂停运行；有『许可』时，用掉这个『许可』，当前线程恢复运行
             LockSupport.park();
             System.out.println("1");

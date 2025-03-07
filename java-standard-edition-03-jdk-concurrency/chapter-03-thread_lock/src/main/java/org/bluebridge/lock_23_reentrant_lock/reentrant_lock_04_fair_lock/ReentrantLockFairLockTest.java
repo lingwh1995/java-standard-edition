@@ -45,7 +45,8 @@ public class ReentrantLockFairLockTest {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("========= 公平锁示例 =========");
         Runnable task = () -> {
-            for (int i = 0; i < 2; i++) {  // 每个线程尝试获取锁2次
+            // 每个线程尝试获取锁2次
+            for (int i = 0; i < 2; i++) {
                 fairLock.lock();
                 try {
                     System.out.printf("%s 获取锁 | 等待队列长度: %d%n",
