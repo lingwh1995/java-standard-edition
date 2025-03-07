@@ -2,7 +2,6 @@ package org.bluebridge.lock_23_reentrant_lock.reentrant_lock_04_fair_lock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.IntStream;
 
 /**
  * 公平锁的锁获取流程
@@ -45,16 +44,6 @@ public class ReentrantLockFairLockTest {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("========= 公平锁示例 =========");
-//        testLock(fairLock);  // 测试公平锁
-
-        // 等待1秒，确保输出不混杂
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
-
         Runnable task = () -> {
             for (int i = 0; i < 2; i++) {  // 每个线程尝试获取锁2次
                 fairLock.lock();
@@ -63,7 +52,7 @@ public class ReentrantLockFairLockTest {
                             Thread.currentThread().getName(),
                             fairLock.getQueueLength());
                     // 模拟业务逻辑
-                    Thread.sleep(100);
+                    TimeUnit.MILLISECONDS.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
@@ -74,37 +63,8 @@ public class ReentrantLockFairLockTest {
 
         // 启动3个线程竞争锁
         for (int i = 0; i < 3; i++) {
-            Thread t = new Thread(task, "Thread-" + (i + 1));
-            t.start();
-            //t.join();
+            new Thread(task, "Thread-" + (i + 1)).start();
         }
     }
 
-    /**
-     * 测试锁的行为
-     * @param lock 要测试的锁（公平或非公平）
-     */
-//    private static void testLock(ReentrantLock lock) {
-//        Runnable task = () -> {
-//            for (int i = 0; i < 2; i++) {  // 每个线程尝试获取锁2次
-//                lock.lock();
-//                try {
-//                    System.out.printf("%s 获取锁 | 等待队列长度: %d%n",
-//                            Thread.currentThread().getName(),
-//                            lock.getQueueLength());
-//                    // 模拟业务逻辑
-//                    Thread.sleep(100);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                } finally {
-//                    lock.unlock();
-//                }
-//            }
-//        };
-//
-//        // 启动3个线程竞争锁
-//        for (int i = 0; i < 3; i++) {
-//            new Thread(task, "Thread-" + (i + 1)).start();
-//        }
-//    }
 }

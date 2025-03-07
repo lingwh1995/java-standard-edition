@@ -38,7 +38,7 @@ public class ReentrantLockNonFairLockTest {
                             Thread.currentThread().getName(),
                             nonFairLock.getQueueLength());
                     // 模拟业务逻辑
-                    Thread.sleep(100);
+                    TimeUnit.MILLISECONDS.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {

@@ -5,6 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * ReentrantLock可重入测试
+ *      可重入锁可以避免因不可重入而导致的死锁问题
  */
 public class ReentrantLockCanReentrantTest {
 
