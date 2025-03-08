@@ -1,4 +1,4 @@
-package org.bluebridge.lock_24_sequential_print;
+package org.bluebridge.sequential_control.sequential_print;
 
 /**
  * wait notify 版

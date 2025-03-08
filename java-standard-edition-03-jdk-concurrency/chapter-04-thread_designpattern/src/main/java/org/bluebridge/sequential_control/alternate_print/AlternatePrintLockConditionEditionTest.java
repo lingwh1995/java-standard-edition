@@ -1,4 +1,4 @@
-package org.bluebridge.lock_25_alternate_print;
+package org.bluebridge.sequential_control.alternate_print;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
