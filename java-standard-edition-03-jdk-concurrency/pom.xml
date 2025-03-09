@@ -17,6 +17,7 @@
         <module>chapter-02-thread_stackframe</module>
         <module>chapter-03-thread_lock</module>
         <module>chapter-04-thread_designpattern</module>
+        <module>chapter-03-volatile</module>
     </modules>
 
     <properties>
