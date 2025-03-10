@@ -50,7 +50,7 @@ public class TwoPhaseTermination {
          */
         public void terminate() {
             terminated = true;
-            // 调用 interrupt() 方法中断线程，防止线程在 sleep 或 wait 状态
+            // 调用 interrupt() 方法中断线程，让线程立即停止而不是等待sleep结束
             interrupt();
         }
 

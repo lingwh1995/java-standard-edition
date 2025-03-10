@@ -43,6 +43,8 @@ public class TwoPhaseTermination {
      */
     public void stop() {
         stop = true;
+        //让线程立即停止而不是等待sleep结束
+        monitor.interrupt();
     }
 
     /**
