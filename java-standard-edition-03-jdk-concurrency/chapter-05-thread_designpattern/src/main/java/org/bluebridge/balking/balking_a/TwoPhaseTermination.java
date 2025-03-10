@@ -23,30 +23,30 @@ public class TwoPhaseTermination {
                 return;
             }
             starting = true;
-            monitor = new Thread(() -> {
-                //使用 while(true) 模拟程序正常执行
-                while (true) {
-                    Thread current = Thread.currentThread();
-                    if(stop) {
-                        releaseResource();
-                        break;
-                    }
-
-                    try {
-                        Thread.sleep(1000);
-                        System.out.println("执行监控......");
-                    } catch (InterruptedException e) {
-                        //e.printStackTrace();
-                        System.out.println("打断标记： " + current.isInterrupted());
-                        //重新设置打断标记
-                        current.interrupt();
-                        System.out.println("打断标记： " + current.isInterrupted());
-                    }
-                }
-            });
-
-            monitor.start();
         }
+        monitor = new Thread(() -> {
+            //使用 while(true) 模拟程序正常执行
+            while (true) {
+                Thread current = Thread.currentThread();
+                if(stop) {
+                    releaseResource();
+                    break;
+                }
+
+                try {
+                    Thread.sleep(1000);
+                    System.out.println("执行监控......");
+                } catch (InterruptedException e) {
+                    //e.printStackTrace();
+                    System.out.println("打断标记： " + current.isInterrupted());
+                    //重新设置打断标记
+                    current.interrupt();
+                    System.out.println("打断标记： " + current.isInterrupted());
+                }
+            }
+        });
+
+        monitor.start();
     }
 
     /**
