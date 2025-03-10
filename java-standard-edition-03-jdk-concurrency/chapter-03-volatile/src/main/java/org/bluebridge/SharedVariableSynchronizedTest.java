@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 使用 synchronized 解决共享变量多线程可见性问题
  */
-public class SharedVariableVolatileTest1 {
+public class SharedVariableSynchronizedTest {
 
     private static boolean run = true;
     private static final Object lock = new Object();

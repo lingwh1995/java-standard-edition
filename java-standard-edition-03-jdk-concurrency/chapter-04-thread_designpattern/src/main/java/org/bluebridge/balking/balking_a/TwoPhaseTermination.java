@@ -1,7 +1,9 @@
 package org.bluebridge.balking.balking_a;
 
 /**
- * 两阶段终止模式说明
+ * Balking （犹豫）模式用在一个线程发现另一个线程或本线程已经做了某一件相同的事，那么本线程就无需再做 了，直接结束返回
+ *
+ * 两阶段终止模式 + 犹豫模式
  *     在一个线程t1中优雅地终止另一个线程t2，终止线程t2前，让线程t2有一个料理后事的机会
  */
 public class TwoPhaseTermination {
