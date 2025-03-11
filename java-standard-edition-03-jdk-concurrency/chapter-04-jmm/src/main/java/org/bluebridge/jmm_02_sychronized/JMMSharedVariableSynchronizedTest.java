@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 使用 synchronized 解决共享变量多线程可见性问题
+ *
  * synchronized 语句块既可以保证代码块的原子性，也同时保证代码块内变量的可见性。但缺点是 synchronized 是属于重量级操作，性能相对更低 。
  *
  * JMM关于synchronized的两条规定：
@@ -23,7 +24,7 @@ public class JMMSharedVariableSynchronizedTest {
         Thread t = new Thread(()->{
             while(run){
                 synchronized (lock) {
-
+                    //System.out.println();
                 }
             }
         },"t");
