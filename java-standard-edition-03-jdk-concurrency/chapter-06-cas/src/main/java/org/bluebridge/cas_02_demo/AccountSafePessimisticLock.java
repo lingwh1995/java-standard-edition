@@ -1,4 +1,4 @@
-package org.bluebridge;
+package org.bluebridge.cas_02_demo;
 
 /**
  * 线程安全的实现-悲观锁

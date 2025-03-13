@@ -1,4 +1,4 @@
-package org.bluebridge;
+package org.bluebridge.cas_02_demo;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class AccountTest {
     }
 
     /**
-     * 测试线程安全的实现-无锁（乐观重试）
+     * 测试线程安全的实现-悲观锁
      */
     @Test
     public void testAccountSafePessimisticLock() {
@@ -21,7 +21,7 @@ public class AccountTest {
     }
 
     /**
-     * 测试线程安全的实现-悲观锁
+     * 测试线程安全的实现-无锁（乐观重试）
      */
     @Test
     public void testAccountSafeNoLockOptimisticRetry() {

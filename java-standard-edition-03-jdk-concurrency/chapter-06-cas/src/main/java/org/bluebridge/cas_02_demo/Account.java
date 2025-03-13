@@ -1,4 +1,4 @@
-package org.bluebridge;
+package org.bluebridge.cas_02_demo;
 
 import java.util.ArrayList;
 import java.util.List;

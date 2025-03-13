@@ -1,4 +1,4 @@
-package org.bluebridge;
+package org.bluebridge.cas_02_demo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -20,10 +20,13 @@ public class AccountSafeNoLockOptimisticRetry implements Account{
 
     @Override
     public void withdraw(Integer amount) {
+        // 需要不断尝试，直到成功为止
         while (true) {
-            int prev = balance.get();
-            int next = prev - amount;
-            if (balance.compareAndSet(prev, next)) {
+            // 比如拿到了旧值 1000
+            int expectedValue = balance.get();
+            // 新的值 = 在这个基础上 1000-10 = 990
+            int newValue = expectedValue - amount;
+            if (balance.compareAndSet(expectedValue, newValue)) {
                 break;
             }
         }
