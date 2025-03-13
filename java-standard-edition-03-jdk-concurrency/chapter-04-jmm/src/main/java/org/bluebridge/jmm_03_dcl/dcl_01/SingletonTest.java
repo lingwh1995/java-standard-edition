@@ -1,4 +1,4 @@
-package org.bluebridge.dcl.dcl_02;
+package org.bluebridge.jmm_03_dcl.dcl_01;
 
 public class SingletonTest {
     public static void main(String[] args) {

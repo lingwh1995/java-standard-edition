@@ -1,5 +1,9 @@
-package org.bluebridge.dcl.dcl_02;
+package org.bluebridge.jmm_03_dcl.dcl_02;
 
+/**
+ *  注意：
+ *      1.使用final修饰类，可以防止因为继承而破坏单例模式
+ */
 public final class Singleton {
     private Singleton() { }
     private static volatile Singleton INSTANCE = null;
