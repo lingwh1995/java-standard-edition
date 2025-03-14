@@ -1,4 +1,4 @@
-package org.bluebridge.cas_02_demo;
+package org.bluebridge.cas_02_atomic_integer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +15,8 @@ interface Account {
      * 如果初始余额为 10000 那么正确的结果应当是 0
      */
     static void demo(Account account) {
-        List<Thread> ts = new ArrayList<>();
         long start = System.nanoTime();
+        List<Thread> ts = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
             ts.add(new Thread(() -> {
                 account.withdraw(10);
@@ -31,7 +31,6 @@ interface Account {
             }
         });
         long end = System.nanoTime();
-        System.out.println(account.getBalance()
-                + " cost: " + (end-start)/1000_000 + " ms");
+        System.out.println(account.getBalance() + " cost: " + (end-start)/1000_000 + " ms");
     }
 }

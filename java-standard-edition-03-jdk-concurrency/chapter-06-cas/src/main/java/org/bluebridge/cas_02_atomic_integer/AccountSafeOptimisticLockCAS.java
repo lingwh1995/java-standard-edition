@@ -1,15 +1,15 @@
-package org.bluebridge.cas_02_demo;
+package org.bluebridge.cas_02_atomic_integer;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 线程安全的实现-无锁（乐观重试）
+ * 线程安全的实现-乐观锁（CAS）
  */
-public class AccountSafeNoLockOptimisticRetry implements Account{
+public class AccountSafeOptimisticLockCAS implements Account{
 
     private AtomicInteger balance;
 
-    public AccountSafeNoLockOptimisticRetry(Integer balance) {
+    public AccountSafeOptimisticLockCAS(Integer balance) {
         this.balance = new AtomicInteger(balance);
     }
 

@@ -1,4 +1,4 @@
-package org.bluebridge.cas_02_demo;
+package org.bluebridge.cas_02_atomic_integer;
 
 /**
  * 线程不安全的实现

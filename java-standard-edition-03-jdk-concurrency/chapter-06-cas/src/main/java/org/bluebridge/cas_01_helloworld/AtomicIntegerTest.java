@@ -1,7 +1,12 @@
-package org.bluebridge.cas_01_atomic;
+package org.bluebridge.cas_01_helloworld;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * 1.CAS是基于乐观锁的思想，不怕别的线程来修改共享变量，是非阻塞同步（Non-blocking Synchronization)
+ * 2.synchronized是基于悲观锁的思想，使用锁来防止其他线程修改共享变量
+ *      CAS 体现的是无锁并发、无阻塞并发
+ */
 public class AtomicIntegerTest {
     public static void main(String[] args) {
         AtomicInteger atomicInteger = new AtomicInteger(0);

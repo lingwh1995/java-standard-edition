@@ -1,13 +1,13 @@
-package org.bluebridge.cas_02_demo;
+package org.bluebridge.cas_02_atomic_integer;
 
 /**
- * 线程安全的实现-悲观锁
+ * 线程安全的实现-悲观锁（synchronized）
  */
-public class AccountSafePessimisticLock implements Account {
+public class AccountSafePessimisticLockSynchronized implements Account {
 
     private Integer balance;
 
-    public AccountSafePessimisticLock(Integer balance) {
+    public AccountSafePessimisticLockSynchronized(Integer balance) {
         this.balance = balance;
     }
 
