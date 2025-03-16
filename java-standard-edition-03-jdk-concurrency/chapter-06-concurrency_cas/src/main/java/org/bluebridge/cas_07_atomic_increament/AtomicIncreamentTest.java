@@ -14,11 +14,17 @@ public class AtomicIncreamentTest {
         for (int i = 0; i < 5; i++) {
             demo(() -> new LongAdder(), adder -> adder.increment());
         }
+        System.out.println("-----------------------------");
         for (int i = 0; i < 5; i++) {
             demo(() -> new AtomicLong(), adder -> adder.getAndIncrement());
         }
     }
 
+    /**
+     * @param adderSupplier     提供累加器对象
+     * @param action            执行累加操作
+     * @param <T>
+     */
     private static <T> void demo(Supplier<T> adderSupplier, Consumer<T> action) {
         T adder = adderSupplier.get();
         long start = System.nanoTime();
