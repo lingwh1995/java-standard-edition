@@ -4,14 +4,18 @@ import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class DecimalAccountSafeOptimisticLockCAS implements DecimalAccount {
+
     AtomicReference<BigDecimal> ref;
+
     public DecimalAccountSafeOptimisticLockCAS(BigDecimal balance) {
         ref = new AtomicReference<>(balance);
     }
+
     @Override
     public BigDecimal getBalance() {
         return ref.get();
     }
+
     @Override
     public void withdraw(BigDecimal amount) {
         while (true) {

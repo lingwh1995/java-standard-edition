@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import org.junit.Test;
 
@@ -138,5 +139,11 @@ public class Java8FunctionInterfaceTest {
 		biPredicate = (a,b) -> a > b;
 		System.out.println(biPredicate.test(10,5));
 		System.out.println("--------------------------------------");
+	}
+
+	@Test
+	public void testSupplier() {
+		Supplier<String> supplier = () -> "hello world!";
+		System.out.println(supplier.get());
 	}
 }
