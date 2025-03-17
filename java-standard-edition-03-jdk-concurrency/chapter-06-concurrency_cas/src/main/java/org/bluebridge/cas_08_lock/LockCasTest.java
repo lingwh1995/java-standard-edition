@@ -6,25 +6,26 @@ public class LockCasTest {
     public static void main(String[] args) {
         LockCas lock = new LockCas();
         new Thread(() -> {
-            System.out.println("begin......");
+            System.out.println("Thread " + Thread.currentThread().getName() + " begin......");
             lock.lock();
             try {
-                System.out.println("lock......");
-                sleep(1);
+                System.out.println("Thread " + Thread.currentThread().getName() + " lock......");
+                sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } finally {
                 lock.unlock();
             }
-        }).start();
+        },"t1").start();
+
         new Thread(() -> {
-            System.out.println("begin......");
+            System.out.println("Thread " + Thread.currentThread().getName() + " begin......");
             lock.lock();
             try {
-                System.out.println("lock......");
+                System.out.println("Thread " + Thread.currentThread().getName() + " lock......");
             } finally {
                 lock.unlock();
             }
-        }).start();
+        },"t2").start();
     }
 }
