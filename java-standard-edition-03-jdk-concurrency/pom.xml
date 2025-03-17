@@ -19,6 +19,7 @@
         <module>chapter-04-concurrency_jmm</module>
         <module>chapter-05-concurrency_designpattern</module>
         <module>chapter-06-concurrency_cas</module>
+        <module>chapter-07-concurrency_unsafe</module>
     </modules>
 
     <properties>
