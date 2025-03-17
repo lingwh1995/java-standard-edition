@@ -1,4 +1,4 @@
-package org.bluebridge.cas_07_lock;
+package org.bluebridge.cas_08_lock;
 
 import static java.lang.Thread.sleep;
 
