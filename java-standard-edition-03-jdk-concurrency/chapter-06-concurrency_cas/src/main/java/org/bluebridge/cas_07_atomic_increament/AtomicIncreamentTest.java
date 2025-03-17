@@ -8,6 +8,10 @@ import java.util.concurrent.atomic.LongAdder;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+/**
+ * LongAdder比AtomicLong性能提升的原因：
+ *  在有竞争时，设置多个累加单元，Therad-0 累加 Cell[0]，而 Thread-1 累加 Cell[1]... 最后将结果汇总。这样它们在累加时操作的不同的Cell变量，因此减少了CAS重试失败，从而提高性能。
+ */
 public class AtomicIncreamentTest {
 
     public static void main(String[] args) {

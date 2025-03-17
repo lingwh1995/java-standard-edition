@@ -7,25 +7,30 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class AtomicReferenceABATest {
 
-    private static AtomicReference<String> ref = new AtomicReference<>("A");
+    private static AtomicReference<String> atomicReference = new AtomicReference<>("A");
 
+    /**
+     * AtomicReference无法判断是否发生过ABA问题
+     * @param args
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws InterruptedException {
         System.out.println("main start......");
         // 获取值 A
         // 这个共享变量被它线程修改过？
-        String prev = ref.get();
+        String prev = atomicReference.get();
         change();
         sleep(1000);
         // 尝试改为 C
-        System.out.printf("change A->C %s\n",ref.compareAndSet(prev, "C"));
+        System.out.printf("change A->C %s\n",atomicReference.compareAndSet(prev, "C"));
     }
     private static void change() {
         new Thread(() -> {
-            System.out.printf("change A->B %s\n",ref.compareAndSet(ref.get(), "B"));
+            System.out.printf("change A->B %s\n",atomicReference.compareAndSet(atomicReference.get(), "B"));
         }, "t1").start();
         sleep(500);
         new Thread(() -> {
-            System.out.printf("change B->A %s\n", ref.compareAndSet(ref.get(), "A"));
+            System.out.printf("change B->A %s\n", atomicReference.compareAndSet(atomicReference.get(), "A"));
         }, "t2").start();
     }
 

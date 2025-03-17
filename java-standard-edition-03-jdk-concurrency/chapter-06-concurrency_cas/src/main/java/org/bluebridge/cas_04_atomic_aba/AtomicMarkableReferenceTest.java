@@ -5,39 +5,29 @@ import java.util.concurrent.atomic.AtomicMarkableReference;
 /**
  * 带有是否更新标识的原子引用（不关心引用变量更改了几次，只是单纯的关心是否更改过）
  *      可以注释掉打扫卫生线程代码，再观察输出
+ * 既然有了AtomicStampedReference为啥还需要再提供AtomicMarkableReference呢，在现实业务场景中，不关心引用变量被修改了几次，只是单纯的关心是否更改过。
  */
 public class AtomicMarkableReferenceTest {
-    public static void main(String[] args) throws InterruptedException {
-        GarbageBag bag = new GarbageBag("装满了垃圾......");
-        // 参数2 mark 可以看作一个标记，表示垃圾袋满了
-        AtomicMarkableReference<GarbageBag> ref = new AtomicMarkableReference<>(bag, true);
-        System.out.println("主线程 start......");
-        GarbageBag prev = ref.getReference();
-        System.out.println(prev.toString());
-        new Thread(() -> {
-            System.out.println("打扫卫生的线程 start......");
-            bag.setDesc("空垃圾袋");
-            while (!ref.compareAndSet(bag, bag, true, false)) {}
-            System.out.println(bag.toString());
-        }).start();
-        Thread.sleep(1000);
-        System.out.println("主线程想换一只新垃圾袋？");
-        boolean success = ref.compareAndSet(prev, new GarbageBag("空垃圾袋"), true, false);
-        System.out.println("换了么？" + success);
-        System.out.println(ref.getReference().toString());
-    }
-}
+    public static void main(String[] args) {
+        // 创建一个 AtomicMarkableReference 实例，初始值为 "Hello" 和标记 false
+        AtomicMarkableReference<String> atomicMarkableReference = new AtomicMarkableReference<>("Hello", false);
 
-class GarbageBag {
-    String desc;
-    public GarbageBag(String desc) {
-        this.desc = desc;
-    }
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-    @Override
-    public String toString() {
-        return super.toString() + " " + desc;
+        // 客户端调用：尝试更新引用和标记
+        boolean updated = atomicMarkableReference.compareAndSet("Hello", "World", false, true);
+        System.out.println("Updated: " + updated); // 输出：Updated: true
+
+        // 获取当前值和标记
+        String currentValue = atomicMarkableReference.getReference();
+        boolean currentMark = atomicMarkableReference.isMarked();
+        System.out.println("Current Value: " + currentValue + ", Mark: " + currentMark); // 输出：Current Value: World, Mark: true
+
+        // 尝试基于旧值和旧标记更新，但这次会失败，因为当前值或标记与预期的不匹配
+        updated = atomicMarkableReference.compareAndSet("Hello", "Java", false, false);
+        System.out.println("Updated: " + updated); // 输出：Updated: false
+
+        // 再次获取当前值和标记，以确认没有变化
+        currentValue = atomicMarkableReference.getReference();
+        currentMark = atomicMarkableReference.isMarked();
+        System.out.println("Current Value: " + currentValue + ", Mark: " + currentMark); // 输出：Current Value: World, Mark: true
     }
 }
