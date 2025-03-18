@@ -4,12 +4,12 @@ import org.bluebridge.util.UnsafeAccessor;
 import sun.misc.Unsafe;
 
 /**
- * Unsafe应用二：内存屏障
+ * Unsafe应用二    内存屏障
  *      public native void loadFence();  //禁止读操作重排序
  *      public native void storeFence(); //禁止写操作重排序
  *      public native void fullFence();  //禁止读、写操作重排序
  */
-public class ChangeThreadTest {
+public class UnsafeMemoryBarrierTest {
     public static void main(String[] args) {
         ChangeThread changeThread = new ChangeThread();
         new Thread(changeThread).start();

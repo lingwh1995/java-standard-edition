@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 class ChangeThread implements Runnable{
-    /**volatile**/ boolean flag=false;
+    boolean flag = false;
     @Override
     public void run() {
         try {

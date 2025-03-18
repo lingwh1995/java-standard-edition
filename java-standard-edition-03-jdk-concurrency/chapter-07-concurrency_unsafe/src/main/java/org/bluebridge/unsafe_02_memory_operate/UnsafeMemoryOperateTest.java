@@ -5,20 +5,20 @@ import org.junit.Test;
 import sun.misc.Unsafe;
 
 /**
- * Unsafe应用一：操作内存
+ * Unsafe应用一    操作内存
  *      public native long allocateMemory(long bytes);   //分配新的本地空间
  *      public native long reallocateMemory(long address, long bytes);   //重新调整内存空间的大小
  *      public native void setMemory(Object o, long offset, long bytes, byte value);     //将内存设置为指定值
  *      public native void copyMemory(Object srcBase, long srcOffset,Object destBase, long destOffset,long bytes);   //内存拷贝
  *      public native void freeMemory(long address);     //清除内存
  */
-public class UnsafeOperateMemoryTest {
+public class UnsafeMemoryOperateTest {
 
     /**
      * 测试使用Unsafe操作内存
      */
     @Test
-    public void testUnsafeOperateMemory1() {
+    public void testUnsafeMemoryOperate1() {
         Unsafe unsafe = UnsafeAccessor.getUnsafe();
         // 分配4字节内存地址
         long address = unsafe.allocateMemory(4);
@@ -41,7 +41,7 @@ public class UnsafeOperateMemoryTest {
      * 测试使用Unsafe操作内存
      */
     @Test
-    public void testUnsafeOperateMemory2() {
+    public void testUnsafeMemoryOperate2() {
         int size = 4;
         Unsafe unsafe = UnsafeAccessor.getUnsafe();
         long addr = unsafe.allocateMemory(size);
