@@ -20,10 +20,11 @@ public class PersonReflectTest {
      * @throws ClassNotFoundException
      */
     @Test
-    public void testReflectGetJavaBeanClass() throws ClassNotFoundException{
+    public void testReflectGetJavaBeanClass() throws ClassNotFoundException, NoSuchFieldException {
         //方式1:该对象自身的.class属性
         Class<Person> clazz1 = Person.class;
         System.out.println(clazz1);
+        System.out.println(clazz1.getDeclaredField("name"));
         //方式2:根据运行时的类的对象
         Person person = new Person();
         Class<? extends Object> clazz2 = person.getClass();

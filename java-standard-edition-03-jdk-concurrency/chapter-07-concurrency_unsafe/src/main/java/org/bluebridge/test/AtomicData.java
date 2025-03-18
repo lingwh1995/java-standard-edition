@@ -1,5 +1,6 @@
-package org.bluebridge.unsafe_02_demo;
+package org.bluebridge.test;
 
+import org.bluebridge.util.UnsafeAccessor;
 import sun.misc.Unsafe;
 
 public class AtomicData {

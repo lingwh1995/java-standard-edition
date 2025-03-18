@@ -59,6 +59,25 @@ public class BitwiseOperationTest {
 		int l = -4;
 		System.out.println("l无符号右移一位:" + (l >>> 1));
 		System.out.println("l无符号右移两位:" + (l >>> 2));
-		
+
+		//判断一个数是奇数还是偶数 奇数计算结果为1，偶数计算结果为0
+		/**
+		 * 0000 0001
+		 * 		   &
+		 * 0000 0001
+		 * 	       =
+		 * 0000 0001
+		 */
+		System.out.println(1 & 1);
+		System.out.println(2 & 1);
+		System.out.println(-1 & 1);
+		System.out.println(-2 & 1);
+
+		//将byte数组中元素转为int类型数据
+		byte[] bytes = new byte[]{10,20,30, (byte) 150};
+		System.out.println(bytes[0] & 0xFF);
+		System.out.println(bytes[1] & 0xFF);
+		System.out.println(bytes[2] & 0xFF);
+		System.out.println(bytes[3] & 0xFF);
 	}
 }

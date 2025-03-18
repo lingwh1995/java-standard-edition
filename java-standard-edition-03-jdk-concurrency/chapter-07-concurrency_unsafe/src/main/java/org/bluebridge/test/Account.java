@@ -1,4 +1,4 @@
-package org.bluebridge.unsafe_02_demo;
+package org.bluebridge.test;
 
 import java.util.ArrayList;
 

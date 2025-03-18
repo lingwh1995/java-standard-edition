@@ -1,4 +1,4 @@
-package org.bluebridge.unsafe_02_demo;
+package org.bluebridge.test;
 
 /**
  * 实现账户类，使用手动实现的原子整数作为余额类型

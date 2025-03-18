@@ -1,4 +1,4 @@
-package org.bluebridge.unsafe_01_start;
+package org.bluebridge.unsafe_01_hello_world;
 
 import lombok.Data;
 

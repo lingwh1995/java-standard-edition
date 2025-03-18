@@ -1,10 +1,10 @@
-package org.bluebridge.unsafe_01_start;
+package org.bluebridge.util;
 
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 
-public class UnsafeAccessor {
+public class UnsafeAccessor1 {
     static Unsafe unsafe;
     static {
         try {
