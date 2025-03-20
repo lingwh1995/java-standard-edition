@@ -1,4 +1,4 @@
-package org.bluebridge.flyweighty.connection_pool;
+package org.bluebridge.flyweighty.connection_pool_02;
 
 import java.sql.Connection;
 import java.util.concurrent.Semaphore;
@@ -23,7 +23,7 @@ public class ConnectionPool{
         status=new AtomicIntegerArray(new int[size]);
         signal= new Semaphore(size);
         for (int i = 0; i < size; i++) {
-            connections[i] = new MyConnection();
+            connections[i] = new MyConnection("连接" + (i+1));
         }
     }
     //5.借连接

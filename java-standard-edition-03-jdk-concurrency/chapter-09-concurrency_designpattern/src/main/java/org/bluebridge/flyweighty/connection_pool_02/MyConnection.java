@@ -1,12 +1,25 @@
-package org.bluebridge.flyweighty.connection_pool;
+package org.bluebridge.flyweighty.connection_pool_02;
 
 import java.sql.*;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
 public class MyConnection implements Connection {
+
+    private String name;
+
+    public MyConnection(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "MockConnection{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     @Override
     public Statement createStatement() throws SQLException {
         return null;
@@ -24,7 +37,7 @@ public class MyConnection implements Connection {
 
     @Override
     public String nativeSQL(String sql) throws SQLException {
-        return "";
+        return null;
     }
 
     @Override
@@ -79,7 +92,7 @@ public class MyConnection implements Connection {
 
     @Override
     public String getCatalog() throws SQLException {
-        return "";
+        return null;
     }
 
     @Override
@@ -119,7 +132,7 @@ public class MyConnection implements Connection {
 
     @Override
     public Map<String, Class<?>> getTypeMap() throws SQLException {
-        return Collections.emptyMap();
+        return null;
     }
 
     @Override
@@ -224,7 +237,7 @@ public class MyConnection implements Connection {
 
     @Override
     public String getClientInfo(String name) throws SQLException {
-        return "";
+        return null;
     }
 
     @Override
@@ -249,7 +262,7 @@ public class MyConnection implements Connection {
 
     @Override
     public String getSchema() throws SQLException {
-        return "";
+        return null;
     }
 
     @Override
@@ -276,6 +289,5 @@ public class MyConnection implements Connection {
     public boolean isWrapperFor(Class<?> iface) throws SQLException {
         return false;
     }
-    //略
 }
 
