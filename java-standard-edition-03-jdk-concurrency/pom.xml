@@ -17,10 +17,12 @@
         <module>chapter-02-concurrency_stackframe</module>
         <module>chapter-03-thread_concurrency_lock</module>
         <module>chapter-04-concurrency_jmm</module>
-        <module>chapter-05-concurrency_designpattern</module>
-        <module>chapter-06-concurrency_cas</module>
-        <module>chapter-07-concurrency_unsafe</module>
-        <module>chapter-08-demo</module>
+        <module>chapter-05-concurrency_cas</module>
+        <module>chapter-06-concurrency_unsafe</module>
+        <module>chapter-07-immutable</module>
+        <module>chapter-08-final</module>
+        <module>chapter-09-concurrency_designpattern</module>
+        <module>chapter-10-thread_pool</module>
     </modules>
 
     <properties>

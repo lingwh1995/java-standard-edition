@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-05-concurrency_designpattern</artifactId>
+    <artifactId>chapter-05-concurrency_cas</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -17,11 +17,4 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-core-0.9-summer-extend</artifactId>
-            <version>0.9</version>
-        </dependency>
-    </dependencies>
 </project>

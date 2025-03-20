@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-08-demo</artifactId>
+    <artifactId>chapter-08-final</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
