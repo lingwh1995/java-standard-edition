@@ -1,4 +1,4 @@
-package org.bluebridge.lock_17_park_unpark;
+package org.bluebridge.lock_17_lock_support_park_unpark;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;

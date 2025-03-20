@@ -31,7 +31,7 @@ package org.bluebridge.lock_10_synchronized_monitor;
  */
 public class MonitorSynchronizedCodeBlockTest {
 
-    public  void testMonitor() {
+    public void testMonitor() {
         synchronized (this) {
             System.out.println("hello monitor......");
         }
