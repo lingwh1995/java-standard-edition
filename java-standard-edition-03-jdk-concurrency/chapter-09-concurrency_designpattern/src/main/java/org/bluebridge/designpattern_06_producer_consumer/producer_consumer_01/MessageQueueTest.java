@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
  * 测试消息队列
  */
 public class MessageQueueTest {
+
     public static void main(String[] args) {
         MessageQueue queue = new MessageQueue(2);
 
