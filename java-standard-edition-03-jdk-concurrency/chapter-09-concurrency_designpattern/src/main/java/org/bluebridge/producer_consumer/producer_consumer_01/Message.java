@@ -1,4 +1,4 @@
-package org.bluebridge.producer_consumer;
+package org.bluebridge.producer_consumer.producer_consumer_01;
 
 /**
  * 这里使用final修饰，将这个类设置成不可变类

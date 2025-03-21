@@ -1,4 +1,4 @@
-package org.bluebridge.producer_consumer;
+package org.bluebridge.producer_consumer.producer_consumer_01;
 
 import java.util.concurrent.TimeUnit;
 
