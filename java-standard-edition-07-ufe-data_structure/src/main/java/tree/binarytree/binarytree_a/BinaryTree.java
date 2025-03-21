@@ -114,7 +114,6 @@ class Node{
     public Node() {
     }
 
-    
     public Node(int id, String name) {
         this.id = id;
         this.name = name;
