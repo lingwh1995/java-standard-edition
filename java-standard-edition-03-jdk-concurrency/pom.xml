@@ -15,14 +15,14 @@
     <modules>
         <module>chapter-01-concurrency_thread</module>
         <module>chapter-02-concurrency_stackframe</module>
-        <module>chapter-03-thread_concurrency_lock</module>
+        <module>chapter-03-concurrency_lock</module>
         <module>chapter-04-concurrency_jmm</module>
         <module>chapter-05-concurrency_cas</module>
         <module>chapter-06-concurrency_unsafe</module>
-        <module>chapter-07-immutable</module>
-        <module>chapter-08-final</module>
+        <module>chapter-07-concurrency_immutable</module>
+        <module>chapter-08-concurrency_final</module>
         <module>chapter-09-concurrency_designpattern</module>
-        <module>chapter-10-thread_pool</module>
+        <module>chapter-10-concurrency_thread_pool</module>
     </modules>
 
     <properties>
