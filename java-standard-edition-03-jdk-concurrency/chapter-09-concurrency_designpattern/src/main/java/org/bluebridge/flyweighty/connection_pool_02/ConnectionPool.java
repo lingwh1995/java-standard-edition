@@ -20,8 +20,8 @@ public class ConnectionPool{
     ConnectionPool(int size) {
         this.size=size;
         connections = new Connection[size];
-        status=new AtomicIntegerArray(new int[size]);
-        signal= new Semaphore(size);
+        status = new AtomicIntegerArray(new int[size]);
+        signal = new Semaphore(size);
         for (int i = 0; i < size; i++) {
             connections[i] = new MyConnection("连接" + (i+1));
         }
@@ -47,9 +47,9 @@ public class ConnectionPool{
         }
     }
     //6.还连接
-    public void fee(Connection connection){
+    public void free(Connection connection){
         for (int i = 0; i < size; i++) {
-            if(connections[i]==connection){
+            if(connections[i] == connection){
                 System.out.printf("释放连接: %d\n", i);
                 status.set(i,0);
                 //信号量减1

@@ -6,11 +6,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockConditionTest {
 
-    static ReentrantLock lock = new ReentrantLock();
-    static Condition waitCigaretteQueue = lock.newCondition();
-    static Condition waitbreakfastQueue = lock.newCondition();
-    static volatile boolean hasCigrette = false;
-    static volatile boolean hasBreakfast = false;
+    private static ReentrantLock lock = new ReentrantLock();
+    private static Condition waitCigaretteQueue = lock.newCondition();
+    private static Condition waitbreakfastQueue = lock.newCondition();
+    private static volatile boolean hasCigrette = false;
+    private static volatile boolean hasBreakfast = false;
 
     public static void main(String[] args) {
         new Thread(() -> {

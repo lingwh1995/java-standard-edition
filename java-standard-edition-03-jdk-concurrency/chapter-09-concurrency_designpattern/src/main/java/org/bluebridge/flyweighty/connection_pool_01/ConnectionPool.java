@@ -34,7 +34,7 @@ public class ConnectionPool {
                 // 获取空闲连接
                 if(states.get(i) == 0) {
                     if (states.compareAndSet(i, 0, 1)) {
-                        System.out.println("borrow " + connections[i]);
+                        System.out.println("borrow " + connections[i] + "......");
                         return connections[i];
                     }
                 }
@@ -57,7 +57,7 @@ public class ConnectionPool {
             if (connections[i] == conn) {
                 states.set(i, 0);
                 synchronized (this) {
-                    System.out.println("free " + conn);
+                    System.out.println("free " + conn + "......");
                     this.notifyAll();
                 }
                 break;

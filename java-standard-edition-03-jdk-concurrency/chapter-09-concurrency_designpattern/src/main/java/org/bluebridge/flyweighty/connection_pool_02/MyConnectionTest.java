@@ -4,7 +4,9 @@ import java.sql.Connection;
 
 public class MyConnectionTest {
     public static void main(String[] args) {
+        //初始化连接池
         ConnectionPool connectionPool = new ConnectionPool(2);
+
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 Connection conn = connectionPool.borrow();
@@ -13,7 +15,7 @@ public class MyConnectionTest {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                connectionPool.fee(conn);
+                connectionPool.free(conn);
             }).start();
         }
     }
