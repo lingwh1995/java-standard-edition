@@ -46,7 +46,7 @@ public class ConnectionPool{
             }
         }
     }
-    //6.释放连接
+    //6.归还连接
     public void free(Connection connection){
         for (int i = 0; i < size; i++) {
             if(connections[i] == connection){

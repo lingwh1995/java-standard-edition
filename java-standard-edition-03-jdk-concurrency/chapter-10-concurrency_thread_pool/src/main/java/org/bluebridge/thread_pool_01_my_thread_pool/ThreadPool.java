@@ -1,13 +1,14 @@
 package org.bluebridge.thread_pool_01_my_thread_pool;
 
 import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class ThreadPool{
     //阻塞队列
     BlockingQueue<Runnable> taskQue;
     //线程集合
-    HashSet<Worker> workers = new HashSet<>();
+    Set<Worker> workers = new HashSet<>();
     //拒绝策略
     private RejectPolicy<Runnable> rejectPolicy;
     //构造方法

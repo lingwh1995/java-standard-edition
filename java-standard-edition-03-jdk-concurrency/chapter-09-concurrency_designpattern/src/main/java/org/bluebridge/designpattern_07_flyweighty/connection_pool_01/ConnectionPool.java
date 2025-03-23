@@ -29,20 +29,21 @@ public class ConnectionPool {
 
     // 5. 借连接
     public Connection borrow() {
-        while(true) {
-            for (int i = 0; i < poolSize; i++) {
-                // 获取空闲连接
-                if(states.get(i) == 0) {
-                    if (states.compareAndSet(i, 0, 1)) {
-                        System.out.println("borrow " + connections[i] + "......");
-                        return connections[i];
+        synchronized (this) {
+            while(true) {
+                for (int i = 0; i < poolSize; i++) {
+                    // 获取空闲连接
+                    if(states.get(i) == 0) {
+                        if (states.compareAndSet(i, 0, 1)) {
+                            System.out.println(Thread.currentThread().getName() + " borrow " + connections[i] + "......");
+
+                            return connections[i];
+                        }
                     }
                 }
-            }
-            // 如果没有空闲连接，当前线程进入等待
-            synchronized (this) {
+                // 如果没有空闲连接，当前线程进入等待
                 try {
-                    System.out.println("wait......");
+                    System.out.println(Thread.currentThread().getName() + " wait......");
                     this.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -51,18 +52,19 @@ public class ConnectionPool {
         }
     }
 
-    // 6. 释放连接
+    // 6. 归还连接
     public void free(Connection conn) {
-        for (int i = 0; i < poolSize; i++) {
-            if (connections[i] == conn) {
-                states.set(i, 0);
-                synchronized (this) {
-                    System.out.println("free " + conn + "......");
-                    this.notifyAll();
+        synchronized (this) {
+            for (int i = 0; i < poolSize; i++) {
+                if (connections[i] == conn) {
+                    states.set(i, 0);
+                    break;
                 }
-                break;
             }
+            System.out.println(Thread.currentThread().getName() + " free " + conn + "......");
+            this.notifyAll();
         }
     }
+
 }
 
