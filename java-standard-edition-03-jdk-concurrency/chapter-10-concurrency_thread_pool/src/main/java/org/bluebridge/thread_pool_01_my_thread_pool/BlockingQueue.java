@@ -17,11 +17,21 @@ public class BlockingQueue<T>{
     private Condition fullWaitSet = lock.newCondition();
     //消费者条件变量
     private Condition emptyWaitSet = lock.newCondition();
-    //构造方法
+
+    /**
+     * 构造方法
+     * @param capacity
+     */
     public BlockingQueue(int capacity) {
         this.capacity = capacity;
     }
-    //超时阻塞获取
+
+    /**
+     * 超时阻塞获取
+     * @param timeout
+     * @param unit
+     * @return
+     */
     public T poll(long timeout, TimeUnit unit){
         lock.lock();
         //将时间转换为纳秒
@@ -46,7 +56,11 @@ public class BlockingQueue<T>{
             lock.unlock();
         }
     }
-    //阻塞获取
+
+    /**
+     * 阻塞获取
+     * @return
+     */
     public T take(){
         lock.lock();
         try{
@@ -64,7 +78,11 @@ public class BlockingQueue<T>{
             lock.unlock();
         }
     }
-    //阻塞添加
+
+    /**
+     * 阻塞添加
+     * @param t
+     */
     public void put(T t){
         lock.lock();
         try{
@@ -83,7 +101,14 @@ public class BlockingQueue<T>{
             lock.unlock();
         }
     }
-    //超时阻塞添加
+
+    /**
+     * 超时阻塞添加
+     * @param t
+     * @param timeout
+     * @param timeUnit
+     * @return
+     */
     public boolean offer(T t,long timeout,TimeUnit timeUnit){
         lock.lock();
         try{
@@ -108,6 +133,7 @@ public class BlockingQueue<T>{
             lock.unlock();
         }
     }
+
     public int size(){
         lock.lock();
         try{
@@ -116,7 +142,12 @@ public class BlockingQueue<T>{
             lock.unlock();
         }
     }
-    //从形参接收拒绝策略的put方法
+
+    /**
+     * 从形参接收拒绝策略的put方法
+     * @param rejectPolicy
+     * @param task
+     */
     public void tryPut(RejectPolicy<T> rejectPolicy,T task){
         lock.lock();
         try{
