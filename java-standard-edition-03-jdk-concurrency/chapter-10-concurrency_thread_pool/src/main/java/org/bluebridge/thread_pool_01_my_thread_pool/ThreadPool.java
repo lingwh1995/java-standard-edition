@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadPool{
     //阻塞队列
-    BlockingQueue<Runnable> taskQue;
+    BlockingQueue<Runnable> taskQueue;
     //线程集合
     Set<Worker> workers = new HashSet<>();
     //拒绝策略
@@ -17,7 +17,7 @@ public class ThreadPool{
         this.timeout = timeout;
         this.timeUnit = timeUnit;
         this.rejectPolicy = rejectPolicy;
-        taskQue = new BlockingQueue<Runnable>(queueCapacity);
+        taskQueue = new BlockingQueue<Runnable>(queueCapacity);
     }
     //线程数
     private int coreSize;
@@ -38,7 +38,7 @@ public class ThreadPool{
                 //让调用者放弃执行任务
                 //让调用者抛出异常
                 //让调用者自己执行任务
-                taskQue.tryPut(rejectPolicy,task);
+                taskQueue.tryPut(rejectPolicy,task);
             }else {
                 Worker worker = new Worker(task);
                 System.out.println(Thread.currentThread().toString() + "新增worker:" + worker + ",task:" + task);
@@ -60,7 +60,7 @@ public class ThreadPool{
         @Override
         public void run() {
             //巧妙的判断
-            while(task != null || (task = taskQue.poll(timeout,timeUnit)) != null){
+            while(task != null || (task = taskQueue.poll(timeout,timeUnit)) != null){
                 try{
                     System.out.println(Thread.currentThread().toString() + "正在执行:" + task);
                     task.run();

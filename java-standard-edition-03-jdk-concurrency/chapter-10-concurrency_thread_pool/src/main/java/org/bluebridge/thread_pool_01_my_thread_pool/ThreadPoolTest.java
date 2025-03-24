@@ -6,13 +6,13 @@ public class ThreadPoolTest {
     public static void main(String[] args) {
         ThreadPool threadPool = new ThreadPool(1, 1000, TimeUnit.MILLISECONDS, 1, (queue, task)->{
             //死等
-//                    queue.put(task);
+//          queue.put(task);
             //带超时等待
-//            queue.offer(task, 1500, TimeUnit.MILLISECONDS);
+//          queue.offer(task, 1500, TimeUnit.MILLISECONDS);
             //让调用者放弃任务执行
-//            System.out.println("放弃：" + task);
+//          System.out.println("放弃：" + task);
             //让调用者抛出异常
-//            throw new RuntimeException("任务执行失败" + task);
+//          throw new RuntimeException("任务执行失败" + task);
             //让调用者自己执行任务
             task.run();
         });
