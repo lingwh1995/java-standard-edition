@@ -1,4 +1,4 @@
-package org.bluebridge.thread_pool_01_my_thread_pool;
+package org.bluebridge.thread_pool_02_thread_pool;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -139,6 +139,26 @@ public class BlockingQueue<T>{
         try{
             return queue.size();
         }finally{
+            lock.unlock();
+        }
+    }
+
+    /**
+     * 从形参接收拒绝策略的put方法
+     * @param rejectPolicy
+     * @param task
+     */
+    public void tryPut(RejectPolicy<T> rejectPolicy, T task){
+        lock.lock();
+        try{
+            if(queue.size() == capacity){
+                rejectPolicy.reject(this,task);
+            }else{
+                System.out.println("加入任务队列：" + task);
+                queue.addLast(task);
+                emptyWaitSet.signal();
+            }
+        }finally {
             lock.unlock();
         }
     }

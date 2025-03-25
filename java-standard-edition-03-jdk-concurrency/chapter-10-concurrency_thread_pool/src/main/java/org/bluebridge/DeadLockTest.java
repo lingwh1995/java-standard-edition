@@ -1,4 +1,4 @@
-package org.bluebridge.thread_pool_02;
+package org.bluebridge;
 
 import java.util.Arrays;
 import java.util.List;
