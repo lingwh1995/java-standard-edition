@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadPool{
     //阻塞队列
-    BlockingQueue<Runnable> taskQueue;
+    private BlockingQueue<Runnable> taskQueue;
     //线程集合
-    Set<Worker> workers = new HashSet<>();
+    private Set<Worker> workers = new HashSet<>();
     //构造方法
     public ThreadPool(int coreSize, long timeout, TimeUnit timeUnit, int queueCapacity){
         this.coreSize = coreSize;
