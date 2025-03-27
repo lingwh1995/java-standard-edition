@@ -8,39 +8,38 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class DeadLockTest {
+public class DeadLockTest2 {
     private static final List<String> MENU = Arrays.asList("地三鲜", "宫保鸡丁", "辣子鸡丁", "烤鸡翅");
-    private static Random RANDOM = new Random();
-    private static String cooking() {
+    static Random RANDOM = new Random();
+    static String cooking() {
         return MENU.get(RANDOM.nextInt(MENU.size()));
     }
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
-
-        executorService.execute(() -> {
+        ExecutorService waiterPool = Executors.newFixedThreadPool(1);
+        ExecutorService cookPool = Executors.newFixedThreadPool(1);
+        waiterPool.execute(() -> {
             System.out.println(Thread.currentThread().getName() + " 处理点餐......");
-            Future<String> f = executorService.submit(() -> {
+            Future<String> f = cookPool.submit(() -> {
                 System.out.println(Thread.currentThread().getName() + " 做菜......");
                 return cooking();
             });
             try {
-                System.out.println(Thread.currentThread().getName() + " 上菜 " + f.get() + "......");
+                System.out.println(Thread.currentThread().getName() + " 上菜......" + f.get());
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
         });
-        /*
-        executorService.execute(() -> {
-            System.out.println("处理点餐......");
-            Future<String> f = executorService.submit(() -> {
-                System.out.println("做菜......");
+        waiterPool.execute(() -> {
+            System.out.println(Thread.currentThread().getName() + " 处理点餐......");
+            Future<String> f = cookPool.submit(() -> {
+                System.out.println(Thread.currentThread().getName() + " 做菜......");
                 return cooking();
             });
             try {
-                System.out.println("上菜 " + f.get() + "......");
+                System.out.println(Thread.currentThread().getName() + " 上菜......" + f.get());
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
-        });*/
+        });
     }
 }
