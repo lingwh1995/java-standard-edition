@@ -1,5 +1,7 @@
 package org.bluebridge.thread_pool_02_cached_thread_pool;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
@@ -47,19 +49,20 @@ public class CachedThreadPool03APITest {
      */
     private static void testInvokeAll() throws InterruptedException {
         ExecutorService executor = Executors.newCachedThreadPool();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:MM:ss");
         List<Future<String>> futures = executor.invokeAll(Arrays.asList(
                 () -> {
-                    System.out.println(Thread.currentThread().getName() + " begin......");
+                    System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " begin......");
                     Thread.sleep(1000);
                     return "1";
                 },
                 () -> {
-                    System.out.println(Thread.currentThread().getName() + " begin......");
+                    System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " begin......");
                     Thread.sleep(500);
                     return "2";
                 },
                 () -> {
-                    System.out.println(Thread.currentThread().getName() + " begin......");
+                    System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " begin......");
                     Thread.sleep(2000);
                     return "3";
                 }
@@ -67,7 +70,7 @@ public class CachedThreadPool03APITest {
 
         futures.forEach( f ->  {
             try {
-                System.out.println(Thread.currentThread().getName() + " " + f.get());
+                System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " " + f.get());
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
@@ -88,19 +91,19 @@ public class CachedThreadPool03APITest {
                 () -> {
                     System.out.println(Thread.currentThread().getName() + " begin......1");
                     Thread.sleep(1000);
-                    System.out.println(Thread.currentThread().getName() + " begin......1");
+                    System.out.println(Thread.currentThread().getName() + " end......1");
                     return "1";
                 },
                 () -> {
                     System.out.println(Thread.currentThread().getName() + " begin......2");
                     Thread.sleep(500);
-                    System.out.println(Thread.currentThread().getName() + " begin......2");
+                    System.out.println(Thread.currentThread().getName() + " end......2");
                     return "2";
                 },
                 () -> {
                     System.out.println(Thread.currentThread().getName() + " begin......3");
                     Thread.sleep(2000);
-                    System.out.println(Thread.currentThread().getName() + " begin......3");
+                    System.out.println(Thread.currentThread().getName() + " end......3");
                     return "3";
                 }
         ));
