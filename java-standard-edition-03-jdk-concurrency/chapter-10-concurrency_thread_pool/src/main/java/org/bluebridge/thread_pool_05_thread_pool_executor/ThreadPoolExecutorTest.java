@@ -1,4 +1,4 @@
-package org.bluebridge.thread_pool_04_thread_pool_executor;
+package org.bluebridge.thread_pool_05_thread_pool_executor;
 
 import java.util.concurrent.*;
 
