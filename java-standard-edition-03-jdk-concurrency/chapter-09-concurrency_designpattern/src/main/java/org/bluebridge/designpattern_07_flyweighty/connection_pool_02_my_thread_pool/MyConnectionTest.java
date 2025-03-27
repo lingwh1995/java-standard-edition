@@ -1,4 +1,4 @@
-package org.bluebridge.designpattern_07_flyweighty.connection_pool_02;
+package org.bluebridge.designpattern_07_flyweighty.connection_pool_02_my_thread_pool;
 
 import java.sql.Connection;
 

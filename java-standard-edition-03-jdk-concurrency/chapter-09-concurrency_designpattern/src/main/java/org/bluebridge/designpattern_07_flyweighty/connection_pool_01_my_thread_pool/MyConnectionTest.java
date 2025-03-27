@@ -1,8 +1,7 @@
-package org.bluebridge.designpattern_07_flyweighty.connection_pool_01;
+package org.bluebridge.designpattern_07_flyweighty.connection_pool_01_my_thread_pool;
 
 
 import java.sql.Connection;
-import java.util.Random;
 
 public class MyConnectionTest {
     public static void main(String[] args) {

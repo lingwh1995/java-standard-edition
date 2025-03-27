@@ -1,4 +1,4 @@
-package org.bluebridge.thread_pool_02_thread_pool;
+package org.bluebridge.designpattern_07_flyweighty.connection_pool_04_my_thread_pool;
 
 import java.util.concurrent.TimeUnit;
 

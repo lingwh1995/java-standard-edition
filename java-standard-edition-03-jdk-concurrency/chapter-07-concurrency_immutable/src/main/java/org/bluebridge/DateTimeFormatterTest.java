@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * 使用不可变类DateTimeFormatter解决日期类线程安全问题
+ * SimpleDateFormat.parse()线程安全问题以及解决
+ *      方式二：使用不可变类DateTimeFormatter解决日期类线程安全问题
  *
  * DateTimeFormatter类定义
  *      //This class is immutable and thread-safe.

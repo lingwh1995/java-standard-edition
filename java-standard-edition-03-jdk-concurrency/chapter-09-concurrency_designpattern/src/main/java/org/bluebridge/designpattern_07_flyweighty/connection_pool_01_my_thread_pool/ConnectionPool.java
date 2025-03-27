@@ -1,4 +1,4 @@
-package org.bluebridge.designpattern_07_flyweighty.connection_pool_01;
+package org.bluebridge.designpattern_07_flyweighty.connection_pool_01_my_thread_pool;
 
 
 import java.sql.Connection;
@@ -36,7 +36,6 @@ public class ConnectionPool {
                     if(states.get(i) == 0) {
                         if (states.compareAndSet(i, 0, 1)) {
                             System.out.println(Thread.currentThread().getName() + " borrow " + connections[i] + "......");
-
                             return connections[i];
                         }
                     }

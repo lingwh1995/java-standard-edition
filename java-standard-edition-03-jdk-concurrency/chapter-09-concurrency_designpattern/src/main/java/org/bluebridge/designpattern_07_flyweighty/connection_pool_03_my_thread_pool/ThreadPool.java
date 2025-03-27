@@ -1,4 +1,4 @@
-package org.bluebridge.thread_pool_02_thread_pool;
+package org.bluebridge.designpattern_07_flyweighty.connection_pool_03_my_thread_pool;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,17 +6,14 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadPool{
     //阻塞队列
-    BlockingQueue<Runnable> taskQueue;
+    private BlockingQueue<Runnable> taskQueue;
     //线程集合
-    Set<Worker> workers = new HashSet<>();
-    //拒绝策略
-    private RejectPolicy<Runnable> rejectPolicy;
+    private Set<Worker> workers = new HashSet<>();
     //构造方法
-    public ThreadPool(int coreSize, long timeout, TimeUnit timeUnit, int queueCapacity, RejectPolicy<Runnable> rejectPolicy){
+    public ThreadPool(int coreSize, long timeout, TimeUnit timeUnit, int queueCapacity){
         this.coreSize = coreSize;
         this.timeout = timeout;
         this.timeUnit = timeUnit;
-        this.rejectPolicy = rejectPolicy;
         taskQueue = new BlockingQueue<Runnable>(queueCapacity);
     }
     //线程数
@@ -32,13 +29,7 @@ public class ThreadPool{
         //注意workers类不是线程安全的， 需要加锁
         synchronized (workers){
             if(workers.size() >= coreSize){
-//                taskQue.put(task);
-                //死等
-                //带超时等待
-                //让调用者放弃执行任务
-                //让调用者抛出异常
-                //让调用者自己执行任务
-                taskQueue.tryPut(rejectPolicy,task);
+                taskQueue.put(task);
             }else {
                 Worker worker = new Worker(task);
                 System.out.println(Thread.currentThread().toString() + "新增worker:" + worker + ",task:" + task);
