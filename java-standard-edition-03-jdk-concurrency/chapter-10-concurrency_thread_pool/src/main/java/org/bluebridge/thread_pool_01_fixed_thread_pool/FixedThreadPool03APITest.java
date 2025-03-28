@@ -156,7 +156,7 @@ public class FixedThreadPool03APITest {
 
         // 调用 shutdown() 3000 ms 后判断线程池中所有任务是否执行完成，如果执行完成则返回 true，否则返回 false
         boolean allTaskExecuteSuccess = executor.awaitTermination(3000, TimeUnit.MILLISECONDS);
-        System.out.println("调用 shutdown() 3000 ms 后判断线程池中所有任务是否执行完成 = " + allTaskExecuteSuccess);
+        System.out.println("调用 shutdown() 3000ms 后判断线程池中所有任务是否执行完成: " + allTaskExecuteSuccess);
         if(! allTaskExecuteSuccess) {
             // 立即关闭线程池
             executor.shutdownNow();
