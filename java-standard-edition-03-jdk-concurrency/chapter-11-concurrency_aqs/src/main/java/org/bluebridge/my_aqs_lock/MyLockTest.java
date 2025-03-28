@@ -42,7 +42,7 @@ public class MyLockTest {
     }
 
     /**
-     * 测试 MyLock 可重入功能
+     * 测试 MyLock 不可重
      */
     private static void testMyLockReentrant() {
         MyLock lock = new MyLock();
