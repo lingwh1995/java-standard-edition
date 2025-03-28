@@ -23,6 +23,7 @@
         <module>chapter-08-concurrency_final</module>
         <module>chapter-09-concurrency_designpattern</module>
         <module>chapter-10-concurrency_thread_pool</module>
+        <module>chapter-11-concurrency_aqs</module>
     </modules>
 
     <properties>
@@ -39,6 +40,17 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- slf4j api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- Logback作为日志实现 -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
     </dependencies>
 </project>

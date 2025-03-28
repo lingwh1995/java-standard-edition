@@ -123,6 +123,7 @@ public class FixedThreadPool03APITest {
         ExecutorService executor = Executors.newFixedThreadPool(2);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:MM:ss");
 
+        // 任务一执行完成需要 1000 ms
         Future<Integer> result1 = executor.submit(() -> {
             System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " " + "task 1 running......");
             TimeUnit.MILLISECONDS.sleep(1000);
@@ -130,6 +131,7 @@ public class FixedThreadPool03APITest {
             return 1;
         });
 
+        // 任务二执行完成需要 1000 ms
         Future<Integer> result2 = executor.submit(() -> {
             System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " " + "task 2 running......");
             TimeUnit.MILLISECONDS.sleep(1000);
@@ -137,27 +139,27 @@ public class FixedThreadPool03APITest {
             return 2;
         });
 
+        // 任务三执行完成需要 5000 ms
         Future<Integer> result3 = executor.submit(() -> {
             System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " " + "task 3 running......");
-            Thread.sleep(1000);
+            Thread.sleep(5000);
             System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " " + "task 3 finish......");
             return 3;
         });
 
         System.out.println("shutdown......");
-        //executor.shutdown();
-
-        executor.awaitTermination(3, TimeUnit.SECONDS);
+        executor.shutdown();
 
         //List<Runnable> runnables = executor.shutdownNow();
         //System.out.println("other.... = " + runnables);
 
 
-        Future<Integer> result4 = executor.submit(() -> {
-            System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " " + "task 4 running......");
-            Thread.sleep(5000);
-            System.out.println(dtf.format(LocalDateTime.now()) + " " + Thread.currentThread().getName() + " " + "task 4 finish......");
-            return 4;
-        });
+        // 调用 shutdown() 3000 ms 后判断线程池中所有任务是否执行完成，如果执行完成则返回 true，否则返回 false
+        boolean allTaskExecuteSuccess = executor.awaitTermination(3000, TimeUnit.MILLISECONDS);
+        System.out.println("调用 shutdown() 3000 ms 后判断线程池中所有任务是否执行完成 = " + allTaskExecuteSuccess);
+        if(! allTaskExecuteSuccess) {
+            // 立即关闭线程池
+            executor.shutdownNow();
+        }
     }
 }

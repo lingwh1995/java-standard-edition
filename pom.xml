@@ -17,6 +17,8 @@
         <hessian.version>4.0.38</hessian.version>
         <lombok.version>1.18.30</lombok.version>
         <commons-io.version>2.2</commons-io.version>
+        <slf4j-api.version>1.7.32</slf4j-api.version>
+        <logback.version>1.2.6</logback.version>
     </properties>
 
     <modules>
@@ -56,6 +58,19 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
+            </dependency>
+            <!-- slf4j api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <!-- Logback作为日志实现 -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
