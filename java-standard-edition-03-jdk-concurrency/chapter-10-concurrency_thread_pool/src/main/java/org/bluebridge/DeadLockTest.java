@@ -30,18 +30,17 @@ public class DeadLockTest {
             }
         });
 
-        /*
         executorService.execute(() -> {
-            System.out.println("处理点餐......");
+            System.out.println(Thread.currentThread().getName() + " 处理点餐......");
             Future<String> f = executorService.submit(() -> {
-                System.out.println("做菜......");
+                System.out.println(Thread.currentThread().getName() + " 做菜......");
                 return cooking();
             });
             try {
-                System.out.println("上菜 " + f.get() + "......");
+                System.out.println(Thread.currentThread().getName() + " 上菜 " + f.get() + "......");
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
-        });*/
+        });
     }
 }
