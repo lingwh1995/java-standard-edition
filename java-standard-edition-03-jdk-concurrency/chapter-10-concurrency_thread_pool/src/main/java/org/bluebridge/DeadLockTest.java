@@ -9,11 +9,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class DeadLockTest {
+
     private static final List<String> MENU = Arrays.asList("地三鲜", "宫保鸡丁", "辣子鸡丁", "烤鸡翅");
+
     private static Random RANDOM = new Random();
+
     private static String cooking() {
         return MENU.get(RANDOM.nextInt(MENU.size()));
     }
+
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 

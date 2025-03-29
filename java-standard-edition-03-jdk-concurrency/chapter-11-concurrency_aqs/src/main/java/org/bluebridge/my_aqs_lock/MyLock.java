@@ -5,34 +5,41 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 public class MyLock implements Lock {
+
     private static MySync sync = new MySync();
-    @Override
+
     // 尝试，不成功，进入等待队列
+    @Override
     public void lock() {
         sync.acquire(1);
     }
-    @Override
+
     // 尝试，不成功，进入等待队列，可打断
+    @Override
     public void lockInterruptibly() throws InterruptedException {
         sync.acquireInterruptibly(1);
     }
-    @Override
+
     // 尝试一次，不成功返回，不进入队列
+    @Override
     public boolean tryLock() {
         return sync.tryAcquire(1);
     }
-    @Override
+
     // 尝试，不成功，进入等待队列，有时限
+    @Override
     public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
         return sync.tryAcquireNanos(1, unit.toNanos(time));
     }
-    @Override
+
     // 释放锁
+    @Override
     public void unlock() {
         sync.release(1);
     }
-    @Override
+
     // 生成条件变量
+    @Override
     public Condition newCondition() {
         return sync.newCondition();
     }

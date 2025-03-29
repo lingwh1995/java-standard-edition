@@ -4,6 +4,7 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 
 final class MySync extends AbstractQueuedSynchronizer {
+
     @Override
     protected boolean tryAcquire(int acquires) {
         if (acquires == 1){
@@ -14,6 +15,7 @@ final class MySync extends AbstractQueuedSynchronizer {
         }
         return false;
     }
+
     @Override
     protected boolean tryRelease(int acquires) {
         if(acquires == 1) {
@@ -26,9 +28,11 @@ final class MySync extends AbstractQueuedSynchronizer {
         }
         return false;
     }
+
     protected Condition newCondition() {
         return new ConditionObject();
     }
+
     @Override
     protected boolean isHeldExclusively() {
         return getState() == 1;
