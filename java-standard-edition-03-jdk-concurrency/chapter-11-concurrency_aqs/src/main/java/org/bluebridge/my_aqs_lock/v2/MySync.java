@@ -1,4 +1,4 @@
-package org.bluebridge.my_aqs_lock;
+package org.bluebridge.my_aqs_lock.v2;
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;

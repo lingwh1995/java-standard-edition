@@ -1,4 +1,4 @@
-package org.bluebridge.my_aqs_lock;
+package org.bluebridge.my_aqs_lock.v2;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class MyLockTest {
     public static void main(String[] args) {
-        //testMyLockBasic();
+        testMyLockBasic();
 
-        testMyLockReentrant();
+        //testMyLockReentrant();
     }
 
     /**

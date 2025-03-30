@@ -1,4 +1,4 @@
-package org.bluebridge.my_aqs_lock;
+package org.bluebridge.my_aqs_lock.v1;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
