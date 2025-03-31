@@ -15,7 +15,6 @@ public class UnsafeClassOperateTest {
     public void testUnsafeClassOperate() throws NoSuchFieldException {
         Student student = new Student();
         Unsafe unsafe = UnsafeAccessor.getUnsafe();
-        System.out.println(unsafe.shouldBeInitialized(Student.class));
         Field sexField = Student.class.getDeclaredField("name");
         long fieldOffset = unsafe.staticFieldOffset(sexField);
         Object fieldBase = unsafe.staticFieldBase(sexField);

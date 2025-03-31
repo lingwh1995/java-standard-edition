@@ -1,4 +1,4 @@
-package org.bluebridge.test;
+package org.bluebridge.unsafe_10_unsafe_atomic_integer;
 
 import org.bluebridge.util.UnsafeAccessor;
 import sun.misc.Unsafe;

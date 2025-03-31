@@ -1,4 +1,4 @@
-package org.bluebridge.test;
+package org.bluebridge.unsafe_10_unsafe_atomic_integer;
 
 public class UnsafeAtomicTest {
     public static void main(String[] args) {
