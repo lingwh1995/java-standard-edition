@@ -1,4 +1,4 @@
-package org.bluebridge.test;
+package org.bluebridge.unsafe_10_unsafe_atomic_integer;
 
 /**
  * 实现账户类，使用手动实现的原子整数作为余额类型
