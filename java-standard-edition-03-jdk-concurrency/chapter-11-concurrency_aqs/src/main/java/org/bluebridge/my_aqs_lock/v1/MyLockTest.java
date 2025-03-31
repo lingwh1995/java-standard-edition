@@ -20,12 +20,12 @@ public class MyLockTest {
         new Thread(() -> {
             lock.lock();
             try {
-                log.debug("locking...");
+                log.debug("locking......");
                 TimeUnit.MILLISECONDS.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } finally {
-                log.debug("unlocking...");
+                log.debug("unlocking......");
                 lock.unlock();
             }
         },"t1").start();
@@ -33,9 +33,9 @@ public class MyLockTest {
         new Thread(() -> {
             lock.lock();
             try {
-                log.debug("locking...");
+                log.debug("locking......");
             } finally {
-                log.debug("unlocking...");
+                log.debug("unlocking......");
                 lock.unlock();
             }
         },"t2").start();
@@ -47,8 +47,8 @@ public class MyLockTest {
     private static void testMyLockReentrant() {
         MyLock lock = new MyLock();
         lock.lock();
-        log.debug("locking...");
+        log.debug("locking......");
         lock.lock();
-        log.debug("locking...");
+        log.debug("locking......");
     }
 }
