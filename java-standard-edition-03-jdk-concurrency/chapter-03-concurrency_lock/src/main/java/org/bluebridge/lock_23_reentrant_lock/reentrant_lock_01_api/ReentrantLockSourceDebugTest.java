@@ -17,7 +17,7 @@ public class ReentrantLockSourceDebugTest {
                 System.out.println("Thread " + Thread.currentThread().getName() + " 得到锁......");
                 //死循环
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(1000 * 60);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

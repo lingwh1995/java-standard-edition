@@ -12,29 +12,29 @@ public class DataContainer {
     private ReentrantReadWriteLock.ReadLock r = rw.readLock();
     private ReentrantReadWriteLock.WriteLock w = rw.writeLock();
     public Object read() {
-        log.debug("获取读锁......");
+        log.debug("获取读锁...");
         r.lock();
         try {
-            log.debug("读取......");
+            log.debug("读取");
             TimeUnit.MILLISECONDS.sleep(1000);
             return data;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-            log.debug("释放读锁......");
+            log.debug("释放读锁...");
             r.unlock();
         }
     }
     public void write() {
-        log.debug("获取写锁......");
+        log.debug("获取写锁...");
         w.lock();
         try {
-            log.debug("写入......");
+            log.debug("写入");
             TimeUnit.MILLISECONDS.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-            log.debug("释放写锁......");
+            log.debug("释放写锁...");
             w.unlock();
         }
     }
