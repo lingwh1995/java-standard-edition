@@ -1,4 +1,4 @@
-package org.bluebridge.java8.interface_;
+package org.bluebridge.java8.interface_new_feature;
 
 public class MyInterfaceTest {
     public static void main(String[] args) {
