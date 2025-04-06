@@ -7,7 +7,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.*;
+import java.util.stream.Stream;
 
+import lombok.Data;
 import org.junit.Test;
 
 /**
@@ -267,6 +269,31 @@ public class MethodReferenceTest {
 		//方法引用
         list.forEach(System.out::println);
 		System.out.println("------------------------------------");
+
+		//方法引用
+        list.forEach(MethodReferenceTest::print);
+		System.out.println("------------------------------------");
+
+		//方法引用
+		list.stream().filter(MethodReferenceTest::isCharC).forEach(System.out::println);
+		System.out.println("------------------------------------");
+	}
+
+	/**
+	 * 打印字符s
+	 * @param s
+	 */
+	public static void print(String s) {
+		System.out.println(s);
+	}
+
+	/**
+	 * 判断字符s是不是小写 c
+	 * @param s
+	 * @return
+	 */
+	public static boolean isCharC(String s) {
+		return s.equals("c");
 	}
 
 
@@ -720,9 +747,9 @@ public class MethodReferenceTest {
 		System.out.println(Arrays.toString(arr2));
 	}
 
-
 }
 
+@Data
 class Person {
     private String username;
     private Integer age;
