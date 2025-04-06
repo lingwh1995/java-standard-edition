@@ -21,7 +21,7 @@ import org.junit.Test;
  * 
  * https://blog.csdn.net/qq_33591903/article/details/102948344
  */
-public class Java8FunctionInterfaceTest {
+public class FunctionInterfaceTest2 {
 	
 	/**
 	 * Consumer函数式接口
@@ -93,8 +93,8 @@ public class Java8FunctionInterfaceTest {
 	@Test
 	public void testPredicate1() {
 		//匿名内部类方式使用Predicate接口
-		List<String> list = Arrays.asList("周杰伦","周冬雨","马冬梅");
-		List<String> filterResult = filter(list, new Predicate<String>() {
+		List<String> starts = Arrays.asList("周杰伦","周冬雨","马冬梅");
+		List<String> filterResult = filter(starts, new Predicate<String>() {
 			@Override
 			public boolean test(String s) {
 				return s.contains("周");
@@ -104,43 +104,26 @@ public class Java8FunctionInterfaceTest {
 		System.out.println("--------------------------------------");
 
 		//lambda方式使用Predicate接口
-		filterResult = filter(list, s -> s.contains("冬"));
+		filterResult = filter(starts, s -> s.contains("冬"));
 		System.out.println(filterResult);
 		System.out.println("--------------------------------------");
 	}
 	
-	public List<String> filter(List<String> source, Predicate<String> predicate) {
-		List<String> target = new ArrayList<>();
-		source.forEach(s -> {
+	public List<String> filter(List<String> starts, Predicate<String> predicate) {
+		List<String> result = new ArrayList<>();
+		starts.forEach(s -> {
 			if(predicate.test(s)) {
-				target.add(s);
+				result.add(s);
 			}
 		});
-		return target;
+		return result;
 	}
 	
-	
-	/**
-	 * BiPredicate函数接口
-	 */
-	@Test
-	public void testBiPredicate() {
-		//匿名内部类
-		BiPredicate<Integer, Integer> biPredicate = new BiPredicate<Integer,Integer>() {
-			@Override
-			public boolean test(Integer a, Integer b) {
-				return a > b;
-			}
-		};
-		System.out.println(biPredicate.test(10, 5));
-		System.out.println("--------------------------------------");
-		
-		//lambda表达式
-		biPredicate = (a,b) -> a > b;
-		System.out.println(biPredicate.test(10,5));
-		System.out.println("--------------------------------------");
-	}
 
+
+	/**
+	 * Supplier函数式接口
+	 */
 	@Test
 	public void testSupplier() {
 		Supplier<String> supplier = () -> "hello world!";

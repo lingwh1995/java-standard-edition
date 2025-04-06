@@ -1,6 +1,9 @@
 package org.bluebridge.java8.lambda;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntPredicate;
 
@@ -84,6 +87,7 @@ public class LambdaTest {
 		System.out.println("使用lambda方式调用(简写形式):" + result);
 	}
 
+
 	/**
 	 * 这个方法的参数是一个接口
 	 * 
@@ -92,6 +96,53 @@ public class LambdaTest {
 	 */
 	public static int calculateNum(IntBinaryOperator operator) {
 		return operator.applyAsInt(10, 20);
+	}
+
+	@Test
+	public void testFilter() {
+		int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		// 筛选数组中大于5的数字
+		List<Integer> numsGT5 = filterGT5(nums);
+		System.out.println("numsGT5 = " + numsGT5);
+		// 筛选数组中小于等于5的数字
+		List<Integer> numsLE5 = filterLE5(nums);
+		System.out.println("numsLE5 = " + numsLE5);
+
+		// 使用lambda实现函数行为参数化
+		filterNum(num -> num > 5 ? true : false);
+
+		// 使用lambda实现函数行为参数化
+		filterNum(num -> num <= 5 ? true : false);
+	}
+
+	/**
+	 * 过滤出大于5的值
+	 * @param nums
+	 * @return
+	 */
+	public List<Integer> filterGT5(int[] nums) {
+		List<Integer> result = new ArrayList<>();
+		for(int i=0; i<nums.length; i++) {
+			if(nums[i] > 5) {
+				result.add(nums[i]);
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * 过滤出小于等于5的数
+	 * @param nums
+	 * @return
+	 */
+	public List<Integer> filterLE5(int[] nums) {
+		List<Integer> result = new ArrayList<>();
+		for(int i=0; i<nums.length; i++) {
+			if(nums[i] <= 5) {
+				result.add(nums[i]);
+			}
+		}
+		return result;
 	}
 
 
@@ -113,7 +164,7 @@ public class LambdaTest {
 		/**
 		 * 使用lambda方式调用
 		 */
-		filterNum((value) -> {
+		filterNum(value -> {
 			return value % 2 == 0 ? true : false;
 		});
 
@@ -122,6 +173,7 @@ public class LambdaTest {
 		 */
 		filterNum(value -> value % 2 == 0 ? true : false);
 	}
+
 
 	/**
 	 * 这个方法的参数是一个接口
@@ -138,7 +190,7 @@ public class LambdaTest {
 		}
 	}
 
-	
+
 	@Test
 	public void testComparator() {
 		/**
