@@ -23,7 +23,7 @@ import java.util.stream.Stream;
  *  10.reduce()              归并计算
  *  11.summaryStatistics()  是一个用于数值流的终端操作，提供对流中元素的统计信息，例如最大值、最小值、总和、平均值和数量。常与 IntStream、LongStream 和 DoubleStream 一起使用。
  */
-public class StreamEndStreamTest {
+public class StreamEndTest {
     private List<Employee> employees;
 
     /**

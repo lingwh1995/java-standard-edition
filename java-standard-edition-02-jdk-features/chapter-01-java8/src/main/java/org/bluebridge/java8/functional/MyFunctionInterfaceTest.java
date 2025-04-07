@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 一些自定的函数式接口
+ * 自定的函数式接口
  */
-public class FunctionInterfaceTest1 {
+public class MyFunctionInterfaceTest {
 
     public static void main(String[] args) {
         Type1 type1 = a -> (a - 5) >= 0;

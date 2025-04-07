@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 /**
  * 创建流
  */
-public class StreamCreateStreamTest {
+public class StreamCreateTest {
 	/**
 	 * 	Stream流和Collection集合的区别
 	 * 		1.Collection集合是一种静态的内存数据结构，主要面向内存，而Stream流是和计算有关的，主要面向CPU实现计算

@@ -3,7 +3,6 @@ package org.bluebridge.java8.functional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -21,7 +20,7 @@ import org.junit.Test;
  * 
  * https://blog.csdn.net/qq_33591903/article/details/102948344
  */
-public class FunctionInterfaceTest2 {
+public class BasicFunctionInterfaceTest {
 	
 	/**
 	 * Consumer函数式接口

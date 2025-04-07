@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 /**
  * Stream流中间操作
  */
-public class StreamOperateStreamTest {
+public class StreamOperateTest {
     private List<Employee> employees;
 
     /**

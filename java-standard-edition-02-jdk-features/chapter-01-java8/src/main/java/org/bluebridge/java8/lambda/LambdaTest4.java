@@ -1,7 +1,6 @@
 package org.bluebridge.java8.lambda;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.IntBinaryOperator;
@@ -12,7 +11,7 @@ import org.junit.Test;
 /**
  * @author ronin
  */
-public class LambdaTest {
+public class LambdaTest4 {
 
 	/**
 	 * 测试分别使用匿名内部类和lambda表达式创建一个线程
@@ -169,7 +168,7 @@ public class LambdaTest {
 		});
 
 		/**
-		 * 使用lambda方式调用(简写形式)
+		 * 使用lambda方式调用(最简写形式：省略了return关键字)
 		 */
 		filterNum(value -> value % 2 == 0 ? true : false);
 	}
@@ -191,6 +190,9 @@ public class LambdaTest {
 	}
 
 
+	/**
+	 * 测试Comparator
+	 */
 	@Test
 	public void testComparator() {
 		/**
@@ -206,7 +208,7 @@ public class LambdaTest {
 		System.out.println(result);
 		
 		/**
-		 * 使用lambda方式调用
+		 * 使用lambda方式调用(简写形式)
 		 */
 		comparator = (Integer o1, Integer o2) -> Integer.compare(o1, o2);
 		result = comparator.compare(20, 10);
@@ -220,7 +222,7 @@ public class LambdaTest {
 		System.out.println(result);
 		
 		/**
-		 * 使用lambda方式调用(最简写形式:方法引用)
+		 * 使用方法引用方式调用(最简写形式)
 		 */
 		comparator = Integer :: compare;
 		result = comparator.compare(20, 10);

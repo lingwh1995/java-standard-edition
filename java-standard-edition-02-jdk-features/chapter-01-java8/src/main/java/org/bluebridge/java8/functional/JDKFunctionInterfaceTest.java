@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -16,7 +15,7 @@ import java.util.function.*;
 /**
  * JDK中内置的函数式接口测试
  */
-public class FunctionInterfaceJDKTest {
+public class JDKFunctionInterfaceTest {
 
     /**
      * 测试Runnable函数式接口
@@ -123,6 +122,25 @@ public class FunctionInterfaceJDKTest {
      */
     @Test
     public void testBiFunction() {
+        /**
+         * 使用BiFunction实现加、减、乘、除四则运算
+         */
+        // 加法运算
+        BiFunction<Double, Double, Double> addBiFunction = (a,b) -> a + b;
+        // 减法运算
+        BiFunction<Double, Double, Double> subBiFunction = (a,b) -> a - b;
+        // 乘法运算
+        BiFunction<Double, Double, Double> mulBiFunction = (a,b) -> a * b;
+        // 除法运算
+        BiFunction<Double, Double, Double> divBiFunction = (a,b) -> a / b;
+        System.out.println("加法运算 = " + addBiFunction.apply(100.0, 20.0));
+        System.out.println("减法运算 = " + subBiFunction.apply(100.0, 20.0));
+        System.out.println("乘法运算 = " + mulBiFunction.apply(100.0, 20.0));
+        System.out.println("除法运算 = " + divBiFunction.apply(100.0, 20.0));
+
+        /**
+         * 使用BiFunction实现 通过传入name、age作为构造参数，返回一个Person对象
+         */
         BiFunction<String, Integer, Person> biFunction = (name, age) -> new Person(name,age);
         Person person = biFunction.apply("李四", 26);
         System.out.println("person = " + person);

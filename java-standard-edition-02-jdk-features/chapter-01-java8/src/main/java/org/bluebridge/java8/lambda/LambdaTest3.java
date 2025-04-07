@@ -2,8 +2,14 @@ package org.bluebridge.java8.lambda;
 
 import org.junit.Test;
 
-public class LambdaSample3 {
+/**
+ * lambda表达式的延迟执行特性
+ */
+public class LambdaTest3 {
 
+    /**
+     * 测试不使用lambda表达式 - 条件通过情况
+     */
     @Test
     public void testPrintNoUseLambdaExpression1() {
         String msgA = "Hello";
@@ -17,6 +23,9 @@ public class LambdaSample3 {
     }
 
 
+    /**
+     * 测试不使用lambda表达式 - 条件不通过情况
+     */
     @Test
     public void testPrintNoUseLambdaExpression2() {
         String msgA = "Hello";
@@ -29,6 +38,11 @@ public class LambdaSample3 {
         System.out.println("未使用lambda表达式花费时间:"+(end-start));
     }
 
+
+    /**
+     * 测试使用lambda表达式 - 条件不通过的情况
+     *      可以观察到：当使用lambda表达式 - 条件不通过时，会大大的缩小代码的执行时间，因为这种写法有的逻辑不会执行
+     */
     @Test
     public void testPrintUseLambdaExpression1() {
         String msgA = "Hello";
@@ -44,6 +58,10 @@ public class LambdaSample3 {
         System.out.println("未延迟执行花费时间:"+(end-start));
     }
 
+
+    /**
+     * 测试使用lambda表达式 - 条件不通过的情况
+     */
     @Test
     public void testPrintUseLambdaExpression2() {
         String msgA = "Hello";
@@ -59,8 +77,9 @@ public class LambdaSample3 {
         System.out.println("未延迟执行花费时间:"+(end-start));
     }
 
+
     /**
-     * 普通方法
+     * 没有使用lambda表达式的方法
      * @param level
      * @param msg
      */
@@ -69,6 +88,7 @@ public class LambdaSample3 {
             System.out.println(msg);
         }
     }
+
 
     /**
      * 使用了lambda表达式的方法

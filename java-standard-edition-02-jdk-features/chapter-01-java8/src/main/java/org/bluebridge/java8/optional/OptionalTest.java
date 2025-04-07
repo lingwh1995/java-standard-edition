@@ -157,5 +157,6 @@ public class OptionalTest {
     @Test
     public void testOptionalOrElseThrow() {
         Optional<String> emptyOptional = Optional.empty();
+        emptyOptional.ifPresent(System.out::println);
     }
 }

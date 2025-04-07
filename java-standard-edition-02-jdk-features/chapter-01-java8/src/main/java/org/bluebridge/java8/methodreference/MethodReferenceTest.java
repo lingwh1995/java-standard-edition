@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.function.*;
 import java.util.stream.Stream;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.junit.Test;
 
 /**
@@ -62,7 +65,7 @@ public class MethodReferenceTest {
 
 	/**
 	 * 情况一:	静态方法引用(类名 :: staticMethodName)
-	 *  		案例二: MyClass :: printMessage
+	 *  		案例二: Printer :: printMessage
 	 */
 	@Test
 	public void testStaticMethodReference2(){
@@ -70,19 +73,19 @@ public class MethodReferenceTest {
 		Consumer<String> consumer = new Consumer<String>() {
 			@Override
 			public void accept(String s) {
-				MyClass.printMessage(s);
+				Printer.printMessage(s);
 			}
 		};
 		consumer.accept("10");
 		System.out.println("------------------------------");
 
 		//lambda表达式
-		consumer = s -> MyClass.printMessage(s);
+		consumer = s -> Printer.printMessage(s);
 		consumer.accept("20");
 		System.out.println("------------------------------");
 
 		//方法引用
-		consumer = MyClass :: printMessage;
+		consumer = Printer :: printMessage;
 		consumer.accept("30");
 		System.out.println("------------------------------");
 	}
@@ -749,36 +752,15 @@ public class MethodReferenceTest {
 
 }
 
+
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 class Person {
     private String username;
     private Integer age;
 
-    public Person() {
-    }
-
-    public Person(String username, Integer age) {
-        this.username = username;
-        this.age = age;
-    }
-
     public Person(Integer age) {
-        this.age = age;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -786,17 +768,10 @@ class Person {
         return person.getAge() - this.getAge() ;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "username='" + username + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }
 
 
-class MyClass {
+class Printer {
     static void printMessage(String message) {
         System.out.println(message);
     }

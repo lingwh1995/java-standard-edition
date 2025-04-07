@@ -2,7 +2,7 @@ package org.bluebridge.java8.lambda;
 
 import java.io.Serializable;
 
-public class LambdaSample1 {
+public class LambdaTest1 {
 
 	/**
 	 * 普通的方法
@@ -31,7 +31,7 @@ public class LambdaSample1 {
 	
 	public static void main(String[] args) {
 		// 调用普通的方法
-		System.out.println(LambdaSample1.add(1, 2));
+		System.out.println(LambdaTest1.add(1, 2));
 		
 		//调用Lambda对象
 		System.out.println(add.calc(100,10));
