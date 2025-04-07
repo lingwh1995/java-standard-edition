@@ -4,6 +4,8 @@ import org.bluebridge.util.UnsafeAccessor;
 import org.junit.Test;
 import sun.misc.Unsafe;
 
+import java.nio.ByteOrder;
+
 /**
  * 测试获取Unsafe实例
  */
@@ -17,5 +19,4 @@ public class UnsafeAccessorTest {
         Unsafe unsafe = UnsafeAccessor.getUnsafe();
         System.out.println("unsafe = " + unsafe);
     }
-
 }

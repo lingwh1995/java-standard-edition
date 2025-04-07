@@ -31,7 +31,7 @@ public class FileProcessorTest {
     }
 
     private static void processFile() {
-        System.out.println(Thread.currentThread().getName() + " processing file......");
+        System.out.println(Thread.currentThread().getName() + " start processing file......");
         try {
             Thread.sleep(3000); // 模拟文件处理
         } catch (InterruptedException e) {

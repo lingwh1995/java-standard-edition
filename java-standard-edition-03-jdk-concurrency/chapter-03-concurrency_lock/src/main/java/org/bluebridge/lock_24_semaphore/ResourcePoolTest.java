@@ -42,9 +42,10 @@ public class ResourcePoolTest {
     }
 
     private static void useResource(Resource resource) {
-        System.out.println(Thread.currentThread().getName() + " using resource " + resource.getId());
+        System.out.println(Thread.currentThread().getName() + " start using resource " + resource.getId());
         try {
-            Thread.sleep(2000); // 模拟资源使用
+            // 模拟资源使用
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

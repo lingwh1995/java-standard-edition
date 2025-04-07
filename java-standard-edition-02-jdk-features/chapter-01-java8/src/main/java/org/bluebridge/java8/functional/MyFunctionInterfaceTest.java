@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class MyFunctionInterfaceTest {
 
+
     public static void main(String[] args) {
         Type1 type1 = a -> (a - 5) >= 0;
         System.out.println("type1 = " + type1.op(10));
@@ -50,6 +51,7 @@ public class MyFunctionInterfaceTest {
         System.out.println("年龄 = " + type7_3.op(student));
     }
 
+
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -58,30 +60,36 @@ public class MyFunctionInterfaceTest {
         private int age;
     }
 
+
     @FunctionalInterface
     interface Type1 {
         boolean op(int a);
     }
+
 
     @FunctionalInterface
     interface Type2 {
         int op(int a, int b);
     }
 
+
     @FunctionalInterface
     interface Type3 {
         int op(int a, int b, int c);
     }
+
 
     @FunctionalInterface
     interface Type4 {
         Student op();
     }
 
+
     @FunctionalInterface
     interface Type5 {
         List<Student> op();
     }
+
 
     /**
      * @param <T> 返回值类型
@@ -90,6 +98,7 @@ public class MyFunctionInterfaceTest {
     interface Type6<T> {
         T op();
     }
+
 
     /**
      * @param <I> 输入类型

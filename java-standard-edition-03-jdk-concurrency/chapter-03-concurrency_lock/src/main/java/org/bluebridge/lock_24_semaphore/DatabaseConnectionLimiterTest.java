@@ -9,7 +9,7 @@ import java.util.concurrent.Semaphore;
  * 限制数据库连接数
  */
 public class DatabaseConnectionLimiterTest {
-    private static final int MAX_CONNECTIONS = 5;
+    private static final int MAX_CONNECTIONS = 2;
     private static final Semaphore semaphore = new Semaphore(MAX_CONNECTIONS);
 
     public static void main(String[] args) {
@@ -32,10 +32,10 @@ public class DatabaseConnectionLimiterTest {
     }
 
     private static void accessDatabase() {
-        System.out.println(Thread.currentThread().getName() + " accessing database......");
+        System.out.println(Thread.currentThread().getName() + " start accessing database......");
         try {
             // 模拟数据库操作
-            Thread.sleep(2000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
