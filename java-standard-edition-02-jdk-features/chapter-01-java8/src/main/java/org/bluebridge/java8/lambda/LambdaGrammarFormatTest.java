@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import org.junit.Test;
 
 /**
- * Lambda表达式(有六种语法格式)
+ * Lambda表达式语法(有六种语法格式)
  * 	1.举例 (o1, o2) -> Integer.compare(o1, o2)
  *  2.格式
  *  	左边		lambda形参列表(实际上就是接口中的抽象方法的形参列表)

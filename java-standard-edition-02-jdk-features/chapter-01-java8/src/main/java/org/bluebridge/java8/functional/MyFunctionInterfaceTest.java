@@ -4,6 +4,7 @@ package org.bluebridge.java8.functional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,8 @@ import java.util.List;
  */
 public class MyFunctionInterfaceTest {
 
-
-    public static void main(String[] args) {
+    @Test
+    public void testMyFunctionInterface() {
         Type1 type1 = a -> (a - 5) >= 0;
         System.out.println("type1 = " + type1.op(10));
 
@@ -24,12 +25,12 @@ public class MyFunctionInterfaceTest {
         Type3 type3 = (a, b, c) -> a + b + c;
         System.out.println("type3 = " + type3.op(1,2,3));
 
-        Type4 type4 = () -> new Student();
+        Type4 type4 = () -> new Student("张三",20);
         System.out.println("type4 = " + type4.op());
 
         Type5 type5 = () -> {
             List<Student> students = new ArrayList<>();
-            students.add(new Student());
+            students.add(new Student("李四",25));
             return students;
         };
         System.out.println("type5 = " + type5.op());
@@ -37,7 +38,7 @@ public class MyFunctionInterfaceTest {
         Type6 type6_1 = () -> new String("hello lambda~");
         System.out.println("type6_1 = " + type6_1.op());
 
-        Type6 type6_2 = () -> new Student();
+        Type6 type6_2 = () -> new Student("王五",26);
         System.out.println("type6_2 = " + type6_2.op());
 
         Type7<String,Integer> type7_1 = s -> Integer.parseInt(s);

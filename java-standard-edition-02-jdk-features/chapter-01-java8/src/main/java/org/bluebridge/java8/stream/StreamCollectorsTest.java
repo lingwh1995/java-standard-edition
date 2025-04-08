@@ -36,7 +36,7 @@ public class StreamCollectorsTest {
      * 收集流中元素到List集合中
      */
     @Test
-    public void toListTest(){
+    public void testCollectToList(){
         //创建流
         Stream<Employee> stream = employees.stream();
         List<Employee> collectList = stream.filter(employee -> employee.getAge() > 15).collect(Collectors.toList());
@@ -47,7 +47,7 @@ public class StreamCollectorsTest {
      * 收集流中元素到Set集合中
      */
     @Test
-    public void toListSet(){
+    public void testCollectToSet(){
         //创建流
         Stream<Employee> stream = employees.stream();
         Set<Employee> collectSet = stream.filter(employee -> employee.getAge() > 15).collect(Collectors.toSet());
