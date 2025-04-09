@@ -5,8 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -22,8 +21,18 @@ public class JDKFunctionInterfaceTest {
      */
     @Test
     public void testRunnable() {
-        Runnable runnable = () -> System.out.println("Hello World");
-        new Thread(runnable).start();
+        // 匿名内部类方式使用Runnable接口
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hello World~");
+            }
+        };
+        new Thread(runnable,"T1").start();
+
+        // 匿名内部类方式使用Predicate接口
+        runnable = () -> System.out.println("Hello World~");
+        new Thread(runnable,"T2").start();
     }
 
 
@@ -68,8 +77,15 @@ public class JDKFunctionInterfaceTest {
      */
     @Test
     public void testBiConsumer() {
-        BiConsumer<String,String> biConsumer = (a,b) -> System.out.println(a+b);
-        biConsumer.accept("a","b");
+        Map<String, Integer> map = new HashMap<>();
+        map.put("张三",18);
+        map.put("李四",23);
+        map.put("王五",28);
+
+        BiConsumer<String,Integer> biConsumer = (name,age) -> System.out.println("name : " + name + ",age : " + age);
+
+        // BiConsumer常用来遍历map
+        map.forEach(biConsumer);
     }
 
 
@@ -174,6 +190,20 @@ public class JDKFunctionInterfaceTest {
     public void testDoubleFunction() {
         DoubleFunction<Double> doubleFunction = d -> d + d;
         System.out.println("doubleFunction = " + doubleFunction.apply(30));
+    }
+
+
+    @Test
+    public void testDoubleToIntFunction() {
+        DoubleToIntFunction doubleToIntFunction = d -> Double.valueOf(d).intValue();
+        System.out.println(doubleToIntFunction.applyAsInt(25.6));
+    }
+
+
+    @Test
+    public void testDoubleToLongFunction() {
+        DoubleToLongFunction doubleToLongFunction = d -> Double.valueOf(d).longValue();
+        System.out.println(doubleToLongFunction.applyAsLong(25.6));
     }
 
 
@@ -298,7 +328,17 @@ public class JDKFunctionInterfaceTest {
 
 
     /**
-     * 测试BinaryOperator函数式接口
+     * 测试DoubleBinaryOperator函数式接口
+     */
+    @Test
+    public void testDoubleBinaryOperator() {
+        DoubleBinaryOperator doubleBinaryOperator = (a,b) -> a + b;
+        System.out.println(doubleBinaryOperator.applyAsDouble(10, 20));
+    }
+
+
+    /**
+     * 测试IntUnaryOperator函数式接口
      */
     @Test
     public void testIntOperator() {

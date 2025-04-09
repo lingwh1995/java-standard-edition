@@ -7,12 +7,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.*;
-import java.util.stream.Stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.junit.Test;
 
 /**

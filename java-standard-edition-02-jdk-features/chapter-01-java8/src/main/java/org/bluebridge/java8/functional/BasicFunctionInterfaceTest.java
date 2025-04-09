@@ -1,11 +1,6 @@
 package org.bluebridge.java8.functional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 import org.junit.Test;
 
@@ -23,109 +18,104 @@ import org.junit.Test;
 public class BasicFunctionInterfaceTest {
 	
 	/**
-	 * Consumer函数式接口
+	 * 测试Consumer函数式接口
 	 */
 	@Test
-	public void testConsumer1() {
-		//匿名内部类方式使用Consumer接口
+	public void testConsumer() {
+		// 匿名内部类方式使用Consumer接口
 		Consumer<Integer> consumer = new Consumer<Integer>() {
 			@Override
 			public void accept(Integer t) {
 				System.out.println(t);
 			}
 		};
-		consumer.accept(1);
-		System.out.println("--------------------------------------");
-
-		//lambda方式使用Consumer接口
-		consumer = t -> System.out.println(t);
 		consumer.accept(10);
 		System.out.println("--------------------------------------");
-	}
-	
-	
-	/**
-	 * Consumer函数式接口
-	 */
-	@Test
-	public void testConsumer2() {
-		//匿名内部类方式使用Consumer接口
-		show(1,new Consumer<Integer>() {
-			@Override
-			public void accept(Integer t) {
-				System.out.println(t);
-			}
-		});
-		System.out.println("--------------------------------------");
-		
-		//lambda方式使用Consumer接口
-		show(10,t -> System.out.println(t));
-		System.out.println("--------------------------------------");
-	}
-	
-	public void show(Integer i, Consumer<Integer> consumer) {
-		consumer.accept(i);
-	}
-	
-	
-	/**
-	 * Consumer函数式接口
-	 */
-	@Test
-	public void testConsumer3() {
-		//使用Consumer类型对象作为forEach()参数
-	    List<Integer> list = Arrays.asList(1,3,5,7,9);
-	    Consumer<Integer> consumer = t -> System.out.println(t);
-	    list.stream().forEach(consumer);
-	    System.out.println("--------------------------------------");
-	    
-	    //使用Consumer类型对象作为forEach()参数
-	    list = Arrays.asList(2,4,6,8,10);
-	    list.stream().forEach(i -> System.out.println(i));
-	    System.out.println("--------------------------------------");
-	}
-	
-	
-	/**
-	 * Predicate函数式接口
-	 */
-	@Test
-	public void testPredicate1() {
-		//匿名内部类方式使用Predicate接口
-		List<String> starts = Arrays.asList("周杰伦","周冬雨","马冬梅");
-		List<String> filterResult = filter(starts, new Predicate<String>() {
-			@Override
-			public boolean test(String s) {
-				return s.contains("周");
-			}
-		});
-		System.out.println(filterResult);
+
+		// lambda方式使用Consumer接口
+		consumer = t -> System.out.println(t);
+		consumer.accept(20);
 		System.out.println("--------------------------------------");
 
-		//lambda方式使用Predicate接口
-		filterResult = filter(starts, s -> s.contains("冬"));
-		System.out.println(filterResult);
+		// 方法引用方式使用Consumer接口
+		consumer = System.out :: println;
+		consumer.accept(30);
 		System.out.println("--------------------------------------");
 	}
-	
-	public List<String> filter(List<String> starts, Predicate<String> predicate) {
-		List<String> result = new ArrayList<>();
-		starts.forEach(s -> {
-			if(predicate.test(s)) {
-				result.add(s);
-			}
-		});
-		return result;
-	}
-	
 
 
 	/**
-	 * Supplier函数式接口
+	 * 测试Supplier函数式接口
 	 */
 	@Test
 	public void testSupplier() {
-		Supplier<String> supplier = () -> "hello world!";
+		// 匿名内部类方式使用Supplier接口
+		Supplier<String> supplier = new Supplier<>() {
+			@Override
+			public String get() {
+				return "Hello World~";
+			}
+		};
 		System.out.println(supplier.get());
+		System.out.println("--------------------------------------");
+
+		// lambda方式使用Supplier接口
+		supplier = () -> "Hello World~";
+		System.out.println(supplier.get());
+		System.out.println("--------------------------------------");
+	}
+
+
+	/**
+	 * 测试Function函数式接口
+	 */
+	@Test
+	public void testFunction() {
+		// 匿名内部类方式使用Function接口
+		Function<String, Integer> function = new Function<>() {
+			@Override
+			public Integer apply(String str) {
+				return Integer.parseInt(str);
+			}
+		};
+		System.out.println(function.apply("10"));
+		System.out.println("--------------------------------------");
+
+		// lambda方式使用Predicate接口
+		function = str -> Integer.parseInt(str);
+		System.out.println(function.apply("20"));
+		System.out.println("--------------------------------------");
+
+		// 方法引用方式使用Predicate接口
+		function = Integer :: parseInt;
+		System.out.println(function.apply("30"));
+		System.out.println("--------------------------------------");
+	}
+
+
+	/**
+	 * 测试Predicate函数式接口
+	 */
+	@Test
+	public void testPredicate() {
+		// 匿名内部类方式使用Predicate接口
+		Predicate<String> predicate = new Predicate<>() {
+			@Override
+			public boolean test(String str) {
+				return str.contains("周");
+			}
+		};
+		System.out.println(predicate.test("周杰伦"));
+		System.out.println("--------------------------------------");
+
+		// lambda方式使用Predicate接口
+		predicate = str -> str.contains("周");
+		System.out.println(predicate.test("周润发"));
+		System.out.println("--------------------------------------");
+
+		// 方法引用方式使用Predicate接口
+		BiFunction<String, CharSequence, Boolean> biFunction = String::contains;
+		System.out.println(biFunction.apply("周邦彦", "周"));
+		System.out.println("--------------------------------------");
 	}
 }
