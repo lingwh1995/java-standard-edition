@@ -1,8 +1,53 @@
 package org.bluebridge.beginner;
 
 /**
- * 进制测试
+ * 章节内容:
+ *  1.2进制/8进制/16进制 -> 10进制
+ *      2进制 -> 10进制
+ *          1010 = 1*2^3 + 0*2^2 + 1*2^1 + 0*2^0
+ *      8进制 -> 10进制
+ *          1010 = 1*8^3 + 0*8^2 + 1*8^1 + 0*8^0
+ *      16进制 -> 10进制
+ *          1010 = 1*16^3 + 0*16^2 + 1*16^1 + 0*16^0
+ *  2.10进制 -> 2进制/8进制/16进制(贪心算法转换)
+ *
+ *      十进制    103  103   39    7    7    7    3    1
+ *              -----*-----*-----*-----*-----*-----*-----*-----*
+ *                128    64    32    16     8     4     2     1
+ *      差        -25    39     7    -8    -1     3     1     0
+ *      二进制       0     1     1     0     0     1     1     1
+ *      八进制       0     1  /  1     0     0  /  1     1     1  # 从右往左,每三位2进制就是一位8进制
+ *                    1               4                  7
+ *     十六进制      0     1     1     0  /  0     1     1     1
+ *                           6                        7          # 从右往左,每四位2进制就是一位16进制
+ *      103(10) = 1100111(2) = 0147(8) = 0x67(16)
  */
 public class RadixTest {
+    public static void main(String[] args) {
+        // 定义一个二进制数(0b开头)
+        int bin = 0b1010;
+        // 定义一个八进制数(0开头)
+        int oct = 010;
+        // 定义一个十六进制数(0x开头)
+        int hex = 0xAA;
 
+
+        // 二进制 <-> 十进制
+        System.out.println("二进制字符 -> 十进制数字: " + Integer.parseInt("1010",2));
+        System.out.println("二进制数字 -> 十进制字符: " + String.valueOf(0b1010));
+        System.out.println("十进制数字 -> 二进制字符: " + Integer.toBinaryString(10));
+        System.out.println("----------------------------------");
+
+        // 八进制 <-> 十进制
+        System.out.println("八进制字符 -> 十进制数字: " + Integer.parseInt("10",8));
+        System.out.println("八进制数字 -> 十进制字符: " + String.valueOf(010));
+        System.out.println("十进制数字 -> 八进制字符: " + Integer.toOctalString(10));
+        System.out.println("----------------------------------");
+
+        // 十六进制 <-> 十进制
+        System.out.println("十六进制字符 -> 十进制数字: " + Integer.parseInt("AA",16));
+        System.out.println("十六进制数字 -> 十进制字符: " + String.valueOf(0xAA));
+        System.out.println("十进制数字 -> 十六进制字符: " + Integer.toHexString(170));
+        System.out.println("----------------------------------");
+    }
 }
