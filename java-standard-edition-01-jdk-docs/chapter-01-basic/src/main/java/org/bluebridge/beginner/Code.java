@@ -21,6 +21,13 @@ public class Code {
         int num = 5;
         System.out.println(toBinaryString(num,false));
         System.out.println(toBinaryString((1<<7) | num, true));
+
+        int i = 9;
+        System.out.println(8 - i % 8);
+        i = 4;
+        System.out.println(8 - i % 8);
+        i = 15;
+        System.out.println(8 - i % 8);
     }
 
     private static String toBinaryString(int num,boolean debug) {
