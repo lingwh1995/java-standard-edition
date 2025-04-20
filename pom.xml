@@ -31,9 +31,9 @@
         <module>java-standard-edition-07-8bit-data_structure</module>
         <module>java-standard-edition-08-8bit-algorithm</module>
         <module>java-standard-edition-09-8bit-design_patterns</module>
+        <module>java-standard-edition-10-8bit-practice</module>
         <module>java-standard-edition-11-gui-swing</module>
         <module>java-standard-edition-12-gui-javafx</module>
-        <module>java-standard-edition-10-8bit-practice</module>
     </modules>
 
     <dependencyManagement>
