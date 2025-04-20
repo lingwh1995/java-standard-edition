@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>java-standard-edition-08-ufe-algorithm</artifactId>
+    <artifactId>java-standard-edition-08-8bit-algorithm</artifactId>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
