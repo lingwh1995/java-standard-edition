@@ -179,6 +179,15 @@ public class StringTest {
 		System.out.println(s3);
 	}
 
-	//%s字符串，%c字符，%d正数，%f浮点型
-//	public static String format(String format, Object... args)
+	/**
+	 * 测试字符串格式化
+	 */
+	@Test
+	public void testFormat() {
+		String str = "abcde";
+		// 左补0
+		System.out.println(String.format("%10s", str).replace(' ','0'));
+		// 右补0
+		System.out.println(String.format("%-10s", str).replace(' ','0'));
+	}
 }
