@@ -1,4 +1,4 @@
-package org.bluebridge.utils;
+package org.bluebridge.utils.utils;
 
 public class PaddingUtil {
     protected static byte[] paddingDataArea(byte[] dataArea) {

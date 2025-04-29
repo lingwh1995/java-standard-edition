@@ -1,10 +1,10 @@
-package org.bluebridge.utils;
+package org.bluebridge.utils.utils;
 
 import cn.hutool.core.util.HexUtil;
 
 import java.util.Base64;
 
-public class ParseUtils {
+public class Base64Util {
 
     /**
      * Base64转字符串
