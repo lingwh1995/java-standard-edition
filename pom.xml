@@ -19,6 +19,12 @@
         <commons-io.version>2.2</commons-io.version>
         <slf4j-api.version>1.7.32</slf4j-api.version>
         <logback.version>1.2.6</logback.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <jaxen.version>1.2.0</jaxen.version>
+        <httpclient.version>4.5.9</httpclient.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <hutool.version>5.8.25</hutool.version>
     </properties>
 
     <modules>
@@ -72,6 +78,36 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>${jaxen.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
