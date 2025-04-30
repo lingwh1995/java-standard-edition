@@ -158,21 +158,20 @@ public class CommandUtil {
 
     /**
      * 解析命令的方法（把加密报文中的数据区以名文形式解析处理）
-     *
-     * @param data 命令二进制格式
-     * @param isVerifyWithMac 是否校验mac
      * @return
      * @throws Exception
      */
-    public String parseCommand(byte[] data,boolean isVerifyWithMac) throws Exception {
-        //从命令中获取数据区
-        byte[] dataArea = Arrays.copyOfRange(data, 9, data.length - 3);
-        if(isVerifyWithMac) {
+    public String parseDataArea() throws Exception {
+        byte[] dataAreaBytes = HexUtil.decodeHex(this.dataAreaHex);
+        if(withMac()) {
             //移除数据区中的mac部分
-            dataArea = Arrays.copyOfRange(dataArea, 0, dataArea.length - 32);
+            dataAreaBytes = Arrays.copyOfRange(dataAreaBytes, 0, dataAreaBytes.length - 32);
         }
         byte[] mainSecretBytes = ParseUtil.hexStringToByte(mainSecret);
         //解密数据区
-        return HexUtil.encodeHexStr(AESUtil.decrypt(dataArea, mainSecretBytes));
+        if(isEncryp()) {
+            dataAreaBytes = AESUtil.decrypt(dataAreaBytes, mainSecretBytes);
+        }
+        return HexUtil.encodeHexStr(dataAreaBytes);
     }
 }
