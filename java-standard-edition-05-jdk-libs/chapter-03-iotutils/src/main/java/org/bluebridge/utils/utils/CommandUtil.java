@@ -1,34 +1,61 @@
 package org.bluebridge.utils.utils;
 
 import cn.hutool.core.util.HexUtil;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Random;
-
+@Data
+@AllArgsConstructor
 public class CommandUtil {
     /**
-     * 组装命令的模板方法
-     * @param commandCode 命令码
+     * 主密钥
+     */
+    private String mainSecret;
+
+    /**
+     * 随机通信码
+     */
+    private String randomCode;
+
+    /**
+     * 数据区
+     */
+    private String dataAreaHex;
+
+    /**
+     * 是否加密数据区
+     */
+    private boolean isEncryp;
+
+    /**
+     * 是否计算mac并添加mac到数据区尾部
+      */
+    private boolean withMac;
+
+
+    /**
+     * 构建数据区
      * @return
      * @throws Exception
      */
-    public final String buildCommand(String commandCode) throws Exception {
-        byte[] dataAreaBytes = new byte[]{};
+    public final String buildFinalDataArea() throws Exception {
+        byte[] dataAreaBytes = buildDataArea();
         //如果需要补全数据区则进行以下处理
         if(isPaddingDataArea()) {
             dataAreaBytes = paddingDataArea(dataAreaBytes);
         }
         //如果需要加密数据区则进行以下处理
-        if(isEncrypDataArea()) {
+        if(isEncryp()) {
             dataAreaBytes = encryptDataArea(dataAreaBytes);
         }
         //如果计算mac并将计算结果拼接到数据区尾部
-        if(isCalcMacAndAppendMacToDataAreaTail()) {
+        if(withMac()) {
             dataAreaBytes = calcMacAndAppendMacToDataAreaTail(dataAreaBytes);
         }
-        byte[] downlinkBytes = buildPackage(dataAreaBytes, commandCode);
-        return HexUtil.encodeHexStr(downlinkBytes);
+        return HexUtil.encodeHexStr(dataAreaBytes);
     }
 
     /**
@@ -36,7 +63,7 @@ public class CommandUtil {
      * @return 数据区
      */
     protected byte[] buildDataArea() {
-        return null;
+        return HexUtil.decodeHex(this.dataAreaHex);
     }
 
     /**
@@ -85,10 +112,8 @@ public class CommandUtil {
      * @throws Exception
      */
     protected byte[] calcMacAndAppendMacToDataAreaTail(byte[] encryptDataArea) throws Exception {
-        String randomCommunicationCode = String.valueOf(redisTemplate.opsForValue()
-                .get(configurations.getProjectCachePrefix() + configurations.getRandomCommunicationCodeCachePrefix() + deviceId));
-        byte[] randomCommunicationCodeBytes = Base64Util.hexStringToByte(randomCommunicationCode);
-        byte[] mainSecretBytes = Base64Util.hexStringToByte(mainSecret);
+        byte[] randomCommunicationCodeBytes = ParseUtil.hexStringToByte(randomCode);
+        byte[] mainSecretBytes = ParseUtil.hexStringToByte(mainSecret);
         //使用主密钥对随机通信码进行AES128计算取前16字节得到加密密钥
         byte[] secretKeyBytes = AESUtil.encrypt(randomCommunicationCodeBytes, mainSecretBytes);
         secretKeyBytes = secretKeyBytes.length > 16 ? Arrays.copyOfRange(secretKeyBytes, 0, 16) : secretKeyBytes;
@@ -106,42 +131,6 @@ public class CommandUtil {
         return finalDataArea;
     }
 
-    /**
-     * 构建升级包
-     * @param dataArea
-     * @param commandCode
-     * @return
-     */
-    protected byte[] buildPackage(byte[] dataArea, String commandCode) throws Exception {
-        int frameLength = 12 + dataArea.length;
-        byte[] frameBytes = new byte[frameLength];
-        //设置帧头
-        frameBytes[0] = 0x68;
-        //设置协议类型
-        frameBytes[1] = 0x0;
-        //设置协议框架版本
-        frameBytes[2] = 0x1;
-        //设置帧长度
-        byte[] frameLengthBytes = Base64Util.numberToHexBytes(frameLength, ByteOrder.BIG_ENDIAN, 0, 2);
-        System.arraycopy(frameLengthBytes, 0, frameBytes, 3, 2);
-        //设置消息序号
-        frameBytes[5] = (byte) new Random().nextInt();
-        //设置控制域
-        frameBytes[6] = (byte) 0x85;
-        //设置数据对象id
-        byte[] commandCodeBytes = HexUtil.decodeHex(commandCode);
-        System.arraycopy(commandCodeBytes, 0, frameBytes, 7, 2);
-        // 设置数据域
-        System.arraycopy(dataArea, 0, frameBytes, 9, dataArea.length);
-        //设置CRC
-        byte[] calcCrcBytes = Arrays.copyOfRange(frameBytes, 5, frameBytes.length - 3);
-        long checkSum = CRCUtil.XModem(calcCrcBytes);
-        byte[] crcBytes = Base64Util.numberToHexBytes(checkSum, ByteOrder.BIG_ENDIAN, 0, 2);
-        System.arraycopy(crcBytes, 0, frameBytes, frameBytes.length - 3, 2);
-        // 设置帧尾
-        frameBytes[frameBytes.length - 1] = 0x16;
-        return frameBytes;
-    }
 
     /**
      * 是否补全数据区
@@ -155,16 +144,16 @@ public class CommandUtil {
      * 是否加密数据区
      * @return
      */
-    protected boolean isEncrypDataArea() {
-        return true;
+    protected boolean isEncryp() {
+        return this.isEncryp;
     }
 
     /**
      * 是否计算mac并将计算结果拼接到数据区尾部
      * @return
      */
-    protected boolean isCalcMacAndAppendMacToDataAreaTail() {
-        return true;
+    protected boolean withMac() {
+        return this.withMac;
     }
 
     /**

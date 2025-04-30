@@ -1,7 +1,10 @@
 package org.bluebridge.utils.utils;
 
+/**
+ * 补齐工具类
+ */
 public class PaddingUtil {
-    protected static byte[] paddingDataArea(byte[] dataArea) {
+    public static byte[] paddingDataArea(byte[] dataArea) {
         byte[] paddingDataArea;
         int paddingNumber = dataArea.length % 16;
         if (paddingNumber == 0) {
