@@ -35,10 +35,12 @@ public class CommandUtilTest {
         // 主密钥
         String mainSecret = "31323334353637383930313233343536";
         // 随机通信码
-        String randomCode = "20250430999999999999999900000000";
+        String randomCode = "20250508999999999999999900000000";
         // 数据区
         // 6868150015282499999999999999990009 01 21b9 16
-        String dataAreaHex = "3D453A77AB24CD540501380A01604F4E766A1C25FA124EBDFA1B4069DFA5A73E1175B4D0CAF1F68F6688411E2248CC05";
+        //68680a009407019999999999999996910508be9cb04fec345f9ec2ced957691faab7330fb7c95782fc3d67e7c3a66728dab17c939713873ebb1def93b174f9bc4a07a39c4f1fb2866625ed3c1bd31fc05eae072ffa666731d1522212f0f2911072495d02924e94345cf5b6af8b81e81b0a770c8a0a2235e771b7ff80e3a418d9ee4fd4575d86aecb8d34694da27d4834cb68b116
+        //08be9cb04fec345f9ec2ced957691faab7330fb7c95782fc3d67e7c3a66728dab17c939713873ebb1def93b174f9bc4a07a39c4f1fb2866625ed3c1bd31fc05eae072ffa666731d1522212f0f2911072495d02924e94345cf5b6af8b81e81b0a770c8a0a2235e771b7ff80e3a418d9ee4fd4575d86aecb8d34694da27d4834cb
+        String dataAreaHex = "08be9cb04fec345f9ec2ced957691faab7330fb7c95782fc3d67e7c3a66728dab17c939713873ebb1def93b174f9bc4a07a39c4f1fb2866625ed3c1bd31fc05eae072ffa666731d1522212f0f2911072495d02924e94345cf5b6af8b81e81b0a770c8a0a2235e771b7ff80e3a418d9ee4fd4575d86aecb8d34694da27d4834cb";
         // 是否加密数据区
         boolean isEncryp = true;
         // 是否计算mac并添加mac到数据区尾部
@@ -46,7 +48,5 @@ public class CommandUtilTest {
         CommandUtil commandUtil = new CommandUtil(mainSecret, randomCode, dataAreaHex, isEncryp, withMac);
         String originalDataAreaHex = commandUtil.parseDataArea();
         System.out.println("originalDataAreaHex = " + originalDataAreaHex);
-
-
     }
 }
