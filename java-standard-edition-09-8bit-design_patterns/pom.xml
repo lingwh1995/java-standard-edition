@@ -10,12 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>java-standard-edition-09-8bit-design_patterns</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-
         <!-- cglib动态代理开始 -->
         <dependency>
             <groupId>asm</groupId>
