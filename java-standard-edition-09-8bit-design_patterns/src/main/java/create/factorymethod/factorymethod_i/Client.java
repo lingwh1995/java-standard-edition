@@ -1,5 +1,7 @@
 package create.factorymethod.factorymethod_i;
 
+import org.junit.Test;
+
 public class Client {
 	
 	@Test
