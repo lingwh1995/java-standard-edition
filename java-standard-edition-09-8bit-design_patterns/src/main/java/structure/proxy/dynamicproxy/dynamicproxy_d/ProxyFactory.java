@@ -7,7 +7,10 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 public class ProxyFactory implements MethodInterceptor{
-    /**维护一个目标对象*/
+
+    /**
+     * 维护一个目标对象
+     */
     private Object target;
 
     public ProxyFactory(Object target) {

@@ -1,5 +1,8 @@
 package structure.proxy.dynamicproxy.dynamicproxy_e;
 
+/**
+ * java8以上环境运行时需要添加VM参数，否则会报错   --add-opens java.base/java.lang=ALL-UNNAMED
+ */
 public class Client {
     public static void main(String[] args) {
         //创建被代理对象

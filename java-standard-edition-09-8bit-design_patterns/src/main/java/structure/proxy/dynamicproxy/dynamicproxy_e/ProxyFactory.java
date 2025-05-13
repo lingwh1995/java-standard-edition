@@ -7,7 +7,10 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 public class ProxyFactory{
-    /**维护一个目标对象*/
+
+    /**
+     * 维护一个目标对象
+     */
     private Object target;
 
     public ProxyFactory(Object target) {
@@ -35,7 +38,5 @@ public class ProxyFactory{
         );
         //4创建子类对象，即代理对象
         return enhancer.create();
-
-
     }
 }
