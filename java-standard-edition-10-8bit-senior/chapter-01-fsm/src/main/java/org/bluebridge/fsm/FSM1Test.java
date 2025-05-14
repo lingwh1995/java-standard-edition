@@ -1,9 +1,9 @@
 package org.bluebridge.fsm;
 
-public class FSMTest {
-    /**
-     * 状态码
-     */
+/**
+ * 使用常量作为状态码实现状态机
+ */
+public class FSM1Test {
     private static final int BEGIN = 0;
     private static final int IN_WORD = 1;
     private static final int OUT_WORD = 2;

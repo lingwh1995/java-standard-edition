@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-03-enumeration</artifactId>
+    <artifactId>chapter-03-enum</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

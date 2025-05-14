@@ -25,7 +25,7 @@
     <modules>
         <module>chapter-01-basic</module>
         <module>chapter-02-library</module>
-        <module>chapter-03-enumeration</module>
+        <module>chapter-03-enum</module>
         <module>chapter-04-annotation</module>
         <module>chapter-05-reflect</module>
         <module>chapter-06-io</module>
