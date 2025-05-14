@@ -3,6 +3,7 @@ package org.bluebridge.enumeration;
 import org.junit.Test;
 
 public class ColorEnumTest {
+
     /**
      * 枚举api
      * 		name() ：返回枚举的名称

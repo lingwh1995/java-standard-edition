@@ -16,7 +16,7 @@ public class SerializationUtilsTest {
         Person zhangsan = new Person("zhangsan", "28");
         byte[] serialize = SerializationUtils.serialize(zhangsan);
         System.out.println(serialize);
-        Person deserialize = SerializationUtils.deserialize(serialize);
+        Person deserialize = (Person) SerializationUtils.deserialize(serialize);
         System.out.println(deserialize);
     }
 
