@@ -1,6 +1,8 @@
 package org.bluebridge.fsm;
 
 /**
+ * 有限状态机，又称有限状态自动机，简称状态机
+ *
  * 使用常量作为状态码实现状态机
  */
 public class FSM1Test {

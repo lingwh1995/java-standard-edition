@@ -1,5 +1,6 @@
-package org.bluebridge.enumeration;
+package org.bluebridge.test;
 
+import org.bluebridge.enumeration.ResponseCodeEnum;
 import org.junit.Test;
 
 public class ResponseCodeEnumTest {

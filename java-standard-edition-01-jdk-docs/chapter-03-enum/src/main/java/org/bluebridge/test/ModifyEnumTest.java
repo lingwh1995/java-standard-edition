@@ -1,5 +1,6 @@
-package org.bluebridge.enumeration;
+package org.bluebridge.test;
 
+import org.bluebridge.enumeration.ModifyEnum;
 import org.junit.Test;
 
 public class ModifyEnumTest {
