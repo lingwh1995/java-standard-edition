@@ -21,6 +21,7 @@ public class FSM2Test {
         int wordCount = 0;
         for (int i=0; i<s.length(); i++) {
             char c = s.charAt(i);
+            System.out.println("c = " + c + ",state = " + state);
             switch (state){
                 case BEGIN:
                     if(Character.isLetter(c)) {
