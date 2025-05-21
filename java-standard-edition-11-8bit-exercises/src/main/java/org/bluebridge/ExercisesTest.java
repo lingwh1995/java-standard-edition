@@ -74,8 +74,8 @@ public class ExercisesTest {
      * 		b.第一个满足 a%c==0 && b%c==0 的数就是a和b的最大公约数
      */
     @Test
-    public void Question_003_GreatestCommonDivisor() {
-        int a = 10, b = 20, c = 0;
+    public void testQuestion_003_GreatestCommonDivisor() {
+        int a = 48, b = 18, c = 0;
         c = a < b ? a : b;
         while (c>1){
             if(a%c==0 && b%c==0){
@@ -91,18 +91,39 @@ public class ExercisesTest {
      * 		公式：gcd(a,b) = gcd(b, a mod b);
      * 	    gcd(48,18) = gcd(18, 12);
      * 	    gcd(18,12) = gcd(12, 6);
-     * 	    gcd(12,6) = gcd(6, 0);
      */
     @Test
-    public void Question_004_GreatestCommonDivisor(){
+    public void testQuestion_004_GreatestCommonDivisor(){
         int a = 48, b = 18, mod = 0;
         while (a%b != 0){
             mod = a % b;
-
             a = b;
-            b = a % b;
+            b = mod;
         }
-        System.out.println(a);
-        System.out.println(b);
+        System.out.println("最大公约数 = " + b);
+    }
+
+    /**
+     * 005.求最大公约数 方式三：更相减损术(辗转相减法)
+     * 		公式：gcd(a, b) = gcd(b, a - b);
+     * 		注意：a<b时，要先交换a、b两个数的位置再进行相减
+     * 	    gcd(48,18) = gcd(18, 30);
+     * 	    gcd(30,18) = gcd(18, 12);
+     * 	    gcd(18,12) = gcd(12, 6);
+     */
+    @Test
+    public void testQuestion_005_GreatestCommonDivisor(){
+        int a = 48, b = 18, diff = 0;
+        while (a-b != 0){
+            if(a<b){
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+            diff = a - b;
+            a = b;
+            b = diff;
+        }
+        System.out.println("最大公约数 = " + a);
     }
 }
