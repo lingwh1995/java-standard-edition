@@ -2,8 +2,6 @@ package org.bluebridge;
 
 import org.junit.Test;
 
-import java.util.Scanner;
-
 /**
  * 题目列表
  * 001.循环打印 a-g 方式一：不使用取余运算
@@ -126,4 +124,21 @@ public class ExercisesTest {
         }
         System.out.println("最大公约数 = " + a);
     }
+
+    /**
+     * 006.求最小公倍数 方式一：暴力穷举
+     */
+    @Test
+    public void Question_006_LeastCommonMultiple(){
+        int a = 48, b = 18, lcm = 0;
+        lcm = a > b ? a : b;
+        while (true){
+            if(lcm % a == 0 && lcm % b == 0){
+                break;
+            }
+            lcm++;
+        }
+        System.out.println("最小公倍数 = " + lcm);
+    }
+
 }
