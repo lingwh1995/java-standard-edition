@@ -19,6 +19,7 @@ public class StreamCreateTest {
 	 * 		3.Stream流相当于一个中间管道，不存储数据，而是充当传递数据的管道
 	 * 		4.Steam流支持链式操作
 	 * 		5.Steam流操作具有短路的特性
+	 * 		6.通过数组创建了一个Stream流，操作流中的数据不会影响集合中的数据（非常重要的特性）
 	 *
 	 * 	创建流的八种方式
 	 *		1.通过集合创建	 		集合对象.stream()/集合对象.parallelStream()

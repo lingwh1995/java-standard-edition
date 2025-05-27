@@ -34,7 +34,6 @@ public class StreamTransferTest {
         System.out.println("------------------");
     }
 
-
     /**
      * 将Stream转换成集合
      */
@@ -65,5 +64,21 @@ public class StreamTransferTest {
         //将流转换为字符串
         String string = stream.collect(Collectors.joining(",")).toString();
         System.out.println(string);
+    }
+
+    /**
+     * 操作stream中的数据不会影响集合中的数据，这是非常重要的特性
+     */
+    @Test
+    public void testStreamAndMemory() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("list = " + list);
+        List<String> listFromStream = list.stream().collect(Collectors.toList());
+        listFromStream.remove(0);
+        System.out.println("listFromStream = " + listFromStream);
+        System.out.println("list = " + list);
     }
 }
