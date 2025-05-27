@@ -113,7 +113,7 @@ public class StreamOperateTest {
     }
 
     /**
-     * 映射成int类型数据
+     * stream()常用统计方法
      */
     @Test
     public void testStreamMapToInt() {
@@ -130,6 +130,12 @@ public class StreamOperateTest {
         //min()
         nums = Arrays.asList("1", "2", "3", "4");
         nums.stream().mapToInt(item -> Integer.parseInt(item)).min().ifPresent(System.out::println);
+        System.out.println("----------------------------------------");
+
+        //count()
+        nums = Arrays.asList("1", "2", "3", "4");
+        long count = nums.stream().count();
+        System.out.println("count = " + count);
         System.out.println("----------------------------------------");
     }
 
