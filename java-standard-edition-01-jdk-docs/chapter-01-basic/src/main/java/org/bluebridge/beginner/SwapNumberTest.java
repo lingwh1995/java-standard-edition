@@ -4,7 +4,7 @@ import org.junit.Test;
 
 /**
  *  java中的值传递
- *  值传递: 就是把字面值复制一份作为实参传递给方法
+ *  值传递: 就是把实参的值复制一份作为参数传递给方法的形参
  *  注意: 在C语言中有值传递和引用传递,引用传递就是指针传递
  */
 public class SwapNumberTest {
@@ -12,21 +12,21 @@ public class SwapNumberTest {
 	@Test
     public void testSwapNumber() {
         //测试交换失败
-        int a = 1;
-        int b = 2;
+        int a = 10;
+        int b = 20;
         swap_1(a,b);
         System.out.printf("a = %d, b = %d\n", a, b);
 
         //测试使用数组成功交换两个数字
-        int c = 1;
-        int d = 2;
+        int c = 10;
+        int d = 20;
         int[] arr = {c,d};
         swap_2(arr);
         System.out.printf("c = %d, d = %d\n", arr[0], arr[1]);
 
         //测试使用泛型数组成功交换两个数字
-        int e = 1;
-        int f = 2;
+        int e = 10;
+        int f = 20;
         int[] arr_t = {e,f};
         swap_2(arr_t);
         System.out.printf("e = %d, f = %d\n", arr_t[0], arr_t[1]);

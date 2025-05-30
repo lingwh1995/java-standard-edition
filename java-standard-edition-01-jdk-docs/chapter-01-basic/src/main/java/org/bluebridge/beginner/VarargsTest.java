@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * 可变参数
  */
-public class VariableArgumentsTest {
+public class VarargsTest {
     /**
      * 可变参数:
      * 		1.只有最后一个形参才能被定义成可变参数
