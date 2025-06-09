@@ -5,7 +5,7 @@ import org.bluebridge.utils.utils.Base64Util;
 public class Base64UtilTest {
     public static void main(String[] args) {
         //IMEI 867860061213483
-        String stringMessage = "535441525400001900070860722076967767250530171330578300057E000153EE1A";
+        String stringMessage = "5354415254000021000708607220769670072506300005004E45000D020001250629211432000000000E";
         String base64Message = Base64Util.stringToBase64(stringMessage);
         System.out.println("base64Message = " + base64Message);
 

@@ -1,4 +1,4 @@
-package com.dragonsoft.beanutils.entity;
+package org.bluebridge.beanutils.entity;
 
 /**
  * @author ronin

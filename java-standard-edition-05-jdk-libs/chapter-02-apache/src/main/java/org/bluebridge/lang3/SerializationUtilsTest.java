@@ -1,4 +1,4 @@
-package com.dragonsoft.lang3;
+package org.bluebridge.lang3;
 
 import org.apache.commons.lang3.SerializationUtils;
 

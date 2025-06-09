@@ -1,5 +1,8 @@
 package org.bluebridge.xml.dom4j;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.List;
 
 import org.dom4j.Document;
@@ -7,6 +10,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
 
 /**  
  * 使用dom4j支持Xpath表达式直接获取某一个元素
@@ -23,15 +27,14 @@ public class Dom4jXpath {
 	 *			- 获取一个节点:selectSingleNode("xpath表达式")
 	 *
 	 */
-	
-	
-	
+
+	private static final String FILE_RELATIVE_PATH = "/dom4j/person.xml";
+
 	public static void main(String[] args) throws DocumentException {
 		/**
 		 * 得到xml文档的root节点
 		 */
 		Document document = dom4jParseXmlgetDocumentObject();
-	
 		/**
 		 * 使用XPATH得到xml中所有的name元素的值
 		 */
@@ -49,12 +52,8 @@ public class Dom4jXpath {
 	 * @throws  
 	 */
 	private static void selectFirstP1NodeName(Document document) {
-		/**
-		 * 1.获取根节点
-		 */
-		/**
-		 * 2.获取第一个p1节点下的name的值
-		 */
+		// 1.得到document
+		// 2.获取第一个p1节点下的name的值
 		Node nameNode = document.selectSingleNode("//p1[@id='firstP1']/name");
 		System.out.println(nameNode.getText());
 		System.out.println(nameNode.getNodeTypeName());
@@ -67,17 +66,11 @@ public class Dom4jXpath {
 	 * @throws  
 	 */
 	private static void selectAllNameTags(Document document) {
-		/**
-		 * 1.得到document
-		 */
+		// 1.得到document
 		
-		/**
-		 * 2.使用selectNodes()得到所有的name,注意://p1,p1是父标签,打印为空
-		 */
+		// 2.使用selectNodes()得到所有的name,注意://p1,p1是父标签,打印为空
 		List<Element> nameNodeList = document.selectNodes("//name");
-		/**
-		 * 3.便利集合
-		 */
+		// 3.便利集合
 		for(Element nameNode:nameNodeList){
 			System.out.println(nameNode.getText());
 		}
@@ -89,14 +82,13 @@ public class Dom4jXpath {
 	 * @throws  
 	 */
 	private static Document dom4jParseXmlgetDocumentObject() throws DocumentException {
-		/**
-		 * 1.创建解析器
-		 */
+		// 1.创建解析器
 		SAXReader saxReader = new SAXReader();
-		/**
-		 * 2.得到document
-		 */
-		Document document = saxReader.read("src/com/dragonsoft/xml/dom4j/person.xml");
-		return document;
+		// 2.得到document
+		return saxReader.read(getResourceAsStream(FILE_RELATIVE_PATH));
+	}
+
+	public static InputStream getResourceAsStream(String xmlName){
+		return Dom4jParseXml.class.getResourceAsStream(xmlName);
 	}
 }

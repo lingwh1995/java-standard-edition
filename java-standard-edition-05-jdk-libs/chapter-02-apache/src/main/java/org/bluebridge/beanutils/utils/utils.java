@@ -1,4 +1,4 @@
-package com.dragonsoft.beanutils.utils;
+package org.bluebridge.beanutils.utils;
 
 import org.apache.commons.beanutils.BeanUtils;
 

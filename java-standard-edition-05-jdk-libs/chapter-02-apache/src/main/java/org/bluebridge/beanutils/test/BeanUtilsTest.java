@@ -1,7 +1,7 @@
-package com.dragonsoft.beanutils.test;
+package org.bluebridge.beanutils.test;
 
-import com.dragonsoft.beanutils.entity.Person;
-import com.dragonsoft.beanutils.entity.User;
+import org.bluebridge.beanutils.entity.Person;
+import org.bluebridge.beanutils.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.converters.DateConverter;

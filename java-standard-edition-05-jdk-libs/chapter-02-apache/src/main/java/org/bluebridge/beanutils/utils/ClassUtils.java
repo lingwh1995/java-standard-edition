@@ -5,7 +5,7 @@
  * @date 2019年3月20日  
  * @version V1.0  
  */ 
-package com.dragonsoft.beanutils.utils;
+package org.bluebridge.beanutils.utils;
 
 import java.io.File;
 import java.io.FileFilter;

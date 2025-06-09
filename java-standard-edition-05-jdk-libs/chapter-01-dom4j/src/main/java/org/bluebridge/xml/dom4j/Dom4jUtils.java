@@ -14,8 +14,6 @@ import org.dom4j.io.XMLWriter;
  *    
  */
 public class Dom4jUtils {
-	
-	public static final String PATH = "src/p1.xml";
 
 	//返回document
 	public static Document getDocument(String path) {

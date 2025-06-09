@@ -1,4 +1,4 @@
-package com.dragonsoft.httpclient.test;
+package org.bluebridge.httpclient;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;

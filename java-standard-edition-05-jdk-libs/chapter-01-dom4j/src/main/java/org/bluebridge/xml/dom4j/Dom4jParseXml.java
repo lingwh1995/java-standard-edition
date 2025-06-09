@@ -1,6 +1,7 @@
 package org.bluebridge.xml.dom4j;
 
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +23,11 @@ import org.dom4j.io.XMLWriter;
  *    
  */
 public class Dom4jParseXml {
+
+	private static final String BASIC_PATH = "java-standard-edition-05-jdk-libs/chapter-01-dom4j/src/main/resources";
+	private static final String FILE_RELATIVE_PATH = "/dom4j/person.xml";
+	private static final String FILE_PATH = BASIC_PATH + FILE_RELATIVE_PATH;
+
 	public static void main(String[] args) throws DocumentException, IOException {
 
 		/**
@@ -59,7 +65,7 @@ public class Dom4jParseXml {
 		/**
 		 * 删除第一个p1节点下面的school节点
 		 */
-		//deleteFirstP1SchooleNode(document);
+		deleteFirstP1SchooleNode(document);
 		/**
 		 * 使用Dom4j获取根节点下第一个p1标签的属性值
 		 */
@@ -72,17 +78,11 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void selectAllChildNode(Document document) {
-		/**
-		 * 1.获取跟节点
-		 */
+		// 1.获取根节点
 		Element rootElement = document.getRootElement();
-		/**
-		 * 获取所有子节点
-		 */
+		// 2.获取所有子节点
 		List<Element> elements = rootElement.elements();
-		/**
-		 * 3.遍历所有子节点
-		 */
+		// 3.遍历所有子节点
 		Iterator<Element> iterator = elements.iterator();
 		while(iterator.hasNext()){
 			System.out.println("每一个子节点:"+iterator.next().getName());
@@ -96,17 +96,11 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void getNodeAttribute(Document document) {
-		/**
-		 * 1.获取根节点
-		 */
+		// 1.获取根节点
 		Element rootElement = document.getRootElement();
-		/*
-		 * 2.获取第一个p1节点	
-		 */
+		// 2.获取第一个p1节点
 		Element firstP1Node = rootElement.element("p1");
-		/**
-		 * 3.根据id的值获取属性值
-		 */
+		// 3.根据id的值获取属性值
 		String attributeValue = firstP1Node.attributeValue("id");
 		System.out.println(attributeValue);
 	}
@@ -118,38 +112,25 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void deleteFirstP1SchooleNode(Document document) throws IOException {
-		/**		
-		 * 1.得到根节点
-		 */
+		// 1.得到根节点
 		Element rootElement = document.getRootElement();
-		/**
-		 * 2.得到第一个p1节点
-		 */
+		// 2.得到第一个p1节点
 		Element firstP1Node = rootElement.element("p1");
-		/**
-		 * 3.得到第一个p1节点下面的第一个school标签
-		 */
+		// 3.得到第一个p1节点下面的第一个school标签
 		Element schoolNode = firstP1Node.element("school");
-		/**
-		 * 4.删除(使用p1删除school节点)		 
-		 */
+		// 4.删除(使用p1删除school节点)
 		boolean isRemove = firstP1Node.remove(schoolNode);
 		System.out.println(isRemove);
-		/**
-		 * 5.回写xml
-		 */
+		// 5.回写xml
 		//格式化(有缩进效果)
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		//格式化(没有缩进效果)
 		//OutputFormat format = OutputFormat.createCompactFormat();
-		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream("src/com/dragonsoft/xml/dom4j/person.xml"),format);
-		/**
-		 * 6.回写内存中的节点到xml文档中
-		 */
+		File file = new File(FILE_PATH);
+		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream(file),format);
+		// 6.回写内存中的节点到xml文档中
 		xmlWriter.write(document);
-		/**
-		 * 7.关闭流
-		 */
+		// 7.关闭流
 		xmlWriter.close();
 	}
 
@@ -161,37 +142,24 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void modifyNodeText(Document document) throws IOException {
-		/**
-		 * 1.获取根节点
-		 */
+		// 1.获取根节点
 		Element rootElement = document.getRootElement();
-		/**
-		 * 2.获取根节点下第一个p1节点
-		 */
+		// 2.获取根节点下第一个p1节点
 		Element fistP1Node = rootElement.element("p1");
-		/**
-		 * 3.获取第一个p1节点下的name元素
-		 */
+		// 3.获取第一个p1节点下的name元素
 		Element nameNode = fistP1Node.element("name");
-		/**
-		 * 4.修改值name节点的值
-		 */
+		// 4.修改值name节点的值
 		nameNode.setText("我是你爸爸");
-		/**
-		 * 5.回写xml
-		 */
+		// 5.回写xml
 		//格式化(有缩进效果)
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		//格式化(没有缩进效果)
 		//OutputFormat format = OutputFormat.createCompactFormat();
-		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream("src/com/dragonsoft/xml/dom4j/person.xml"),format);
-		/**
-		 * 6.回写内存中的节点到xml文档中
-		 */
+		File file = new File(FILE_PATH);
+		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream(file),format);
+		// 6.回写内存中的节点到xml文档中
 		xmlWriter.write(document);
-		/**
-		 * 7.关闭流
-		 */
+		// 7.关闭流
 		xmlWriter.close();
 	}
 
@@ -202,13 +170,9 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void addChildeNodeAtPosition(Document document) throws IOException {
-		/**
-		 * 1.获取根节点
-		 */
+		// 1.获取根节点
 		Element rootElement = document.getRootElement();
-		/**
-		 * 2.得到第一个p1节点
-		 */
+		// 2.得到第一个p1节点
 		Element firstP1Node = rootElement.element("p1");
 		/**
 		 * 3.获取p1下所有元素
@@ -221,21 +185,16 @@ public class Dom4jParseXml {
 		//在school下创建文本
 		schoolNode.setText("UFE");
 		p1List.add(0, schoolNode);
-		/**
-		 * 4.回写新创建的节点到内存中
-		 */
+		// 4.回写新创建的节点到内存中
 		//格式化(有缩进效果)
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		//格式化(没有缩进效果)
 		//OutputFormat format = OutputFormat.createCompactFormat();
-		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream("src/com/dragonsoft/xml/dom4j/person.xml"),format);
-		/**
-		 * 5.回写内存中的节点到xml文档中
-		 */
+		File file = new File(FILE_PATH);
+		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream(file),format);
+		// 5.回写内存中的节点到xml文档中
 		xmlWriter.write(document);
-		/**
-		 * 6.关闭流
-		 */
+		// 6.关闭流
 		xmlWriter.close();
 		
 	}
@@ -248,37 +207,24 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void addChildeNode(Document document) throws IOException {
-		/**
-		 * 1.得到根节点
-		 */
+		// 1.得到根节点
 		Element rootElement = document.getRootElement();		
-		/**
-		 * 2.得到第一个p1节点
-		 */
+		// 2.得到第一个p1节点
 		Element firstP1Node = rootElement.element("p1");
-		/**
-		 * 3.在p1节点下面添加一个节点
-		 */
+		// 3.在p1节点下面添加一个节点
 		Element sexNode  = firstP1Node.addElement("sex");
-		/**
-		 * 4.给sex节点设置文本值
-		 */
+		// 4.给sex节点设置文本值
 		sexNode.setText("女");
-		/**
-		 * 5.回写新节点到内存中
-		 */
+		// 5.回写新节点到内存中
 		//格式化(有缩进效果)
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		//格式化(没有缩进效果)
 		//OutputFormat format = OutputFormat.createCompactFormat();
-		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream("src/com/dragonsoft/xml/dom4j/person.xml"),format);
-		/**
-		 * 6.回写内存中的节点到xml文档中
-		 */
+		File file = new File(FILE_PATH);
+		XMLWriter xmlWriter = new XMLWriter(new FileOutputStream(file),format);
+		// 6.回写内存中的节点到xml文档中
 		xmlWriter.write(document);
-		/**
-		 * 7.关闭流
-		 */
+		// 7.关闭流
 		xmlWriter.close();
 	}
 
@@ -289,25 +235,15 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void selectSecondP1Tag(Document document) {
-		/**
-		 * 1.获取根节点
-		 */
+		// 1.获取根节点
 		Element rootElement = document.getRootElement();
-		/**
-		 * 2.获取根节点下所有节点
-		 */
+		// 2.获取根节点下所有节点
 		List<Element> elementList = rootElement.elements("p1");
-		/**
-		 * 3.获取第二个p1节点
-		 */
+		// 3.获取第二个p1节点
 		Element secondP1Node = elementList.get(1);
-		/**
-		 * 4.获取第二个p1下面的name的值
-		 */
+		// 4.获取第二个p1下面的name的值
 		 Element nameTageNode = secondP1Node.element("name");
-		 /**
-		  * 5.获取name的值
-		  */
+		 // 5.获取name的值
 		 System.out.println("root下第二个p1下name标签的值:"+nameTageNode.getText());
 	}
 
@@ -318,17 +254,11 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void selectFirstP1Tag(Document document) {
-		/**
-		 * 1.获取根节点
-		 */
+		// 1.获取根节点
 		Element rootElement = document.getRootElement();
-		/**
-		 * 2.获取根节点下第一个p1，如果调用element(String tagName)，默认返回根节点下第一个子节点
-		 */
+		// 2.获取根节点下第一个p1，如果调用element(String tagName)，默认返回根节点下第一个子节点
 		Element firstP1Node = rootElement.element("p1");
-		/**
-		 * 3.得到第一个p1节点下面的name标签的值
-		 */
+		// 3.得到第一个p1节点下面的name标签的值
 		String nameTageText = firstP1Node.element("name").getText();
 		System.out.println("root下第一个p1下name标签的值:"+nameTageText);
 	}
@@ -340,20 +270,16 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static void selectAllP1Tag(Document document) {
-		/**
-		 * 1.获取根节点
-		 */
+		// 1.获取根节点
 		Element rootElement = document.getRootElement();
-		/**
-		 * 2.获取所有的p1节点,使用elements(String tagName)方法
-		 */
+		// 2.获取所有的p1节点,使用elements(String tagName)方法
 		List<Element> elements = rootElement.elements("p1");
 		//遍历此List，得到每一个Element
 		for(Element node:elements){
 			//获取每一个Element中name和age属性的值
 			Element nameNode = node.element("name");
 			Element ageNode = node.element("age");
-			System.out.println("name:"+nameNode.getText()+"---"+"age:"+ageNode.getText());
+			System.out.println("name:"+nameNode.getText() + "---" + "age:" + ageNode.getText());
 		}
 	}
 
@@ -363,15 +289,10 @@ public class Dom4jParseXml {
 	 * @throws  
 	 */
 	private static Document dom4jParseXmlgetDocumentObject() throws DocumentException {
-		/**
-		 * 1.创建解析器
-		 */
+		// 1.创建解析器
 		SAXReader saxReader = new SAXReader();
-		/**
-		 * 2.得到document
-		 */
-		Document document = saxReader.read(getResourceAsStream("person.xml"));
-		return document;
+		// 2.得到document
+		return saxReader.read(getResourceAsStream(FILE_RELATIVE_PATH));
 	}
 
 	public static InputStream getResourceAsStream(String xmlName){
