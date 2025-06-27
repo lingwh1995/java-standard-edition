@@ -4,9 +4,8 @@ import cn.hutool.core.util.HexUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.nio.ByteOrder;
 import java.util.Arrays;
-import java.util.Random;
+
 @Data
 @AllArgsConstructor
 public class CommandUtil {
@@ -123,7 +122,7 @@ public class CommandUtil {
         System.arraycopy(randomCommunicationCodeBytes, 0, calcDataAreaBytes, 0, randomCommunicationCodeBytes.length);
         System.arraycopy(encryptDataArea, 0, calcDataAreaBytes, randomCommunicationCodeBytes.length, encryptDataArea.length);
         //2.经过MAC算法计算出MAC值
-        byte[] mac = HmacSHA256.encrypt(calcDataAreaBytes, secretKeyBytes);
+        byte[] mac = HmacSHA256Util.encrypt(calcDataAreaBytes, secretKeyBytes);
         //3.最后将MAC追加在数据对象内容后作为数据域。
         byte[] finalDataArea = new byte[encryptDataArea.length + mac.length];
         System.arraycopy(encryptDataArea, 0, finalDataArea, 0, encryptDataArea.length);

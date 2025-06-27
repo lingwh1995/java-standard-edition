@@ -3,7 +3,7 @@ package org.bluebridge.utils.utils;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-public class HmacSHA256 {
+public class HmacSHA256Util {
 
     /**
      * HmacSHA256 散列消息认证码
