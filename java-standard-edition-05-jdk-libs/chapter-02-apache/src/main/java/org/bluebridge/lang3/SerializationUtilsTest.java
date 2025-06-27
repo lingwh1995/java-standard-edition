@@ -1,6 +1,7 @@
 package org.bluebridge.lang3;
 
 import org.apache.commons.lang3.SerializationUtils;
+import org.junit.Test;
 
 import java.io.Serializable;
 
@@ -12,7 +13,8 @@ import java.io.Serializable;
  */
 public class SerializationUtilsTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void testSerializationUtils(){
         Person zhangsan = new Person("zhangsan", "28");
         byte[] serialize = SerializationUtils.serialize(zhangsan);
         System.out.println(serialize);

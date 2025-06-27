@@ -8,6 +8,7 @@ package org.bluebridge.api;
 
 import org.junit.Test;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,7 +35,6 @@ public class StringTest {
 		System.out.println(Arrays.toString(letterArray));
 	}
 	
-	
 	/**
 	 * String的Join方法:使用指定的拼接符号把数组/集合中每一个元素拼接起来,拼成一个字符串
 	 * @param
@@ -49,6 +49,7 @@ public class StringTest {
 		String[] nums = {"123","456","789"};
 		String arrayJoinToString = String.join("-",nums);
 		System.out.println(arrayJoinToString);
+
 		/*
 		 * 拼接集合
 		 */
@@ -61,8 +62,7 @@ public class StringTest {
 		String listJoinToString = String.join("+",list);
 		System.out.println(listJoinToString);
 	}
-	
-	
+
 	/**
 	 * 测试String的StringTokenizer对象：把字符串根据分隔符转换成数组
 	 * 	和split()的区别：当分隔符是.等特殊字符时，split()无法分割，使用StringTokenizer对象可以分割该对象
@@ -78,7 +78,6 @@ public class StringTest {
 		}
 	}
 	
-	
 	/**
 	 * 判断两个字符串是否相等，不区分大小写的情况
 	 * @param
@@ -93,7 +92,6 @@ public class StringTest {
 		System.out.println(s1.equalsIgnoreCase(s2));
 	}
 
-	
 	/**
 	 * 返回索引位置的字符的ascii码
 	 */
@@ -103,7 +101,6 @@ public class StringTest {
 		System.out.println("str.codePointAt(0) = " + str.codePointAt(0));
 	}
 
-	
 	/**
 	 * 返回索引位置的前一个字符的ascii码，如果前面没有字符，即index<=0抛出下标越界异常
 	 */
@@ -113,7 +110,6 @@ public class StringTest {
 		System.out.println("str.codePointBefore(1) = " + str.codePointBefore(1));
 	}
 
-	
 	/**
 	 * 从指定索引位置开始算，返回指定索引位置到结尾处的码点数
 	 * 		码点和长度的区别:
@@ -125,7 +121,6 @@ public class StringTest {
 		System.out.println("str.length() = " + str.length());
 		System.out.println("str.codePointCount(1, str.length()) = " + str.codePointCount(1, str.length()));
 	}
-
 
 	/**
 	 * valueOf和toString():
@@ -142,7 +137,6 @@ public class StringTest {
 		//toString():会跑出空指针异常
 	}
 
-
 	@Test
 	public void testConcat() {
 		String str1 = "abc";
@@ -150,7 +144,6 @@ public class StringTest {
 		System.out.println("str1.concat(str2) = " + str1.concat(str2));
 	}
 
-	
 	@Test
 	public void testReplace() {
 		String str1 = "abcdea";
@@ -165,7 +158,6 @@ public class StringTest {
 		System.out.println(str2.replace("1", "first"));
 	}
 
-	
 	/**
 	 * 测试编译期优化
 	 */
@@ -190,4 +182,24 @@ public class StringTest {
 		// 右补0
 		System.out.println(String.format("%-10s", str).replace(' ','0'));
 	}
+
+	/**
+	 * 测试模板字符串
+	 */
+	@Test
+	public void testTemplateLiterals() {
+		// 使用String.format()方式实现
+		String name = "Alice";
+		int age = 23;
+		String greeting = String.format("Hello, %s! You are %d years old.", name, age);
+		System.out.println(greeting);
+
+		// 使用MessageFormat.format()方式实现
+		name = "Bob";
+		age = 25;
+		String pattern = "Hello, {0}! You are {1} years old.";
+		greeting = MessageFormat.format(pattern, name, age);
+		System.out.println(greeting);
+	}
+
 }
