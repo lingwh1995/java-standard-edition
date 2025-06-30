@@ -24,8 +24,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.30</lombok.version>
         <junit.version>4.9</junit.version>
+        <logback.version>1.2.3</logback.version>
         <dom4j.version>1.6.1</dom4j.version>
-        <commons-lang3.version>3.1</commons-lang3.version>
+        <commons-lang3.version>3.6</commons-lang3.version>
         <commons-logging.version>1.2</commons-logging.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <jaxen.version>1.2.0</jaxen.version>
@@ -35,7 +36,6 @@
         <guava.version>30.0-jre</guava.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <spring-core.version>5.0.15.RELEASE</spring-core.version>
-        <logback.version>1.2.3</logback.version>
     </properties>
 
     <dependencyManagement>
@@ -49,6 +49,11 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <groupId>dom4j</groupId>
@@ -104,11 +109,6 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
                 <version>${spring-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

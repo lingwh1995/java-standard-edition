@@ -1,15 +1,17 @@
 package org.bluebridge.lang3;
 
+import lombok.Data;
 import org.apache.commons.lang3.SerializationUtils;
 import org.junit.Test;
 
 import java.io.Serializable;
 
 /**
+ * 序列化工具类
  * @author ronin
  * @version V1.0
  * @desc
- * @since 2019/7/26 16:31
+ * @since 2019/7/26 16:31 、2025/6/30 再次修改
  */
 public class SerializationUtilsTest {
 
@@ -22,6 +24,7 @@ public class SerializationUtilsTest {
         System.out.println(deserialize);
     }
 
+    @Data
     private static class Person implements Serializable{
         private static final long serialVersionUID = 1L;
 
@@ -33,28 +36,6 @@ public class SerializationUtilsTest {
             this.age = age;
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getAge() {
-            return age;
-        }
-
-        public void setAge(String age) {
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return "Person{" +
-                    "name='" + name + '\'' +
-                    ", age='" + age + '\'' +
-                    '}';
-        }
     }
+
 }
