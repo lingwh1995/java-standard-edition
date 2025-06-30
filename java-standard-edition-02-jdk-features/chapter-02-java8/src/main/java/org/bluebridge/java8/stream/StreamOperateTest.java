@@ -247,7 +247,6 @@ public class StreamOperateTest {
         collect.entrySet().forEach(entry-> System.out.println(entry.getKey() + " -- " + entry.getValue()));
     }
 
-
     /**
      * 分别使用串行和并行的方式查找出第一个长度为5的单词
      */
@@ -263,7 +262,7 @@ public class StreamOperateTest {
     }
 
     /**
-     * 方法主要用于调试，它允许你在流的每个元素上执行某个操作（例如打印），而不会改变流中的元素。
+     * peek()方法主要用于调试，它允许你在流的每个元素上执行某个操作（例如打印），而不会改变流中的元素。
      */
     @Test
     public void testStreamPeek() {
@@ -276,4 +275,5 @@ public class StreamOperateTest {
         // 输出: [APPLE, BANANA, CHERRY]
         System.out.println(result);
     }
+
 }
