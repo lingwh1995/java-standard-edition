@@ -1,5 +1,7 @@
 package org.bluebridge.map;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,7 +13,9 @@ import java.util.Set;
  * @author ronin
  */
 public class HashMapTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void testHashMap() {
         HashMap<String, String> map = new HashMap<>();
         map.put("a","zs");
         map.put("b","ls");

@@ -13,18 +13,6 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>4.9</junit.version>
-        <hessian.version>4.0.38</hessian.version>
-        <lombok.version>1.18.30</lombok.version>
-        <commons-io.version>2.2</commons-io.version>
-        <slf4j-api.version>1.7.32</slf4j-api.version>
-        <logback.version>1.2.6</logback.version>
-        <dom4j.version>1.6.1</dom4j.version>
-        <jaxen.version>1.2.0</jaxen.version>
-        <httpclient.version>4.5.9</httpclient.version>
-        <commons-beanutils.version>1.9.3</commons-beanutils.version>
-        <commons-lang3.version>3.9</commons-lang3.version>
-        <hutool.version>5.8.25</hutool.version>
     </properties>
 
     <modules>
@@ -42,74 +30,4 @@
         <module>java-standard-edition-12-gui-swing</module>
         <module>java-standard-edition-13-gui-javafx</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <!--日志框架结束-->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-            </dependency>
-            <!-- hessian序列化工具 -->
-            <dependency>
-	            <groupId>com.caucho</groupId>
-	            <artifactId>hessian</artifactId>
-	            <version>${hessian.version}</version>
-	        </dependency>
-	        <dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-			</dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${commons-io.version}</version>
-            </dependency>
-            <!-- slf4j api -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j-api.version}</version>
-            </dependency>
-
-            <!-- Logback作为日志实现 -->
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>dom4j</groupId>
-                <artifactId>dom4j</artifactId>
-                <version>${dom4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>jaxen</groupId>
-                <artifactId>jaxen</artifactId>
-                <version>${jaxen.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${httpclient.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${commons-beanutils.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-crypto</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>

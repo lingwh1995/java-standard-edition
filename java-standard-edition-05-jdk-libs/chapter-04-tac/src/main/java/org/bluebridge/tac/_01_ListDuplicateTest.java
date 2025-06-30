@@ -1,6 +1,7 @@
 package org.bluebridge.tac;
 
 import com.google.common.collect.Sets;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 
@@ -8,13 +9,21 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 使用多种方式解决list中元素重复的问题
+ * 使用多种方式判断list中元素是否重复
  */
-public class ListDuplicateTest {
+@Slf4j
+public class _01_ListDuplicateTest {
 
     @Test
     public void testListDuplicate() {
-
+        List<Integer> list = Arrays.asList(1, 2, 3, 3, 4, 5);
+        log.debug("hasDuplicate(list): {}", hasDuplicate(list));
+        log.debug("hasDuplicateByHashSet(list): {}", hasDuplicateByHashSet(list));
+        log.debug("hasDuplicateByStream(list): {}", hasDuplicateByStream(list));
+        log.debug("hasDuplicateByTreeSet(list): {}", hasDuplicateByTreeSet(list));
+        log.debug("hasDuplicateByBitSet(list): {}", hasDuplicateByBitSet(list));
+        log.debug("hasDuplicateByGuava(list): {}", hasDuplicateByGuava(list));
+        log.debug("hasDuplicateByCommons(list): {}", hasDuplicateByCommons(list));
     }
 
     /**
@@ -94,6 +103,7 @@ public class ListDuplicateTest {
      */
     public static boolean hasDuplicateParallel(List<?> list) {
         Set<Object> seen = ConcurrentHashMap.newKeySet();
+        // 用于判断流中是否存在任意一个元素满足给定的条件（Predicate）。若存在则返回true，否则返回false‌。
         return list.parallelStream().anyMatch(e -> !seen.add(e));
     }
 

@@ -1,5 +1,7 @@
 package org.bluebridge.map;
 
+import org.junit.Test;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +11,9 @@ import java.util.Set;
  * @author ronin
  */
 public class MapTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void testMap() {
         Map<String, String> map = new HashMap<>();
         //第一次存储,返回null,直接存储
         System.out.println("第一次put():"+map.put("a","zs"));
