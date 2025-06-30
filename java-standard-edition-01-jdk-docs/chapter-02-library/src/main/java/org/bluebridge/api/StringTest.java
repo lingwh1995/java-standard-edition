@@ -21,6 +21,7 @@ import java.util.StringTokenizer;
  *    
  */
 public class StringTest {
+
 	/**
 	 * 测试String的split()方法：把字符串根据分隔符转换成数组
 	 */
@@ -181,25 +182,6 @@ public class StringTest {
 		System.out.println(String.format("%10s", str).replace(' ','0'));
 		// 右补0
 		System.out.println(String.format("%-10s", str).replace(' ','0'));
-	}
-
-	/**
-	 * 测试模板字符串
-	 */
-	@Test
-	public void testTemplateLiterals() {
-		// 使用String.format()方式实现
-		String name = "Alice";
-		int age = 23;
-		String greeting = String.format("Hello, %s! You are %d years old.", name, age);
-		System.out.println(greeting);
-
-		// 使用MessageFormat.format()方式实现
-		name = "Bob";
-		age = 25;
-		String pattern = "Hello, {0}! You are {1} years old.";
-		greeting = MessageFormat.format(pattern, name, age);
-		System.out.println(greeting);
 	}
 
 }
