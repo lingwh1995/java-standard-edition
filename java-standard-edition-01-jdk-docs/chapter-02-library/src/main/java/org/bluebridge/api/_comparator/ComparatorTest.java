@@ -1,6 +1,5 @@
-package org.bluebridge.api.compara;
+package org.bluebridge.api._comparator;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;

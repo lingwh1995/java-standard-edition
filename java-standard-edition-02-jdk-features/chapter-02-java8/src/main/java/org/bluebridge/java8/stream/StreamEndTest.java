@@ -203,4 +203,5 @@ public class StreamEndTest {
         System.out.println("Average: " + stats.getAverage()); // 输出: Average: 5.0
         System.out.println("Count: " + stats.getCount());     // 输出: Count: 9
     }
+
 }

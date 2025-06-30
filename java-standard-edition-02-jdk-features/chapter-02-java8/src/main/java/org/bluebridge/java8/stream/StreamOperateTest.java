@@ -97,6 +97,20 @@ public class StreamOperateTest {
     }
 
     /**
+     * 去重
+     */
+    @Test
+    public void testStreamDistinct3() {
+        // 使用stream判断list中元素是否重复
+        List<Integer> list = Arrays.asList(1, 2, 2, 3, 3, 4, 5, 6);
+        if(list.stream().distinct().count() < list.size()) {
+            System.out.println("有重复元素");
+        }else {
+            System.out.println("没有重复元素");
+        }
+    }
+
+    /**
      * 映射
      */
     @Test

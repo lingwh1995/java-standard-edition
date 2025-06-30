@@ -15,6 +15,7 @@
         <module>chapter-01-dom4j</module>
         <module>chapter-02-apache</module>
         <module>chapter-03-iotutils</module>
+        <module>chapter-04-tac</module>
     </modules>
 
     <properties>
@@ -30,6 +31,8 @@
         <httpclient.version>4.5</httpclient.version>
         <hutool-crypto.version>5.8.0</hutool-crypto.version>
         <poi-ooxml.version>4.0.0</poi-ooxml.version>
+        <guava.version>30.0-jre</guava.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
     </properties>
 
     <dependencyManagement>
@@ -78,6 +81,16 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
                 <version>${poi-ooxml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

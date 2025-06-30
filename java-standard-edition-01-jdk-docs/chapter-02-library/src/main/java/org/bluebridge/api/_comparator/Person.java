@@ -1,4 +1,4 @@
-package org.bluebridge.api.compara;
+package org.bluebridge.api._comparator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
