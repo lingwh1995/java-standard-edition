@@ -17,12 +17,17 @@ public class ObjectsTest {
 
     /**
      * 测试 equals()
+     *    不会报空指针异常
      */
     @Test
     public void testObjectsEquals() {
         Integer i = 1;
         Integer j = 1;
         log.debug("equals: {}", Objects.equals(i, j));
+
+        i = null;
+        j = 10;
+        log.debug("deepEquals: {}", Objects.deepEquals(i, j));
     }
 
     /**
@@ -63,12 +68,16 @@ public class ObjectsTest {
     }
 
     /**
-     * 测试 deepEquals()
+     * 测试 deepEquals()，不会报空指针异常
      */
     @Test
     public void testObjectsDeepEquals() {
         String s1 = "hello";
         String s2 = "hello";
+        log.debug("deepEquals: {}", Objects.deepEquals(s1, s2));
+
+        s1 = null;
+        s2 = "hello";
         log.debug("deepEquals: {}", Objects.deepEquals(s1, s2));
     }
 
