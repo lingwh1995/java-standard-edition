@@ -2,6 +2,9 @@ package org.bluebridge.java8.lambda;
 
 import java.io.Serializable;
 
+/**
+ * 函数式接口入门
+ */
 public class LambdaTest1 {
 
 	/**
@@ -27,7 +30,6 @@ public class LambdaTest1 {
 	static LambdaCalculator sub = (a,b) -> a - b;
 	static LambdaCalculator mul = (a,b) -> a * b;
 	static LambdaCalculator div = (a,b) -> a / b;
-	
 	
 	public static void main(String[] args) {
 		// 调用普通的方法

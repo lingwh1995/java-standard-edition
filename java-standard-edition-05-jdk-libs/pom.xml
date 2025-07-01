@@ -27,7 +27,6 @@
         <logback.version>1.2.3</logback.version>
         <dom4j.version>1.6.1</dom4j.version>
         <commons-lang3.version>3.6</commons-lang3.version>
-        <commons-logging.version>1.2</commons-logging.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <jaxen.version>1.2.0</jaxen.version>
         <httpclient.version>4.5</httpclient.version>
@@ -64,11 +63,6 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${commons-logging.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>

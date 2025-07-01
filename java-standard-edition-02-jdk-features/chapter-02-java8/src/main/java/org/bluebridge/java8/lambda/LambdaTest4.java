@@ -9,7 +9,7 @@ import java.util.function.IntPredicate;
 import org.junit.Test;
 
 /**
- * @author ronin
+ * lambda表达式案例
  */
 public class LambdaTest4 {
 
@@ -48,7 +48,6 @@ public class LambdaTest4 {
 		t3.run();
 	}
 
-
 	/**
 	 * 测试使用匿名内部类方式和lambda方式调用参数为 IntBinaryOperator 接口方法
 	 */
@@ -85,7 +84,6 @@ public class LambdaTest4 {
 		result = calculateNum((left, right) -> left + right);
 		System.out.println("使用lambda方式调用(简写形式):" + result);
 	}
-
 
 	/**
 	 * 这个方法的参数是一个接口
@@ -144,7 +142,6 @@ public class LambdaTest4 {
 		return result;
 	}
 
-
 	/**
 	 * 测试使用匿名内部类方式和lambda方式调用参数为 IntBinaryOperator 接口方法
 	 */
@@ -173,7 +170,6 @@ public class LambdaTest4 {
 		filterNum(value -> value % 2 == 0 ? true : false);
 	}
 
-
 	/**
 	 * 这个方法的参数是一个接口
 	 * 
@@ -188,7 +184,6 @@ public class LambdaTest4 {
 			}
 		}
 	}
-
 
 	/**
 	 * 测试Comparator
@@ -228,4 +223,5 @@ public class LambdaTest4 {
 		result = comparator.compare(20, 10);
 		System.out.println(result);
 	}
+
 }

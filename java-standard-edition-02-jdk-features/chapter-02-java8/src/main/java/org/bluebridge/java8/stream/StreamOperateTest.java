@@ -111,10 +111,10 @@ public class StreamOperateTest {
     }
 
     /**
-     * 映射
+     * 映射：常用来进行数据类型转换
      */
     @Test
-    public void testStreamMap() {
+    public void testStreamMap1() {
         //创建流
         Stream<Employee> stream = employees.stream();
         //映射
@@ -124,6 +124,19 @@ public class StreamOperateTest {
         List<String> list = Arrays.asList("apple", "banana", "cherry");
         //list.stream().map(s -> s.toUpperCase()).forEach(System.out::println);
         list.stream().map(String :: toUpperCase).forEach(System.out::println);
+    }
+
+    /**
+     * 映射：常用来进行数据类型转换
+     *  演示Stream的 map和lambda表达式的结合使用
+     */
+    @Test
+    public void testStreamMap2() {
+        Integer[] numbers = {1, 2, 3, 4, 5};
+        String result = Arrays.stream(numbers)
+                .map(String::valueOf) // 转换为字符串 => stream和lambda表达式结合使用的最经典场景之一
+                .collect(Collectors.joining(" | "));
+        System.out.println(result); // 输出：1 | 2 | 3 | 4 | 5
     }
 
     /**

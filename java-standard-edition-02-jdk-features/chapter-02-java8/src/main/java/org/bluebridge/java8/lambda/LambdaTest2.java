@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * 验证lambda表达式实际上是函数式接口的实例对象，只要是对象，实现了Serializable接口可以在网络传输中进行传输
  */
 public class LambdaTest2 {
+
     static class Server {
         public static void main(String[] args) throws IOException {
             ServerSocket serverSocket = new ServerSocket(8080);
