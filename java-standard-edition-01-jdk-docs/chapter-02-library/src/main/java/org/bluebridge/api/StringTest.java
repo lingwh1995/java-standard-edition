@@ -184,4 +184,12 @@ public class StringTest {
 		System.out.println(String.format("%-10s", str).replace(' ','0'));
 	}
 
+	/**
+	 * 测试去掉字符串两端空格
+	 */
+	@Test
+	public void testTrim() {
+		String str = " abcde ";
+		System.out.println(str.trim());
+	}
 }
