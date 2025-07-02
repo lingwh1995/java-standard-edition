@@ -1,4 +1,4 @@
-package org.bluebridge.tac;
+package org.bluebridge.cas;
 
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.junit.Test;

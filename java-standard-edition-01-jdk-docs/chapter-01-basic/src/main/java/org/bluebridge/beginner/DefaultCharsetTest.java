@@ -5,4 +5,5 @@ public class DefaultCharsetTest {
         String charsetName = System.getProperty("file.encoding");
         System.out.println("Default Charset: " + charsetName);
     }
+
 }

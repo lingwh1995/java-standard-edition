@@ -15,7 +15,7 @@
         <module>chapter-01-dom4j</module>
         <module>chapter-02-apache</module>
         <module>chapter-03-iotutils</module>
-        <module>chapter-04-tac</module>
+        <module>chapter-04-cas</module>
     </modules>
 
     <properties>

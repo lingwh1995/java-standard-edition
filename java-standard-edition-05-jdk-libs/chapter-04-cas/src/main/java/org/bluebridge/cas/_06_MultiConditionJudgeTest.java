@@ -1,4 +1,4 @@
-package org.bluebridge.beginner;
+package org.bluebridge.cas;
 
 import org.junit.Test;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * 多条件判断简化写法
  */
-public class MultiConditionJudgeTest {
+public class _06_MultiConditionJudgeTest {
 
     @Test
     public void test() {

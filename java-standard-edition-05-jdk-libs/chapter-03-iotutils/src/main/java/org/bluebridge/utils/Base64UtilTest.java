@@ -9,7 +9,7 @@ public class Base64UtilTest {
         String base64Message = Base64Util.stringToBase64(stringMessage);
         System.out.println("base64Message = " + base64Message);
 
-        base64Message = "U1RBUlSqABsAAghgciB2lnAHJQUjFxA4Y58vqUBP26AunMF7s/6VFw==";
+        base64Message = "MFBVzvW5DiX917sncBQvwVTnAZATMoRP62c1a+vd5vA=";
         stringMessage = Base64Util.base64ToString(base64Message);
         System.out.println("stringMessage = " + stringMessage);
     }

@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-04-tac</artifactId>
+    <artifactId>chapter-04-cas</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

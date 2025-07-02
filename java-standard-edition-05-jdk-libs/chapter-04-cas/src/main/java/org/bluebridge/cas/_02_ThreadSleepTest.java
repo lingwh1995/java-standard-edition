@@ -1,4 +1,4 @@
-package org.bluebridge.tac;
+package org.bluebridge.cas;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

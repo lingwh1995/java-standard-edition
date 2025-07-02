@@ -1,4 +1,4 @@
-package org.bluebridge.tac;
+package org.bluebridge.cas;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 数据类型转换
+ * 数据类型转换（数据类型映射）
  */
 @Slf4j
 public class _05_DataTypeConvertTest {

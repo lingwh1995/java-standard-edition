@@ -1,4 +1,4 @@
-package org.bluebridge.api;
+package org.bluebridge.deque;
 
 import org.junit.Test;
 
@@ -127,4 +127,5 @@ public class ArrayDequeTest {
         System.out.println(deque.pollFirst()); // 输出: C
         System.out.println(deque.pollLast());  // 输出: B
     }
+
 }
