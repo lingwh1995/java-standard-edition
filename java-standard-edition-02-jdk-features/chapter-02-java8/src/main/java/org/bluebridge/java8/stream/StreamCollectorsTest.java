@@ -126,4 +126,22 @@ public class StreamCollectorsTest {
         log.debug("ageStr: {}", ageStr);
     }
 
+    @Test
+    public void testCollectToMap(){
+        Map<String, String> map = new HashMap<>();
+        map.put("name", "张三");
+        map.put("id", "001");
+        map.put("age", "25");
+        Map<String, String> sortedMap = map.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey()) // 根据key排序
+                //.sorted(Map.Entry.comparingByValue()) // 根据值排序
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1, // 解决重复键的问题，这里简单地选择第一个元素
+                        LinkedHashMap::new // 保持排序后的顺序
+                ));
+        log.debug("sortedMap: {}", sortedMap);
+    }
+
 }
