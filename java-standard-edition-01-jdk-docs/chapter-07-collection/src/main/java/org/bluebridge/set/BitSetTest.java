@@ -1,13 +1,16 @@
 package org.bluebridge.set;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.text.RandomStringGenerator;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.random.RandomGenerator;
 import java.util.stream.IntStream;
 
 /**
@@ -32,7 +35,22 @@ public class BitSetTest {
     }
 
     /**
-     * 使用BitSet统计随机数的个数
+     * 使用BitSet统计重复一亿个电话号码中的重复号码
+     */
+    @Test
+    public void testStatisticsDuplicateNumbers(){
+        RandomStringGenerator generator = new RandomStringGenerator.Builder()
+                .withinRange('1', '9')
+                .build();
+        IntStream.range(0, 10000).forEach(i -> {
+            String phoneNumber = generator.generate(10);
+            phoneNumber = "1" + phoneNumber;
+            log.info("generate: {}", phoneNumber);
+        });
+    }
+
+    /**
+     * 使用BitSet统计生成随机数的个数
      */
     @Test
     public void testBitSetCountRandom() {

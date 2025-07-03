@@ -5,7 +5,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
 /**
- * 随机字符串工具类
+ * 随机字符串工具类-已经过期，不推荐使用，使用 commons-text包中 RandomStringGenerator 代替
  */
 @Slf4j
 public class RandomStringUtilsTest {

@@ -6,6 +6,7 @@
 package org.bluebridge.api;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.text.MessageFormat;
@@ -20,6 +21,7 @@ import java.util.StringTokenizer;
  * @date 2019年3月11日  
  *    
  */
+@Slf4j
 public class StringTest {
 
 	/**
@@ -29,11 +31,11 @@ public class StringTest {
 	public void testSplit() {
 		String nums = "1,2,3,4,5";
 		String[] numsArr = nums.split(",");
-		System.out.println(Arrays.toString(numsArr));
+		log.debug("Arrays.toString(numsArr): {}", Arrays.toString(numsArr));
 		
 		String letters = "abcdef";
 		String[] letterArray = letters.split("");
-		System.out.println(Arrays.toString(letterArray));
+		log.debug("Arrays.toString(letterArray): {}", Arrays.toString(letterArray));
 	}
 	
 	/**
@@ -49,7 +51,7 @@ public class StringTest {
 		 */
 		String[] nums = {"123","456","789"};
 		String arrayJoinToString = String.join("-",nums);
-		System.out.println(arrayJoinToString);
+		log.debug("arrayJoinToString: {}", arrayJoinToString);
 
 		/*
 		 * 拼接集合
@@ -61,7 +63,7 @@ public class StringTest {
 		list.add("d");
 		list.add("e");
 		String listJoinToString = String.join("+",list);
-		System.out.println(listJoinToString);
+		log.debug("listJoinToString: {}", listJoinToString);
 	}
 
 	/**
@@ -75,7 +77,7 @@ public class StringTest {
 		StringTokenizer numStringTokenizer = new StringTokenizer(nums,separator);
 		while(numStringTokenizer.hasMoreTokens()) {
 			String numToken = numStringTokenizer.nextToken();
-			System.out.println(numToken);
+			log.debug("numToken: {}", numToken);
 		}
 	}
 	
@@ -89,8 +91,8 @@ public class StringTest {
 	public void testEqualsIgnoreCase(){
 		String s1 = "HELLO";
 		String s2 = "hello";
-		System.out.println(s1.equals(s2));
-		System.out.println(s1.equalsIgnoreCase(s2));
+		log.debug("s1.equals(s2): {}", s1.equals(s2));
+		log.debug("s1.equalsIgnoreCase(s2): {}", s1.equalsIgnoreCase(s2));
 	}
 
 	/**
@@ -99,7 +101,7 @@ public class StringTest {
 	@Test
 	public void testcCodePoint(){
 		String str = "abcde";
-		System.out.println("str.codePointAt(0) = " + str.codePointAt(0));
+		log.debug("str.codePointAt(0): {}", str.codePointAt(0));
 	}
 
 	/**
@@ -108,7 +110,7 @@ public class StringTest {
 	@Test
 	public void testCodePointBefore(){
 		String str = "abcde";
-		System.out.println("str.codePointBefore(1) = " + str.codePointBefore(1));
+		log.debug("str.codePointBefore(1): {}", str.codePointBefore(1));
 	}
 
 	/**
@@ -119,8 +121,8 @@ public class StringTest {
 	@Test
 	public void testCodePointCount() {
 		String str = "abcde\uD83D\uDE02";
-		System.out.println("str.length() = " + str.length());
-		System.out.println("str.codePointCount(1, str.length()) = " + str.codePointCount(1, str.length()));
+		log.debug("str.length(): {}", str.length());
+		log.debug("str.codePointCount(1, str.length()): {}", str.codePointCount(1, str.length()));
 	}
 
 	/**
@@ -134,7 +136,7 @@ public class StringTest {
 	public void testValueOfAndToString(){
 		//valueOf():不会抛空指针异常
 		Integer num = null;
-		System.out.println(String.valueOf(num));
+		log.debug("String.valueOf(num): {}", String.valueOf(num));
 		//toString():会跑出空指针异常
 	}
 
@@ -142,21 +144,17 @@ public class StringTest {
 	public void testConcat() {
 		String str1 = "abc";
 		String str2 = "de";
-		System.out.println("str1.concat(str2) = " + str1.concat(str2));
+		log.debug("str1.concat(str2): {}", str1.concat(str2));
 	}
 
 	@Test
 	public void testReplace() {
 		String str1 = "abcdea";
 		//替换全部target字符串，不支持正则
-		System.out.println(str1.replace("a", "a_"));
+		log.debug(str1.replace("a", "a_"));
 
 		//替换全部符合正则表达式的字符串
 		//public String replaceAll(String regex, String replacement)
-
-		String str2 = "123451";
-		//只替换第一个字符串
-		System.out.println(str2.replace("1", "first"));
 	}
 
 	/**
@@ -169,7 +167,7 @@ public class StringTest {
 		String s2 = "3";
 		//编译时期不会做优化，因为编译的时候还不知道s1和s3代表的具体值是什么
 		String s3 = s1 + s2;
-		System.out.println(s3);
+		log.debug("s3: {}", s3);
 	}
 
 	/**
@@ -179,9 +177,9 @@ public class StringTest {
 	public void testFormat() {
 		String str = "abcde";
 		// 左补0
-		System.out.println(String.format("%10s", str).replace(' ','0'));
+		log.debug("左补0： {}", String.format("%10s", str).replace(' ','0'));
 		// 右补0
-		System.out.println(String.format("%-10s", str).replace(' ','0'));
+		log.debug("右补0： {}", String.format("%-10s", str).replace(' ','0'));
 	}
 
 	/**
@@ -190,6 +188,16 @@ public class StringTest {
 	@Test
 	public void testTrim() {
 		String str = " abcde ";
-		System.out.println(str.trim());
+		log.debug("str.trim(): {}", str.trim());
 	}
+
+	/**
+	 * 测试把字符串转换为字符流
+	 */
+	@Test
+	public void testChars() {
+		String str = " abcde ";
+		str.chars().forEach(System.out::println);
+	}
+
 }
