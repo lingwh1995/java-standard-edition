@@ -1,40 +1,53 @@
 package org.bluebridge.stack;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 import java.util.Stack;
 
+@Slf4j
 public class StackTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void testStack() {
         Stack<Integer> stack = new Stack<Integer>();
         stack.add(1);
         stack.add(2);
         stack.add(3);
-        System.out.println(stack);
+        log.debug("stack: {}", stack);
+        log.debug("------------1------------");
 
         stack.push(4);
         stack.push(5);
         stack.push(6);
-        System.out.println(stack);
+        log.debug("stack: {}", stack);
+        log.debug("------------2------------");
 
-        Integer peek1 = stack.peek();
-        System.out.println("peek1:"+peek1);
-        Integer peek2 = stack.peek();
-        System.out.println("peek2:"+peek2);
-        System.out.println(stack);
+        Integer peek = stack.peek();
+        log.debug("peek-1: {}", peek);
+        log.debug("stack: {}", stack);
+        peek = stack.peek();
+        log.debug("peek-2: {}", peek);
+        log.debug("stack: {}", stack);
+        log.debug("------------3------------");
 
-        Integer pop1 = stack.pop();
-        System.out.println("pop1:"+pop1);
-        System.out.println(stack);
-        Integer pop2 = stack.pop();
-        System.out.println("pop2:"+pop2);
-        System.out.println(stack);
+        Integer pop = stack.pop();
+        log.debug("pop-1: {}", pop);
+        log.debug("stack: {}", stack);
+        pop = stack.pop();
+        log.debug("pop-2: {}", pop);
+        log.debug("stack: {}", stack);
+        log.debug("------------4------------");
 
-        System.out.println("stack.get(0):" +stack.get(0));
-        System.out.println("stack.get(1):" + stack.get(1));
+        log.debug("stack.get(0): {}", stack.get(0));
+        log.debug("stack.get(1): {}", stack.get(1));
+        log.debug("stack: {}", stack);
+        log.debug("------------5------------");
 
         //遍历
         while(stack.size()>0){
-            System.out.println(stack.pop());
+            log.debug("stack.pop(): {}", stack.pop());
         }
     }
+
 }

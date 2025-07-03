@@ -1,5 +1,8 @@
 package org.bluebridge.set;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -8,8 +11,17 @@ import java.util.Set;
  * 链表保证元素有序
  * @author ronin
  */
+@Slf4j
 public class LinkedHashSetTest {
-    public static void main(String[] args) {
+
+    /**
+     * 测试LinkedHashSet
+     *  1.有序性‌：通过内部的双向链表维护元素插入顺序，遍历时保证与插入顺序一致
+     *  2.唯一性‌：继承自HashSet，确保元素不重复（基于equals()和hashCode()判断）
+     * ‌底层实现‌：基于LinkedHashMap，结合哈希表（快速查找）和双向链表（维护顺序）
+     */
+    @Test
+    public void testLinkedHashSet() {
         Set<String> set = new LinkedHashSet<>();
         set.add("a");
         set.add("b");
@@ -19,7 +31,8 @@ public class LinkedHashSetTest {
         set.add("d");
 
         for(String s:set){
-            System.out.println(s);
+            log.debug("s: {}", s);
         }
     }
+
 }

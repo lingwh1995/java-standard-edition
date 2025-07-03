@@ -1,5 +1,10 @@
 package org.bluebridge.set;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 import java.util.Comparator;
 import java.util.TreeSet;
 
@@ -14,8 +19,11 @@ import java.util.TreeSet;
  * 底层数据结构是红黑树
  * @author ronin
  */
+@Slf4j
 public class TreeSetTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void testTreeSet() {
         //自然排序:存储Integer
         //自然排序(Comparator):存储Integer
         TreeSet<Integer> integers = new TreeSet<>();
@@ -24,7 +32,7 @@ public class TreeSetTest {
         integers.add(1);
         integers.add(89);
         integers.add(13);
-        System.out.println(integers);
+        log.debug("integers: {}",integers);
 
         System.out.println("-------------------------");
         //比较器排序(Comparable):存储自定义对象
@@ -35,7 +43,7 @@ public class TreeSetTest {
         dogs.add(new Dog("zl",11));
         dogs.add(new Dog("zs",15));
         for(Dog dog:dogs){
-            System.out.println(dog);
+            log.debug("dog: {}", dog);
         }
 
         System.out.println("-------------------------");
@@ -57,19 +65,18 @@ public class TreeSetTest {
         cats.add(new Cat("zs",21));
         cats.add(new Cat("zs",18));
         for(Cat cat:cats){
-            System.out.println(cat);
+            log.debug("cat: {}", cat);
         }
     }
+
 }
 
+@Data
+@AllArgsConstructor
 class Dog implements Comparable<Dog>{
+
     private String name;
     private Integer age;
-
-    public Dog(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
 
     @Override
     public int compareTo(Dog dog) {
@@ -79,29 +86,13 @@ class Dog implements Comparable<Dog>{
         return this.age > dog.age ? 1 : -1;
     }
 
-    @Override
-    public String toString() {
-        return "Dog{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }
 
+@Data
+@AllArgsConstructor
 class Cat{
+
     protected String name;
     protected Integer age;
 
-    public Cat(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Cat{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }

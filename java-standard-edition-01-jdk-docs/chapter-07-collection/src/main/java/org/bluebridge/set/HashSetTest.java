@@ -1,5 +1,10 @@
 package org.bluebridge.set;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 import java.util.HashSet;
 
 /**
@@ -12,8 +17,11 @@ import java.util.HashSet;
  *      HashTable:使用Comparator或者Comparable保证实现元素唯一性
  * @author ronin
  */
+@Slf4j
 public class HashSetTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void testHashSet() {
         Student s1 = new Student("zs", "18");
         Student s2 = new Student("zs", "18");
         Student s3 = new Student("ls", "18");
@@ -23,50 +31,17 @@ public class HashSetTest {
         students.add(s2);
         students.add(s3);
         for (Student student:students){
-            System.out.println(student);
+            log.debug("student: {}", student);
         }
     }
 
 }
 
+@Data
+@AllArgsConstructor
 class Student{
+
     private String name;
     private String school;
 
-    public Student(String name, String school) {
-        this.name = name;
-        this.school = school;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Student student = (Student) o;
-
-        if (name != null ? !name.equals(student.name) : student.name != null) {
-            return false;
-        }
-        return school != null ? school.equals(student.school) : student.school == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (school != null ? school.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", school='" + school + '\'' +
-                '}';
-    }
 }
