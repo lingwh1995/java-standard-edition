@@ -1,10 +1,14 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
- * 逗号表达式
+ * @author lingwh
+ * @desc   逗号表达式
+ * @date   2025/5/3 16:58
  */
+@Slf4j(topic = "·")
 public class CommaExpressionTest {
 
     /**

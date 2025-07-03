@@ -1,35 +1,43 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+
+/**
+ * @author lingwh
+ * @desc   交换数字测试
+ * @date   2019/7/10 13:39
+ */
 
 /**
  *  java中的值传递
  *  值传递: 就是把实参的值复制一份作为参数传递给方法的形参
  *  注意: 在C语言中有值传递和引用传递,引用传递就是指针传递
  */
+@Slf4j(topic = "·")
 public class SwapNumberTest {
 	
 	@Test
     public void testSwapNumber() {
-        //测试交换失败
+        // 测试交换失败
         int a = 10;
         int b = 20;
         swap_1(a,b);
-        System.out.printf("a = %d, b = %d\n", a, b);
+        log.info("a = {}, b = {}}", a, b);
 
-        //测试使用数组成功交换两个数字
+        // 测试使用数组成功交换两个数字
         int c = 10;
         int d = 20;
         int[] arr = {c,d};
         swap_2(arr);
-        System.out.printf("c = %d, d = %d\n", arr[0], arr[1]);
+        log.info("c = {}, d = {}}", arr[0], arr[1]);
 
-        //测试使用泛型数组成功交换两个数字
+        // 测试使用泛型数组成功交换两个数字
         int e = 10;
         int f = 20;
         int[] arr_t = {e,f};
         swap_2(arr_t);
-        System.out.printf("e = %d, f = %d\n", arr_t[0], arr_t[1]);
+        log.info("e = {}, f = {}}", arr_t[0], arr_t[1]);
     }
 
     /**

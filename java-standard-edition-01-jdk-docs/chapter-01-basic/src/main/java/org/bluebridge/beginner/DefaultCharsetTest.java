@@ -1,9 +1,20 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
+/**
+ * @author lingwh
+ * @desc   默认字符集测试
+ * @date   2025/7/3 16:58
+ */
+@Slf4j(topic = "·")
 public class DefaultCharsetTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void testDefaultCharset() {
         String charsetName = System.getProperty("file.encoding");
-        System.out.println("Default Charset: " + charsetName);
+        log.info("Default Charset: {}", charsetName);
     }
 
 }

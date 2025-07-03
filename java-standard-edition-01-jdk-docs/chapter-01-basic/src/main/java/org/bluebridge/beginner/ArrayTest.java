@@ -1,7 +1,14 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+/**
+ * @author lingwh
+ * @desc   数组测试
+ * @date   2019/3/12 16:58
+ */
+@Slf4j(topic = "·")
 public class ArrayTest {
 
 	/**
@@ -41,13 +48,13 @@ public class ArrayTest {
 	public void arrayInit() {
 		int[] arr1;
 		arr1 = new int[]{1,2,3,4,5};
-		System.out.println(arr1.length);
-		
+		log.info("arr1.length: {}", arr1.length);
+
 		int[] arr2 = new int[]{1,2,3,4,5};
-		System.out.println(arr2.length);
+		log.info("arr2.length: {}", arr2.length);
 		
 		int[] arr3 = {1,2,3,4,5};
-		System.out.println(arr3.length);
+		log.info("arr3.length: {}", arr3.length);
 	}
 	
 	
@@ -68,7 +75,6 @@ public class ArrayTest {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-
         // 声明并初始化二维数组方式二
         int[][] twoDimensionalArray3 = new int[][]{
                 {1, 2, 3},
@@ -76,4 +82,5 @@ public class ArrayTest {
                 {7, 8, 9}
         };
     }
+
 }

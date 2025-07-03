@@ -44,6 +44,7 @@ public class BeanUtilsTest {
             e.printStackTrace();
         }
     }
+
     /**
      * 使用BeanUtils给属性设置值
      * static void BeanUtils.copyProperty(Object bean, String name, Object value);

@@ -1,23 +1,33 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 /**
- * @author ronin
- * @version V1.0
- * @desc
- * @since 2019/7/10 13:39
+ * @author lingwh
+ * @desc   static关键字测试
+ * @date   2019/7/10 13:39
  */
+@Slf4j(topic = "·")
 public class StaticTest {
-    public static void main(String[] args) {
-        //调用eat方法,构造方法并未执行，验证static是和类绑定的，不是和类的实例绑定的
-    	StaticClass.eat();
+
+    @Test
+    public void testStaticMethod() {
+        // 调用eat方法，构造方法并未执行，验证被static修饰的方法是和类绑定的，不是和类的实例对象绑定的
+        Cat.eat();
     }
+
 }
 
-class StaticClass {
-    public StaticClass(){
-        System.out.println("Demo Constructors....");
+@Slf4j(topic = "·")
+class Cat {
+
+    public Cat(){
+        log.info("Cat Constructors......");
     }
+
     public static void eat(){
-        System.out.println("吃....");
+        log.info("Cat eat......");
     }
+
 }

@@ -1,14 +1,25 @@
 package org.bluebridge.beginner;
 
+import org.junit.Test;
+
 import java.util.logging.Logger;
 
-public class LoggingTest {
+/**
+ * @author lingwh
+ * @desc   jdk自带日志框架测试
+ * @date   2019/3/12 16:58
+ */
+public class JdkLoggerTest {
 
+    // 创建一个日志对象
     private static Logger logger = Logger.getGlobal();
-    public static void main(String[] args) {
+
+    @Test
+    public void testJdkLogger() {
         logger.info("info......");
         logger.warning("warning......");
         logger.fine("fine......");
         logger.severe("severe......");
     }
+
 }

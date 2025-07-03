@@ -1,7 +1,14 @@
 package org.bluebridge.beginner;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+
+/**
+ * @author lingwh
+ * @desc   数据类型测试
+ * @date   2019/3/12 16:58
+ */
 
 /**
  *	Java数据类型分为基本数据类型和引用数据类型
@@ -24,6 +31,7 @@ import org.junit.Test;
  *		5.浮点类型使用注意事项
  *			浮点类型float、double的数据不适合在不容许舍入误差的金融计算领域。如果需要精确数字计算或保留指定位数的精度，需要使用BigDecimal类。
  */
+@Slf4j(topic = "·")
 public class DataTypeTest {
 
 	/**
@@ -31,21 +39,22 @@ public class DataTypeTest {
 	 */
 	@Test
 	public void testDataTypeLength() {
-		System.out.println("Byte类型数据所占字节长度:" + Byte.BYTES + ",Byte类型数据所占位数:"+Byte.SIZE);
-		System.out.println("Short类型数据所占字节长度:" + Short.BYTES + ",Short类型数据所占位数:"+Short.SIZE);
-		System.out.println("Integer类型数据所占字节长度:" + Integer.BYTES + ",Integer类型数据所占位数:"+Integer.SIZE);
-		System.out.println("Long类型数据所占字节长度:" + Long.BYTES + ",Long类型数据所占位数:"+Long.SIZE);
-		System.out.println("Double类型数据所占字节长度:" + Double.BYTES + ",Double类型数据所占位数:"+Double.SIZE);
-		System.out.println("Float类型数据所占字节长度:" + Float.BYTES + ",Float类型数据所占位数:"+Float.SIZE);
-		System.out.println("Character类型数据所占字节长度:" + Character.BYTES + ",Character类型数据所占位数:"+Character.SIZE);
+		log.info("Byte类型数据所占字节长度:{}，Byte类型数据所占位数:{}", Byte.BYTES, Byte.SIZE);
+		log.info("Short类型数据所占字节长度:{}，Short类型数据所占位数:{}", Short.BYTES, Short.SIZE);
+		log.info("Integer类型数据所占字节长度:" + Integer.BYTES + ",Integer类型数据所占位数:"+Integer.SIZE);
+		log.info("Long类型数据所占字节长度:{}，Long类型数据所占位数:{}", Long.BYTES, Long.SIZE);
+		log.info("Double类型数据所占字节长度:{}，Double类型数据所占位数:{}", Double.BYTES, Double.SIZE);
+		log.info("Float类型数据所占字节长度:{}，Float类型数据所占位数:{}", Float.BYTES, Float.SIZE);
+		log.info("Character类型数据所占字节长度:{}，Character类型数据所占位数:{}", Character.BYTES, Character.SIZE);
 
-		System.out.println("--------------------------------------------------------------------------------------------");
-		System.out.println("Byte类型数据最小值:" + Byte.MIN_VALUE + ",Byte类型数据最大值:" + Byte.MAX_VALUE);
-		System.out.println("Short类型数据最小值:" + Short.MIN_VALUE + ",Short类型数据最大值:" + Short.MAX_VALUE);
-		System.out.println("Integer类型数据最小值:" + Integer.MIN_VALUE + ",Integer类型数据最大值:" + Integer.MAX_VALUE);
-		System.out.println("Long类型数据最小值:" + Long.MIN_VALUE + ",Long类型数据最大值:" + Long.MAX_VALUE);
-		System.out.println("Float类型数据最小值:" + Float.MIN_VALUE + ",Float类型数据最大值:" + Float.MAX_VALUE);
-		System.out.println("Double类型数据最小值:" + Double.MIN_VALUE + ",Double类型数据最大值:" + Double.MAX_VALUE);
+		log.info("--------------------------------------------------------------------------------------------");
+		log.info("Byte类型数据最小值:{}，Byte类型数据最大值:{}", Byte.MIN_VALUE, Byte.MAX_VALUE);
+		log.info("Short类型数据最小值:{}，Short类型数据最大值:{}", Short.MIN_VALUE, Short.MAX_VALUE);
+		log.info("Integer类型数据最小值:{}，Integer类型数据最大值:{}", Integer.MIN_VALUE, Integer.MAX_VALUE);
+		log.info("Long类型数据最小值:{}，Long类型数据最大值:{}", Long.MIN_VALUE, Long.MAX_VALUE);
+		log.info("Float类型数据最小值:{}，Float类型数据最大值:{}", Float.MIN_VALUE, Float.MAX_VALUE);
+		log.info("Double类型数据最小值:{}，Double类型数据最大值:{}", Double.MIN_VALUE, Double.MAX_VALUE);
+		log.info("Character类型数据最小值:{}，Character类型数据最大值:{}", Character.MIN_VALUE, Character.MAX_VALUE);
 	}
 
 	/**
@@ -58,14 +67,14 @@ public class DataTypeTest {
 		float f1 = 0.1f;
 		float f2 = 0.2f;
 		float f3 = f1 + f2;
-		System.out.println("f3 = " + f3);
+		log.info("f3 = {}", f3);
 
 		//测试2：
 		float ff1 = 123123123f;
 		float ff2 = ff1 + 1;
-		System.out.println(ff1);
-		System.out.println(ff2);
-		System.out.println(ff1 == ff2);
+		log.info("ff1 = {}", ff1);
+		log.info("ff2 = {}", ff2);
+		log.info("ff1 == ff2: {}", ff1 == ff2);
 
 		//测试3：可以看出 d1 + d2 并不等于 0.3
 		//在下面shili3中，我们期望将d1和d2两个double类型的变量相加得到0.3。然而，由于浮点数的内部表示方式是基于二进制的，0.1 和 0.2 这
@@ -74,6 +83,7 @@ public class DataTypeTest {
 		double d1 = 0.1;
 		double d2 = 0.2;
 		double d3 = d1 + d2;
-		System.out.println("d3 = " + d3);
+		log.info("d3 = {}", d3);
 	}
+
 }

@@ -1,11 +1,19 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+
+/**
+ * @author lingwh
+ * @desc   switch测试
+ * @date   2019/7/10 13:39
+ */
 
 /**
  * 1.switch可以进行嵌套
  * 2.switch中的case:后面的代码，可以使用{}括起来
  */
+@Slf4j(topic = "·")
 public class SwitchTest {
 
     /**
@@ -17,30 +25,30 @@ public class SwitchTest {
         char condition2 = 'a';
         switch (condition1) {
             case '1':
-                System.out.println("1");
+                log.info("1");
                 break;
             case '2':
-                System.out.println("2");
+                log.info("2");
                 break;
             case '3':
-                System.out.println("3");
+                log.info("3");
                 switch (condition2) {
                     case 'a':
-                        System.out.println("a");
+                        log.info("a");
                         break;
                     case 'b':
-                        System.out.println("b");
+                        log.info("b");
                         break;
                     case 'c':
-                        System.out.println("c");
+                        log.info("c");
                         break;
                     default:
-                        System.out.println("z");
+                        log.info("default");
                         break;
                 }
                 break;
             default:
-                System.out.println(0);
+                log.info("0");
                 break;
         }
     }
@@ -53,16 +61,16 @@ public class SwitchTest {
         Color color = Color.RED;
         switch (color) {
             case RED:
-                System.out.println("红色...");
+                log.info("红色......");
                 break;
             case GREEN:
-                System.out.println("绿色...");
+                log.info("绿色......");
                 break;
             case BLUE:
-                System.out.println("蓝色...");
+                log.info("蓝色......");
                 break;
             default:
-                System.out.println("暂无该颜色...");
+                log.info("暂无该颜色......");
                 break;
         }
     }
@@ -77,10 +85,10 @@ public class SwitchTest {
             case 0:
             case 1:
             case 2:
-                System.out.println("测试case穿透...");
+                log.info("测试case穿透......");
                 break;
             case 3:
-                System.out.println("i的值是3...");
+                log.info("i的值是3......");
                 break;
             default:
                 break;

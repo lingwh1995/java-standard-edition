@@ -1,5 +1,14 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
+/**
+ * @author lingwh
+ * @desc   进制转换测试
+ * @date   2025/5/3 16:58
+ */
+
 /**
  * 章节内容:
  *  1.2进制/8进制/16进制 -> 10进制
@@ -22,8 +31,11 @@ package org.bluebridge.beginner;
  *                           6                        7          # 从右往左,每四位2进制就是一位16进制
  *      103(10) = 1100111(2) = 0147(8) = 0x67(16)
  */
+@Slf4j(topic = "·")
 public class RadixTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void testRadix() {
         // 定义一个二进制数(0b开头)
         int bin = 0b1010;
         // 定义一个八进制数(0开头)
@@ -33,21 +45,22 @@ public class RadixTest {
 
 
         // 二进制 <-> 十进制
-        System.out.println("二进制字符 -> 十进制数字: " + Integer.parseInt("1010",2));
-        System.out.println("二进制数字 -> 十进制字符: " + String.valueOf(0b1010));
-        System.out.println("十进制数字 -> 二进制字符: " + Integer.toBinaryString(10));
-        System.out.println("----------------------------------");
+        log.info("二进制字符 -> 十进制数字: {}", Integer.parseInt("1010",2));
+        log.info("二进制数字 -> 十进制字符: {}", 0b1010);
+        log.info("十进制数字 -> 二进制字符: {}", Integer.toBinaryString(10));
+        log.info("----------------------------------");
 
         // 八进制 <-> 十进制
-        System.out.println("八进制字符 -> 十进制数字: " + Integer.parseInt("10",8));
-        System.out.println("八进制数字 -> 十进制字符: " + String.valueOf(010));
-        System.out.println("十进制数字 -> 八进制字符: " + Integer.toOctalString(10));
-        System.out.println("----------------------------------");
+        log.info("八进制字符 -> 十进制数字: {}", Integer.parseInt("10",8));
+        log.info("八进制数字 -> 十进制字符: {}", String.valueOf(010));
+        log.info("十进制数字 -> 八进制字符: {}", Integer.toOctalString(10));
+        log.info("----------------------------------");
 
         // 十六进制 <-> 十进制
-        System.out.println("十六进制字符 -> 十进制数字: " + Integer.parseInt("AA",16));
-        System.out.println("十六进制数字 -> 十进制字符: " + String.valueOf(0xAA));
-        System.out.println("十进制数字 -> 十六进制字符: " + Integer.toHexString(170));
-        System.out.println("----------------------------------");
+        log.info("十六进制字符 -> 十进制数字: {}", Integer.parseInt("AA",16));
+        log.info("十六进制数字 -> 十进制字符: {}", String.valueOf(0xAA));
+        log.info("十进制数字 -> 十六进制字符: {}", Integer.toHexString(170));
+        log.info("----------------------------------");
     }
+
 }

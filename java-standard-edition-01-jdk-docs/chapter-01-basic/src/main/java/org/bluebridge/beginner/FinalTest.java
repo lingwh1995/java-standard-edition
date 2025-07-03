@@ -1,12 +1,14 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-/**  
- * 这里用一句话描述这个类的作用
- * @author ronin  
- * @date 2019年3月12日  
+/**
+ * @author lingwh
+ * @desc   Final关键字测试
+ * @date   2019/3/12 16:58
  */
+@Slf4j(topic = "·")
 public class FinalTest {
 
 	/**
@@ -39,10 +41,10 @@ public class FinalTest {
         String d = b + 2;
         String e = a + getHello();
         String f = b + getHello();
-        System.out.println(str == c);
-        System.out.println(str == d);
-        System.out.println(str == e);
-        System.out.println(str == f);
+        log.info("str == c: {}", str == c);
+        log.info("str == d: {}", str == d);
+        log.info("str == e: {}", str == e);
+        log.info("str == f: {}", str == f);
     }
 
     public static String getHello() {

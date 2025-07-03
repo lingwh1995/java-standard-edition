@@ -1,5 +1,9 @@
 package org.bluebridge.beanutils.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 /**
@@ -9,52 +13,13 @@ import java.util.Date;
  * @class Person
  * @date 2019/6/20 15:02
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person {
 
     private String userName;
     private String password;
     private Date hireDate;
 
-    public Person() {
-
-    }
-
-    public Person(String userName, String password, Date hireDate) {
-        this.userName = userName;
-        this.password = password;
-        this.hireDate = hireDate;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getHireDate() {
-        return hireDate;
-    }
-
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", hireDate='" + hireDate + '\'' +
-                '}';
-    }
 }

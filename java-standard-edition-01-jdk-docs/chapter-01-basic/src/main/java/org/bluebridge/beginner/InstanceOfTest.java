@@ -1,10 +1,14 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
- * instanceof关键字测试
+ * @author lingwh
+ * @desc   instanceof关键字测试
+ * @date   2019/3/12 16:58
  */
+@Slf4j(topic = "·")
 public class InstanceOfTest {
 	
 	/**
@@ -13,8 +17,8 @@ public class InstanceOfTest {
 	@Test
 	public void testClassExtend(){
 	    A aa = new AA();
-	    System.out.println(aa instanceof AA);//true
-	    System.out.println(aa instanceof A);//true
+		log.info("aa instanceof AA: {}", aa instanceof AA); // true
+		log.info("aa instanceof  A: {}", aa instanceof  A); // true
 	}
 
 	/**
@@ -23,8 +27,8 @@ public class InstanceOfTest {
 	@Test
 	public void testImplementInterface(){
 	    B bb = new BB();
-	    System.out.println(bb instanceof BB);//true
-	    System.out.println(bb instanceof B);//true
+		log.info("bb instanceof BB: {}", bb instanceof BB); // true
+		log.info("bb instanceof  B: {}", bb instanceof  B); // true
 	}
 }
 

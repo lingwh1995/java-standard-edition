@@ -1,10 +1,14 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
- * 可变参数
+ * @author lingwh
+ * @desc   可变参数测试
+ * @date   2019/4/10 13:39
  */
+@Slf4j(topic = "·")
 public class VarargsTest {
     /**
      * 可变参数:
@@ -19,25 +23,26 @@ public class VarargsTest {
      * 测试java的可变参数
      */
     @Test
-    public void testVariableArguments() {
+    public void testVarargs() {
         /**
          * 传递多个String类型参数
          */
-    	testVariableArguments1(1,"乒乓","篮球");
+    	testVarargs1(1,"乒乓","篮球");
+
         /**
          * 传递一个String[]类型的参数
          */
-    	testVariableArguments1(2,new String[]{"唱歌","听音乐"});
+    	testVarargs1(2,new String[]{"唱歌","听音乐"});
         /**
          * 接收并转发可变参数
          */
-    	testVariableArguments2(3,new String[]{"吃饭","睡觉"});
+    	testVarargs2(3,new String[]{"吃饭","睡觉"});
 
         /**
          * 可变参数和泛型配合使用
          */
-    	testVariableArguments3(4,"hello",123);
-    	testVariableArguments3(4,123,"world");
+    	testVarargs3(4,"hello",123);
+    	testVarargs3(4,123,"world");
     }
 
     /**
@@ -49,15 +54,16 @@ public class VarargsTest {
      * @return void
      * @throws
      */
-    private static void testVariableArguments1(int age,String... favorites) {
-        System.out.println("#可变参数接收多个String字符串/一个String[]:");
-        System.out.println("第一个参数:" + age);
-        System.out.println("可变参数的类型:" + favorites.getClass().getSimpleName());
-        System.out.print("第二个参数:");
+    private static void testVarargs1(int age, String... favorites) {
+        log.info("#可变参数接收多个String字符串/一个String[]:");
+        log.info("第一个参数: {}", age);
+        log.info("可变参数的类型: {}", favorites.getClass().getSimpleName());
+        StringBuilder varargsBuilder = new StringBuilder();
         for(String favorite:favorites){
-            System.out.print(favorite+" ");
+            varargsBuilder.append(favorite).append(" ");
         }
-        System.out.println("\n-------------------------------------------");
+        log.info("第二个参数（可变参数）: {}", varargsBuilder);
+        log.info("-------------------------------------------");
     }
 
 
@@ -67,9 +73,9 @@ public class VarargsTest {
      * @return void
      * @throws
      */
-    private static void testVariableArguments2(int age,String... favorites) {
-        System.out.println("#可变参数转发:");
-        testVariableArguments1(age,favorites);
+    private static void testVarargs2(int age,String... favorites) {
+        log.info("#可变参数转发:");
+        testVarargs1(age,favorites);
     }
 
     /**
@@ -79,14 +85,15 @@ public class VarargsTest {
      * @return void
      * @throws
      */
-    private static <T> void testVariableArguments3(int age,T... favorites) {
-        System.out.println("#可变参数和泛型配合使用:");
-        System.out.println("第一个参数:" + age);
-        System.out.println("可变参数的类型:" + favorites.getClass().getSimpleName());
-        System.out.print("第二个参数:");
+    private static <T> void testVarargs3(int age,T... favorites) {
+        log.info("#可变参数和泛型配合使用:");
+        log.info("第一个参数: {}", age);
+        log.info("可变参数的类型: {}", favorites.getClass().getSimpleName());
+        StringBuilder varargsBuilder = new StringBuilder();
         for(T favorite:favorites){
-            System.out.print(favorite+" ");
+            varargsBuilder.append(favorite).append(" ");
         }
-        System.out.println("\n-------------------------------------------");
+        log.info("第二个参数（可变参数）: {}", varargsBuilder);
+        log.info("-------------------------------------------");
     }
 }

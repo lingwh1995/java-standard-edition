@@ -1,15 +1,22 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 /**
- * 值传递和引用传递
+ * @author lingwh
+ * @desc   值传递和引用传递测试
+ * @date   2025/5/3 16:58
  */
+@Slf4j(topic = "·")
 public class PassByValueAndPassByReference {
 
-    public static void main(String[] args) {
+    @Test
+    public void testSwapNumber() {
         int a = 10, b = 20;
         swapNumber(a,b);
         // a和b的值没有改变的原因是java是值传递，在swapNumber()方法中，操作的是实参a和b的副本，而不是a和b本身
-        System.out.printf("a = %d, b = %d\n", a, b);
+        log.info("a = {}, b = {}", a, b);
     }
 
     /**
@@ -21,6 +28,7 @@ public class PassByValueAndPassByReference {
         a = a ^ b;
         b = a ^ b;
         a = a ^ b;
-        System.out.printf("a = %d, b = %d\n", a, b);
+        log.info("a = {}, b = {}", a, b);
     }
+
 }

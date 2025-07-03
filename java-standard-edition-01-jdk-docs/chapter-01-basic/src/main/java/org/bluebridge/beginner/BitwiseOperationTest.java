@@ -1,6 +1,13 @@
 package org.bluebridge.beginner;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+
+/**
+ * @author lingwh
+ * @desc   位运算
+ * @date   2025/7/3 16:58
+ */
 
 /**
  * 位运算
@@ -28,6 +35,7 @@ import org.junit.Test;
  *      >> 	右移 	各二进位全部右移若干位，高位补0或符号位补齐
  *      -------------------------------------------------
  */
+@Slf4j(topic = "·")
 public class BitwiseOperationTest {
 
 	/**
@@ -41,24 +49,24 @@ public class BitwiseOperationTest {
 	@Test
 	public void testBitwiseOperation() {
 		int i = 4;
-		System.out.println("i有符号右移一位:" + (i >> 1));
-		System.out.println("i有符号右移两位:" + (i >> 2));
-		
-		System.out.println("i有符号左移一位:" + (i << 1));
-		System.out.println("i有符号左移两位:" + (i << 2));
-		
+		log.info("i有符号右移一位: {}", (i >> 1));
+		log.info("i有符号右移两位: {}", (i >> 2));
+
+		log.info("i有符号左移一位: {}", (i << 1));
+		log.info("i有符号左移两位: {}", (i << 2));
+
 		//如果不能整除，向下取整
 		int j = 17;
-		System.out.println("j有符号右移一位:" + (j >> 1));
-		System.out.println("j有符号右移两位:" + (j >> 2));
-		
+		log.info("j有符号右移一位: {}", (j >> 1));
+		log.info("j有符号右移两位: {}", (j >> 2));
+
 		int k = -4;
-		System.out.println("k有符号右移一位:" + (k >> 1));
-		System.out.println("k有符号右移两位:" + (k >> 2));
-		
+		log.info("k有符号右移一位: {}", (k >> 1));
+		log.info("k有符号右移两位: {}", (k >> 2));
+
 		int l = -4;
-		System.out.println("l无符号右移一位:" + (l >>> 1));
-		System.out.println("l无符号右移两位:" + (l >>> 2));
+		log.info("l无符号右移一位: {}", (l >>> 1));
+		log.info("l无符号右移两位: {}", (l >>> 2));
 
 		//判断一个数是奇数还是偶数 奇数计算结果为1，偶数计算结果为0
 		/**
@@ -68,16 +76,17 @@ public class BitwiseOperationTest {
 		 * 	       =
 		 * 0000 0001
 		 */
-		System.out.println(1 & 1);
-		System.out.println(2 & 1);
-		System.out.println(-1 & 1);
-		System.out.println(-2 & 1);
+		log.info("1 & 1 = {}", 1 & 1);
+		log.info("2 & 1 = {}", 2 & 1);
+		log.info("-1 & 1 = {}", -1 & 1);
+		log.info("-2 & 1 = {}", -2 & 1);
 
 		//将byte数组中元素转为int类型数据
 		byte[] bytes = new byte[]{10,20,30, (byte) 150};
-		System.out.println(bytes[0] & 0xFF);
-		System.out.println(bytes[1] & 0xFF);
-		System.out.println(bytes[2] & 0xFF);
-		System.out.println(bytes[3] & 0xFF);
+		log.info("bytes[0] & 0xFF = {}", bytes[0] & 0xFF);
+		log.info("bytes[1] & 0xFF = {}", bytes[1] & 0xFF);
+		log.info("bytes[2] & 0xFF = {}", bytes[2] & 0xFF);
+		log.info("bytes[3] & 0xFF = {}", bytes[3] & 0xFF);
 	}
+
 }
