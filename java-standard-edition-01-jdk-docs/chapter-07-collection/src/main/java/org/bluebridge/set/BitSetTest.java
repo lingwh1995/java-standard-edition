@@ -1,7 +1,6 @@
 package org.bluebridge.set;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.text.RandomStringGenerator;
 import org.junit.Test;
@@ -10,11 +9,11 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.random.RandomGenerator;
 import java.util.stream.IntStream;
 
 /**
  * TODO BiSet属于数据结构范围知识
+ * 经典应用场景：快速判断所有员工是否打卡了
  */
 @Slf4j
 public class BitSetTest {
