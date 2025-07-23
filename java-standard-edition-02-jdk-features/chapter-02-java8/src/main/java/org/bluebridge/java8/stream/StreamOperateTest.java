@@ -22,11 +22,11 @@ public class StreamOperateTest {
     public void before() {
         Supplier<List<Employee>> supplier =  ArrayList :: new;
         List<Employee> employees = supplier.get();
-        employees.add(new Employee(1l, "张三", 10, new BigDecimal(1000.5)));
-        employees.add(new Employee(2l, "李四四",20, new BigDecimal(1500.5)));
-        employees.add(new Employee(3l, "王五", 15, new BigDecimal(2000.5)));
-        employees.add(new Employee(4l, "赵六", 25, new BigDecimal(2500.5)));
-        employees.add(new Employee(5l, "赵六", 25, new BigDecimal(2500.5)));
+        employees.add(new Employee(1L, "张三", 10, new BigDecimal(1000.5)));
+        employees.add(new Employee(2L, "李四四",20, new BigDecimal(1500.5)));
+        employees.add(new Employee(3L, "王五", 15, new BigDecimal(2000.5)));
+        employees.add(new Employee(4L, "赵六", 25, new BigDecimal(2500.5)));
+        employees.add(new Employee(5L, "赵六", 25, new BigDecimal(2500.5)));
         this.employees = employees;
     }
 
@@ -178,7 +178,7 @@ public class StreamOperateTest {
                 Arrays.asList("4", "5", "6")
         );
         //lambda表达式写法
-        List<String> collect = nestedList.stream().flatMap(list -> list.stream()).collect(Collectors.toList());
+        List<String> collect = nestedList.stream().flatMap(items -> items.stream()).collect(Collectors.toList());
         System.out.println(collect);
 
         //方法引用写法
@@ -202,6 +202,19 @@ public class StreamOperateTest {
         List<String> list = Arrays.asList("hello", "hello world", "hello world stream");
         list.stream().map(item -> item.split(" ")).flatMap(Arrays::stream).distinct()
                 .forEach(System.out::println);
+    }
+
+    /**
+     * 合并二维数组
+     */
+    @Test
+    public void testStreamFlatMap4() {
+        // 合并数组到一个列表
+        String[][] twoDimensionalArray = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}, {"g", "h"}};
+        List list = Arrays.stream(twoDimensionalArray)
+                .flatMap(arr -> Arrays.stream(arr))
+                .collect(Collectors.toList());
+        list.forEach(System.out::println);
     }
 
     /**
