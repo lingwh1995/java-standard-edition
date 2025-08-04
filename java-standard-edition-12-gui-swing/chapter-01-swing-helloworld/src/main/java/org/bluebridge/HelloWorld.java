@@ -3,7 +3,7 @@ package org.bluebridge;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-public class SimpleFrame {
+public class HelloWorld {
     private void createAndShowGUI() {
         // 创建 JFrame 实例
         JFrame frame = new JFrame("Simple Frame");
@@ -16,6 +16,6 @@ public class SimpleFrame {
 
     public static void main(String[] args) {
         // 确保创建和更新 GUI 的操作在事件调度线程上执行
-        SwingUtilities.invokeLater(() -> new SimpleFrame().createAndShowGUI());
+        SwingUtilities.invokeLater(() -> new HelloWorld().createAndShowGUI());
     }
 }
