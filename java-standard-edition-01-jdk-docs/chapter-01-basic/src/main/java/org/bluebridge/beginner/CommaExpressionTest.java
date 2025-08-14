@@ -5,8 +5,8 @@ import org.junit.Test;
 
 /**
  * @author lingwh
- * @desc   逗号表达式
- * @date   2025/5/3 16:58
+ * @desc 逗号表达式
+ * @date 2025/5/3 16:58
  */
 @Slf4j(topic = "·")
 public class CommaExpressionTest {

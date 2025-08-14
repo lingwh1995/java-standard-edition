@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 /**
  * @author lingwh
- * @desc   标准输入流测试
- * @date   2019/3/12 16:58
+ * @desc 标准输入流测试
+ * @date 2019/3/12 16:58
  */
 @Slf4j(topic = "·")
 public class ScannerTest {

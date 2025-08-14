@@ -2,8 +2,8 @@ package org.bluebridge.beginner;
 
 /**
  * @author lingwh
- * @desc   java语言HelloWorld
- * @date   2019/3/12 16:58
+ * @desc java语言HelloWorld
+ * @date 2019/3/12 16:58
  */
 public class HelloWorld {
 

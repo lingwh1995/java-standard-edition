@@ -5,8 +5,8 @@ import org.junit.Test;
 
 /**
  * @author lingwh
- * @desc   进制转换测试
- * @date   2025/5/3 16:58
+ * @desc 进制转换测试
+ * @date 2025/5/3 16:58
  */
 
 /**

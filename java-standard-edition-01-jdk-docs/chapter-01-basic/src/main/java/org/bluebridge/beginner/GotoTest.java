@@ -7,8 +7,8 @@ import java.util.Random;
 
 /**
  * @author lingwh
- * @desc   goto测试
- * @date   2019/3/12 16:58
+ * @desc goto测试
+ * @date 2019/3/12 16:58
  */
 @Slf4j(topic = "·")
 public class GotoTest {

@@ -12,8 +12,8 @@ import org.junit.Test;
 
 /**
  * @author lingwh
- * @desc   模拟goto:打印101到150之间的质数测试
- * @date   2019/4/10 13:39
+ * @desc 模拟goto:打印101到150之间的质数测试
+ * @date 2019/4/10 13:39
  */
 @Slf4j(topic = "·")
 public class TagContinueTest {

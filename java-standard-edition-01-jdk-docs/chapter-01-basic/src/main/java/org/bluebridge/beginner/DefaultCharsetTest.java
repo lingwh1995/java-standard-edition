@@ -5,8 +5,8 @@ import org.junit.Test;
 
 /**
  * @author lingwh
- * @desc   默认字符集测试
- * @date   2025/7/3 16:58
+ * @desc 默认字符集测试
+ * @date 2025/7/3 16:58
  */
 @Slf4j(topic = "·")
 public class DefaultCharsetTest {

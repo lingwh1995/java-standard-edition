@@ -9,7 +9,6 @@ package org.bluebridge.api;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.StringTokenizer;
  * @date 2019年3月11日  
  *    
  */
-@Slf4j
+@Slf4j(topic = "·")
 public class StringTest {
 
 	/**
@@ -31,11 +30,11 @@ public class StringTest {
 	public void testSplit() {
 		String nums = "1,2,3,4,5";
 		String[] numsArr = nums.split(",");
-		log.debug("Arrays.toString(numsArr): {}", Arrays.toString(numsArr));
+		log.info("Arrays.toString(numsArr): {}", Arrays.toString(numsArr));
 		
 		String letters = "abcdef";
 		String[] letterArray = letters.split("");
-		log.debug("Arrays.toString(letterArray): {}", Arrays.toString(letterArray));
+		log.info("Arrays.toString(letterArray): {}", Arrays.toString(letterArray));
 	}
 	
 	/**

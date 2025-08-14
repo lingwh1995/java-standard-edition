@@ -4,8 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author lingwh
- * @desc   字节(Byte)和位(bit)测试
- * @date   2019/3/12 16:58
+ * @desc 字节(Byte)和位(bit)测试
+ * @date 2019/3/12 16:58
  */
 
 /**

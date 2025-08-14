@@ -5,8 +5,8 @@ import org.junit.Test;
 
 /**
  * @author lingwh
- * @desc   标识符测试
- * @date   2019/3/12 16:58
+ * @desc 标识符测试
+ * @date 2019/3/12 16:58
  */
 
 /**

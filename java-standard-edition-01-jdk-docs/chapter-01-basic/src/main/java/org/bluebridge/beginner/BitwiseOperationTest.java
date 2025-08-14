@@ -5,8 +5,8 @@ import org.junit.Test;
 
 /**
  * @author lingwh
- * @desc   位运算
- * @date   2025/7/3 16:58
+ * @desc 位运算
+ * @date 2025/7/3 16:58
  */
 
 /**

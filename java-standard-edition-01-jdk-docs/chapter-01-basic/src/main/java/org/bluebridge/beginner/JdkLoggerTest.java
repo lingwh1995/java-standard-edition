@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 
 /**
  * @author lingwh
- * @desc   jdk自带日志框架测试
- * @date   2019/3/12 16:58
+ * @desc jdk自带日志框架测试
+ * @date 2019/3/12 16:58
  */
 public class JdkLoggerTest {
 

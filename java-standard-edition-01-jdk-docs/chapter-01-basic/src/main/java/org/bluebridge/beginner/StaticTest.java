@@ -5,8 +5,8 @@ import org.junit.Test;
 
 /**
  * @author lingwh
- * @desc   static关键字测试
- * @date   2019/7/10 13:39
+ * @desc static关键字测试
+ * @date 2019/7/10 13:39
  */
 @Slf4j(topic = "·")
 public class StaticTest {
