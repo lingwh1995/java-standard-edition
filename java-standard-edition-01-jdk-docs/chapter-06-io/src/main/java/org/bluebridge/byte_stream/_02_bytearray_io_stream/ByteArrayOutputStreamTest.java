@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.zip.GZIPOutputStream;
 
 /**
  * @author lingwh
