@@ -7,7 +7,7 @@ import java.io.*;
 
 /**
  * @author lingwh
- * @desc FileOutputStream
+ * @desc FileOutputStream 字节输出流
  * @date 2025/8/14 17:28
  */
 @Slf4j(topic = "·")
@@ -20,9 +20,9 @@ public class FileOutputStreamTest {
      * @param_ b 要写入的字节
      */
     @Test
-    public void testWriteByByte() {
-        try(FileOutputStream fileOutputStream = new FileOutputStream("d:/fileoutputstream.txt")) {
-            fileOutputStream.write(97);
+    public void testFileOutputStreamWriteByByte() {
+        try(FileOutputStream fos = new FileOutputStream("d:/fileoutputstream.txt")) {
+            fos.write(97);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -37,17 +37,15 @@ public class FileOutputStreamTest {
      * @param_ len 要写入的字节数。
      */
     @Test
-    public void testWriteByBytes() {
+    public void testFileOutputStreamWriteByBytes() {
         try(
-            FileInputStream fileInputStream = new FileInputStream(new File("d:/fileinputstream.txt"));
-            FileOutputStream fileOutputStream = new FileOutputStream("d:/fileoutputstream.txt")
+            FileInputStream fis = new FileInputStream(new File("d:/fileinputstream.txt"));
+            FileOutputStream fos = new FileOutputStream("d:/fileoutputstream.txt")
         ) {
-//            FileDescriptor fd = fileOutputStream.getFD();
-//            log.info("FileDescriptor：{}", fd);
             byte[] buffer = new byte[2];
             int length = 0;
-            while((length=fileInputStream.read(buffer)) != -1){
-                fileOutputStream.write(buffer,0,length);
+            while((length = fis.read(buffer)) != -1){
+                fos.write(buffer,0,length);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

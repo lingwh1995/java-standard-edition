@@ -8,7 +8,7 @@ import java.io.*;
 
 /**
  * @author lingwh
- * @desc FileInputStream
+ * @desc FileInputStream 字节输入流
  * @date 2025/8/14 17:24
  */
 @Slf4j(topic = "·")
@@ -20,8 +20,8 @@ public class FileInputStreamTest {
      * public abstract int read() throws IOException;
      */
     @Test
-    public void testReadByByte() {
-        try (InputStream fileInputStream = new FileInputStream("d:/fileinputstream.txt")){
+    public void testFileInputStreamReadByByte() {
+        try (InputStream fis = new FileInputStream("d:/fileinputstream.txt")){
             /*
             int firstReadResult = fileInputStream.read();
             log.info("第一次读取结果 整型值：{}，字符型值: {}", firstReadResult, (char)firstReadResult);
@@ -30,7 +30,7 @@ public class FileInputStreamTest {
             */
             StringBuilder builder = new StringBuilder();
             int result = 0;
-            while((result = fileInputStream.read()) != -1){
+            while((result = fis.read()) != -1){
                 builder.append((char)result);
             }
             log.info("builder：{}", builder);
@@ -46,8 +46,8 @@ public class FileInputStreamTest {
      * @param_ b 读取数据的缓冲区。
      */
     @Test
-    public void testReadByBytes() {
-        try (InputStream fileInputStream = new FileInputStream("d:/fileinputstream.txt")){
+    public void testFileInputStreamReadByBytes() {
+        try (InputStream fis = new FileInputStream("d:/fileinputstream.txt")){
             /*
             byte[] bytes = new byte[2];
             int firstReadResult = fileInputStream.read(bytes);
@@ -58,7 +58,7 @@ public class FileInputStreamTest {
             byte[] buffer = new byte[4];
             int length = 0;
             StringBuilder builder = new StringBuilder();
-            while((length = fileInputStream.read(buffer)) != -1){
+            while((length = fis.read(buffer)) != -1){
                 builder.append(new String(buffer,0,length));
             }
             log.info("builder：{}", builder);
