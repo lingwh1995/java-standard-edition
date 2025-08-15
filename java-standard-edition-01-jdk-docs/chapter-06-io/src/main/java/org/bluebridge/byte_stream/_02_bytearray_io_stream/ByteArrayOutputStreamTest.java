@@ -27,10 +27,11 @@ public class ByteArrayOutputStreamTest {
 
     @Test
     public void testByteArrayOutputStream() throws IOException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream(12);
-        bos.write("hello world!".getBytes());
-        byte[] data = bos.toByteArray();
-        log.info("new String(data)： {}",new String(data));
+        try(ByteArrayOutputStream bos = new ByteArrayOutputStream(12);){
+            bos.write("hello world!".getBytes());
+            byte[] data = bos.toByteArray();
+            log.info("new String(data)： {}",new String(data));
+        }
     }
 
 }
