@@ -28,9 +28,9 @@ public class ByteArrayOutputStreamTest {
 
     @Test
     public void testByteArrayOutputStream() throws IOException {
-        try(ByteArrayOutputStream bos = new ByteArrayOutputStream(12);){
-            bos.write("hello world!".getBytes());
-            byte[] data = bos.toByteArray();
+        try(ByteArrayOutputStream baos = new ByteArrayOutputStream(12);){
+            baos.write("hello world!".getBytes());
+            byte[] data = baos.toByteArray();
             log.info("new String(data)： {}",new String(data));
         }
     }

@@ -25,9 +25,9 @@ public class SequenceInputStreamTest {
      */
     @Test
     public void mergeInputStreamTest1() throws IOException {
-        InputStream is_1 = new FileInputStream("d:/part1.txt");
-        InputStream is_2 = new FileInputStream("d:/part2.txt");
-        SequenceInputStream sis = new SequenceInputStream(is_1, is_2);
+        InputStream is1 = new FileInputStream("d:/part1.txt");
+        InputStream is2 = new FileInputStream("d:/part2.txt");
+        SequenceInputStream sis = new SequenceInputStream(is1, is2);
 
         //创建输出流---要把前三个文件的内容读出来并且合并到.txt;
         FileOutputStream fos = new FileOutputStream("d:/merge_1.txt");
@@ -46,13 +46,13 @@ public class SequenceInputStreamTest {
      */
     @Test
     public void mergeInputStreamTest2() throws IOException {
-        InputStream is_1 = new FileInputStream("d:/part1.txt");
-        InputStream is_2 = new FileInputStream("d:/part2.txt");
-        InputStream is_3 = new FileInputStream("d:/part3.txt");
+        InputStream is1 = new FileInputStream("d:/part1.txt");
+        InputStream is2 = new FileInputStream("d:/part2.txt");
+        InputStream is3 = new FileInputStream("d:/part3.txt");
         List<InputStream> iss = new ArrayList<>();
-        iss.add(is_1);
-        iss.add(is_2);
-        iss.add(is_3);
+        iss.add(is1);
+        iss.add(is2);
+        iss.add(is3);
         Enumeration<InputStream> isse = Collections.enumeration(iss);
         SequenceInputStream fis = new SequenceInputStream(isse);
 
@@ -71,4 +71,5 @@ public class SequenceInputStreamTest {
             is.close();
         }
     }
+
 }
