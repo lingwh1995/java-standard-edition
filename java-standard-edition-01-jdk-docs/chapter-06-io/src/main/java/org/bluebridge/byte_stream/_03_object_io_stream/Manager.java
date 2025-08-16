@@ -1,9 +1,9 @@
-package org.bluebridge.byte_stream.objectstream;
+package org.bluebridge.byte_stream._03_object_io_stream;
 
 /**
- * @author ronin
- * @version V1.0
- * @since 2019/9/25 17:23
+ * @author lingwh
+ * @desc ObjectStream 用于实现序列化和饭序列化
+ * @date 2025/8/16 13:42
  */
 public class Manager extends Employee{
     private static final long serialVersionUID = -668252664793507835L;

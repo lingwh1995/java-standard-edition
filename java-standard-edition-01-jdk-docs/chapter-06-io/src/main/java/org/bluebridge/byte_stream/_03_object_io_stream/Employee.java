@@ -1,13 +1,15 @@
-package org.bluebridge.byte_stream.objectstream;
+package org.bluebridge.byte_stream._03_object_io_stream;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * @author ronin
- * @version V1.0
- * @since 2019/9/25 17:21
+ * @author lingwh
+ * @desc ObjectStream 用于实现序列化和饭序列化
+ * @date 2025/8/16 13:41
  */
 public class Employee implements Serializable{
     private static final long serialVersionUID = -167978670073609475L;
