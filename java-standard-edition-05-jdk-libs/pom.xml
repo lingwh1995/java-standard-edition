@@ -12,10 +12,14 @@
     <artifactId>java-standard-edition-05-jdk-libs</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>chapter-01-dom4j</module>
-        <module>chapter-02-apache</module>
-        <module>chapter-03-iotutils</module>
-        <module>chapter-04-cas</module>
+        <module>chapter-01-lombok</module>
+        <module>chapter-02-hsqldb</module>
+        <module>chapter-03-javassist</module>
+        <module>chapter-04-jnanoiduitls</module>
+        <module>chapter-05-dom4j</module>
+        <module>chapter-06-apache</module>
+        <module>chapter-07-cas</module>
+        <module>chapter-08-iotutils</module>
     </modules>
 
     <properties>
@@ -36,6 +40,9 @@
         <hutool-crypto.version>5.8.0</hutool-crypto.version>
         <guava.version>30.0-jre</guava.version>
         <spring-core.version>5.0.15.RELEASE</spring-core.version>
+        <hsqldb.version>2.5.1</hsqldb.version>
+        <javassist.version>3.29.2-GA</javassist.version>
+        <jnanoid.version>2.0.0</jnanoid.version>
     </properties>
 
     <dependencyManagement>
@@ -109,6 +116,21 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
                 <version>${spring-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hsqldb</groupId>
+                <artifactId>hsqldb</artifactId>
+                <version>${hsqldb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aventrix.jnanoid</groupId>
+                <artifactId>jnanoid</artifactId>
+                <version>${jnanoid.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
