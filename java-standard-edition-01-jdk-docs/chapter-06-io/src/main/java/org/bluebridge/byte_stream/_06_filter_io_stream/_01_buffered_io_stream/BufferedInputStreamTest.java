@@ -1,4 +1,4 @@
-package org.bluebridge.byte_stream._07_filter_i_stream._01_buffered_io_stream;
+package org.bluebridge.byte_stream._06_filter_io_stream._01_buffered_io_stream;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package org.bluebridge.byte_stream._06_sequence_i_stream;
+package org.bluebridge.byte_stream._05_sequence_i_stream;
 
 import org.junit.Test;
 
