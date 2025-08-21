@@ -1,4 +1,4 @@
-package org.bluebridge.character_stream._01_io_stream_reader;
+package org.bluebridge.character_stream._01_io_stream_reader_writer._01_io_stream_reader_writer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
