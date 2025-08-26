@@ -206,6 +206,14 @@ public class StringTest {
 	public void testRepeat() {
 		String str = "12345_";
 		log.info("str.repeat(3): {}", str.repeat(3));
+
+		// 创建分隔线或装饰线
+		String line = "-".repeat(50);
+		log.info(line);
+
+		// 创建分隔线或装饰线
+		String header = "=".repeat(20) + " 标题 " + "=".repeat(20);
+		log.info(header);
 	}
 
 }
