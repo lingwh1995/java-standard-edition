@@ -12,6 +12,8 @@ import org.junit.Test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
+import java.time.Instant;
 
 /**
  * BufferedReader主要特点
@@ -63,58 +65,64 @@ public class BufferedReaderTest {
         }
     }
 
-//使用 mark 和 reset
-//    public static void main(String[] args) {
-//        try {
-//            String text = "Java Programming Language";
-//            StringReader stringReader = new StringReader(text);
-//            BufferedReader bufferedReader = new BufferedReader(stringReader);
-//
-//            // 读取前5个字符
-//            char[] buffer = new char[5];
-//            bufferedReader.read(buffer, 0, 5);
-//            System.out.println("前5个字符: " + new String(buffer));
-//
-//            // 标记当前位置，允许回读10个字符
-//            bufferedReader.mark(10);
-//
-//            // 继续读取接下来的5个字符
-//            bufferedReader.read(buffer, 0, 5);
-//            System.out.println("接下来5个字符: " + new String(buffer));
-//
-//            // 重置到标记位置
-//            bufferedReader.reset();
-//            bufferedReader.read(buffer, 0, 5);
-//            System.out.println("重置后读取5个字符: " + new String(buffer));
-//
-//            bufferedReader.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    /**
+     * 测试指定缓冲区大小
+     */
+    @Test
+    public void testBufferedReaderMarkAndReset() {
+        try {
+            String text = "hello world~";
+            StringReader stringReader = new StringReader(text);
+            BufferedReader bufferedReader = new BufferedReader(stringReader);
 
-    //逐字符读取与行读取对比
-//    public static void main(String[] args) {
-//        String testData = "这是性能测试数据\n".repeat(1000); // 生成1000行测试数据
-//        StringReader stringReader = new StringReader(testData);
-//
-//        // 测试逐行读取性能
-//        long startTime = Instant.now().toEpochMilli();
-//        try {
-//            BufferedReader bufferedReader = new BufferedReader(stringReader);
-//            String line;
-//            int lineCount = 0;
-//            while ((line = bufferedReader.readLine()) != null) {
-//                lineCount++;
-//            }
-//            long endTime = Instant.now().toEpochMilli();
-//            System.out.println("读取了 " + lineCount + " 行");
-//            System.out.println("逐行读取耗时: " + (endTime - startTime) + " 毫秒");
-//            bufferedReader.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+            // 读取前5个字符
+            char[] buffer = new char[5];
+            bufferedReader.read(buffer, 0, 5);
+            log.info("前5个字符： {}", new String(buffer));
+
+            // 标记当前位置，允许回读10个字符
+            bufferedReader.mark(10);
+
+            // 继续读取接下来的5个字符
+            bufferedReader.read(buffer, 0, 5);
+            log.info("接下来5个字符： {}", new String(buffer));
+
+            // 重置到标记位置
+            bufferedReader.reset();
+            bufferedReader.read(buffer, 0, 5);
+            log.info("重置后读取5个字符： {}", new String(buffer));
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 逐字符读取与行读取对比
+     */
+    @Test
+    public void testBufferedReaderReadLineAndReadChar() {
+        // 生成1000行测试数据
+        String testData = "这是性能测试数据\n".repeat(1000);
+        StringReader stringReader = new StringReader(testData);
+
+        // 测试逐行读取性能
+        long startTime = Instant.now().toEpochMilli();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(stringReader);
+            String line;
+            int lineCount = 0;
+            while ((line = bufferedReader.readLine()) != null) {
+                lineCount++;
+            }
+            long endTime = Instant.now().toEpochMilli();
+            log.info("读取了 {} 行", lineCount);
+            log.info("逐行读取耗时: {} 毫秒", (endTime - startTime));
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 //    读取并处理大文件
 //    public static void main(String[] args) {

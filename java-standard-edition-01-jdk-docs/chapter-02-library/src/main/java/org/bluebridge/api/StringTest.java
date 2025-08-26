@@ -161,8 +161,8 @@ public class StringTest {
 	 */
 	@Test
 	public void testCompileOptimize() {
-		//在编译期会进行优化
-		String s1 = "q" + "e";	//编译优化后 String s1 = "qe";
+		// 在编译期会进行优化，编译期优化后相当于 String s1 = "qe";
+		String s1 = "q" + "e";
 		String s2 = "3";
 		//编译时期不会做优化，因为编译的时候还不知道s1和s3代表的具体值是什么
 		String s3 = s1 + s2;
@@ -197,6 +197,15 @@ public class StringTest {
 	public void testChars() {
 		String str = " abcde ";
 		str.chars().forEach(System.out::println);
+	}
+
+	/**
+	 * 测试字符串重复
+	 */
+	@Test
+	public void testRepeat() {
+		String str = "12345_";
+		log.info("str.repeat(3): {}", str.repeat(3));
 	}
 
 }
