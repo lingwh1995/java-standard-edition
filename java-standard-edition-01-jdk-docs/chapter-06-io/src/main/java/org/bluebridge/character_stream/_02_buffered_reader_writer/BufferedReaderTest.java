@@ -124,6 +124,14 @@ public class BufferedReaderTest {
         }
     }
 
+    /**
+     * 测试读取大文件
+     */
+    @Test
+    public void testBufferedReaderReadBigFile() {
+
+    }
+
 //    读取并处理大文件
 //    public static void main(String[] args) {
 //        try {
