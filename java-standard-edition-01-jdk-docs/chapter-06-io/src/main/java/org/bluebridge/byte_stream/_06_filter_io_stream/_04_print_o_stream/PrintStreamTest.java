@@ -21,7 +21,7 @@ public class PrintStreamTest {
     public void testPrintStream() {
         try {
             // 创建FileOutputStream对象，用于写入文件
-            FileOutputStream fileOutputStream = new FileOutputStream("d:/printstream.txt");
+            FileOutputStream fileOutputStream = new FileOutputStream("d:/print_stream.txt");
             // 创建PrintStream对象，指定autoFlush为true，以便自动刷新输出缓冲区
             PrintStream printStream = new PrintStream(fileOutputStream, true);
             // 使用print方法输出字符串

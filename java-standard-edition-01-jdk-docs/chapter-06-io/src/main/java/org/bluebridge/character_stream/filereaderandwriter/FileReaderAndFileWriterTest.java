@@ -13,7 +13,7 @@ public class FileReaderAndFileWriterTest {
         FileReader reader = null;
         FileWriter writer = null;
         try {
-            reader = new FileReader("d:/filereader.txt");
+            reader = new FileReader("d:/file_reader.txt");
             writer = new FileWriter("d:/filewriter.txt");
             char[] buffer = new char[20];
             int length = 0;

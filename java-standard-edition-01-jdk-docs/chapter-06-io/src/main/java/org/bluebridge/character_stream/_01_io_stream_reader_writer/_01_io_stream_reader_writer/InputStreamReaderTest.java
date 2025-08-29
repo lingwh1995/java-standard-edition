@@ -15,7 +15,7 @@ public class InputStreamReaderTest {
 
     @Test
     public void testInputStreamReader() throws FileNotFoundException {
-        try(InputStreamReader isr = new InputStreamReader(new FileInputStream("d:/inputstreamreader.txt"))) {
+        try(InputStreamReader isr = new InputStreamReader(new FileInputStream("d:/input_stream_reader.txt"))) {
             // 10 + 2 = 每一行字节个数 + 2字节换行符 = 12
             char[] buffer = new char[12];
             int length = 0;

@@ -21,7 +21,7 @@ public class FileOutputStreamTest {
      */
     @Test
     public void testFileOutputStreamWriteByByte() {
-        try(FileOutputStream fos = new FileOutputStream("d:/fileoutputstream.txt")) {
+        try(FileOutputStream fos = new FileOutputStream("d:/file_output_stream.txt")) {
             fos.write(97);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -39,8 +39,8 @@ public class FileOutputStreamTest {
     @Test
     public void testFileOutputStreamWriteByBytes() {
         try(
-            FileInputStream fis = new FileInputStream(new File("d:/fileinputstream.txt"));
-            FileOutputStream fos = new FileOutputStream("d:/fileoutputstream.txt")
+            FileInputStream fis = new FileInputStream(new File("d:/file_input_stream.txt"));
+            FileOutputStream fos = new FileOutputStream("d:/file_output_stream.txt")
         ) {
             byte[] buffer = new byte[2];
             int length = 0;

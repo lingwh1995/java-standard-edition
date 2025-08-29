@@ -19,14 +19,14 @@ public class ObjectStreamTest {
     @Test
     public void testSerializableBasicData() {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:/objectstream.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:/object_stream.txt"));
             oos.writeBoolean(true);
             oos.writeDouble(0.5);
             oos.writeUTF("&");
             //如果输出流不关闭,则会抛出:java.io.EOFException
             oos.close();
 
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d:/objectstream.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d:/object_stream.txt"));
             log.info("ois.readBoolean()：{}", ois.readBoolean());
             log.info("ois.readDouble()：{}", ois.readDouble());
             log.info("ois.readUTF()：{}", ois.readUTF());

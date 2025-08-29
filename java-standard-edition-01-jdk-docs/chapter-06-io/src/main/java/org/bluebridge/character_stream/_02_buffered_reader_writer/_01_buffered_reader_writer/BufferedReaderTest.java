@@ -1,4 +1,4 @@
-package org.bluebridge.character_stream._02_buffered_reader_writer;
+package org.bluebridge.character_stream._02_buffered_reader_writer._01_buffered_reader_writer;
 
 /**
  * @author lingwh
@@ -9,11 +9,10 @@ package org.bluebridge.character_stream._02_buffered_reader_writer;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.StringReader;
+import java.io.*;
 import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * BufferedReader主要特点
@@ -108,8 +107,7 @@ public class BufferedReaderTest {
 
         // 测试逐行读取性能
         long startTime = Instant.now().toEpochMilli();
-        try {
-            BufferedReader bufferedReader = new BufferedReader(stringReader);
+        try(BufferedReader bufferedReader = new BufferedReader(stringReader)) {
             String line;
             int lineCount = 0;
             while ((line = bufferedReader.readLine()) != null) {
@@ -118,7 +116,6 @@ public class BufferedReaderTest {
             long endTime = Instant.now().toEpochMilli();
             log.info("读取了 {} 行", lineCount);
             log.info("逐行读取耗时: {} 毫秒", (endTime - startTime));
-            bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -129,52 +126,56 @@ public class BufferedReaderTest {
      */
     @Test
     public void testBufferedReaderReadBigFile() {
+        try {
+            // 创建一个大文件用于测试
+            createLargeFile("d:/buffered_reader_large_file.txt", 10000);
 
+            // 使用 BufferedReader 处理大文件
+            FileReader fileReader = new FileReader("d:/buffered_reader_large_file.txt");
+            // 8kb缓冲区
+            BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
+
+            Map<String, Integer> wordCount = new HashMap<>();
+            String line;
+            int lineCount = 0;
+
+            while ((line = bufferedReader.readLine()) != null) {
+                lineCount++;
+                String[] words = line.split("\\s+");
+                log.info("words： {}", words);
+                for (String word : words) {
+                    if (!word.isEmpty()) {
+                        wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+                    }
+                }
+
+                // 每处理1000行输出一次进度
+                if (lineCount % 1000 == 0) {
+                    log.info("已处理 " + lineCount + " 行");
+                }
+            }
+
+            log.info("总共处理了 {} 行", lineCount);
+            log.info("不同单词及数量: {}", wordCount.size());
+
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-//    读取并处理大文件
-//    public static void main(String[] args) {
-//        try {
-//            // 创建一个大文件用于测试
-//            createLargeTestFile("large_file.txt", 10000);
-//
-//            // 使用 BufferedReader 处理大文件
-//            FileReader fileReader = new FileReader("large_file.txt");
-//            BufferedReader bufferedReader = new BufferedReader(fileReader, 8192); // 8KB缓冲区
-//
-//            Map<String, Integer> wordCount = new HashMap<>();
-//            String line;
-//            int lineCount = 0;
-//
-//            while ((line = bufferedReader.readLine()) != null) {
-//                lineCount++;
-//                String[] words = line.split("\\s+");
-//                for (String word : words) {
-//                    if (!word.isEmpty()) {
-//                        wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
-//                    }
-//                }
-//
-//                // 每处理1000行输出一次进度
-//                if (lineCount % 1000 == 0) {
-//                    System.out.println("已处理 " + lineCount + " 行");
-//                }
-//            }
-//
-//            System.out.println("总共处理了 " + lineCount + " 行");
-//            System.out.println("不同单词数量: " + wordCount.size());
-//
-//            bufferedReader.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    private static void createLargeTestFile(String filename, int lines) throws IOException {
-//        FileWriter writer = new FileWriter(filename);
-//        for (int i = 1; i <= lines; i++) {
-//            writer.write("这是第 " + i + " 行文本，包含一些示例单词 java programming\n");
-//        }
-//        writer.close();
-//    }
+    /**
+     * 创建一个大文件用于测试
+     * @param filename
+     * @param lines
+     * @throws IOException
+     */
+    private static void createLargeFile(String filename, int lines) throws IOException {
+        FileWriter writer = new FileWriter(filename);
+        for (int i = 1; i <= lines; i++) {
+            writer.write("这是第 " + i + " 行文本，包含一些示例单词 java programming\n");
+        }
+        writer.close();
+    }
+
 }

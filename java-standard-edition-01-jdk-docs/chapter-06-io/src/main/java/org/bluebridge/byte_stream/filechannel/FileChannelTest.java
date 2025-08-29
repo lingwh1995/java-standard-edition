@@ -18,7 +18,7 @@ public class FileChannelTest {
     }
 
     public static void read(){
-        File file = new File("d:/fileinputstream.txt");
+        File file = new File("d:/file_input_stream.txt");
         FileInputStream fileInputStream = null;
         try {
             fileInputStream = new FileInputStream(file);
@@ -55,7 +55,7 @@ public class FileChannelTest {
     public static void write(){
         String data = "helloworld!";
         FileOutputStream fileOutputStream = null;
-        File file = new File("d:/fileoutputstream.txt");
+        File file = new File("d:/file_output_stream.txt");
         try {
             FileOutputStream fileOutputStream1 = new FileOutputStream(file);
             //创建缓冲区

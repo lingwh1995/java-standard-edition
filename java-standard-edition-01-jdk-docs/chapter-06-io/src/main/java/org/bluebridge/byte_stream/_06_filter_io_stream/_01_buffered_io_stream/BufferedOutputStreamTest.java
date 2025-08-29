@@ -15,7 +15,7 @@ public class BufferedOutputStreamTest {
 
     @Test
     public void testBufferedOutputStreamWrite() {
-        try(OutputStream os = new FileOutputStream(new File("d:/bufferedoutputstream.txt"));
+        try(OutputStream os = new FileOutputStream(new File("d:/buffered_output_stream.txt"));
             // 设置缓冲区大小为2个字节
             OutputStream bos = new BufferedOutputStream(os, 2)) {
             String data = "helloworld!";
