@@ -31,10 +31,10 @@ public class LineNumberReaderTest {
      */
     @Test
     public void testLineNumberReader() {
-        try (LineNumberReader reader = new LineNumberReader(new FileReader("d:/line_number_reader.txt"))) {
+        try (LineNumberReader lnr = new LineNumberReader(new FileReader("d:/line_number_reader.txt"))) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                log.info("line {}: {}", reader.getLineNumber(), line);
+            while ((line = lnr.readLine()) != null) {
+                log.info("line {}: {}", lnr.getLineNumber(), line);
             }
         } catch (IOException e) {
             e.printStackTrace();

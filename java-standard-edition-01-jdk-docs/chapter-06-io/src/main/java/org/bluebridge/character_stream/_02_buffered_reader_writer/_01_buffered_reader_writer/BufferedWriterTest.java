@@ -35,12 +35,12 @@ public class BufferedWriterTest {
      */
     @Test
     public void testBufferedWriter() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("buffered_writer.txt"))) {
-            writer.write("Hello, BufferedWriter!");
-            writer.newLine();
-            writer.write("这是第二行内容");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("buffered_writer.txt"))) {
+            bw.write("Hello, BufferedWriter!");
+            bw.newLine();
+            bw.write("这是第二行内容");
             // 确保数据被写入
-            writer.flush();
+            bw.flush();
             log.info("数据写入完成");
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,0 +1,1 @@
+FilterWriter是抽象类，无法实例化，只提供了一个抽象的接口，我们可以自己实现一个FilterWriter的子类
