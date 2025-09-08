@@ -1,6 +1,6 @@
-package org.bluebridge.utils;
+package org.bluebridge;
 
-import org.bluebridge.utils.utils.Base64Util;
+import org.bluebridge.utils.Base64Util;
 import org.junit.Test;
 
 public class Base64UtilTest {

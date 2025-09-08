@@ -1,6 +1,6 @@
-package org.bluebridge.utils;
+package org.bluebridge;
 
-import org.bluebridge.utils.utils.CommandUtil;
+import org.bluebridge.utils.CommandUtil;
 import org.junit.Test;
 
 public class CommandUtilTest {
@@ -49,4 +49,5 @@ public class CommandUtilTest {
         String originalDataAreaHex = commandUtil.parseDataArea();
         System.out.println("originalDataAreaHex = " + originalDataAreaHex);
     }
+
 }

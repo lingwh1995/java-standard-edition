@@ -1,4 +1,4 @@
-package org.bluebridge.utils.utils;
+package org.bluebridge.utils;
 
 
 import cn.hutool.crypto.symmetric.AES;
