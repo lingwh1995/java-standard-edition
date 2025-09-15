@@ -5,9 +5,11 @@ import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 
 /**
- * 随机数工具类
+ * @author lingwh
+ * @desc 随机数工具类
+ * @date 2025/9/15 11:21
  */
-@Slf4j
+@Slf4j(topic = "·")
 public class RandomUtilsTest {
 
     /**

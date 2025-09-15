@@ -6,7 +6,12 @@ import org.junit.Test;
 
 import java.util.stream.IntStream;
 
-@Slf4j
+/**
+ * @author lingwh
+ * @desc RandomStringGenerator工具类测试
+ * @date 2025/9/15 11:08
+ */
+@Slf4j(topic = "·")
 public class RandomStringGeneratorTest {
 
     /**

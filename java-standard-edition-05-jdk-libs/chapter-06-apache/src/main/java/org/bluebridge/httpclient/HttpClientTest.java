@@ -1,5 +1,6 @@
 package org.bluebridge.httpclient;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -10,12 +11,11 @@ import org.junit.Test;
 import java.io.IOException;
 
 /**
- * @author ronin
- * @version V1.0
- * @description
- * @class HttpClientTest
+ * @author lingwh
+ * @desc HttpClient工具类测试
  * @date 2019/6/20 15:48
  */
+@Slf4j(topic = "·")
 public class HttpClientTest {
 
     /**
@@ -36,7 +36,7 @@ public class HttpClientTest {
             if (response.getStatusLine().getStatusCode() == 200) {
                 // 请求体内容
                 String content = EntityUtils.toString(response.getEntity(), "UTF-8");
-                System.out.println(content);
+                log.info("content: {}", content);
             }
         } finally {
             if (response != null) {

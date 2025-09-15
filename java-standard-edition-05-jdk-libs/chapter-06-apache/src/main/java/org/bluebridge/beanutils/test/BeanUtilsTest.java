@@ -1,5 +1,6 @@
 package org.bluebridge.beanutils.test;
 
+import lombok.extern.slf4j.Slf4j;
 import org.bluebridge.beanutils.entity.Person;
 import org.bluebridge.beanutils.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
@@ -14,12 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author ronin
- * @version V1.0
- * @description
- * @class BeanUtilsTest
+ * @author lingwh
+ * @desc BeanUtils工具类测试
  * @date 2019/6/20 14:27
  */
+@Slf4j(topic = "·")
 public class BeanUtilsTest {
 
     /**
@@ -37,10 +37,8 @@ public class BeanUtilsTest {
             beanMap.put("school","ufe");
             User user = new User();
             BeanUtils.populate(user,beanMap);
-            System.out.println(user);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+            log.info("user: {}", user);
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -56,16 +54,14 @@ public class BeanUtilsTest {
             Integer ageValueInteger = 28;
             User user1 = new User();
             BeanUtils.copyProperty(user1,"age",ageValueInteger);
-            System.out.println("不涉及类型自动转换:"+user1);
+            log.info("不涉及类型自动转换: {}", user1);
 
             // 给User的age属性设置一个String类型的值,涉及类型自动转换
             String ageValueString = "49";
             User user2 = new User();
             BeanUtils.copyProperty(user2,"age",ageValueString);
-            System.out.println("涉及类型自动转换:"+user2);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+            log.info("涉及类型自动转换: {}", user2);
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -80,10 +76,8 @@ public class BeanUtilsTest {
             User source = new User("10001", "zhangsan", 18, "ufe");
             User target = new User();
             BeanUtils.copyProperties(target,source);
-            System.out.println(target);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+            log.info("target: {}", target);
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -93,7 +87,7 @@ public class BeanUtilsTest {
      * static void copyProperties(Object dest, Object orig)
      * 注意:
      *      age:String类型自动转换为Integer类型了
-     *      school:key值应该是school,不是school1,key不对应,不会报错,但是值封装不进去
+     *      school:key值应该是school，不是school1，key不对应，不会报错,但是值封装不进去
      */
     @Test
     public void copyPropertiesMapToBean(){
@@ -105,10 +99,8 @@ public class BeanUtilsTest {
             beanMap.put("school1","ufe");
             User user = new User();
             BeanUtils.copyProperties(user,beanMap);
-            System.out.println(user);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+            log.info("user: {}", user);
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -147,11 +139,9 @@ public class BeanUtilsTest {
             ConvertUtils.register(converter, Date.class);
             // 开始复制数据信息
             BeanUtils.copyProperties(person, beanMap);
-            System.out.println(person);
+            log.info("person: {}", person);
             //User(id=null, userName=刘诗华, password=123456, hireDate=Mon Nov 19 00:00:00 CST 2018)
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -167,10 +157,8 @@ public class BeanUtilsTest {
             String ageValueString = "49";
             User user = new User();
             BeanUtils.setProperty(user,"age",ageValueString);
-            System.out.println("涉及类型自动转换:"+user);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+            log.info("涉及类型自动转换: {}", user);
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -184,12 +172,8 @@ public class BeanUtilsTest {
         try {
             User user = new User("10001", "zhangsan", 18, "ufe");
             String age = BeanUtils.getProperty(user, "age");
-            System.out.println(age);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+            log.info("age: {}", age);
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -204,16 +188,9 @@ public class BeanUtilsTest {
         try {
             User user = new User("10001", "zhangsan", 18, "ufe");
             User userClone = (User)BeanUtils.cloneBean(user);
-            System.out.println("user:"+user);
-            System.out.println("userClone:"+userClone);
-            System.out.println(user  == userClone);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+            log.info("user: {}", user);
+            log.info("userClone: {}", userClone);
+        } catch (IllegalAccessException | InstantiationException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
