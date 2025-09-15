@@ -34,6 +34,7 @@
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-text.version>1.10.0</commons-text.version>
+        <commons-io.version>2.0</commons-io.version>
         <httpclient.version>4.5</httpclient.version>
         <poi-ooxml.version>4.0.0</poi-ooxml.version>
         <jaxen.version>1.2.0</jaxen.version>
@@ -86,6 +87,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-text</artifactId>
                 <version>${commons-text.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
