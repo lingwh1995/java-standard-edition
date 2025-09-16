@@ -30,12 +30,12 @@ public class BmpHeaderUtil {
         header[7] = 0;
         header[8] = 0;
         header[9] = 0;
-        
-        // 图像数据偏移 (0x36 = 54 字节)
-        header[10] = 0x36;
-        header[11] = 0;
-        header[12] = 0;
-        header[13] = 0;
+
+        int offset = 54 + 1024; // 文件头(54) + 调色板(256色×4字节)
+        header[10] = (byte) (offset & 0xFF);
+        header[11] = (byte) ((offset >> 8) & 0xFF);
+        header[12] = (byte) ((offset >> 16) & 0xFF);
+        header[13] = (byte) ((offset >> 24) & 0xFF);
         
         // BITMAPINFOHEADER 大小 (40 字节)
         header[14] = 40;
