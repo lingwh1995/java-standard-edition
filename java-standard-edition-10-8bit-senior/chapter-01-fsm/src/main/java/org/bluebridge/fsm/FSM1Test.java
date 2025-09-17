@@ -1,17 +1,26 @@
 package org.bluebridge.fsm;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 /**
  * 有限状态机，又称有限状态自动机，简称状态机
  *
  * 使用常量作为状态码实现状态机
  */
+@Slf4j(topic = "·")
 public class FSM1Test {
+
     private static final int BEGIN = 0;
     private static final int IN_WORD = 1;
     private static final int OUT_WORD = 2;
     private static final int END = 3;
 
-    public static void main(String[] args) {
+    /**
+     * 测试有限状态机，使用常量作为状态码实现状态机
+     */
+    @Test
+    public void testFSM1() {
         String s = " one  two   three    four     five ";
         int wordCount = 0;
         int state = BEGIN;
@@ -43,7 +52,7 @@ public class FSM1Test {
             wordCount++;
         }
         state = END;
-        System.out.println("单词数量 = " + wordCount);
-        System.out.println("状态机状态 = " + state);
+        log.info("单词数量 = {}", wordCount);
+        log.info("状态机状态 = {}", state);
     }
 }

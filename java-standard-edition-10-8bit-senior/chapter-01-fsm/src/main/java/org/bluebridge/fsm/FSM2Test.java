@@ -1,5 +1,8 @@
 package org.bluebridge.fsm;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 import static org.bluebridge.fsm.STATE.*;
 
 enum STATE{
@@ -14,8 +17,14 @@ enum STATE{
  *
  * 使用枚举作为状态码实现状态机
  */
+@Slf4j(topic = "·")
 public class FSM2Test {
-    public static void main(String[] args) {
+
+    /**
+     * 测试有限状态机，使用枚举作为状态码实现状态机
+     */
+    @Test
+    public void testFSM2() {
         String s = " one  two   three    four     five ";
         STATE state = BEGIN;
         int wordCount = 0;
@@ -47,7 +56,8 @@ public class FSM2Test {
             wordCount++;
         }
         state = END;
-        System.out.println("单词数量 = " + wordCount);
-        System.out.println("状态机状态 = " + state);
+        log.info("单词数量 = {}", wordCount);
+        log.info("状态机状态 = {}", state);
     }
+
 }
