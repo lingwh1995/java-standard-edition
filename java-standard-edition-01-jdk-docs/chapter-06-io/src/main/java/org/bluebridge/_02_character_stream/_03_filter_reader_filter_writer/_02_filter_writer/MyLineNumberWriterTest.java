@@ -29,7 +29,7 @@ public class MyLineNumberWriterTest {
             System.out.println(stringWriter.toString());
 
             // 示例2: 与文件写入结合使用
-            FileWriter fw = new FileWriter("d:/my_line_number_writer.txt");
+            FileWriter fw = new FileWriter("d:/io/my_line_number_writer.txt");
             MyLineNumberWriter lnw = new MyLineNumberWriter(fw);
 
             // 设置行号宽度
@@ -44,7 +44,7 @@ public class MyLineNumberWriterTest {
             log.info("文件写入完成，内容如下:");
 
             // 读取并显示文件内容
-            BufferedReader reader = new BufferedReader(new FileReader("d:/line_number_writer.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("d:/io/line_number_writer.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 log.info("line： {}", line);
@@ -52,7 +52,7 @@ public class MyLineNumberWriterTest {
             reader.close();
 
             // 示例3: 与BufferedWriter结合使用提高性能
-            fw = new FileWriter("d:/buffered_line_number_writer.txt");
+            fw = new FileWriter("d:/io/buffered_line_number_writer.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             MyLineNumberWriter blnw = new MyLineNumberWriter(bw);
 

@@ -21,7 +21,7 @@ public class FileInputStreamTest {
      */
     @Test
     public void testFileInputStreamReadByByte() {
-        try (InputStream fis = new FileInputStream("d:/input_byte_stream_to_character_stream.txt")){
+        try (InputStream fis = new FileInputStream("d:/io/input_byte_stream_to_character_stream.txt")){
             /*
             int firstReadResult = fileInputStream.read();
             log.info("第一次读取结果 整型值：{}，字符型值: {}", firstReadResult, (char)firstReadResult);
@@ -47,7 +47,7 @@ public class FileInputStreamTest {
      */
     @Test
     public void testFileInputStreamReadByBytes() {
-        try (InputStream fis = new FileInputStream("d:/input_byte_stream_to_character_stream.txt")){
+        try (InputStream fis = new FileInputStream("d:/io/input_byte_stream_to_character_stream.txt")){
             /*
             byte[] bytes = new byte[2];
             int firstReadResult = fileInputStream.read(bytes);

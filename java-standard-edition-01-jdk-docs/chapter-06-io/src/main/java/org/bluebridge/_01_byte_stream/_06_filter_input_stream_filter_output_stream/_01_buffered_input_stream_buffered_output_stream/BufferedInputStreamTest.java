@@ -15,7 +15,7 @@ public class BufferedInputStreamTest {
 
     @Test
     public void testBufferedInputStreamRead() {
-        try(InputStream is = new FileInputStream("d:/buffered_input_stream.txt");
+        try(InputStream is = new FileInputStream("d:/io/buffered_input_stream.txt");
             InputStream bis = new BufferedInputStream(is)) {
             byte[] buffer = new byte[1024];
             int length = 0;
@@ -38,7 +38,7 @@ public class BufferedInputStreamTest {
     @Test
     public void testBufferedInputStreamMakeAndReset() {
         // 设置缓冲区大小为2个字节
-        try(InputStream is = new FileInputStream("d:/buffered_input_stream.txt");
+        try(InputStream is = new FileInputStream("d:/io/buffered_input_stream.txt");
             InputStream bis = new BufferedInputStream(is,2)) {
             log.info("bis.markSupported()：{}", bis.markSupported());
             log.info("(char)bis.read()：{}", (char)bis.read());

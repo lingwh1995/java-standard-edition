@@ -13,7 +13,6 @@ import java.io.PipedWriter;
  * @date 2025/9/12 15:32
  */
 
-
 /**
  * PipedReader 主要特点
  *  线程间通信：用于一个线程向 PipedWriter 写入数据，另一个线程从 PipedReader 读取数据
@@ -58,7 +57,7 @@ public class PipedReaderAndPipedWriterTest {
                     result.append(buffer, 0, bytesRead);
                 }
 
-                System.out.println("Received: " + result.toString());
+                log.info("Received: {}", result.toString());
                 pipedReader.close();
             } catch (IOException e) {
                 e.printStackTrace();

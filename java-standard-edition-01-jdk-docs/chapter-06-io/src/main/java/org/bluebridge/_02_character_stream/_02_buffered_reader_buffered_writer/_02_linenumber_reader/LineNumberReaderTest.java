@@ -31,7 +31,7 @@ public class LineNumberReaderTest {
      */
     @Test
     public void testLineNumberReader() {
-        try (LineNumberReader lnr = new LineNumberReader(new FileReader("d:/line_number_reader.txt"))) {
+        try (LineNumberReader lnr = new LineNumberReader(new FileReader("d:/io/line_number_reader.txt"))) {
             String line;
             while ((line = lnr.readLine()) != null) {
                 log.info("line {}: {}", lnr.getLineNumber(), line);

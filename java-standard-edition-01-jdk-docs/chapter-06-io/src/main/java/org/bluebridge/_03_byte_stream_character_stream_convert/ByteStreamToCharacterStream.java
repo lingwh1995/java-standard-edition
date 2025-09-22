@@ -23,7 +23,7 @@ public class ByteStreamToCharacterStream {
          * 基本转换
          */
         /*
-        try(InputStream is = new FileInputStream("d:/input_byte_stream_to_character_stream.txt");
+        try(InputStream is = new FileInputStream("d:/io/input_byte_stream_to_character_stream.txt");
             InputStreamReader isr = new InputStreamReader(is)){
             char[] buffer = new char[10];
             int length = 0;
@@ -39,7 +39,7 @@ public class ByteStreamToCharacterStream {
          * 指定编码格式
          */
         /*
-        try(InputStream is = new FileInputStream("d:/input_byte_stream_to_character_stream.txt");
+        try(InputStream is = new FileInputStream("d:/io/input_byte_stream_to_character_stream.txt");
             InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8)){
             char[] buffer = new char[10];
             int length = 0;
@@ -54,7 +54,7 @@ public class ByteStreamToCharacterStream {
         /**
          * 使用BufferedReader包装转换
          */
-        try(InputStream is = new FileInputStream("d:/input_byte_stream_to_character_stream.txt");
+        try(InputStream is = new FileInputStream("d:/io/input_byte_stream_to_character_stream.txt");
             InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
             BufferedReader br = new BufferedReader(isr)){
             String line = null;
@@ -75,7 +75,7 @@ public class ByteStreamToCharacterStream {
          * 基本转换
          */
         /*
-        try(OutputStream os = new FileOutputStream("d:/output_byte_stream_to_character_stream.txt");
+        try(OutputStream os = new FileOutputStream("d:/io/output_byte_stream_to_character_stream.txt");
             OutputStreamWriter osw = new OutputStreamWriter(os)){
             osw.write("hello world!");
             osw.write("将字节流转换为字符流!");
@@ -88,7 +88,7 @@ public class ByteStreamToCharacterStream {
          * 指定编码格式
          */
         /*
-        try(OutputStream os = new FileOutputStream("d:/output_byte_stream_to_character_stream.txt");
+        try(OutputStream os = new FileOutputStream("d:/io/output_byte_stream_to_character_stream.txt");
             OutputStreamWriter osw = new OutputStreamWriter(os, StandardCharsets.UTF_8)){
             osw.write("hello world!");
             osw.write("将字节流转换为字符流!");
@@ -100,7 +100,7 @@ public class ByteStreamToCharacterStream {
         /**
          * 使用BufferedWriter包装转换
          */
-        try(OutputStream os = new FileOutputStream("d:/output_byte_stream_to_character_stream.txt");
+        try(OutputStream os = new FileOutputStream("d:/io/output_byte_stream_to_character_stream.txt");
             OutputStreamWriter osw = new OutputStreamWriter(os, StandardCharsets.UTF_8);
             BufferedWriter br = new BufferedWriter(osw)){
             br.write("hello world!");

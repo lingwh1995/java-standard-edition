@@ -38,7 +38,7 @@ public class BufferedReaderTest {
      */
     @Test
     public void testBufferedReaderReadLine() {
-        try (BufferedReader br = new BufferedReader(new FileReader("d:/buffered_reader.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("d:/io/buffered_reader.txt"))) {
             String line = null;
             while ((line = br.readLine()) != null) {
                 log.info("line： {}", line);
@@ -53,7 +53,7 @@ public class BufferedReaderTest {
      */
     @Test
     public void testBufferedReaderReadByBuffer() {
-        try (BufferedReader br = new BufferedReader(new FileReader("d:/buffered_reader.txt"), 1024)) {
+        try (BufferedReader br = new BufferedReader(new FileReader("d:/io/buffered_reader.txt"), 1024)) {
             int character;
             while ((character = br.read()) != -1) {
                 log.info("本次读取到的内容： {}", (char) character);
@@ -128,10 +128,10 @@ public class BufferedReaderTest {
     public void testBufferedReaderReadBigFile() {
         try {
             // 创建一个大文件用于测试
-            createLargeFile("d:/buffered_reader_large_file.txt", 10000);
+            createLargeFile("d:/io/buffered_reader_large_file.txt", 10000);
 
             // 使用 BufferedReader 处理大文件
-            FileReader fileReader = new FileReader("d:/buffered_reader_large_file.txt");
+            FileReader fileReader = new FileReader("d:/io/buffered_reader_large_file.txt");
             // 8kb缓冲区
             BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
 

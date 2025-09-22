@@ -15,8 +15,8 @@ public class DataInputStream_DataOutputStreamTest {
 
     @Test
     public void testDataInputStream() {
-        try(DataOutputStream dos = new DataOutputStream(new FileOutputStream("d:/data_output_stream.txt"));
-            DataInputStream dis = new DataInputStream(new FileInputStream("d:/data_output_stream.txt"))) {
+        try(DataOutputStream dos = new DataOutputStream(new FileOutputStream("d:/io/data_output_stream.txt"));
+            DataInputStream dis = new DataInputStream(new FileInputStream("d:/io/data_output_stream.txt"))) {
             dos.writeUTF("α");
             dos.writeInt(1234567);
             dos.writeBoolean(true);

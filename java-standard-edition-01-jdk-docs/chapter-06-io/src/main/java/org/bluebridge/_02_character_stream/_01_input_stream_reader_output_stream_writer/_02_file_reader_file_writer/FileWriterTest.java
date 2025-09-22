@@ -15,8 +15,8 @@ public class FileWriterTest {
 
     @Test
     public void testInputStreamReader() throws IOException {
-        try(FileReader fr = new FileReader("d:/file_reader.txt");
-            FileWriter fw = new FileWriter("d:/file_writer.txt")){
+        try(FileReader fr = new FileReader("d:/io/file_reader.txt");
+            FileWriter fw = new FileWriter("d:/io/file_writer.txt")){
             // 10 + 2 = 每一行字节个数 + 2字节换行符 = 12
             char[] buffer = new char[12];
             int length = 0;

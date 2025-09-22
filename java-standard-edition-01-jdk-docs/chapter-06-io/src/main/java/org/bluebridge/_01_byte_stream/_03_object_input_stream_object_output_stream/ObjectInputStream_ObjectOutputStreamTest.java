@@ -19,14 +19,14 @@ public class ObjectInputStream_ObjectOutputStreamTest {
     @Test
     public void testSerializableBasicData() {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:/object_stream.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:/io/object_stream.txt"));
             oos.writeBoolean(true);
             oos.writeDouble(0.5);
             oos.writeUTF("&");
             //如果输出流不关闭,则会抛出:java.io.EOFException
             oos.close();
 
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d:/object_stream.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d:/io/object_stream.txt"));
             log.info("ois.readBoolean()：{}", ois.readBoolean());
             log.info("ois.readDouble()：{}", ois.readDouble());
             log.info("ois.readUTF()：{}", ois.readUTF());
@@ -51,7 +51,7 @@ public class ObjectInputStream_ObjectOutputStreamTest {
             staff[0] = harry;
             staff[1] = carl;
             staff[2] = tony;
-            String filePath = "d:/employee.dat";
+            String filePath = "d:/io/employee.dat";
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath));
             oos.writeObject(staff);
             oos.close();

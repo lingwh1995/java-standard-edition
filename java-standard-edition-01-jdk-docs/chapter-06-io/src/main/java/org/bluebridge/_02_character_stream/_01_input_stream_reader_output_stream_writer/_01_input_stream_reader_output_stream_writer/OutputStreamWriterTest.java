@@ -15,8 +15,8 @@ public class OutputStreamWriterTest {
 
     @Test
     public void testInputStreamReader() throws FileNotFoundException {
-        try(InputStreamReader isr = new InputStreamReader(new FileInputStream("d:/input_stream_reader.txt"));
-            OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("d:/output_stream_writer.txt"))
+        try(InputStreamReader isr = new InputStreamReader(new FileInputStream("d:/io/input_stream_reader.txt"));
+            OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("d:/io/output_stream_writer.txt"))
         ) {
             // 10 + 2 = 每一行字节个数 + 2字节换行符 = 12
             char[] buffer = new char[12];

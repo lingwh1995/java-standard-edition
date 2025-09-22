@@ -15,7 +15,7 @@ public class FileReaderTest {
 
     @Test
     public void testInputStreamReader() {
-        try (FileReader fr = new FileReader("d:/file_reader.txt")) {
+        try (FileReader fr = new FileReader("d:/io/file_reader.txt")) {
             // 10 + 2 = 每一行字节个数 + 2字节换行符 = 12
             char[] buffer = new char[12];
             int length = 0;
