@@ -1,5 +1,8 @@
 package org.bluebridge.utils;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 public class BmpHeaderUtil {
     
     /**
@@ -137,4 +140,6 @@ public class BmpHeaderUtil {
         
         return bmpFile;
     }
+
+
 }

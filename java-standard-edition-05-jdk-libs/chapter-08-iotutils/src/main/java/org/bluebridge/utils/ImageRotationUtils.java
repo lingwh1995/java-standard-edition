@@ -1,5 +1,13 @@
 package org.bluebridge.utils;
 
+import javax.imageio.ImageIO;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 public class ImageRotationUtils {
     
     /**
@@ -80,4 +88,33 @@ public class ImageRotationUtils {
         }
         return rotatedData;
     }
+
+    /**
+     * 旋转JPEG图片90度（逆时针）
+     * @param jpegData 原始JPEG图片字节数组
+     * @return 旋转后的JPEG图片字节数组
+     * @throws IOException 如果图片解码或编码失败
+     */
+    public static byte[] rotateJpeg90Degrees(byte[] jpegData) throws IOException {
+        // 解码JPEG图片
+        BufferedImage originalImage = ImageIO.read(new ByteArrayInputStream(jpegData));
+        // 计算旋转后的尺寸（宽高互换）
+        int width = originalImage.getWidth();
+        int height = originalImage.getHeight();
+
+        // 创建旋转变换（90度逆时针）
+        AffineTransform affineTransform = new AffineTransform();
+        affineTransform.translate(0, width);  // 调整平移参数
+        affineTransform.rotate(-Math.PI / 2);  // 使用负角度实现逆时针旋转
+
+        // 应用旋转
+        AffineTransformOp op = new AffineTransformOp(affineTransform, AffineTransformOp.TYPE_BILINEAR);
+        BufferedImage rotatedImage = op.filter(originalImage, new BufferedImage(height, width, originalImage.getType()));
+
+        // 编码为JPEG字节数组
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ImageIO.write(rotatedImage, "jpeg", outputStream);
+        return outputStream.toByteArray();
+    }
+
 }
