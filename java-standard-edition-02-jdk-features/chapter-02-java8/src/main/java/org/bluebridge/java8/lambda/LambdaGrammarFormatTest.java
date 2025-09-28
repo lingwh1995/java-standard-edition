@@ -32,7 +32,6 @@ public class LambdaGrammarFormatTest {
 		r.run();
 	}
 
-	
 	/**
 	 * 语法格式二：需要一个参数，但是没有返回值
 	 */
@@ -59,7 +58,6 @@ public class LambdaGrammarFormatTest {
 		consumer.accept("使用lambda表达式...");
 	}
 
-	
 	/**
 	 * 语法格式三：数据类型可以省略，可以由编译器推导出来，称为类型推断
 	 */
@@ -97,7 +95,6 @@ public class LambdaGrammarFormatTest {
 		Integer[] arr2 = { 1, 2, 3 };
 	}
 
-	
 	/**
 	 * 语法格式四：如果只有一个参数，参数的小括号也可以省略
 	 */
@@ -121,7 +118,6 @@ public class LambdaGrammarFormatTest {
 		consumer = s -> System.out.println(s);
 		consumer.accept("使用lambda表达式(省略参数，由编译器推导类型) + 省略参数的小括号...");
 	}
-	
 	
 	/**
 	 * 语法格式五：需要两个或以上参数，多条语句执行，并且可以有多条返回值，这种情况一般只能简写到lambda形式+省略参数类型
@@ -155,7 +151,6 @@ public class LambdaGrammarFormatTest {
 		System.out.println(result);
 	}
 	
-	
 	/**
 	 * 语法格式六：当lambda体只有一条语句时，如果有return和括号，都可以省略
 	 */
@@ -181,4 +176,5 @@ public class LambdaGrammarFormatTest {
 		result = comparator.compare(20, 10);
 		System.out.println(result);
 	}
+
 }

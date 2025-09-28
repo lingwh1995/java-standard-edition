@@ -109,4 +109,5 @@ public class MyFunctionInterfaceTest {
     interface Type7<I,O> {
         O op(I i);
     }
+
 }

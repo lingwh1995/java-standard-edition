@@ -35,7 +35,6 @@ public class JDKFunctionInterfaceTest {
         new Thread(runnable,"T2").start();
     }
 
-
     /**
      * 测试Callable函数式接口
      */
@@ -46,7 +45,6 @@ public class JDKFunctionInterfaceTest {
         new Thread(futureTask).start();
         System.out.println("futureTask.get() = " + futureTask.get());
     }
-
 
     /**
      * 测试Comparator函数式接口
@@ -61,7 +59,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("personList = " + personList);
     }
 
-
     /**
      * 测试Consumer函数式接口
      */
@@ -70,7 +67,6 @@ public class JDKFunctionInterfaceTest {
         Consumer<Integer> consumer = i -> System.out.println(i.getClass());
         consumer.accept(1);
     }
-
 
     /**
      * 测试BiConsumer函数式接口
@@ -88,7 +84,6 @@ public class JDKFunctionInterfaceTest {
         map.forEach(biConsumer);
     }
 
-
     /**
      * 测试IntConsumer函数式接口
      */
@@ -97,7 +92,6 @@ public class JDKFunctionInterfaceTest {
         IntConsumer intConsumer = i -> System.out.println(i + i);
         intConsumer.accept(10);
     }
-
 
     /**
      * 测试LongConsumer函数式接口
@@ -108,7 +102,6 @@ public class JDKFunctionInterfaceTest {
         longConsumer.accept(20);
     }
 
-
     /**
      * 测试DoubleConsumer函数式接口
      */
@@ -117,7 +110,6 @@ public class JDKFunctionInterfaceTest {
         DoubleConsumer doubleConsumer = i -> System.out.println(i + i);
         doubleConsumer.accept(30);
     }
-
 
     /**
      * 测试Function函数式接口
@@ -131,7 +123,6 @@ public class JDKFunctionInterfaceTest {
         Function<Person,Integer> functionInteger = p -> p.getAge();
         System.out.println("年龄 = " + functionInteger.apply(person));
     }
-
 
     /**
      * 测试BiFunction函数式接口
@@ -162,7 +153,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("person = " + person);
     }
 
-
     /**
      * 测试IntFunction函数式接口
      */
@@ -171,7 +161,6 @@ public class JDKFunctionInterfaceTest {
         IntFunction<Integer> intFunction = i -> i + i;
         System.out.println("intFunction.apply(10) = " + intFunction.apply(10));
     }
-
 
     /**
      * 测试LongFunction函数式接口
@@ -182,7 +171,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("longFunction.apply(20) = " + longFunction.apply(20));
     }
 
-
     /**
      * 测试DoubleFunction函数式接口
      */
@@ -192,20 +180,17 @@ public class JDKFunctionInterfaceTest {
         System.out.println("doubleFunction = " + doubleFunction.apply(30));
     }
 
-
     @Test
     public void testDoubleToIntFunction() {
         DoubleToIntFunction doubleToIntFunction = d -> Double.valueOf(d).intValue();
         System.out.println(doubleToIntFunction.applyAsInt(25.6));
     }
 
-
     @Test
     public void testDoubleToLongFunction() {
         DoubleToLongFunction doubleToLongFunction = d -> Double.valueOf(d).longValue();
         System.out.println(doubleToLongFunction.applyAsLong(25.6));
     }
-
 
     /**
      * 测试Predicate函数式接口
@@ -216,7 +201,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("predicate.test(10) = " + predicate.test(10));
     }
 
-
     /**
      * 测试BiPredicate函数式接口
      */
@@ -225,7 +209,6 @@ public class JDKFunctionInterfaceTest {
         BiPredicate<String, String> biPredicate = (a, b) -> a.equals(b);
         System.out.println(biPredicate.test("a", "b"));
     }
-
 
     /**
      * 测试IntPredicate函数式接口
@@ -246,7 +229,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("or.test(3) = " + or.test(3));
     }
 
-
     /**
      * 测试LongPredicate函数式接口
      */
@@ -255,7 +237,6 @@ public class JDKFunctionInterfaceTest {
         LongPredicate longPredicate = i -> i % 2 == 0;
         System.out.println(longPredicate.test(10));
     }
-
 
     /**
      * 测试DoublePredicate函数式接口
@@ -266,7 +247,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println(doublePredicate.test(10));
     }
 
-
     /**
      * 测试Supplier函数式接口
      */
@@ -275,7 +255,6 @@ public class JDKFunctionInterfaceTest {
         Supplier<Integer> supplier = () -> 10;
         System.out.println("supplier.get() = " + supplier.get());
     }
-
 
     /**
      * 测试IntSupplier函数式接口
@@ -286,7 +265,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("intSupplier.getAsInt() = " + intSupplier.getAsInt());
     }
 
-
     /**
      * 测试LongSupplier函数式接口
      */
@@ -295,7 +273,6 @@ public class JDKFunctionInterfaceTest {
         LongSupplier longSupplier = () -> 10;
         System.out.println("longSupplier.getAsLong() = " + longSupplier.getAsLong());
     }
-
 
     /**
      * 测试DoubleSupplier函数式接口
@@ -306,7 +283,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("doubleSupplier.getAsDouble() = " + doubleSupplier.getAsDouble());
     }
 
-
     /**
      * 测试UnaryOperator函数式接口
      */
@@ -315,7 +291,6 @@ public class JDKFunctionInterfaceTest {
         UnaryOperator<Integer> unaryOperator = i -> i * 2;
         System.out.println("unaryOperator.apply(10) = " + unaryOperator.apply(10));
     }
-
 
     /**
      * 测试BinaryOperator函数式接口
@@ -326,7 +301,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("binaryOperator.apply(10,20) = " + binaryOperator.apply(10, 20));
     }
 
-
     /**
      * 测试DoubleBinaryOperator函数式接口
      */
@@ -335,7 +309,6 @@ public class JDKFunctionInterfaceTest {
         DoubleBinaryOperator doubleBinaryOperator = (a,b) -> a + b;
         System.out.println(doubleBinaryOperator.applyAsDouble(10, 20));
     }
-
 
     /**
      * 测试IntUnaryOperator函数式接口
@@ -346,7 +319,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("intUnaryOperator.applyAsInt(10) = " + intUnaryOperator.applyAsInt(10));
     }
 
-
     /**
      * 测试IntBinaryOperator函数式接口
      */
@@ -356,7 +328,6 @@ public class JDKFunctionInterfaceTest {
         System.out.println("intBinaryOperator.applyAsInt(10,20) = " + intBinaryOperator.applyAsInt(10, 20));
     }
 
-
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -364,4 +335,5 @@ public class JDKFunctionInterfaceTest {
         private String name;
         private int age;
     }
+
 }

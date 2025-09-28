@@ -43,7 +43,6 @@ public class BasicFunctionInterfaceTest {
 		System.out.println("--------------------------------------");
 	}
 
-
 	/**
 	 * 测试Supplier函数式接口
 	 */
@@ -64,7 +63,6 @@ public class BasicFunctionInterfaceTest {
 		System.out.println(supplier.get());
 		System.out.println("--------------------------------------");
 	}
-
 
 	/**
 	 * 测试Function函数式接口
@@ -92,7 +90,6 @@ public class BasicFunctionInterfaceTest {
 		System.out.println("--------------------------------------");
 	}
 
-
 	/**
 	 * 测试Predicate函数式接口
 	 */
@@ -118,4 +115,5 @@ public class BasicFunctionInterfaceTest {
 		System.out.println(biFunction.apply("周邦彦", "周"));
 		System.out.println("--------------------------------------");
 	}
+
 }

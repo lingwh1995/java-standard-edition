@@ -5,6 +5,10 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.HexUtil;
 import lombok.extern.slf4j.Slf4j;
 
+import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -130,6 +134,9 @@ public class ImageUtil {
         for(int i = 0; i < desBytes.length; i++) {
             if(i % 100 == 0 && i != 0) {
                 System.out.println();
+            }
+            if(i % 100 <= 30) {
+                desBytes[i] = 0;
             }
             System.out.print((desBytes[i] & 0xFF) + "\t");
         }

@@ -22,7 +22,6 @@ public class LambdaTest3 {
         System.out.println("未使用lambda表达式花费时间:" + (end - start));
     }
 
-
     /**
      * 测试不使用lambda表达式 - 条件不通过情况
      */
@@ -37,7 +36,6 @@ public class LambdaTest3 {
         long end = System.currentTimeMillis();
         System.out.println("未使用lambda表达式花费时间:"+(end-start));
     }
-
 
     /**
      * 测试使用lambda表达式 - 条件不通过的情况
@@ -58,7 +56,6 @@ public class LambdaTest3 {
         System.out.println("未延迟执行花费时间:"+(end-start));
     }
 
-
     /**
      * 测试使用lambda表达式 - 条件不通过的情况
      */
@@ -77,7 +74,6 @@ public class LambdaTest3 {
         System.out.println("未延迟执行花费时间:"+(end-start));
     }
 
-
     /**
      * 没有使用lambda表达式的方法
      * @param level
@@ -88,7 +84,6 @@ public class LambdaTest3 {
             System.out.println(msg);
         }
     }
-
 
     /**
      * 使用了lambda表达式的方法
@@ -101,7 +96,6 @@ public class LambdaTest3 {
         }
     }
 
-
     /*
      * 下面这个是函数式接口，方便lambda表达式的使用。
      */
@@ -109,5 +103,6 @@ public class LambdaTest3 {
     interface MessageBuilder {
         String buildMessage();
     }
+
 }
 

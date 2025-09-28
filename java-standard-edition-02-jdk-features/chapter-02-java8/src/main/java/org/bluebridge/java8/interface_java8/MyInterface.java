@@ -1,6 +1,7 @@
 package org.bluebridge.java8.interface_java8;
 
 public interface MyInterface {
+
     /**
      * 定义一个静态方法
      */
@@ -14,4 +15,5 @@ public interface MyInterface {
     default void defaultMethod() {
         System.out.println("我是接口中的默认方法......");
     }
+
 }
