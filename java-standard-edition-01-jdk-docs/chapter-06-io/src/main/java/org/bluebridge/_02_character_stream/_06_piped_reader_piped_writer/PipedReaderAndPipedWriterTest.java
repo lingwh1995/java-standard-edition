@@ -19,7 +19,7 @@ import java.io.PipedWriter;
  *  字符流：处理字符数据，而非字节数据
  *  阻塞操作：读取操作在没有数据时会阻塞，直到有数据可用或流被关闭
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class PipedReaderAndPipedWriterTest {
 
     /**

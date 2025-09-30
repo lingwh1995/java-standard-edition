@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * TCP连接状态模拟测试类
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class TCPConnectionSimulation {
     
     public static void main(String[] args) {

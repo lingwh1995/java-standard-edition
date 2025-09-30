@@ -17,7 +17,7 @@ import org.junit.Test;
  *     4. Java中严格区分大小写，长度无限制。
  *     5. 标识符不能包含空格。
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class IdentifierTest {
 
 	/**

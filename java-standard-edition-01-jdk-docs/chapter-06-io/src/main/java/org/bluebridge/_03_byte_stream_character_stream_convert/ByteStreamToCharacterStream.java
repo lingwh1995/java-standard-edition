@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
  * @desc 将字节流转换为字符流 InputStreamReader和OutputStreamWriter是字节流为向字符流的桥梁类
  * @date 2025/9/5 17:23
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class ByteStreamToCharacterStream {
 
     /**

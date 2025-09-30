@@ -15,7 +15,7 @@ import org.junit.Test;
  * @desc 模拟goto:打印101到150之间的质数测试
  * @date 2019/4/10 13:39
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class TagContinueTest {
 
 	@Test

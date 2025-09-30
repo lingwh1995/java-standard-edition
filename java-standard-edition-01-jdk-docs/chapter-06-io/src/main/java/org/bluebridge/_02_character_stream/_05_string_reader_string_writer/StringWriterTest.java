@@ -11,7 +11,7 @@ import java.io.StringWriter;
  * @desc StringWriter 是 Writer 的子类，用于将字符数据写入字符串缓冲区
  * @date 2025/9/8 18:29
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class StringWriterTest {
 
     @Test

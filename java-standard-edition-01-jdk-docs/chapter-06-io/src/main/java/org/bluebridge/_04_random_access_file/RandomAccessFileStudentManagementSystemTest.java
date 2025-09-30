@@ -13,7 +13,7 @@ import java.io.IOException;
  * 基于RandomAccessFile的学生管理系统
  * 使用固定长度记录存储学生信息
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class RandomAccessFileStudentManagementSystemTest {
     
     // 定义学生记录的固定长度

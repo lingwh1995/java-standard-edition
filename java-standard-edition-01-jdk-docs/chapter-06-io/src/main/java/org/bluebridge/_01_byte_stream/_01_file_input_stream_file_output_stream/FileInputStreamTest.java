@@ -11,7 +11,7 @@ import java.io.*;
  * @desc FileInputStream 字节输入流
  * @date 2025/8/14 17:24
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FileInputStreamTest {
 
     /**

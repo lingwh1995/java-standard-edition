@@ -10,7 +10,7 @@ import java.io.*;
  * @desc BufferedOutputStream 带有缓冲区的字节输出流，默认大小是8m，可以通过减少访问磁盘的次数来提高文件写入性能
  * @date 2025/8/16 17:16
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class BufferedOutputStreamTest {
 
     @Test

@@ -31,7 +31,7 @@ import org.junit.Test;
  *                           6                        7          # 从右往左,每四位2进制就是一位16进制
  *      103(10) = 1100111(2) = 0147(8) = 0x67(16)
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class RadixTest {
 
     @Test

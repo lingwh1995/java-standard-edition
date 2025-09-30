@@ -11,7 +11,7 @@ import java.util.Random;
  * @desc 使用管道输入流和管道输出流实现生产者消费者模型
  * @date 2025/8/16 14:40
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class PipedInputStream_PipedOutStream_ProducerConsumerTest {
 
     @Test
@@ -40,7 +40,7 @@ public class PipedInputStream_PipedOutStream_ProducerConsumerTest {
     }
 }
 
-@Slf4j(topic = "·")
+@Slf4j
 class Producer implements Runnable {
     private PipedOutputStream pos;
     private Random random = new Random();
@@ -67,7 +67,7 @@ class Producer implements Runnable {
     }
 }
 
-@Slf4j(topic = "·")
+@Slf4j
 class Consumer implements Runnable {
     private PipedInputStream pis;
 

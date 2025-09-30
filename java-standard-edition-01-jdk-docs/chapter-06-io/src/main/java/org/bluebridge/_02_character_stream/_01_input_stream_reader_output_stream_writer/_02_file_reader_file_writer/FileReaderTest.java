@@ -10,7 +10,7 @@ import java.io.*;
  * @desc 文件字符输入流（只能用于读取文件，使用系统默认字符编码，无法指定编码格式）
  * @date 2025/8/21 17:56
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FileReaderTest {
 
     @Test

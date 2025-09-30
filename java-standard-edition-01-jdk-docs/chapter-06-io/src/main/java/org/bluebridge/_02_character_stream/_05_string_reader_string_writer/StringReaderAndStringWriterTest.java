@@ -10,7 +10,7 @@ import java.io.*;
  * @desc StringReader和StringWriter综合应用
  * @date 2025/9/8 18:36
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class StringReaderAndStringWriterTest {
 
     /**

@@ -12,7 +12,7 @@ import java.io.IOException;
  * @desc CharArrayReader和CharArrayWriter综合测试案例
  * @date 2025/9/8 18:15
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class CharArrayReaderAndCharArrayWriterTest {
 
     @Test

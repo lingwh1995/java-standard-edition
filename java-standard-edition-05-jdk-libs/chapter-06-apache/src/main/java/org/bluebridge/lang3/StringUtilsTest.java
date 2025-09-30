@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * 字符串工具类
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class StringUtilsTest {
 
     @Test

@@ -9,7 +9,7 @@ import org.junit.Test;
  * @desc 测试@Builder注解
  * @date 2025/8/18 11:26
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class BuilderAnnoTest {
 
     /**

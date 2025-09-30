@@ -8,7 +8,7 @@ import org.junit.Test;
  * @desc 测试@AllArgsConstructor注解
  * @date 2025/8/18 11:30
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class AllArgsConstructorAnnoTest {
 
     /**

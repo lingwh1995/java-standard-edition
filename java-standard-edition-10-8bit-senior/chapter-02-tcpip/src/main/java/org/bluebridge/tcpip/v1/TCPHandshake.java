@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * TCP三次握手模拟
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class TCPHandshake {
     
     // 客户端状态枚举

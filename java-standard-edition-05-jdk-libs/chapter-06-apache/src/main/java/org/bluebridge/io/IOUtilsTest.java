@@ -11,7 +11,7 @@ import java.io.*;
  * @desc
  * @date 2025/9/15 11:34
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class IOUtilsTest {
 
     /**

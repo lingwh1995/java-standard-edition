@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
 
-@Slf4j(topic = "·")
+@Slf4j
 public class CompletableFutureTest {
 
     @Test

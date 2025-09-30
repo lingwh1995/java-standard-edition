@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
  * @desc Java8引入了全新的时间处理类库，解决了旧版类库中线程不安全的问题
  * @date 2025/9/28 14:09
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class DateTimeTest {
 
     /**

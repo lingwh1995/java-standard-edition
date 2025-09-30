@@ -23,7 +23,7 @@ import java.io.LineNumberReader;
  *         继承了 BufferedReader 的缓冲功能
  *         支持按行读取文本 (readLine() 方法)
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class LineNumberReaderTest {
 
     /**

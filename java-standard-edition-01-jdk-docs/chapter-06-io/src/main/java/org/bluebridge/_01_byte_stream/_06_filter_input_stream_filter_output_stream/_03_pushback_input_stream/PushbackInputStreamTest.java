@@ -14,7 +14,7 @@ import java.io.PushbackInputStream;
  *                           常有用，特别是在解析器和编译器等场景中。该类提供了一种机制，可以"偷窥"来自输入流的内容而不对它们进行破坏。
  * @date 2025/8/16 17:41
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class PushbackInputStreamTest {
 
     @Test

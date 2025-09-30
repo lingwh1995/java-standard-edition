@@ -10,7 +10,7 @@ import java.io.*;
  * @desc ObjectStream 用于实现序列化和反序列化
  * @date 2025/8/16 13:39
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class ObjectInputStream_ObjectOutputStreamTest {
 
     /**

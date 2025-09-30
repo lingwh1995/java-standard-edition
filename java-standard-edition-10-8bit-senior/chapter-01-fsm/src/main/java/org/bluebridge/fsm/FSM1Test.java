@@ -8,7 +8,7 @@ import org.junit.Test;
  *
  * 使用常量作为状态码实现状态机
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FSM1Test {
 
     private static final int BEGIN = 0;

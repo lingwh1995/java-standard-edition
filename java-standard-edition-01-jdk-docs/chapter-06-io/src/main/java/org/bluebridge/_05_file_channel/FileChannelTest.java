@@ -28,7 +28,7 @@ import java.nio.file.StandardOpenOption;
  *   3.高性能要求：对 I/O 性能有较高要求的应用
  *   4.随机访问：需要在文件中随机位置读写数据的场景
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FileChannelTest {
 
     /**

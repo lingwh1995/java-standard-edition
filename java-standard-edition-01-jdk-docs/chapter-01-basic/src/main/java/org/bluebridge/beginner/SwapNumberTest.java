@@ -14,7 +14,7 @@ import org.junit.Test;
  *  值传递: 就是把实参的值复制一份作为参数传递给方法的形参
  *  注意: 在C语言中有值传递和引用传递,引用传递就是指针传递
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class SwapNumberTest {
 	
 	@Test

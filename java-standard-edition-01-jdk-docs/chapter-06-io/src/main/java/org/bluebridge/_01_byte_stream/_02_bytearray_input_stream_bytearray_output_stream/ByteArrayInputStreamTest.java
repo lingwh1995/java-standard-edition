@@ -11,7 +11,7 @@ import java.io.IOException;
  * @desc ByteArrayInputStream 在内存中创建一个字节数组，将输入流中读取的数据保存到字节数组的缓冲区中，可以使用内存充当缓冲区，从而避免文件IO
  * @date 2025/8/15 15:10
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class ByteArrayInputStreamTest {
 
     @Test

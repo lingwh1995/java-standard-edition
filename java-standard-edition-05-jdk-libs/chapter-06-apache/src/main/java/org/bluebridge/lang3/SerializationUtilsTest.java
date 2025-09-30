@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @desc 序列化工具类
  * @date 2019/7/26 16:31
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class SerializationUtilsTest {
 
     @Test

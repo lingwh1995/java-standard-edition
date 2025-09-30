@@ -8,7 +8,7 @@ import org.junit.Test;
  * @desc 可变参数测试
  * @date 2019/4/10 13:39
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class VarargsTest {
     /**
      * 可变参数:

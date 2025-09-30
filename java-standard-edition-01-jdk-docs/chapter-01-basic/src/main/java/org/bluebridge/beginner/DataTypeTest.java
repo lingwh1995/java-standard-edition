@@ -31,7 +31,7 @@ import org.junit.Test;
  *		5.浮点类型使用注意事项
  *			浮点类型float、double的数据不适合在不容许舍入误差的金融计算领域。如果需要精确数字计算或保留指定位数的精度，需要使用BigDecimal类。
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class DataTypeTest {
 
 	/**

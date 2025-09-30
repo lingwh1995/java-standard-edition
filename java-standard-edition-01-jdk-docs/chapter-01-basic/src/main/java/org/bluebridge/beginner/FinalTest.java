@@ -8,7 +8,7 @@ import org.junit.Test;
  * @desc Final关键字测试
  * @date 2019/3/12 16:58
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FinalTest {
 
 	/**

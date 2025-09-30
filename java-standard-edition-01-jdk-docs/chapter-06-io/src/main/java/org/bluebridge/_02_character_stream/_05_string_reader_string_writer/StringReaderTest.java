@@ -11,7 +11,7 @@ import java.io.StringReader;
  * @desc StringReader 是 Reader 的子类，用于从字符串中读取字符数据。
  * @date 2025/9/8 18:28
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class StringReaderTest {
 
     @Test

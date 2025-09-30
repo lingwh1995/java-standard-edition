@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @desc 标准输入流测试
  * @date 2019/3/12 16:58
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class ScannerTest {
 
     public static void main(String[] args) {

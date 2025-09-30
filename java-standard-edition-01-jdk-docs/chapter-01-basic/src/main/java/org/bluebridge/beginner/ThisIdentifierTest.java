@@ -8,7 +8,7 @@ import org.junit.Test;
  * @desc this关键字测试
  * @date 2019/4/10 13:39
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class ThisIdentifierTest {
 	
 	@Test
@@ -27,7 +27,7 @@ public class ThisIdentifierTest {
 	
 }
 
-@Slf4j(topic = "·")
+@Slf4j
 class ThisIdentifier {
 	
 	/**

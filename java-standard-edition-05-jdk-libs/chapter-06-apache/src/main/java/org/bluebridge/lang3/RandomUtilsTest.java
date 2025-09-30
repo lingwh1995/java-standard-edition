@@ -9,7 +9,7 @@ import org.junit.Test;
  * @desc 随机数工具类
  * @date 2025/9/15 11:21
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class RandomUtilsTest {
 
     /**

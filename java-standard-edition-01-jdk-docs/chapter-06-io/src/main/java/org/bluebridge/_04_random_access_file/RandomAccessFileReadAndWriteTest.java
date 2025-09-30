@@ -27,7 +27,7 @@ import java.io.RandomAccessFile;
  * 注意：
  *   虽然 RandomAccessFile 不是传统意义上的 InputStream 或 OutputStream，但它本质上是按字节处理数据的，因此属于字节流范畴。
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class RandomAccessFileReadAndWriteTest {
 
     /**

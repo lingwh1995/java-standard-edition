@@ -21,7 +21,7 @@ import java.util.Date;
  * 异常处理：不会抛出 IOException，而是设置内部错误标志
  * 字符流：处理字符数据，适合文本输出
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class PrintWriterTest {
 
     /**

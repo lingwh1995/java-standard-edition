@@ -19,7 +19,7 @@ import java.util.Map;
  * @desc BeanUtils工具类测试
  * @date 2019/6/20 14:27
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class BeanUtilsTest {
 
     /**

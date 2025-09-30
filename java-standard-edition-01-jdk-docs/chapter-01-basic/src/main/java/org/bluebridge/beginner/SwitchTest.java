@@ -13,7 +13,7 @@ import org.junit.Test;
  * 1.switch可以进行嵌套
  * 2.switch中的case:后面的代码，可以使用{}括起来
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class SwitchTest {
 
     /**

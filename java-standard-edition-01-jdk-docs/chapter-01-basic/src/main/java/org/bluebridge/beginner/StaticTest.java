@@ -8,7 +8,7 @@ import org.junit.Test;
  * @desc static关键字测试
  * @date 2019/7/10 13:39
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class StaticTest {
 
     @Test
@@ -19,7 +19,7 @@ public class StaticTest {
 
 }
 
-@Slf4j(topic = "·")
+@Slf4j
 class Cat {
 
     public Cat(){

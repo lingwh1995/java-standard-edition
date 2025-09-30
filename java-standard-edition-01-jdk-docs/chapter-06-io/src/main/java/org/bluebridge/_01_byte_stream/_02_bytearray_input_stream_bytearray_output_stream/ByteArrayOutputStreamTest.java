@@ -22,7 +22,7 @@ import java.io.IOException;
  *    在网络传输中作为缓冲区
  *    单元测试中模拟输出流
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class ByteArrayOutputStreamTest {
 
     @Test

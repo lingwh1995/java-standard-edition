@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * TCP三次握手模拟
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class TCPHandshakeSimulation {
     
     // 服务器端 - 模拟三次握手过程

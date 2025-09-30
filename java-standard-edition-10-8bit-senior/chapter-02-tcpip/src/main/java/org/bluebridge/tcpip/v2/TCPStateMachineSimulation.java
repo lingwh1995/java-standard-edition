@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.concurrent.*;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "·")
+@Slf4j
 public class TCPStateMachineSimulation {
     
     enum ConnectionState {

@@ -27,7 +27,7 @@ import java.io.IOException;
  *
  * BufferedWriter 是处理文本数据时非常重要的类，通过缓冲机制显著提高了文本写入的性能，特别是在处理大量文本数据时效果明显。
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class BufferedWriterTest {
 
     /**

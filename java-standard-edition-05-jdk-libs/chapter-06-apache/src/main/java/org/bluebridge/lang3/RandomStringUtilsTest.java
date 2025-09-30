@@ -9,7 +9,7 @@ import org.junit.Test;
  * @desc 随机字符串工具类-已经过期，不推荐使用，使用 commons-text包中 RandomStringGenerator 代替
  * @date 2025/9/15 11:15
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class RandomStringUtilsTest {
 
     /**

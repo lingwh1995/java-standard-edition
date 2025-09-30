@@ -10,7 +10,7 @@ import java.io.*;
  * @desc 字符输出流（字节流到字符流的桥梁，可以将字节流转换为字符流，可以指定字符编码格式）
  * @date 2025/8/21 16:41
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class OutputStreamWriterTest {
 
     @Test

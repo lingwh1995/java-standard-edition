@@ -10,7 +10,7 @@ import java.sql.*;
  * @desc 测试hsqldb基本功能
  * @date 2025/8/18 14:20
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class HsqldbTest {
 
     @Test

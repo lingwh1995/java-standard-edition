@@ -12,7 +12,7 @@ import java.io.PipedOutputStream;
  * @desc 管道输入流和管道输出流入门
  * @date 2025/8/16 14:11
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class PipedInputStream_PipedOutStreamTest {
 
     @Test

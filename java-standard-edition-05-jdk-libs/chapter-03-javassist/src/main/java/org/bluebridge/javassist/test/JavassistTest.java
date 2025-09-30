@@ -14,7 +14,7 @@ import java.lang.reflect.Modifier;
  * @desc 测试javassist功能
  * @date 2025/8/18 14:33
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class JavassistTest {
 
     /**

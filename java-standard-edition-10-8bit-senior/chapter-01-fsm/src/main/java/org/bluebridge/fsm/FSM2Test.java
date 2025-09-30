@@ -17,7 +17,7 @@ enum STATE{
  *
  * 使用枚举作为状态码实现状态机
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FSM2Test {
 
     /**

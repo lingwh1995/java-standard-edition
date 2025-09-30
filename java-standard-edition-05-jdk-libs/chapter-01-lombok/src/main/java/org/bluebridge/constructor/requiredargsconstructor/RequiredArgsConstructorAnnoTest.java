@@ -9,7 +9,7 @@ import org.junit.Test;
  * @desc 测试@RequiredArgsConstructor注解
  * @date 2025/8/18 11:38
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class RequiredArgsConstructorAnnoTest {
 
     /**

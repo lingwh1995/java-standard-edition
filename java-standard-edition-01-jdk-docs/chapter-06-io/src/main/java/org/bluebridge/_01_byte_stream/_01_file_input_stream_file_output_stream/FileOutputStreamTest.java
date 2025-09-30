@@ -10,7 +10,7 @@ import java.io.*;
  * @desc FileOutputStream 字节输出流
  * @date 2025/8/14 17:28
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FileOutputStreamTest {
 
     /**

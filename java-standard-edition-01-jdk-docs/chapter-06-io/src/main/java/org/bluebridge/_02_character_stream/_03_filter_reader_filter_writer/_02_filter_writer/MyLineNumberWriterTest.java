@@ -10,7 +10,7 @@ import java.io.*;
  * @desc
  * @date 2025/8/29 13:59
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class MyLineNumberWriterTest {
 
     @Test

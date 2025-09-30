@@ -8,7 +8,7 @@ import org.junit.Test;
  * @desc 值传递和引用传递测试
  * @date 2025/5/3 16:58
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class PassByValueAndPassByReference {
 
     @Test

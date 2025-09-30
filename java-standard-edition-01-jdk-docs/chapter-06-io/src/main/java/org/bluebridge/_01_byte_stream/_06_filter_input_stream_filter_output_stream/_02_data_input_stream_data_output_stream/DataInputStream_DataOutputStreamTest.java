@@ -10,7 +10,7 @@ import java.io.*;
  * @desc DataInputStream 数据输入流允许应用程序以机器无关的方式从底层输入流中读取基本的Java类型
  * @date 2025/8/16 17:33
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class DataInputStream_DataOutputStreamTest {
 
     @Test

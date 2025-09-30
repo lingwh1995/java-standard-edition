@@ -11,7 +11,7 @@ import java.io.IOException;
  * @desc CharArrayWriter 是 Writer 的子类，用于将数据写入字符数组
  * @date 2025/9/8 17:55
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class CharArrayWriterTest {
 
     /**

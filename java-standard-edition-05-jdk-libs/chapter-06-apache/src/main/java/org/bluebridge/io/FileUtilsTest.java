@@ -20,7 +20,7 @@ import java.util.Arrays;
  * @desc FileUtils工具类测试
  * @date 2025/9/15 10:55
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FileUtilsTest {
 
     /**

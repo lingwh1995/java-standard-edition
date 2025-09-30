@@ -11,7 +11,7 @@ import static java.lang.Math.pow;
  * @desc 静态导入（导入到类级别，要求导入的方法必须是静态方法）测试
  * @date 2019/3/12 16:58
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class StaticImport {
 
     @Test

@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * TCP 四次挥手模拟
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class TCPFourWayHandshakeSimulation {
 
     static class TCPServerWithFourWayHandshake {

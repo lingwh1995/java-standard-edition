@@ -10,7 +10,7 @@ import java.io.*;
  * @desc 文件字符输出流（只能用于写出文件，使用系统默认字符编码，无法指定编码格式）
  * @date 2025/8/21 17:57
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class FileWriterTest {
 
     @Test

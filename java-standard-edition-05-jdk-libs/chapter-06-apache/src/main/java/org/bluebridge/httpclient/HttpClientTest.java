@@ -15,7 +15,7 @@ import java.io.IOException;
  * @desc HttpClient工具类测试
  * @date 2019/6/20 15:48
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class HttpClientTest {
 
     /**

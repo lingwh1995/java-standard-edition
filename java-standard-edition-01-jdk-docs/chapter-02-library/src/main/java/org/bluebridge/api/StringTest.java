@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
  * @date 2019年3月11日  
  *    
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class StringTest {
 
 	/**

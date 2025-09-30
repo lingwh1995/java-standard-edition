@@ -29,7 +29,7 @@ import java.io.StringReader;
  *    unread(char[] cbuf, int off, int len)：将字符数组推回流中
  *    close()：关闭流
  */
-@Slf4j(topic = "·")
+@Slf4j
 public class PushbackReaderTest {
 
     @Test
