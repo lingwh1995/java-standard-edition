@@ -1,0 +1,80 @@
+package org.bluebridge.thread_17_communication.model;
+
+import lombok.extern.slf4j.Slf4j;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author lingwh
+ * @desc 演示ThreadLocal机制的使用场景：主线程等待多个工作线程完成
+ * @date 2025/10/28 9:34
+ */
+@Slf4j
+public class ThreadLocalTest {
+
+    // 总工作线程数量
+    private static final int TOTAL_WORKERS = 3;
+    // 使用ThreadLocal存储每个线程的工作状态
+    private static final ThreadLocal<Boolean> workerCompletionStatus = new ThreadLocal<Boolean>() {
+        @Override
+        protected Boolean initialValue() {
+            return false;
+        }
+    };
+    
+    // 用于存储工作线程的引用
+    private static final List<Thread> workerThreads = new ArrayList<>();
+
+    public static void main(String[] args) throws InterruptedException {
+        // 创建并启动3个工作线程
+        Thread worker1 = new Thread(new Worker("Worker-1"));
+        Thread worker2 = new Thread(new Worker("Worker-2"));
+        Thread worker3 = new Thread(new Worker("Worker-3"));
+        
+        // 保存线程引用
+        workerThreads.add(worker1);
+        workerThreads.add(worker2);
+        workerThreads.add(worker3);
+        
+        // 启动所有工作线程
+        worker1.start();
+        worker2.start();
+        worker3.start();
+
+        log.info("主线程等待所有工作线程完成......");
+
+        // 等待所有工作线程完成
+        for (Thread workerThread : workerThreads) {
+            workerThread.join();
+        }
+
+        log.info("所有工作已完成，主线程继续执行......");
+    }
+
+    static class Worker implements Runnable {
+        private final String name;
+
+        public Worker(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void run() {
+            try {
+                log.info("{} 开始工作......", name);
+                // 模拟工作耗时
+                Thread.sleep((long) (Math.random() * 3000));
+                log.info("{} 工作完成......", name);
+                
+                // 设置当前线程的工作完成状态
+                workerCompletionStatus.set(true);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            } finally {
+                // 清理ThreadLocal变量
+                workerCompletionStatus.remove();
+            }
+        }
+    }
+
+}

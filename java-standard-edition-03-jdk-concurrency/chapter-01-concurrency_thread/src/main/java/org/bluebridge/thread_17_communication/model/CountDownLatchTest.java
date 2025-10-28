@@ -1,9 +1,14 @@
-package org.bluebridge.thread_17_communication;
+package org.bluebridge.thread_17_communication.model;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * @author lingwh
+ * @desc 演示CountDownLatch的使用场景：主线程等待多个工作线程完成
+ * @date 2025/10/27 18:25
+ */
 @Slf4j
 public class CountDownLatchTest {
 
