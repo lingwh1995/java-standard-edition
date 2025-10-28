@@ -1,4 +1,4 @@
-package org.bluebridge.thread_17_communication.model;
+package org.bluebridge.thread_17_communication.wait_for_other_worker;
 
 import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.locks.Condition;
@@ -23,9 +23,9 @@ public class ReentrantLockTest {
 
     public static void main(String[] args) throws InterruptedException {
         // 启动3个工作线程
-        new Thread(new Worker("Worker-1")).start();
-        new Thread(new Worker("Worker-2")).start();
-        new Thread(new Worker("Worker-3")).start();
+        new Thread(new Worker("工作线程1 => 启动服务A")).start();
+        new Thread(new Worker("工作线程2 => 启动服务B")).start();
+        new Thread(new Worker("工作线程3 => 启动服务C")).start();
 
         lock.lock();
         try {

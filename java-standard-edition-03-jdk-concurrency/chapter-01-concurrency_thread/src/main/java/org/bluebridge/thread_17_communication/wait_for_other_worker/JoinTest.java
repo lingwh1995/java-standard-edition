@@ -1,4 +1,4 @@
-package org.bluebridge.thread_17_communication.model;
+package org.bluebridge.thread_17_communication.wait_for_other_worker;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,9 +14,9 @@ public class JoinTest {
 
     public static void main(String[] args) throws InterruptedException {
         // 创建工作线程并保存引用
-        Thread worker1 = new Thread(new Worker("Worker-1"));
-        Thread worker2 = new Thread(new Worker("Worker-2"));
-        Thread worker3 = new Thread(new Worker("Worker-3"));
+        Thread worker1 = new Thread(new Worker("工作线程1 => 启动服务A"));
+        Thread worker2 = new Thread(new Worker("工作线程2 => 启动服务B"));
+        Thread worker3 = new Thread(new Worker("工作线程3 => 启动服务C"));
 
         // 启动所有工作线程
         worker1.start();

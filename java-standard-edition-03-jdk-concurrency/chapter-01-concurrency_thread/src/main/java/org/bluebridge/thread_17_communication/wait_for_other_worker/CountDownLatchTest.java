@@ -1,4 +1,4 @@
-package org.bluebridge.thread_17_communication.model;
+package org.bluebridge.thread_17_communication.wait_for_other_worker;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,9 +17,9 @@ public class CountDownLatchTest {
         CountDownLatch latch = new CountDownLatch(3);
 
         // 启动3个工作线程
-        new Thread(new Worker(latch, "Worker-1")).start();
-        new Thread(new Worker(latch, "Worker-2")).start();
-        new Thread(new Worker(latch, "Worker-3")).start();
+        new Thread(new Worker(latch, "工作线程1 => 启动服务A")).start();
+        new Thread(new Worker(latch, "工作线程2 => 启动服务B")).start();
+        new Thread(new Worker(latch, "工作线程3 => 启动服务C")).start();
 
         log.info("主线程等待所有工作线程完成......");
 

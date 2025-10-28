@@ -1,4 +1,4 @@
-package org.bluebridge.thread_17_communication.model;
+package org.bluebridge.thread_17_communication.wait_for_other_worker;
 
 import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -12,20 +12,20 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AtomicTest {
 
     // 使用原子变量替代普通int变量
-    private static final AtomicInteger completedWorkers = new AtomicInteger(0);
+    private static final AtomicInteger COMPLETED_WORKERS = new AtomicInteger(0);
     // 总工作线程数量
     private static final int TOTAL_WORKERS = 3;
 
     public static void main(String[] args) throws InterruptedException {
         // 启动3个工作线程
-        new Thread(new Worker("Worker-1")).start();
-        new Thread(new Worker("Worker-2")).start();
-        new Thread(new Worker("Worker-3")).start();
+        new Thread(new Worker("工作线程1 => 启动服务A")).start();
+        new Thread(new Worker("工作线程2 => 启动服务B")).start();
+        new Thread(new Worker("工作线程3 => 启动服务C")).start();
 
         log.info("主线程等待所有工作线程完成......");
 
         // 主线程轮询等待所有工作完成
-        while (completedWorkers.get() < TOTAL_WORKERS) {
+        while (COMPLETED_WORKERS.get() < TOTAL_WORKERS) {
             Thread.sleep(100); // 短暂休眠避免过度占用CPU
         }
 
@@ -51,7 +51,7 @@ public class AtomicTest {
             }
 
             // 原子性增加完成的工作线程计数
-            completedWorkers.incrementAndGet();
+            COMPLETED_WORKERS.incrementAndGet();
         }
     }
 
