@@ -14,7 +14,7 @@ public class SemaphoreTest {
     // 总工作线程数量
     private static final int TOTAL_WORKERS = 3;
     // 创建Semaphore，初始许可数为0
-    private static final Semaphore semaphore = new Semaphore(0);
+    private static final Semaphore SEMAPHORE = new Semaphore(0);
 
     public static void main(String[] args) throws InterruptedException {
         // 启动3个工作线程
@@ -25,7 +25,7 @@ public class SemaphoreTest {
         log.info("主线程等待所有工作线程完成......");
 
         // 获取TOTAL_WORKERS个许可，阻塞直到所有工作完成
-        semaphore.acquire(TOTAL_WORKERS);
+        SEMAPHORE.acquire(TOTAL_WORKERS);
 
         log.info("所有工作已完成，主线程继续执行......");
     }
@@ -49,7 +49,7 @@ public class SemaphoreTest {
             }
 
             // 释放一个许可
-            semaphore.release();
+            SEMAPHORE.release();
         }
     }
 

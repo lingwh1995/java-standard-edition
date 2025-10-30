@@ -13,9 +13,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockTest {
 
     // 创建可重入锁
-    private static final ReentrantLock lock = new ReentrantLock();
+    private static final ReentrantLock LOCK = new ReentrantLock();
     // 创建条件对象
-    private static final Condition completionCondition = lock.newCondition();
+    private static final Condition CONDITION = LOCK.newCondition();
     // 记录完成的工作线程数量
     private static int completedWorkers = 0;
     // 总工作线程数量
@@ -27,16 +27,16 @@ public class ReentrantLockTest {
         new Thread(new Worker("工作线程2 => 启动服务B")).start();
         new Thread(new Worker("工作线程3 => 启动服务C")).start();
 
-        lock.lock();
+        LOCK.lock();
         try {
             log.info("主线程等待所有工作线程完成......");
 
             // 主线程等待所有工作完成
             while (completedWorkers < TOTAL_WORKERS) {
-                completionCondition.await();
+                CONDITION.await();
             }
         } finally {
-            lock.unlock();
+            LOCK.unlock();
         }
 
         log.info("所有工作已完成，主线程继续执行......");
@@ -60,14 +60,14 @@ public class ReentrantLockTest {
                 Thread.currentThread().interrupt();
             }
 
-            lock.lock();
+            LOCK.lock();
             try {
                 // 增加完成的工作线程计数
                 completedWorkers++;
                 // 唤醒等待的主线程
-                completionCondition.signalAll();
+                CONDITION.signalAll();
             } finally {
-                lock.unlock();
+                LOCK.unlock();
             }
         }
     }

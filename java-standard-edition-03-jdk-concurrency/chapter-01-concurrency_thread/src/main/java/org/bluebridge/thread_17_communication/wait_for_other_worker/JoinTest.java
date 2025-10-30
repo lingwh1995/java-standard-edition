@@ -10,8 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JoinTest {
 
-    private static final int TOTAL_WORKERS = 3;
-
     public static void main(String[] args) throws InterruptedException {
         // 创建工作线程并保存引用
         Thread worker1 = new Thread(new Worker("工作线程1 => 启动服务A"));

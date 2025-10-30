@@ -15,8 +15,7 @@ public class BlockingQueueTest {
     // 总工作线程数量
     private static final int TOTAL_WORKERS = 3;
     // 创建容量为TOTAL_WORKERS的阻塞队列
-    private static final BlockingQueue<String> COMPLETION_QUEUE =
-        new ArrayBlockingQueue<>(TOTAL_WORKERS);
+    private static final BlockingQueue<String> COMPLETION_QUEUE = new ArrayBlockingQueue<>(TOTAL_WORKERS);
 
     public static void main(String[] args) throws InterruptedException {
         // 启动3个工作线程

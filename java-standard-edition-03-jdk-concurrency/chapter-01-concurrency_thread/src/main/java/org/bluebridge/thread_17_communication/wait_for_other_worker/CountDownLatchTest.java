@@ -11,20 +11,20 @@ import java.util.concurrent.CountDownLatch;
  */
 @Slf4j
 public class CountDownLatchTest {
+    // 创建一个计数为3的CountDownLatch
+    private static final CountDownLatch WAIT_LATCH = new CountDownLatch(3);
 
     public static void main(String[] args) throws InterruptedException {
-        // 创建一个计数为3的CountDownLatch
-        CountDownLatch latch = new CountDownLatch(3);
 
         // 启动3个工作线程
-        new Thread(new Worker(latch, "工作线程1 => 启动服务A")).start();
-        new Thread(new Worker(latch, "工作线程2 => 启动服务B")).start();
-        new Thread(new Worker(latch, "工作线程3 => 启动服务C")).start();
+        new Thread(new Worker(WAIT_LATCH, "工作线程1 => 启动服务A")).start();
+        new Thread(new Worker(WAIT_LATCH, "工作线程2 => 启动服务B")).start();
+        new Thread(new Worker(WAIT_LATCH, "工作线程3 => 启动服务C")).start();
 
         log.info("主线程等待所有工作线程完成......");
 
         // 主线程等待所有工作完成
-        latch.await();
+        WAIT_LATCH.await();
 
         log.info("所有工作已完成，主线程继续执行......");
     }

@@ -19,7 +19,7 @@ public class CountDownLatchTest {
     // 比较结果
     private static final AtomicReference<String> RESULT = new AtomicReference<>(null);
     // 用于输入比较的闭锁
-    private static final CountDownLatch INPUT_COMPARISON_LATCH = new CountDownLatch(1);
+    private static final CountDownLatch WAIT_LATCH = new CountDownLatch(1);
 
     public static void main(String[] args) {
         // 输入数字线程
@@ -29,7 +29,7 @@ public class CountDownLatchTest {
             INPUT.set(scanner.nextLine());
             try {
                 log.info("等待比较用户输入内容中......");
-                INPUT_COMPARISON_LATCH.await();
+                WAIT_LATCH.await();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -44,7 +44,7 @@ public class CountDownLatchTest {
                 RESULT.set("输入的内容不是 hello");
             }
             // 计数器减一
-            INPUT_COMPARISON_LATCH.countDown();
+            WAIT_LATCH.countDown();
         },"thread-compare").start();
     }
 

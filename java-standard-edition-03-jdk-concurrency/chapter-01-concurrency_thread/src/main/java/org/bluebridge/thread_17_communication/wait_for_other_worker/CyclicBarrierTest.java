@@ -15,9 +15,8 @@ public class CyclicBarrierTest {
     // 总工作线程数量
     private static final int TOTAL_WORKERS = 3;
     // 创建CyclicBarrier，指定需要等待的线程数和屏障动作
-    private static final CyclicBarrier barrier = new CyclicBarrier(TOTAL_WORKERS, () -> {
-        log.info("所有工作已完成，主线程继续执行......");
-    });
+    private static final CyclicBarrier BARRIER =
+            new CyclicBarrier(TOTAL_WORKERS, () -> log.info("所有工作已完成，主线程继续执行......"));
 
     public static void main(String[] args) {
         log.info("主线程等待所有工作线程完成......");
@@ -44,7 +43,7 @@ public class CyclicBarrierTest {
                 log.info("{} 工作完成......", name);
                 
                 // 等待其他线程，当所有线程都到达屏障点时执行回调
-                barrier.await();
+                BARRIER.await();
             } catch (InterruptedException | BrokenBarrierException e) {
                 log.error("{} 工作过程中发生异常", name, e);
                 Thread.currentThread().interrupt();
