@@ -18,8 +18,9 @@
         <module>chapter-04-jnanoiduitls</module>
         <module>chapter-05-dom4j</module>
         <module>chapter-06-apache</module>
-        <module>chapter-07-cas</module>
-        <module>chapter-08-iotutils</module>
+        <module>chapter-07-google</module>
+        <module>chapter-08-cas</module>
+        <module>chapter-09-iotutils</module>
     </modules>
 
     <properties>
