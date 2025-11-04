@@ -45,6 +45,7 @@
         <hsqldb.version>2.5.1</hsqldb.version>
         <javassist.version>3.29.2-GA</javassist.version>
         <jnanoid.version>2.0.0</jnanoid.version>
+        <protobuf.version>4.33.0</protobuf.version>
     </properties>
 
     <dependencyManagement>
@@ -138,6 +139,16 @@
                 <groupId>com.aventrix.jnanoid</groupId>
                 <artifactId>jnanoid</artifactId>
                 <version>${jnanoid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java-util</artifactId>
+                <version>${protobuf.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
