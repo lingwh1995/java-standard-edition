@@ -1,6 +1,7 @@
 package org.bluebridge;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.util.JsonFormat;
 import lombok.extern.slf4j.Slf4j;
 import org.bluebridge.protobuf.domain.UserProto;
 
@@ -8,7 +9,7 @@ import java.util.Arrays;
 
 /**
  * @author lingwh
- * @desc
+ * @desc 测试Protobuf
  * @date 2025/11/3 20:57
  */
 @Slf4j
@@ -57,12 +58,12 @@ public class ProtobufTest {
         // -------------- 可选：与 JSON 互转（调试用）--------------
         try {
             // User 对象 → JSON 字符串（需要引入 protobuf-java-util 依赖）
-            String json = com.google.protobuf.util.JsonFormat.printer().print(user);
+            String json = JsonFormat.printer().print(user);
             log.info("JSON 转 User：{}", json);
 
             // JSON 字符串 → User 对象
             UserProto.User.Builder userBuilder = UserProto.User.newBuilder();
-            com.google.protobuf.util.JsonFormat.parser().merge(json, userBuilder);
+            JsonFormat.parser().merge(json, userBuilder);
             UserProto.User jsonParsedUser = userBuilder.build();
             log.info("JSON 转 User：{}", jsonParsedUser);
         } catch (Exception e) {
