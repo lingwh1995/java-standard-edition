@@ -22,6 +22,11 @@ public class ProtobufOfContactsReadTest {
         ContactProto.Contacts contacts = ContactProto.Contacts.parseFrom(inputStream);
 
         // 打印联系人信息
+        //printContacts(contacts);
+        log.info("通讯录：{}", contacts.toString());
+    }
+
+    private static void printContacts(ContactProto.Contacts contacts) {
         contacts.getContactsList().forEach(peopleInfo -> {
             log.info("姓名：{}，年龄：{}", peopleInfo.getName(), peopleInfo.getAge());
             peopleInfo.getPhonesList().forEach(phone -> {
