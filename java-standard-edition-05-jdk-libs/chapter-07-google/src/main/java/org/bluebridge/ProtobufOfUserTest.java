@@ -3,17 +3,23 @@ package org.bluebridge;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import lombok.extern.slf4j.Slf4j;
+import org.bluebridge.protobuf.domain.ContactProto;
 import org.bluebridge.protobuf.domain.UserProto;
+import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * @author lingwh
- * @desc 测试Protobuf
+ * @desc 测试 Protobuf 用户
  * @date 2025/11/3 20:57
  */
 @Slf4j
-public class ProtobufTest {
+public class ProtobufOfUserTest {
 
     public static void main(String[] args) {
         // -------------- 1. 创建 User 对象（通过 Builder 模式）--------------
