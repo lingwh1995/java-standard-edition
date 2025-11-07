@@ -6,7 +6,7 @@ package org.bluebridge.protobuf.contacts;
 option java_multiple_files = false;
 
 // 生成的文件存放在哪个包下
-option java_package = "proto";
+option java_package = "org.bluebridge.protobuf.proto";
 
 // 生成的类名，如果没有指定，会根据文件名自动转驼峰来命名
 option java_outer_classname = "ContactProto";

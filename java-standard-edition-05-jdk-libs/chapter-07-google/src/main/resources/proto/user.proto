@@ -5,7 +5,7 @@ syntax = "proto3";
 package org.bluebridge.protobuf.protobuf.color;
 
 // 2. 生成的文件存放在哪个包下，（默认是 proto 文件所在目录的包结构）
-option java_package = "proto";
+option java_package = "org.bluebridge.protobuf.proto";
 
 // 3.是否需要將生成的类拆分为多个
 option java_multiple_files = false;

@@ -1380,7 +1380,7 @@ public final class UserProto extends com.google.protobuf.GeneratedFile {
   }
   /**
    * <pre>
-   * 6. 定义嵌套消息（地址信息）
+   * 6. 在 user.proto 中定义嵌套消息（地址信息）
    * </pre>
    *
    * Protobuf type {@code org.bluebridge.protobuf.protobuf.color.Address}
@@ -1741,7 +1741,7 @@ public final class UserProto extends com.google.protobuf.GeneratedFile {
     }
     /**
      * <pre>
-     * 6. 定义嵌套消息（地址信息）
+     * 6. 在 user.proto 中定义嵌套消息（地址信息）
      * </pre>
      *
      * Protobuf type {@code org.bluebridge.protobuf.protobuf.color.Address}
