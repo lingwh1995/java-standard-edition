@@ -1,10 +1,9 @@
-package org.bluebridge;
+package org.bluebridge.protobuf.test;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bluebridge.protobuf.domain.ContactProto;
+import org.bluebridge.protobuf.proto.ContactProto;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -32,6 +31,7 @@ public class ProtobufOfContactsReadTest {
             peopleInfo.getPhonesList().forEach(phone -> {
                 log.info("手机号：{}", phone.getNumber());
             });
+            log.info("--------------------");
         });
     }
 

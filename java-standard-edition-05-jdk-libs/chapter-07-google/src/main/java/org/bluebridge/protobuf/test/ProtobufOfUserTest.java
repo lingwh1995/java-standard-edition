@@ -1,17 +1,11 @@
-package org.bluebridge;
+package org.bluebridge.protobuf.test;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import lombok.extern.slf4j.Slf4j;
-import org.bluebridge.protobuf.domain.ContactProto;
-import org.bluebridge.protobuf.domain.UserProto;
-import org.junit.Test;
+import org.bluebridge.protobuf.proto.UserProto;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * @author lingwh
