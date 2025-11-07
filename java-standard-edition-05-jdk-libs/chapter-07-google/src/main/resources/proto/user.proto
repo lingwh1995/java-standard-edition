@@ -5,7 +5,7 @@ syntax = "proto3";
 package org.bluebridge.protobuf.protobuf.color;
 
 // 2. 生成的文件存放在哪个包下，（默认是 proto 文件所在目录的包结构）
-option java_package = "org.bluebridge.protobuf.proto";
+option java_package = "proto";
 
 // 3.是否需要將生成的类拆分为多个
 option java_multiple_files = false;
@@ -23,7 +23,7 @@ message User {
   Address address = 5;         // 嵌套消息（对应 Java 的内部类 Address）
 }
 
-// 6. 定义嵌套消息（地址信息）
+// 6. 在 user.proto 中定义嵌套消息（地址信息）
 message Address {
   string province = 1;         // 省份
   string city = 2;             // 城市
