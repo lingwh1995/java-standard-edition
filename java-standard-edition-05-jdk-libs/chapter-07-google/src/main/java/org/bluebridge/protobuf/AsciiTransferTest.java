@@ -1,4 +1,4 @@
-package org.bluebridge;
+package org.bluebridge.protobuf;
 
 import lombok.extern.slf4j.Slf4j;
 
