@@ -51,12 +51,6 @@
         </extensions>
 
         <plugins>
-            <!-- Spring Boot 打包插件 -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
             <!-- Protobuf 编译插件（自动将 .proto 编译为 Java 代码） -->
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>

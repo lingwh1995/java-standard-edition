@@ -27,7 +27,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>4.9</junit.version>
+        <junit.version>4.12</junit.version>
         <lombok.version>1.18.30</lombok.version>
         <logback.version>1.2.3</logback.version>
         <dom4j.version>1.6.1</dom4j.version>
@@ -41,15 +41,25 @@
         <jaxen.version>1.2.0</jaxen.version>
         <hutool-crypto.version>5.8.0</hutool-crypto.version>
         <guava.version>30.0-jre</guava.version>
-        <spring-core.version>5.0.15.RELEASE</spring-core.version>
         <hsqldb.version>2.5.1</hsqldb.version>
         <javassist.version>3.29.2-GA</javassist.version>
         <jnanoid.version>2.0.0</jnanoid.version>
         <protobuf.version>4.33.0</protobuf.version>
+        <spring.version>5.1.7.RELEASE</spring.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -119,11 +129,6 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hsqldb</groupId>
