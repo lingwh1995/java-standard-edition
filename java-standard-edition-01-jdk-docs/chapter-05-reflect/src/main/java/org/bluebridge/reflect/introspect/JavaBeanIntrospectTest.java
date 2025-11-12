@@ -9,23 +9,15 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/**  
- * JavaBean的内省
- * @author ronin  
- * @date 2019年3月16日  
- *    
+/**
+ * @author lingwh
+ * @desc JavaBean 的内省
+ * @date 2019/03/16 10:00
  */
 public class JavaBeanIntrospectTest {
 
-    /**
-     * JavaBean内省
-     * @throws IntrospectionException
-     * @throws IllegalAccessException
-     * @throws IllegalArgumentException
-     * @throws InvocationTargetException
-     */
 	@Test
-	public void testJavaBeanIntrospect() throws IntrospectionException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+	public void testJavaBeanIntrospect() throws IntrospectionException, IllegalArgumentException {
 		// 通过Introspector.getBeanInfo方法获取指定JavaBean类的BeanInfo信息
         BeanInfo beanInfo = Introspector.getBeanInfo(org.bluebridge.reflect.domain.Person.class);
         // 通过Introspector.getBeanInfo方法的重载方法获取指定JavaBean类的BeanInfo信息，并剔除Object类的方法
