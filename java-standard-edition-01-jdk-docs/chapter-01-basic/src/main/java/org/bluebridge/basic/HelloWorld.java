@@ -1,4 +1,4 @@
-package org.bluebridge.beginner;
+package org.bluebridge.basic;
 
 /**
  * @author lingwh
