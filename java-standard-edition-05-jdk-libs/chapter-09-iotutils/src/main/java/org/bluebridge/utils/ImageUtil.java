@@ -145,10 +145,10 @@ public class ImageUtil {
         file.setReadable(true, false);
     }
 
-    public static void transferBytesToImages_3(byte[] source, String imagePath, String imagePrefix) throws IOException {
+    public static void transferBytesToImages_3(byte[] source, String imagePath, String imagePrefix, int  degrees) throws IOException {
         try {
             String filePath = imagePath + imagePrefix + ".jpeg";
-            source = ImageRotationUtils.rotateJpeg90Degrees(source);
+            source = ImageRotationUtils.rotateJpegByDegrees(source, degrees);
             FileUtil.writeBytes(source, filePath);
         } catch (IOException e) {
             throw new RuntimeException("JPEG图片旋转失败: " + e.getMessage(), e);

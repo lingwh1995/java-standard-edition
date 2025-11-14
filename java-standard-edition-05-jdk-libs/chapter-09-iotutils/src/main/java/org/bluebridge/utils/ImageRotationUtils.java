@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class ImageRotationUtils {
-    
+
     /**
      * 通用的图片旋转方法
      * @param imageData 图像数据
@@ -30,7 +30,7 @@ public class ImageRotationUtils {
                 throw new IllegalArgumentException("只支持90, 180, 270度旋转");
         }
     }
-    
+
     /**
      * 顺时针旋转90度
      */
@@ -38,7 +38,7 @@ public class ImageRotationUtils {
         int newWidth = height;
         int newHeight = width;
         byte[] rotatedData = new byte[imageData.length];
-        
+
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int originalIndex = y * width + x;
@@ -50,7 +50,7 @@ public class ImageRotationUtils {
         }
         return rotatedData;
     }
-    
+
     /**
      * 逆时针旋转90度（等同于顺时针旋转270度）
      */
@@ -58,7 +58,7 @@ public class ImageRotationUtils {
         int newWidth = height;
         int newHeight = width;
         byte[] rotatedData = new byte[imageData.length];
-        
+
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int originalIndex = y * width + x;
@@ -70,13 +70,13 @@ public class ImageRotationUtils {
         }
         return rotatedData;
     }
-    
+
     /**
      * 旋转180度
      */
     private static byte[] rotate180(byte[] imageData, int width, int height) {
         byte[] rotatedData = new byte[imageData.length];
-        
+
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int originalIndex = y * width + x;
@@ -92,10 +92,11 @@ public class ImageRotationUtils {
     /**
      * 旋转JPEG图片90度（逆时针）
      * @param jpegData 原始JPEG图片字节数组
+     * @param degrees 旋转角度
      * @return 旋转后的JPEG图片字节数组
      * @throws IOException 如果图片解码或编码失败
      */
-    public static byte[] rotateJpeg90Degrees(byte[] jpegData) throws IOException {
+    public static byte[] rotateJpegByDegrees(byte[] jpegData, int degrees) throws IOException {
         // 解码JPEG图片
         BufferedImage originalImage = ImageIO.read(new ByteArrayInputStream(jpegData));
         // 计算旋转后的尺寸（宽高互换）
@@ -104,8 +105,21 @@ public class ImageRotationUtils {
 
         // 创建旋转变换（90度逆时针）
         AffineTransform affineTransform = new AffineTransform();
-        affineTransform.translate(0, width);  // 调整平移参数
-        affineTransform.rotate(-Math.PI / 2);  // 使用负角度实现逆时针旋转
+        switch (degrees) {
+            // 逆时针旋转90度
+            case -90:
+                affineTransform.translate(0, width);
+                affineTransform.rotate(-Math.PI / 2);
+                break;
+            // 顺时针旋转90度
+            case 90:
+                affineTransform.translate(height, 0);
+                affineTransform.rotate(Math.PI / 2);
+                break;
+            default:
+                throw new IllegalArgumentException("只支持90, 180, 270度旋转");
+        }
+
 
         // 应用旋转
         AffineTransformOp op = new AffineTransformOp(affineTransform, AffineTransformOp.TYPE_BILINEAR);
