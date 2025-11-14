@@ -92,7 +92,6 @@ public class ImageRotationUtils {
     /**
      * 旋转JPEG图片90度（逆时针）
      * @param jpegData 原始JPEG图片字节数组
-     * @param degrees 旋转角度
      * @return 旋转后的JPEG图片字节数组
      * @throws IOException 如果图片解码或编码失败
      */
@@ -119,7 +118,6 @@ public class ImageRotationUtils {
             default:
                 throw new IllegalArgumentException("只支持90, 180, 270度旋转");
         }
-
 
         // 应用旋转
         AffineTransformOp op = new AffineTransformOp(affineTransform, AffineTransformOp.TYPE_BILINEAR);
