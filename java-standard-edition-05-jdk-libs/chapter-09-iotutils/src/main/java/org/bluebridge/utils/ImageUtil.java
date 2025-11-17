@@ -58,6 +58,15 @@ public class ImageUtil {
         //byte[] unGZipBytes = ZipUtils.unGZip(source);
         //获取还原后的字节数组
         byte[] desBytes = transImageBitsToBytes(source);
+        for(int i = 0; i < desBytes.length; i++) {
+            if(i % 100 == 0 && i != 0) {
+                System.out.println();
+            }
+            if(i % 100 <= 30) {
+                desBytes[i] = 0;
+            }
+            System.out.print((desBytes[i] & 0xFF) + "\t");
+        }
         // 把图片顺时针旋转90度
         desBytes = ImageRotationUtils.rotateImage(desBytes, 100, 320, 90);
         byte[] bmpBytes = BmpHeaderUtil.createBmpFile(desBytes, 320, 100);
