@@ -36,7 +36,23 @@ public class StringTest {
 		String[] letterArray = letters.split("");
 		log.info("Arrays.toString(letterArray): {}", Arrays.toString(letterArray));
 	}
-	
+
+	/**
+	 * 测试String的indexOf()方法：返回指定字符或字符串在当前字符串中第一次出现的索引位置
+	 * 如果当前字符串中不包含指定的字符或字符串，则返回-1
+	 */
+	@Test
+	public void testIndexOf(){
+		String str = "abccdef";
+		// 从0位置开始找
+		log.debug("str.indexOf('a'): {}", str.indexOf('a'));
+		log.debug("str.indexOf('cc'): {}", str.indexOf("cc"));
+		log.debug("str.indexOf('d'): {}", str.indexOf('d'));
+
+		// 从2位置开始找，返回结果是从0位置开始找的索引位置
+		log.debug("str.indexOf('d'): {}", str.indexOf('d', 2));
+	}
+
 	/**
 	 * String的Join方法:使用指定的拼接符号把数组/集合中每一个元素拼接起来,拼成一个字符串
 	 * @param
