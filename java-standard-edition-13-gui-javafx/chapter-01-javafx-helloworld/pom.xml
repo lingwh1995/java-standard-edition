@@ -126,7 +126,7 @@
             </build>
         </profile>
 
-        <!-- Linux 平台配置 -->
+        <!-- Linux 平台配置 - 打包为deb包 -->
         <profile>
             <id>linux</id>
             <activation>
@@ -149,12 +149,15 @@
                                 <configuration>
                                     <executable>jpackage</executable>
                                     <arguments>
-                                        <argument>--type</argument><argument>app-image</argument>
+                                        <!-- 修改为deb包格式 -->
+                                        <argument>--type</argument><argument>deb</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
                                         <argument>--name</argument><argument>HelloWorldApp</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
+                                        <!-- deb包必要配置 -->
+                                        <argument>--linux-deb-maintainer</argument><argument>admin@bluebridge.org</argument>
                                         <argument>--linux-shortcut</argument>
                                         <argument>--linux-menu-group</argument><argument>Development</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
@@ -167,7 +170,7 @@
             </build>
         </profile>
 
-        <!-- macOS 平台配置 -->
+        <!-- macOS 平台配置 - 打包为dmg包 -->
         <profile>
             <id>macos</id>
             <activation>
@@ -189,7 +192,8 @@
                                 <configuration>
                                     <executable>jpackage</executable>
                                     <arguments>
-                                        <argument>--type</argument><argument>app-image</argument>
+                                        <!-- 修改为dmg包格式 -->
+                                        <argument>--type</argument><argument>dmg</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
                                         <argument>--name</argument><argument>HelloWorldApp</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
