@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>chapter-01-javafx-helloworld</artifactId>
+    <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -17,23 +18,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>21</javafx.version>
         <main.class>org.bluebridge.HelloWorld</main.class>
+        <shaded.jar.name>${project.artifactId}-${project.version}-shaded.jar</shaded.jar.name>
     </properties>
 
-    <!-- 依赖配置：自动从中央仓库下载 JavaFX 模块 -->
     <dependencies>
-        <!-- JavaFX 核心控件依赖（必选） -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-        <!-- JavaFX FXML 依赖（如果用到 FXML 界面分离则添加） -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-        <!-- JavaFX 图形渲染依赖（可选，部分场景需要） -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
@@ -41,7 +39,6 @@
         </dependency>
     </dependencies>
 
-    <!-- 构建插件：处理 JavaFX 模块化运行和打包 -->
     <build>
         <plugins>
             <plugin>
@@ -63,6 +60,7 @@
                         <phase>package</phase>
                         <goals><goal>shade</goal></goals>
                         <configuration>
+                            <outputFile>${project.build.directory}/${shaded.jar.name}</outputFile>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>org.bluebridge.AppLauncher</mainClass>
@@ -82,32 +80,130 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>jpackage</id>
-                        <phase>install</phase> <goals><goal>exec</goal></goals>
-                        <configuration>
-                            <executable>jpackage</executable>
-                            <arguments>
-                                <argument>--type</argument><argument>exe</argument>
-                                <argument>--dest</argument><argument>target/dist</argument>
-                                <argument>--name</argument><argument>HelloWorldApp</argument>
-                                <argument>--input</argument><argument>target/</argument>
-                                <argument>--main-jar</argument><argument>${project.artifactId}-${project.version}.jar</argument>
-                                <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
-                                <argument>--win-shortcut</argument>
-                                <argument>--win-dir-chooser</argument>
-                                <argument>--vendor</argument><argument>BlueBridge</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
+
+    <!-- 按操作系统自动激活对应的打包配置 -->
+    <profiles>
+        <!-- Windows 平台配置（默认激活） -->
+        <profile>
+            <id>windows</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>jpackage-win</id>
+                                <phase>install</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>jpackage</executable>
+                                    <arguments>
+                                        <argument>--type</argument><argument>exe</argument>
+                                        <argument>--dest</argument><argument>target/dist</argument>
+                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--input</argument><argument>${project.build.directory}</argument>
+                                        <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
+                                        <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
+                                        <argument>--win-shortcut</argument>
+                                        <argument>--win-dir-chooser</argument>
+                                        <argument>--vendor</argument><argument>BlueBridge</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Linux 平台配置 -->
+        <profile>
+            <id>linux</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <name>linux</name>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>jpackage-linux</id>
+                                <phase>install</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>jpackage</executable>
+                                    <arguments>
+                                        <argument>--type</argument><argument>app-image</argument>
+                                        <argument>--dest</argument><argument>target/dist</argument>
+                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--input</argument><argument>${project.build.directory}</argument>
+                                        <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
+                                        <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
+                                        <argument>--linux-shortcut</argument>
+                                        <argument>--linux-menu-group</argument><argument>Development</argument>
+                                        <argument>--vendor</argument><argument>BlueBridge</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- macOS 平台配置 -->
+        <profile>
+            <id>macos</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>jpackage-macos</id>
+                                <phase>install</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>jpackage</executable>
+                                    <arguments>
+                                        <argument>--type</argument><argument>app-image</argument>
+                                        <argument>--dest</argument><argument>target/dist</argument>
+                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--input</argument><argument>${project.build.directory}</argument>
+                                        <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
+                                        <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
+                                        <argument>--mac-app-category</argument><argument>DeveloperTools</argument>
+                                        <argument>--vendor</argument><argument>BlueBridge</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
