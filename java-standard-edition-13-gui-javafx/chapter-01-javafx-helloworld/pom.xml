@@ -16,6 +16,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>21</javafx.version>
+        <main.class>org.bluebridge.HelloWorld</main.class>
     </properties>
 
     <!-- 依赖配置：自动从中央仓库下载 JavaFX 模块 -->
@@ -51,20 +52,6 @@
                     <source>21</source>
                     <target>21</target>
                 </configuration>
-            </plugin>
-            <!-- 自动识别操作系统，匹配对应平台的 JavaFX 依赖 -->
-            <plugin>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>1.7.0</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>detect</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- JavaFX 运行插件（核心：替代手动配置 VM 参数） -->
