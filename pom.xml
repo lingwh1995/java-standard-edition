@@ -28,7 +28,6 @@
         <module>java-standard-edition-10-8bit-senior</module>
         <module>java-standard-edition-11-8bit-exercises</module>
         <module>java-standard-edition-12-gui-swing</module>
-        <module>java-standard-edition-13-gui-swt</module>
-        <module>java-standard-edition-14-gui-javafx</module>
+        <module>java-standard-edition-13-gui-javafx</module>
     </modules>
 </project>

@@ -81,15 +81,22 @@ public class ImageUtil {
      * @param imagePrefix 图片保存位置（目录）
      * @param imageName 图像名称
      */
+//    public static void transferBytesToJpegImages(byte[] source,String imagePrefix,String imageName, int degrees) {
+//        try {
+//            source = ImageRotationUtils.rotateJpegByDegrees(source, degrees);
+//            FileUtil.writeBytes(source, imagePrefix + imageName);
+//            File file = new File(imagePrefix + imageName);
+//            file.setReadable(true, false);
+//        } catch (IOException e) {
+//            throw new RuntimeException("JPEG图片旋转失败: " + e.getMessage(), e);
+//        }
+//    }
+
     public static void transferBytesToJpegImages(byte[] source,String imagePrefix,String imageName, int degrees) {
-        try {
-            source = ImageRotationUtils.rotateJpegByDegrees(source, degrees);
-            FileUtil.writeBytes(source, imagePrefix + imageName);
-            File file = new File(imagePrefix + imageName);
-            file.setReadable(true, false);
-        } catch (IOException e) {
-            throw new RuntimeException("JPEG图片旋转失败: " + e.getMessage(), e);
-        }
+        source = ImageRotationUtils.rotateJpegLossless(source, degrees);
+        FileUtil.writeBytes(source, imagePrefix + imageName);
+        File file = new File(imagePrefix + imageName);
+        file.setReadable(true, false);
     }
 
 
