@@ -128,7 +128,13 @@
                                         <argument>--win-menu</argument>                  <!-- 生成开始菜单快捷方式 -->
                                         <argument>--win-menu-group</argument><argument>HelloWorldApp</argument> <!-- 开始菜单分组 -->
                                         <argument>--win-upgrade-uuid</argument><argument>89E51898-8080-4980-8888-1234567890AB</argument> <!-- 唯一标识，确保升级时图标不丢失 -->
-                                        
+
+                                        <argument>--jlink-options</argument>
+                                        <argument>--strip-debug --no-man-pages --no-header-files</argument> <!-- 移除调试符号、文档和头 -->
+
+                                        <argument>--add-modules</argument>
+                                        <argument>java.base,java.desktop,jdk.unsupported,java.scripting,java.xml,java.naming,java.logging</argument>
+
                                         <!-- 明确指定 Windows 图标，确保快捷方式使用正确的图标 -->
                                         <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.ico</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
@@ -173,6 +179,10 @@
                                         <argument>--linux-deb-maintainer</argument><argument>admin@bluebridge.org</argument>
                                         <argument>--linux-shortcut</argument>
                                         <argument>--linux-menu-group</argument><argument>Development</argument>
+                                        <argument>--jlink-options</argument>
+                                        <argument>--strip-debug --no-man-pages --no-header-files</argument> <!-- 移除调试符号、文档和头 -->
+                                        <argument>--add-modules</argument>
+                                        <argument>java.base,java.desktop,jdk.unsupported,java.scripting,java.xml,java.naming,java.logging</argument>
                                         <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.png</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
@@ -213,6 +223,10 @@
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <argument>--mac-app-category</argument><argument>DeveloperTools</argument>
+                                        <argument>--jlink-options</argument>
+                                        <argument>--strip-debug --no-man-pages --no-header-files</argument> <!-- 移除调试符号、文档和头 -->
+                                        <argument>--add-modules</argument>
+                                        <argument>java.base,java.desktop,jdk.unsupported,java.scripting,java.xml,java.naming,java.logging</argument>
                                         <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.icns</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
