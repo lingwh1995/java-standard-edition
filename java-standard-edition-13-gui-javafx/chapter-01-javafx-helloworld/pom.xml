@@ -18,6 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>21</javafx.version>
         <main.class>org.bluebridge.HelloWorld</main.class>
+        <launch.class>org.bluebridge.AppLauncher</launch.class>
         <shaded.jar.name>${project.artifactId}-${project.version}-shaded.jar</shaded.jar.name>
     </properties>
 
@@ -46,11 +47,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <release>21</release>
                 </configuration>
             </plugin>
 
+            <!-- shade插件配置 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -63,7 +64,7 @@
                             <outputFile>${project.build.directory}/${shaded.jar.name}</outputFile>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>org.bluebridge.AppLauncher</mainClass>
+                                    <mainClass>${launch.class}</mainClass>
                                 </transformer>
                             </transformers>
                             <filters>
@@ -113,7 +114,7 @@
                                         <argument>--name</argument><argument>HelloWorldApp</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
-                                        <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
+                                        <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <argument>--win-shortcut</argument>
                                         <argument>--win-dir-chooser</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
@@ -155,7 +156,7 @@
                                         <argument>--name</argument><argument>HelloWorldApp</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
-                                        <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
+                                        <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <!-- deb包必要配置 -->
                                         <argument>--linux-deb-maintainer</argument><argument>admin@bluebridge.org</argument>
                                         <argument>--linux-shortcut</argument>
@@ -198,7 +199,7 @@
                                         <argument>--name</argument><argument>HelloWorldApp</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
-                                        <argument>--main-class</argument><argument>org.bluebridge.AppLauncher</argument>
+                                        <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <argument>--mac-app-category</argument><argument>DeveloperTools</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
