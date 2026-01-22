@@ -130,10 +130,17 @@
                                         <argument>--win-upgrade-uuid</argument><argument>89E51898-8080-4980-8888-1234567890AB</argument> <!-- 唯一标识，确保升级时图标不丢失 -->
 
                                         <argument>--jlink-options</argument>
-                                        <argument>--strip-debug --no-man-pages --no-header-files</argument> <!-- 移除调试符号、文档和头 -->
+                                        <!--
+                                            -1-strip-debug           移除调试符号
+                                            -1-no-man-pages          移除文档
+                                            -1-no-header-files       移除头
+                                            -1-strip-native-commands 移除 JDK 自带的命令行工具
+                                            -1-compress zip-9        将压缩等级提升为9
+                                        -->
+                                        <argument>--strip-debug --no-man-pages --no-header-files --strip-native-commands --compress zip-9</argument>
 
                                         <argument>--add-modules</argument>
-                                        <argument>java.base,java.desktop,jdk.unsupported,java.scripting,java.xml,java.naming,java.logging</argument>
+                                        <argument>java.base,java.desktop,jdk.unsupported,java.logging</argument>
 
                                         <!-- 明确指定 Windows 图标，确保快捷方式使用正确的图标 -->
                                         <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.ico</argument>
