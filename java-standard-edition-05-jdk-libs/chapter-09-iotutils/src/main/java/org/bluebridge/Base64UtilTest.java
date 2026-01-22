@@ -8,7 +8,7 @@ public class Base64UtilTest {
     @Test
     public void testBase64Util() {
         // IMEI 867860061213483
-        String stringMessage = "68012900D403000001F888000A25832505471200424254434D440076303032000000000000003F8B16";
+        String stringMessage = "680101002D020480FA424254434D44D8256E3775503030463110424332383045434E414152303141303496C916";
         String base64Message = Base64Util.stringToBase64(stringMessage);
         System.out.println("base64Message = " + base64Message);
 

@@ -120,15 +120,16 @@
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
 
-                                        <!-- 核心：确保快捷方式图标生效的关键参数 -->
+                                        <!-- Windows 特定配置：确保快捷方式图标生效 -->
+                                        <argument>--win-per-user-install</argument>      <!-- 每用户安装 -->
                                         <argument>--win-shortcut</argument>              <!-- 生成桌面快捷方式 -->
                                         <argument>--win-shortcut-prompt</argument>       <!-- 安装时提示创建快捷方式 -->
                                         <argument>--win-dir-chooser</argument>           <!-- 允许选择安装目录 -->
                                         <argument>--win-menu</argument>                  <!-- 生成开始菜单快捷方式 -->
                                         <argument>--win-menu-group</argument><argument>HelloWorldApp</argument> <!-- 开始菜单分组 -->
                                         <argument>--win-upgrade-uuid</argument><argument>89E51898-8080-4980-8888-1234567890AB</argument> <!-- 唯一标识，确保升级时图标不丢失 -->
-
-                                        <!-- 使用绝对路径指定图标，避免相对路径解析失败 -->
+                                        
+                                        <!-- 明确指定 Windows 图标，确保快捷方式使用正确的图标 -->
                                         <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.ico</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
