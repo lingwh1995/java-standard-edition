@@ -117,7 +117,9 @@
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <argument>--win-shortcut</argument>
                                         <argument>--win-dir-chooser</argument>
+                                        <argument>--icon</argument><argument>src/main/resources/icons/app-icon.ico</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
+                                        <argument>--win-menu</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -161,6 +163,7 @@
                                         <argument>--linux-deb-maintainer</argument><argument>admin@bluebridge.org</argument>
                                         <argument>--linux-shortcut</argument>
                                         <argument>--linux-menu-group</argument><argument>Development</argument>
+                                        <argument>--icon</argument><argument>src/main/resources/icons/app-icon.png</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
                                 </configuration>
@@ -201,6 +204,7 @@
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <argument>--mac-app-category</argument><argument>DeveloperTools</argument>
+                                        <argument>--icon</argument><argument>src/main/resources/icons/app-icon.icns</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
                                 </configuration>
