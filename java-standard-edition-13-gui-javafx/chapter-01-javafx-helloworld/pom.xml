@@ -108,6 +108,10 @@
                                 <goals><goal>exec</goal></goals>
                                 <configuration>
                                     <executable>jpackage</executable>
+                                    <!-- 强制使用UTF-8编码，避免图标路径中文乱码 -->
+                                    <environmentVariables>
+                                        <JAVA_TOOL_OPTIONS>-Dfile.encoding=UTF-8</JAVA_TOOL_OPTIONS>
+                                    </environmentVariables>
                                     <arguments>
                                         <argument>--type</argument><argument>exe</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
@@ -115,11 +119,18 @@
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
-                                        <argument>--win-shortcut</argument>
-                                        <argument>--win-dir-chooser</argument>
-                                        <argument>--icon</argument><argument>src/main/resources/icons/app-icon.ico</argument>
+
+                                        <!-- 核心：确保快捷方式图标生效的关键参数 -->
+                                        <argument>--win-shortcut</argument>              <!-- 生成桌面快捷方式 -->
+                                        <argument>--win-shortcut-prompt</argument>       <!-- 安装时提示创建快捷方式 -->
+                                        <argument>--win-dir-chooser</argument>           <!-- 允许选择安装目录 -->
+                                        <argument>--win-menu</argument>                  <!-- 生成开始菜单快捷方式 -->
+                                        <argument>--win-menu-group</argument><argument>HelloWorldApp</argument> <!-- 开始菜单分组 -->
+                                        <argument>--win-upgrade-uuid</argument><argument>89E51898-8080-4980-8888-1234567890AB</argument> <!-- 唯一标识，确保升级时图标不丢失 -->
+
+                                        <!-- 使用绝对路径指定图标，避免相对路径解析失败 -->
+                                        <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.ico</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
-                                        <argument>--win-menu</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -152,18 +163,16 @@
                                 <configuration>
                                     <executable>jpackage</executable>
                                     <arguments>
-                                        <!-- 修改为deb包格式 -->
                                         <argument>--type</argument><argument>deb</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
                                         <argument>--name</argument><argument>HelloWorldApp</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
-                                        <!-- deb包必要配置 -->
                                         <argument>--linux-deb-maintainer</argument><argument>admin@bluebridge.org</argument>
                                         <argument>--linux-shortcut</argument>
                                         <argument>--linux-menu-group</argument><argument>Development</argument>
-                                        <argument>--icon</argument><argument>src/main/resources/icons/app-icon.png</argument>
+                                        <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.png</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
                                 </configuration>
@@ -196,7 +205,6 @@
                                 <configuration>
                                     <executable>jpackage</executable>
                                     <arguments>
-                                        <!-- 修改为dmg包格式 -->
                                         <argument>--type</argument><argument>dmg</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
                                         <argument>--name</argument><argument>HelloWorldApp</argument>
@@ -204,7 +212,7 @@
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <argument>--mac-app-category</argument><argument>DeveloperTools</argument>
-                                        <argument>--icon</argument><argument>src/main/resources/icons/app-icon.icns</argument>
+                                        <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.icns</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
                                 </configuration>
