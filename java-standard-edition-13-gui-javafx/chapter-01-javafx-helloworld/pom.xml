@@ -17,7 +17,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>21</javafx.version>
-        <main.class>org.bluebridge.HelloWorld</main.class>
+        <app.name>HelloWorldApp</app.name>
         <launch.class>org.bluebridge.AppLauncher</launch.class>
         <shaded.jar.name>${project.artifactId}-${project.version}-shaded.jar</shaded.jar.name>
     </properties>
@@ -115,7 +115,7 @@
                                     <arguments>
                                         <argument>--type</argument><argument>exe</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
-                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--name</argument><argument>${app.name}</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
@@ -126,7 +126,7 @@
                                         <argument>--win-shortcut-prompt</argument>       <!-- 安装时提示创建快捷方式 -->
                                         <argument>--win-dir-chooser</argument>           <!-- 允许选择安装目录 -->
                                         <argument>--win-menu</argument>                  <!-- 生成开始菜单快捷方式 -->
-                                        <argument>--win-menu-group</argument><argument>HelloWorldApp</argument> <!-- 开始菜单分组 -->
+                                        <argument>--win-menu-group</argument><argument>${app.name}</argument> <!-- 开始菜单分组 -->
                                         <argument>--win-upgrade-uuid</argument><argument>89E51898-8080-4980-8888-1234567890AB</argument> <!-- 唯一标识，确保升级时图标不丢失 -->
 
                                         <argument>--jlink-options</argument>
@@ -172,7 +172,7 @@
                                     <arguments>
                                         <argument>--type</argument><argument>deb</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
-                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--name</argument><argument>${app.name}</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
@@ -218,7 +218,7 @@
                                     <arguments>
                                         <argument>--type</argument><argument>dmg</argument>
                                         <argument>--dest</argument><argument>target/dist</argument>
-                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--name</argument><argument>${app.name}</argument>
                                         <argument>--input</argument><argument>${project.build.directory}</argument>
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
