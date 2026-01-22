@@ -38,6 +38,15 @@
             <artifactId>javafx-graphics</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.mkpaz</groupId>
+            <artifactId>atlantafx-base</artifactId>
+            <version>2.0.1</version> </dependency>
+        <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>11.1.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -130,9 +139,17 @@
                                         <argument>--win-upgrade-uuid</argument><argument>89E51898-8080-4980-8888-1234567890AB</argument> <!-- 唯一标识，确保升级时图标不丢失 -->
 
                                         <argument>--jlink-options</argument>
-                                        <argument>--strip-debug --no-man-pages --no-header-files</argument> <!-- 移除调试符号、文档和头 -->
+                                        <!--
+                                            - -strip-debug 移除调试符号
+                                            - -no-man-pages 移除man页面
+                                            - -no-header-files 移除头文件
+                                            - -strip-native-commands 移除本地命令，在生产环境下非常有用
+                                            - -compress zip-9 压缩
+                                        -->
+                                        <argument>--strip-debug --no-man-pages --no-header-files --strip-native-commands --compress zip-9</argument>
 
                                         <argument>--add-modules</argument>
+                                        <!-- 打包时引入那些java模块 -->
                                         <argument>java.base,java.desktop,jdk.unsupported,java.scripting,java.xml,java.naming,java.logging</argument>
 
                                         <!-- 明确指定 Windows 图标，确保快捷方式使用正确的图标 -->
@@ -179,10 +196,21 @@
                                         <argument>--linux-deb-maintainer</argument><argument>admin@bluebridge.org</argument>
                                         <argument>--linux-shortcut</argument>
                                         <argument>--linux-menu-group</argument><argument>Development</argument>
+
                                         <argument>--jlink-options</argument>
-                                        <argument>--strip-debug --no-man-pages --no-header-files</argument> <!-- 移除调试符号、文档和头 -->
+                                        <!--
+                                            - -strip-debug 移除调试符号
+                                            - -no-man-pages 移除man页面
+                                            - -no-header-files 移除头文件
+                                            - -strip-native-commands 移除本地命令，在生产环境下非常有用
+                                            - -compress zip-9 压缩
+                                        -->
+                                        <argument>--strip-debug --no-man-pages --no-header-files --strip-native-commands --compress zip-9</argument>
+
                                         <argument>--add-modules</argument>
+                                        <!-- 打包时引入那些java模块 -->
                                         <argument>java.base,java.desktop,jdk.unsupported,java.scripting,java.xml,java.naming,java.logging</argument>
+
                                         <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.png</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
@@ -223,10 +251,21 @@
                                         <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
                                         <argument>--mac-app-category</argument><argument>DeveloperTools</argument>
+
                                         <argument>--jlink-options</argument>
-                                        <argument>--strip-debug --no-man-pages --no-header-files</argument> <!-- 移除调试符号、文档和头 -->
+                                        <!--
+                                            - -strip-debug 移除调试符号
+                                            - -no-man-pages 移除man页面
+                                            - -no-header-files 移除头文件
+                                            - -strip-native-commands 移除本地命令，在生产环境下非常有用
+                                            - -compress zip-9 压缩
+                                        -->
+                                        <argument>--strip-debug --no-man-pages --no-header-files --strip-native-commands --compress zip-9</argument>
+
                                         <argument>--add-modules</argument>
+                                        <!-- 打包时引入那些java模块 -->
                                         <argument>java.base,java.desktop,jdk.unsupported,java.scripting,java.xml,java.naming,java.logging</argument>
+
                                         <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.icns</argument>
                                         <argument>--vendor</argument><argument>BlueBridge</argument>
                                     </arguments>
