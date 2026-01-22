@@ -130,7 +130,6 @@
                                         <argument>--main-class</argument><argument>${launch.class}</argument>
 
                                         <!-- Windows 特定配置：确保快捷方式图标生效 -->
-                                        <argument>--win-per-user-install</argument>      <!-- 每用户安装 -->
                                         <argument>--win-shortcut</argument>              <!-- 生成桌面快捷方式 -->
                                         <argument>--win-shortcut-prompt</argument>       <!-- 安装时提示创建快捷方式 -->
                                         <argument>--win-dir-chooser</argument>           <!-- 允许选择安装目录 -->
