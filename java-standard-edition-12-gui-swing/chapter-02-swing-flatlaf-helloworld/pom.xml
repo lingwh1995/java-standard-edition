@@ -24,10 +24,15 @@
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
-            <version>3.3</version>
+            <version>3.4.1</version>
+        </dependency>
+        <!-- macos风格 + svg格式图片支持 -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-extras</artifactId>
+            <version>3.4.1</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
