@@ -8,7 +8,19 @@ import java.awt.*;
  * @date 2025/8/4 18:24
  */
 public class SwingLayouts {
+
     public static void main(String[] args) {
+        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+        // SwingUtilities.invokeLater(() -> new SwingLayouts().createAndShowGUI());
+        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+        SwingUtilities.invokeLater(new SwingLayouts()::createAndShowGUI);
+    }
+
+    /**
+     * 创建并显示 GUI
+     */
+    private void createAndShowGUI() {
+        // 创建 JFrame 实例
         JFrame frame = new JFrame("布局管理器示例");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
@@ -39,7 +51,10 @@ public class SwingLayouts {
         }
         tabbedPane.addTab("GridLayout", gridPanel);
 
+        // 添加选项卡到窗口
         frame.add(tabbedPane);
+
+        // 显示窗口
         frame.setVisible(true);
     }
 }

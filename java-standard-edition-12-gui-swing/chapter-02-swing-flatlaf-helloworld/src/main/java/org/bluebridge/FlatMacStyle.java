@@ -1,8 +1,7 @@
 package org.bluebridge;
 
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
-import com.formdev.flatlaf.extras.FlatSVGIcon; // 如果有配置SVG支持
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +10,7 @@ import java.awt.*;
  * @desc 使用 FlatLaf 打造现代 macOS 风格界面
  * @date 2026/1/22 15:02
  */
-public class FlatMacDemo {
+public class FlatMacStyle {
 
     public static void main(String[] args) {
         // 1. 设置外观为 FlatLaf 的 macOS 浅色主题

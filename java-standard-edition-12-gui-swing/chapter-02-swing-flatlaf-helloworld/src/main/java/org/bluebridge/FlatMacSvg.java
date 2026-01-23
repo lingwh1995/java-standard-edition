@@ -5,7 +5,7 @@ import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import javax.swing.*;
 import java.awt.*;
 
-public class MacSvgDemo {
+public class FlatMacSvg {
 
     public static void main(String[] args) {
         // 设置 macOS 皮肤

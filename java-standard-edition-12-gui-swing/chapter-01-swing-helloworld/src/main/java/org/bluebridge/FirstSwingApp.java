@@ -2,17 +2,31 @@ package org.bluebridge;
 
 import javax.swing.*;
 import java.awt.event.*;
+
 /**
  * @author lingwh
- * @desc
+ * @desc 第一个 Swing 程序
  * @date 2025/8/4 18:11
  */
-public class SimpleSwingApp {
+public class FirstSwingApp {
+
     public static void main(String[] args) {
-        // 创建主窗口
-        JFrame frame = new JFrame("我的第一个Swing应用");
+        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+        // SwingUtilities.invokeLater(() -> new FirstSwingApp().createAndShowGUI());
+        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+        SwingUtilities.invokeLater(new FirstSwingApp()::createAndShowGUI);
+    }
+
+    /**
+     * 创建并显示 GUI
+     */
+    private void createAndShowGUI() {
+        // 创建 JFrame 实例
+        JFrame frame = new JFrame("First Swing App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(400, 200);
+        // 让窗口居中显示
+        frame.setLocationRelativeTo(null);
 
         // 创建组件
         JLabel label = new JLabel("欢迎使用Swing!", JLabel.CENTER);
@@ -34,4 +48,5 @@ public class SimpleSwingApp {
         // 显示窗口
         frame.setVisible(true);
     }
+
 }

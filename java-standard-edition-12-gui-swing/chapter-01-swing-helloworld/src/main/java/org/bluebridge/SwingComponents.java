@@ -2,14 +2,28 @@ package org.bluebridge;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * @author lingwh
- * @desc
+ * @desc Swing 组件示例
  * @date 2025/8/4 18:17
  */
 public class SwingComponents {
+
     public static void main(String[] args) {
+        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+        // SwingUtilities.invokeLater(() -> new SwingComponents().createAndShowGUI());
+        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+        SwingUtilities.invokeLater(new SwingComponents()::createAndShowGUI);
+    }
+
+    /**
+     * 创建并显示 GUI
+     */
+    private void createAndShowGUI() {
+        // 创建 JFrame 实例
         JFrame frame = new JFrame("Swing组件示例");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
@@ -49,7 +63,11 @@ public class SwingComponents {
         frame.add(comboBox);
         frame.add(listScrollPane);
 
+        // 调整窗口大小以适应组件
         frame.pack();
+
+        // 显示窗口
         frame.setVisible(true);
     }
+
 }
