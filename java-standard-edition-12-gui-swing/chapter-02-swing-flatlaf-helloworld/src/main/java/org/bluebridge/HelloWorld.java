@@ -8,9 +8,9 @@ import java.awt.*;
 /**
  * @author lingwh
  * @desc
- * @date 2026/1/22 15:07
+ * @date 2026/1/22 15:02
  */
-public class MainApp {
+public class HelloWorld {
 
     public static void main(String[] args) {
         // 设置深色主题（这是 FlatLaf 的精髓）

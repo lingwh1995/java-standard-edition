@@ -1,7 +1,6 @@
 package org.bluebridge;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 public class HelloWorld {
     private void createAndShowGUI() {
@@ -9,6 +8,10 @@ public class HelloWorld {
         JFrame frame = new JFrame("Simple Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 200);
+
+        // 添加一个最简单的按钮
+        JButton button = new JButton("Click Me!");
+        frame.add(button);
 
         // 显示窗口
         frame.setVisible(true);
