@@ -21,5 +21,6 @@
     <modules>
         <module>chapter-01-swing-helloworld</module>
         <module>chapter-02-swing-flatlaf-helloworld</module>
+        <module>chapter-03-swing-quaqua-helloworld</module>
     </modules>
 </project>
