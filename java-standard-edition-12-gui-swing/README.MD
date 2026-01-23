@@ -51,7 +51,7 @@
 - **Quaqua**
   - 特点：模拟MAC OS界面
   - 许可证：开源
-  - 链接：http://www.randoshofer.ch/quaqua/index.html
+  - 链接：https://www.randelshofer.ch/quaqua/
 
 - **Alloy**
   - 特点：商业产品
