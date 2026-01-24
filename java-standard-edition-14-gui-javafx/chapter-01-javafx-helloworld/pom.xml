@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.bluebridge</groupId>
+        <artifactId>java-standard-edition-14-gui-javafx</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>chapter-01-javafx-helloworld</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javafx.version>21</javafx.version>
+        <main.class>org.bluebridge.HelloWorld</main.class>
+        <launch.class>org.bluebridge.AppLauncher</launch.class>
+        <shaded.jar.name>${project.artifactId}-${project.version}-shaded.jar</shaded.jar.name>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.mkpaz</groupId>
+            <artifactId>atlantafx-base</artifactId>
+            <version>2.0.1</version> </dependency>
+        <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>11.1.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+
+            <!-- shade插件配置 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <outputFile>${project.build.directory}/${shaded.jar.name}</outputFile>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>${launch.class}</mainClass>
+                                </transformer>
+                            </transformers>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 按操作系统自动激活对应的打包配置 -->
+    <profiles>
+        <!-- Windows 平台配置（默认激活） -->
+        <profile>
+            <id>windows</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>jpackage-win</id>
+                                <phase>install</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>jpackage</executable>
+                                    <!-- 强制使用UTF-8编码，避免图标路径中文乱码 -->
+                                    <environmentVariables>
+                                        <JAVA_TOOL_OPTIONS>-Dfile.encoding=UTF-8</JAVA_TOOL_OPTIONS>
+                                    </environmentVariables>
+                                    <arguments>
+                                        <argument>--type</argument><argument>exe</argument>
+                                        <argument>--dest</argument><argument>target/dist</argument>
+                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--input</argument><argument>${project.build.directory}</argument>
+                                        <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
+                                        <argument>--main-class</argument><argument>${launch.class}</argument>
+
+                                        <!-- Windows 特定配置：确保快捷方式图标生效 -->
+                                        <argument>--win-shortcut</argument>              <!-- 生成桌面快捷方式 -->
+                                        <argument>--win-shortcut-prompt</argument>       <!-- 安装时提示创建快捷方式 -->
+                                        <argument>--win-dir-chooser</argument>           <!-- 允许选择安装目录 -->
+                                        <argument>--win-menu</argument>                  <!-- 生成开始菜单快捷方式 -->
+                                        <argument>--win-menu-group</argument><argument>HelloWorldApp</argument> <!-- 开始菜单分组 -->
+                                        <argument>--win-upgrade-uuid</argument><argument>89E51898-8080-4980-8888-1234567890AB</argument> <!-- 唯一标识，确保升级时图标不丢失 -->
+
+                                        <argument>--jlink-options</argument>
+                                        <!--
+                                            - -strip-debug 移除调试符号
+                                            - -no-man-pages 移除man页面
+                                            - -no-header-files 移除头文件
+                                            - -strip-native-commands 移除本地命令，在生产环境下非常有用
+                                            - -compress zip-9 压缩
+                                        -->
+                                        <argument>--strip-debug --no-man-pages --no-header-files --strip-native-commands --compress zip-9</argument>
+
+                                        <argument>--add-modules</argument>
+                                        <!-- 打包时引入那些java模块 -->
+                                        <argument>java.base,java.desktop,jdk.unsupported,java.logging</argument>
+
+                                        <!-- 明确指定 Windows 图标，确保快捷方式使用正确的图标 -->
+                                        <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.ico</argument>
+                                        <argument>--vendor</argument><argument>BlueBridge</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Linux 平台配置 - 打包为deb包 -->
+        <profile>
+            <id>linux</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <name>linux</name>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>jpackage-linux</id>
+                                <phase>install</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>jpackage</executable>
+                                    <arguments>
+                                        <argument>--type</argument><argument>deb</argument>
+                                        <argument>--dest</argument><argument>target/dist</argument>
+                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--input</argument><argument>${project.build.directory}</argument>
+                                        <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
+                                        <argument>--main-class</argument><argument>${launch.class}</argument>
+                                        <argument>--linux-deb-maintainer</argument><argument>admin@bluebridge.org</argument>
+                                        <argument>--linux-shortcut</argument>
+                                        <argument>--linux-menu-group</argument><argument>Development</argument>
+
+                                        <argument>--jlink-options</argument>
+                                        <!--
+                                            - -strip-debug 移除调试符号
+                                            - -no-man-pages 移除man页面
+                                            - -no-header-files 移除头文件
+                                            - -strip-native-commands 移除本地命令，在生产环境下非常有用
+                                            - -compress zip-9 压缩
+                                        -->
+                                        <argument>--strip-debug --no-man-pages --no-header-files --strip-native-commands --compress zip-9</argument>
+
+                                        <argument>--add-modules</argument>
+                                        <!-- 打包时引入那些java模块 -->
+                                        <argument>java.base,java.desktop,jdk.unsupported,java.logging</argument>
+
+                                        <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.png</argument>
+                                        <argument>--vendor</argument><argument>BlueBridge</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- macOS 平台配置 - 打包为dmg包 -->
+        <profile>
+            <id>macos</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>jpackage-macos</id>
+                                <phase>install</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>jpackage</executable>
+                                    <arguments>
+                                        <argument>--type</argument><argument>dmg</argument>
+                                        <argument>--dest</argument><argument>target/dist</argument>
+                                        <argument>--name</argument><argument>HelloWorldApp</argument>
+                                        <argument>--input</argument><argument>${project.build.directory}</argument>
+                                        <argument>--main-jar</argument><argument>${shaded.jar.name}</argument>
+                                        <argument>--main-class</argument><argument>${launch.class}</argument>
+                                        <argument>--mac-app-category</argument><argument>DeveloperTools</argument>
+
+                                        <argument>--jlink-options</argument>
+                                        <!--
+                                            - -strip-debug 移除调试符号
+                                            - -no-man-pages 移除man页面
+                                            - -no-header-files 移除头文件
+                                            - -strip-native-commands 移除本地命令，在生产环境下非常有用
+                                            - -compress zip-9 压缩
+                                        -->
+                                        <argument>--strip-debug --no-man-pages --no-header-files --strip-native-commands --compress zip-9</argument>
+
+                                        <argument>--add-modules</argument>
+                                        <!-- 打包时引入那些java模块 -->
+                                        <argument>java.base,java.desktop,jdk.unsupported,java.logging</argument>
+
+                                        <argument>--icon</argument><argument>${project.basedir}/src/main/resources/icons/app-icon.icns</argument>
+                                        <argument>--vendor</argument><argument>BlueBridge</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

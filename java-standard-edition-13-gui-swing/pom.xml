@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-standard-edition-12-gui-swing</artifactId>
+    <artifactId>java-standard-edition-13-gui-swing</artifactId>
     <packaging>pom</packaging>
 
     <properties>
