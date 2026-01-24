@@ -9,29 +9,40 @@ import javax.swing.*;
  */
 public class HelloWorld {
 
+//    public static void main(String[] args) {
+//        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+//        // SwingUtilities.invokeLater(() -> new HelloWorld().createAndShowGUI());
+//        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
+//        SwingUtilities.invokeLater(new HelloWorld()::createAndShowGUI);
+//    }
+//
+//    /**
+//     * 创建并显示 GUI
+//     */
+//    private void createAndShowGUI() {
+//        // 创建 JFrame 实例
+//        JFrame frame = new JFrame("Swing HelloWorld");
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(400, 200);
+//        // 让窗口居中显示
+//        frame.setLocationRelativeTo(null);
+//
+//        // 添加一个最简单的按钮
+//        JButton button = new JButton("点击我");
+//        frame.add(button);
+//
+//        // 显示窗口
+//        frame.setVisible(true);
+//    }
+
     public static void main(String[] args) {
-        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
-        // SwingUtilities.invokeLater(() -> new HelloWorld().createAndShowGUI());
-        // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
-        SwingUtilities.invokeLater(new HelloWorld()::createAndShowGUI);
-    }
-
-    /**
-     * 创建并显示 GUI
-     */
-    private void createAndShowGUI() {
-        // 创建 JFrame 实例
-        JFrame frame = new JFrame("Swing HelloWorld");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
-        // 让窗口居中显示
-        frame.setLocationRelativeTo(null);
-
-        // 添加一个最简单的按钮
-        JButton button = new JButton("点击我");
-        frame.add(button);
-
-        // 显示窗口
+        // 创建窗体
+        JFrame frame = new JFrame();
+        // 设置窗体大小
+        frame.setSize(400, 400);
+        // 设置窗体标题
+        frame.setTitle("Hello World");
+        // 让窗体可见
         frame.setVisible(true);
     }
 
