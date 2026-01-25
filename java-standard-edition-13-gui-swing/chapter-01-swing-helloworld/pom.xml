@@ -15,7 +15,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>org.bluebridge.HelloWorld</main.class>
+        <main.class>org.bluebridge._002_FrameTest</main.class>
         <launch.class>org.bluebridge.AppLauncher</launch.class>
         <shaded.jar.name>${project.artifactId}-${project.version}-shaded.jar</shaded.jar.name>
     </properties>
