@@ -29,12 +29,17 @@ public class _005_LayoutTest {
         frame.setBounds(500, 500, 500, 300);
 
         // 使用边界布局
-        frame.setLayout(new BorderLayout());
+        BorderLayout borderLayout = new BorderLayout();
+        borderLayout.setHgap(50);   //Hgap是横向间距
+        borderLayout.setVgap(50);   //Vgap是纵向间距
+        frame.setLayout(borderLayout);
         frame.add(new Button("button1"), BorderLayout.WEST);  //在添加组件时，可以在后面加入约束
         frame.add(new Button("button2"), BorderLayout.EAST);
         frame.add(new Button("button3"), BorderLayout.SOUTH);
         frame.add(new Button("button4"), BorderLayout.NORTH);
         frame.add(new Button("button5"), BorderLayout.CENTER);
+
+
 
         // 设置窗体可见
         frame.setVisible(true);
