@@ -13,6 +13,7 @@ public class _008_GridLayoutTest {
     public static void main(String[] args) {
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - lambda 表达式调用
         // SwingUtilities.invokeLater(() -> new _008_GridLayoutTest().createAndShowGUIUseGridLayout());
+
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - 方法引用调用
         SwingUtilities.invokeLater(new _008_GridLayoutTest()::createAndShowGUIUseGridLayout);
     }
@@ -20,7 +21,7 @@ public class _008_GridLayoutTest {
     /**
      * 创建并显示 GUI - 基于表格布局
      */
-    private void createAndShowGUIUseGridLayout () {
+    private void createAndShowGUIUseGridLayout() {
         // 创建窗体
         Frame frame = new Frame();
 

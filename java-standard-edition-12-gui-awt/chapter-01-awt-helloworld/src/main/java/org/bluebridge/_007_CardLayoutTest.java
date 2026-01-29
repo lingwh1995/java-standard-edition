@@ -13,6 +13,7 @@ public class _007_CardLayoutTest {
     public static void main(String[] args) {
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - lambda 表达式调用
         // SwingUtilities.invokeLater(() -> new _007_CardLayoutTest().createAndShowGUIUseGardLayout());
+
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - 方法引用调用
         SwingUtilities.invokeLater(new _007_CardLayoutTest()::createAndShowGUIUseGardLayout);
     }
@@ -20,7 +21,7 @@ public class _007_CardLayoutTest {
     /**
      * 创建并显示 GUI - 基于卡片布局
      */
-    private void createAndShowGUIUseGardLayout () {
+    private void createAndShowGUIUseGardLayout() {
         // 创建窗体
         Frame frame = new Frame();
 
