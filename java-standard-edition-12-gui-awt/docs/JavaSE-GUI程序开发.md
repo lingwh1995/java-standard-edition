@@ -1,4 +1,4 @@
-![image-20221026154454258](https://s2.loli.net/2022/10/26/Mu6qwoA9fc7THbQ.png)
+![image-20221026154454258](.\images\Mu6qwoA9fc7THbQ[1].png)
 
 # GUI程序开发
 
@@ -12,7 +12,7 @@
 
 实际上我们现代操作系统都是图形化界面，应用程序都是以一个窗口的形式展示出来的，我们可以直接使用鼠标点击窗口内的元素来使用应用程序，相比传统的命令行形式，可方便太多了，比如在Windows和MacOS这两种操作系统下：
 
-![image-20221026164200924](https://s2.loli.net/2022/10/26/fMQDFCmyqIvJeTl.png)
+![image-20221026164200924](.\images\fMQDFCmyqIvJeTl[1].png)
 
 可以看到，不同的操作系统的窗口样式稍微有一些不一样，但是大致的使用方式是差不多的，我们接着来看一下如何使用Java编写简单的桌面图形化程序。
 
@@ -30,7 +30,7 @@ public static void main(String[] args) {
 
 可以看到，桌面的左上角已经展示出我们的窗口了：
 
-![image-20221026165600076](https://s2.loli.net/2022/10/26/ZSQs1NhWlJeyMmi.png)
+![image-20221026165600076](.\images\ZSQs1NhWlJeyMmi[1].png)
 
 在不同的操作系统下，窗口的样式会不同。
 
@@ -58,7 +58,7 @@ frame.setLocation(100, 200);   //setLocation可以调整窗口位置
 
 注意，这里的窗口位置以及窗口大小都是以像素为单位。整个屏幕有多少个像素，是根据各位小伙伴电脑的显示器屏幕分辨率来决定的，比如我们的电脑显示器屏幕分辨率为 1920 x 1080，那么我们显示器就可以显示长为1920个像素，宽1080个像素的矩形，只要是在这个范围内的窗口，都可以显示到屏幕上：
 
-![image-20221026170449235](https://s2.loli.net/2022/10/26/CknumyFjpz659Ya.png)
+![image-20221026170449235](.\images\CknumyFjpz659Ya[1].png)
 
 那么问题就来了，如果现在我们希望将这个窗口居中，就需要手动调整位置，但我们是要去适配各种分辨率的显示器才可以，不然到其他分辨率下，就无法居中了，我们可以动态获取分辨率来进行位置计算：
 
@@ -80,7 +80,7 @@ public static void main(String[] args) {
 
 得益于Java已经为我们封装好了各种方法，所以说要实现什么功能直接调用对应的方法即可，比如我们想要个性化光标，我们可以使用`setCursor`方法来实现，JDK已经为我们提供了一些预设的光标样式：
 
-![image-20221027151713661](https://s2.loli.net/2022/10/27/drC1nx2NSK9Ewaf.png)
+![image-20221027151713661](.\images\drC1nx2NSK9Ewaf[1].png)
 
 设定光标样式后，当我们的鼠标移动到这个窗口内部时，就会变成我们设定好的光标样式了。
 
@@ -90,11 +90,11 @@ public static void main(String[] args) {
 
 我们可以为窗口添加一系列的监听器，监听器会监听窗口中发生的一些事件，比如我们点击关闭窗口、移动鼠标、鼠标点击等，当发生对应的事件时，就会通知到对应的监听器进行处理，从而我们能够在发生对应事件时进行对应处理。
 
-![image-20221027161611050](https://s2.loli.net/2022/10/27/DAz1hnUekV6RNqd.png)
+![image-20221027161611050](.\images\DAz1hnUekV6RNqd[1].png)
 
 比如我们现在希望点击关闭按钮关闭当前的窗口，但是我们发现默认情况下实际上是关不掉的，因为我们并没有对关闭事件进行处理，默认情况下对于这种点击时没有设定任何动作的，万一我们点了之后并不是要关闭窗口呢。要实现关闭窗口，我们可以使用`addXXXListener`来添加对应的事件监听器，比如窗口相关的操作那么就是WindowListener：
 
-![image-20221027155830335](https://s2.loli.net/2022/10/27/IiwomHF7YWe8Vuh.png)
+![image-20221027155830335](.\images\IiwomHF7YWe8Vuh[1].png)
 
 这里我们可以给一个接口实现，或是使用对应的适配器（适配器模式是设计模式中的一种写法，因为接口中要实现的方法太多，但是实际上我们并不需要实现那么多，只需要实现对应的即可，所以说就可以使用适配器）我们只需要重写对应的方法，当发生对应事件时就会自动调用我们已经实现好的方法：
 
@@ -164,7 +164,7 @@ frame.addMouseListener(new MouseAdapter() {
 
 这样，当我们点击窗口中的某个位置时，就可以获取对应的坐标并打印出来：
 
-![image-20221027164500070](https://s2.loli.net/2022/10/27/VQm7FjSNidLhI1r.png)
+![image-20221027164500070](.\images\VQm7FjSNidLhI1r[1].png)
 
 注意这里的坐标并不是按照我们在数学中学习的平面直角坐标系来的，它的X轴是从左往右，但是Y轴是从上往下，原点也不是整个屏幕开始，而是我们的窗口左上角。所以说当我们点击右下角时，就会得到一个接近于窗口大小的坐标了。
 
@@ -206,7 +206,7 @@ MacOS下的鼠标滚动是平滑滚动，会触发很多次，不像Windows下�
 
 组件实际上是AWT为我们预设好的一些可以直接使用的界面元素，比如按钮、文本框、标签等等，我们可以使用这些已经帮我们写好的组件来快速拼凑出一个好看且功能强大的程序：
 
-![image-20221027170224462](https://s2.loli.net/2022/10/27/D6hslN2pHybmVdF.png)
+![image-20221027170224462](.\images\D6hslN2pHybmVdF[1].png)
 
 在开始学习组件之前，我们先将布局设定为`null`（因为默认情况下会采用BorderLayout作为布局）有关布局我们会在下一部分中进行介绍，这节课我们先介绍没有布局的情况下如何使用这些组件。
 
@@ -225,7 +225,7 @@ frame.add(label);    //使用add方法添加组件到窗口中
 
 注意，组件的位置是以整个窗口的左上角为原点开始的（整个窗口指的是包括标题栏在内）所以说我们如果想要设置组件的位置，我们还得注意加上标题栏的高度，否则会被标题栏遮挡：
 
-![image-20221027175842110](https://s2.loli.net/2022/10/27/VjCdNbAUIi5R61Z.png)
+![image-20221027175842110](.\images\VjCdNbAUIi5R61Z[1].png)
 
 我们可以自由修改文本的字体和大小：
 
@@ -242,7 +242,7 @@ GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()
 
 来获取所有的系统字体：
 
-![image-20221027181909908](https://s2.loli.net/2022/10/27/Fsj8PqHryUYdgeC.png)
+![image-20221027181909908](.\images\Fsj8PqHryUYdgeC[1].png)
 
 这里我们直接使用前面的`family`即可，比如我们要使用宋体，那么就输入其名称：
 
@@ -250,7 +250,7 @@ GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()
 label.setFont(new Font("Songti SC", Font.BOLD, 15));
 ```
 
-![image-20221027182010485](https://s2.loli.net/2022/10/27/zy4L2T67rGQe3HI.png)
+![image-20221027182010485](.\images\zy4L2T67rGQe3HI[1].png)
 
 可以看到字体已经成功修改了，当然，为了方便，如果我们的窗口中有很多的标签都想统一使用某一个字体，我们可以直接对窗口设定字体，那么只要是添加到窗口中的组件都会默认使用这个字体，除非单独指定组件字体。
 
@@ -261,7 +261,7 @@ label.setBackground(Color.BLACK);    //setBackground依然是背景颜色，注�
 label.setForeground(Color.WHITE);    //setForeground是设定字体颜色
 ```
 
-![image-20221027183745934](https://s2.loli.net/2022/10/27/R5cDrYxoKtpCJk6.png)
+![image-20221027183745934](.\images\R5cDrYxoKtpCJk6[1].png)
 
 我们接着来认识一下下一个组件，这个组件的名字叫做按钮，实际上按钮也是我们经常会使用的一个组件：
 
@@ -273,7 +273,7 @@ frame.add(button);
 
 这样就可以添加一个按钮到我们的窗口中了：
 
-![image-20221027182903783](https://s2.loli.net/2022/10/27/gArLdNTI1ClWh5K.png)
+![image-20221027182903783](.\images\gArLdNTI1ClWh5K[1].png)
 
 只不过，既然是按钮，那么肯定要添加一些点击动作才可以，比如点击按钮之后打印充值成功：
 
@@ -291,7 +291,7 @@ field.setBounds(20, 50, 100, 25);
 frame.add(field);
 ```
 
-![image-20221027184138604](https://s2.loli.net/2022/10/27/ZhpojvR6u5DTmVP.png)
+![image-20221027184138604](.\images\ZhpojvR6u5DTmVP[1].png)
 
  我们经常要在一些软件上登录，那么就要输入我们的用户名和密码，所以说文本框的作用还是非常明显的，我们也可以通过AWT组件来实现这些功能，我们可以来试试看：
 
@@ -309,9 +309,9 @@ frame.add(button);
 
 我们来试试看吧：
 
-![image-20221027184618359](https://s2.loli.net/2022/10/27/7re3aBis2jW9wvP.png)
+![image-20221027184618359](.\images\7re3aBis2jW9wvP[1].png)
 
-![image-20221027184627653](https://s2.loli.net/2022/10/27/Erb6npLZqsCPGzQ.png)
+![image-20221027184627653](.\images\Erb6npLZqsCPGzQ[1].png)
 
 是不是感觉有内味了？当然，可能会有小伙伴觉得如果我们输入密码的话，不应该将展示的文字隐藏起来吗？我们可以这样：
 
@@ -319,7 +319,7 @@ frame.add(button);
 field.setEchoChar('*');   //setEchoChar设定展示字符，无论我们输入的是什么，最终展示出来的都是我们指定的字符
 ```
 
-![image-20221027184814288](https://s2.loli.net/2022/10/27/Er4wqYUNfAy2HBS.png)
+![image-20221027184814288](.\images\Er4wqYUNfAy2HBS[1].png)
 
 当然，我们在获取输入的文本时还是输入的文本本身，不会变成展示的文本，只是一个视觉效果而已。这样，我们就可以将密码框做出来了。各位小伙伴可以尝试做一个登录界面。
 
@@ -333,7 +333,7 @@ frame.add(checkbox);
 
 最终展示出来的效果就是：
 
-![image-20221027185748324](https://s2.loli.net/2022/10/27/pErwuKAGOa3dQ5l.png)
+![image-20221027185748324](.\images\pErwuKAGOa3dQ5l[1].png)
 
 效果还是挺不错的，我们也可以设定一个多选框：
 
@@ -352,7 +352,7 @@ c1.setCheckboxGroup(group);    //多个勾选框都可以添加到勾选框组�
 c2.setCheckboxGroup(group);
 ```
 
-![image-20221027190207441](https://s2.loli.net/2022/10/27/y8713x9VBlCaQm6.png)
+![image-20221027190207441](.\images\y8713x9VBlCaQm6[1].png)
 
 我们可以使用`getSelectedCheckbox`方法来获取已经被选中的勾选框：
 
@@ -368,7 +368,7 @@ System.out.println(group.getSelectedCheckbox());
 
 只不过，如果不使用布局，那么我们只能手动设置组件的位置以及大小，这就使得我们的程序在尺寸的设计上很有限，因为一旦窗口的大小发生变化，我们的组件依然是会放置在原本的位置上，要保证我们的设计不被破坏就只能固定窗口大小，但是很多应用都是支持放大和缩小的，并且在不同的大小下组件会自己调整位置：
 
-![image-20221028135701447](https://s2.loli.net/2022/10/28/ro7Cxi5Oe8wuALv.png)
+![image-20221028135701447](.\images\ro7Cxi5Oe8wuALv[1].png)
 
 可以看到窗口的大小可以自由移动并且组件的位置会根据窗口大小自己进行调整。
 
@@ -387,7 +387,7 @@ frame.add(new Button("5号按钮"), BorderLayout.CENTER);
 
 注意，约束只有在当前容器为对应布局时才可以使用。这里我们采用的是边界布局，边界布局可以将组件设定到五个区域：
 
-![image-20221028140816161](https://s2.loli.net/2022/10/28/ZigtAkDbrMVqjWz.png)
+![image-20221028140816161](.\images\ZigtAkDbrMVqjWz[1].png)
 
 可以看到，分别在东、南、西、北、中心位置都可以添加组件，组件的大小会被自动调整，并且随着我们的窗口大小变化，组件的大小也会跟着自动调整，是不是感觉挺方便的？边界布局的性质：
 
@@ -405,7 +405,7 @@ borderLayout.setVgap(50);   //Vgap是纵向间距
 
 调整之后，边距就非常明显了：
 
-![image-20221028143042506](https://s2.loli.net/2022/10/28/XQqnd6GHa7hVOtR.png)
+![image-20221028143042506](.\images\XQqnd6GHa7hVOtR[1].png)
 
 我们接着来认识一下下一个布局，FlowLayout 流式布局，流式布局实际上就是按顺序排列的一种布局：
 
@@ -418,11 +418,11 @@ frame.add(new Button("3号按钮"));
 
 采用流式布局后，按钮会根据内容大小，自动调整为对应的大小，并且他们之间是有间距的：
 
-![image-20221028142144585](https://s2.loli.net/2022/10/28/471ED3GaefjzHy8.png)
+![image-20221028142144585](.\images\471ED3GaefjzHy8[1].png)
 
 当我们对窗口大小进行调整时，流式布局也会进行自动调整：
 
-![image-20221028142326191](https://s2.loli.net/2022/10/28/hJrBtcVj7MDGqfw.png)
+![image-20221028142326191](.\images\hJrBtcVj7MDGqfw[1].png)
 
 我们也可以在设定流式布局时指定对齐模式：
 
@@ -432,7 +432,7 @@ frame.setLayout(new FlowLayout(FlowLayout.RIGHT));   //指定为右对齐
 
 对齐方式会直接决定组件的排列方式：
 
-![image-20221028142506961](https://s2.loli.net/2022/10/28/QlU8IPoVA2j4E6t.png)
+![image-20221028142506961](.\images\QlU8IPoVA2j4E6t[1].png)
 
 我们同样可以使用Hgap和Vgap来调整组件之间的间距：
 
@@ -442,11 +442,11 @@ flowLayout.setHgap(50);
 flowLayout.setVgap(0);
 ```
 
-![image-20221028143230216](https://s2.loli.net/2022/10/28/vVN4O8XynAdW5Jb.png)
+![image-20221028143230216](.\images\vVN4O8XynAdW5Jb[1].png)
 
 我们接着来看卡片布局，CardLayout对象将卡片作为一个容器中的每个组件，这个卡片布局怎么说呢，有点像iOS14新出的叠放小组件（安卓应该也有）就像很多张卡片叠在一起，每次只能看到最顶上的这张卡片，但是我们可以将下层的卡片切到顶上来：
 
-![image-20221028143949323](https://s2.loli.net/2022/10/28/CqE9FkVSMJXOLY8.png)
+![image-20221028143949323](.\images\CqE9FkVSMJXOLY8[1].png)
 
 卡片布局就是这样，我们可以添加多个组件：
 
@@ -476,7 +476,7 @@ for (int i = 0; i < 10; i++)
 
 这种布局就很好理解了，默认情况下会生成一行按格子划分的相等区域：
 
-![image-20221028145118733](https://s2.loli.net/2022/10/28/joR1s467rFzJqOE.png)
+![image-20221028145118733](.\images\joR1s467rFzJqOE[1].png)
 
 我们也可以手动指定行数和列数：
 
@@ -488,27 +488,27 @@ for (int i = 0; i < 10; i++)
     frame.add(new Button(i + "号按钮"));
 ```
 
-![image-20221028145330522](https://s2.loli.net/2022/10/28/DtnRaCJh7qzc4w3.png)
+![image-20221028145330522](.\images\DtnRaCJh7qzc4w3[1].png)
 
 所有的组件都会整齐排列在网格中。
 
 最后一种布局是GridBagLayout，是最灵活的布局管理器，它同样是按照网格进行划分，但是一个组件可以同时占据多个网格。这种情况其实也是经常会出现的，比如计算器上的按钮虽然看起来也是按照网格排列的，但是有些按钮同时占据了横向或是纵向的两个网格，这种情况使用GridBagLayout布局就可以很好的处理：
 
-![image-20221028145752545](https://s2.loli.net/2022/10/28/JNmjEVWIG2nkxbf.png)
+![image-20221028145752545](.\images\JNmjEVWIG2nkxbf[1].png)
 
 虽然这个布局很强大，但是用起来也是很麻烦的，所以说这里就不做讲解了，感兴趣的小伙伴可以自行了解。
 
 虽然认识了这么多的布局，但是我们发现，很多应用程序并不只是由单一的布局组成的，而是多种布局相互嵌套的结果，比如我们的IDEA界面，就不仅仅是一个布局完成的（这里只是举个例子）而是多种布局在嵌套使用：
 
-![image-20221028151242522](https://s2.loli.net/2022/10/28/9ZfvOxThctdPS6N.png)
+![image-20221028151242522](.\images\9ZfvOxThctdPS6N[1].png)
 
 但是只有我们的窗口才能设置布局啊，总不可能让多个窗口拼接在一起吧？实际上除了窗口可以作为容器之外，我们也可以使用其他的容器，这时，我们就需要用到面板。
 
 类面板是最简单的容器类，它跟窗口一样，可以提供一个空间，同样可以随意添加组件到面板中，只不过面板本身也是一个组件，所以说面板是可以放到其他容器中的容器，就像：
 
-![image-20221028151701189](https://s2.loli.net/2022/10/28/jVGTNmd3i2ZRg5h.png)
+![image-20221028151701189](.\images\jVGTNmd3i2ZRg5h[1].png)
 
-![image-20221028151845514](https://s2.loli.net/2022/10/28/6PGem8qMrV7NOZS.png)
+![image-20221028151845514](.\images\6PGem8qMrV7NOZS[1].png)
 
 面板本身也是容器，所以说也可以单独设置面板内部的布局，比如现在我们想要分两个区域，上半部分区域是流式布局，下半部分区域采用网格布局，那么我们就可以先将窗口采用网格布局，并在上下各添加一个面板：
 
@@ -528,7 +528,7 @@ frame.add(bottom);
 
 这样，我们的两个面板就按照网格布局，被分成了上下两部分：
 
-![image-20221028152352861](https://s2.loli.net/2022/10/28/agMjZkqrSGUm9Ld.png)
+![image-20221028152352861](.\images\agMjZkqrSGUm9Ld[1].png)
 
 接着我们就可以分别在上半部分的面板和下半部分的面板中进行单独配置了：
 
@@ -550,7 +550,7 @@ frame.add(bottom);
 
 这里我们将上半部分面板设定为流式布局，下半部分面板设定为网格布局：
 
-![image-20221028152617119](https://s2.loli.net/2022/10/28/RbiFpTDCEaN5fPl.png)
+![image-20221028152617119](.\images\RbiFpTDCEaN5fPl[1].png)
 
 利用面板，我们就可以实现各种布局的自由组合，当然，面板在后面还会有更多的用处。
 
@@ -558,7 +558,7 @@ frame.add(bottom);
 
 有些时候，我们的窗口大小可能并不能完全显示内部的内容，比如出现了一张很大的图片。
 
-![image-20221028153201386](https://s2.loli.net/2022/10/28/7mKakMLhz95VbIp.png)
+![image-20221028153201386](.\images\7mKakMLhz95VbIp[1].png)
 
 此时就会出现滚动条来让我们进行拖拽，这样就可以向下滑动查看没有完全展示出来的内容了。而我们之前开发的程序都没办法做到这样的滚动，超出部分会直接无法显示。
 
@@ -579,7 +579,7 @@ scrollPane.add(panel);
 
 可以看到，无法显示的部分会自动变成滚动面板，我们滑动就可以展示了：
 
-![image-20221028155050727](https://s2.loli.net/2022/10/28/ZDa92CJVf7TbGk4.png)
+![image-20221028155050727](.\images\ZDa92CJVf7TbGk4[1].png)
 
 这里需要特别提一下，我们看到这里的按钮大小采用的是自动生成的大小，但是如果我们希望按钮的大小按照我们喜欢的来怎么办呢？我们知道，使用布局之后，组件的大小实际上是自动决定的，只有未使用布局的情况下才能自由更改组件大小，那么我们怎么才能干预呢？我们可以为组件设定一个建议的大小：
 
@@ -593,7 +593,7 @@ for (int i = 0; i < 20; i++) {
 
 当布局管理器在自动调整内部组件大小时，如果不是必须要按照布局大小来展示或者是高度或宽度不确定，那么就会采用我们建议的大小展示，比如这里只能确定宽度，而高度是不确定的，那么就可以使用我们建议的大小来展示：
 
-![image-20221028155443331](https://s2.loli.net/2022/10/28/SQZapDy6vdLkHNx.png)
+![image-20221028155443331](.\images\SQZapDy6vdLkHNx[1].png)
 
 当然，首选大小可能不太好理解，还需要各位小伙伴多多尝试才能理解。
 
@@ -610,7 +610,7 @@ list.setMultipleMode(true);   //是否开启多选模式
 
 列表组件就像是一个选择列表一样：
 
-![image-20221028160340931](https://s2.loli.net/2022/10/28/ieDtpQqdkBzhsKF.png)
+![image-20221028160340931](.\images\ieDtpQqdkBzhsKF[1].png)
 
 列表会将元素依次展示出来，我们可以选择列表中的某一项：
 
@@ -620,7 +620,7 @@ list.addItemListener(System.out::println);
 
 列表可以添加监听器，当我们选择某个物品时，就会自动触发：
 
-![image-20221028160611113](https://s2.loli.net/2022/10/28/LXIvYhnFVBlQTGt.png)
+![image-20221028160611113](.\images\LXIvYhnFVBlQTGt[1].png)
 
 列表就很时候拿来做文件列表。
 
@@ -628,15 +628,15 @@ list.addItemListener(System.out::println);
 
 前面我们认识了各种各样的组件，我们接着来看菜单，实际上各位小伙伴会发现我们的程序上方一般都会有一排菜单：
 
-![image-20221028161209224](https://s2.loli.net/2022/10/28/Konar26QHWMTwqd.png)
+![image-20221028161209224](.\images\Konar26QHWMTwqd[1].png)
 
 在MacOS下是整合到状态栏中的：
 
-![image-20221028161239672](https://s2.loli.net/2022/10/28/G3NiRaBMkJLneVl.png)
+![image-20221028161239672](.\images\G3NiRaBMkJLneVl[1].png)
 
 这些菜单一般都会包含我们程序中的一些基本操作，实际上我们的程序中很多地方都会使用到下拉菜单：
 
-![image-20221028161118028](https://s2.loli.net/2022/10/28/hc354p1ri6NmGgA.png)
+![image-20221028161118028](.\images\hc354p1ri6NmGgA[1].png)
 
 而我们编写AWT程序也可以添加这样的菜单，只需要为窗口设定一个菜单栏即可：
 
@@ -651,11 +651,11 @@ frame.setMenuBar(bar);    //为窗口设定刚刚定义好的菜单栏
 
 设定好MenuBar之后，我们的程序就有菜单了：
 
-![image-20221028161741397](https://s2.loli.net/2022/10/28/wIWdRo2velTj1VS.png)
+![image-20221028161741397](.\images\wIWdRo2velTj1VS[1].png)
 
 虽然有点丑，但是确实是内味，不过还是MacOS下好看：
 
-![image-20221028161910928](https://s2.loli.net/2022/10/28/7Dq6L1hbreYIy39.png)
+![image-20221028161910928](.\images\7Dq6L1hbreYIy39[1].png)
 
 我们着重来看一下MenuItem，这是我们菜单的每一个选项，我们可以为其添加监听器来监听用户是否点击：
 
@@ -667,7 +667,7 @@ menu.add(item);
 
 其实跟我们之前学习的按钮是差不多的：
 
-![image-20221028162602244](https://s2.loli.net/2022/10/28/KskDE9J2QdRtlvV.png)
+![image-20221028162602244](.\images\KskDE9J2QdRtlvV[1].png)
 
 我们还可以为菜单中的选项设定快捷键：
 
@@ -679,7 +679,7 @@ item.setShortcut(new MenuShortcut('A'));   //MenuShortcut就是指定快捷键�
 
 这里的效果就是Ctrl+A触发快捷键：
 
-![image-20221030173320786](https://s2.loli.net/2022/10/30/lwrjgRxu46UXHZk.png)
+![image-20221030173320786](.\images\lwrjgRxu46UXHZk[1].png)
 
 当然，除了这种普通的菜单选项之外，还有可以勾选的：
 
@@ -689,11 +689,11 @@ menu.add(new CheckboxMenuItem("测试2"));
 
 CheckboxMenuItem是可以勾选的选项，它能够对状态进行记录，我们点击选项之后会变成勾选状态：
 
-![image-20221028162655033](https://s2.loli.net/2022/10/28/Q1RgUn7ejZXzH5E.png)
+![image-20221028162655033](.\images\Q1RgUn7ejZXzH5E[1].png)
 
 实际上要添加这样的菜单栏还是挺简单的的，我们接着来看弹出菜单，弹出菜单其实也经常出现，比如我们要新建一个类，我们就可以右键对应的包：
 
-![image-20221028214019648](https://s2.loli.net/2022/10/28/IKe1NL5wm834WdP.png)
+![image-20221028214019648](.\images\IKe1NL5wm834WdP[1].png)
 
 弹出一个浮在窗口之上的，并且可以进行选择的菜单，这个就是弹出菜单。
 
@@ -720,7 +720,7 @@ frame.addMouseListener(new MouseAdapter() {
 
 我们来看看实际效果吧：
 
-![image-20221028215651667](https://s2.loli.net/2022/10/28/tMRbdjE6ZhHuPaQ.png)
+![image-20221028215651667](.\images\tMRbdjE6ZhHuPaQ[1].png)
 
 这样，我们就可以设计出更加高级的程序了。
 
@@ -728,7 +728,7 @@ frame.addMouseListener(new MouseAdapter() {
 
 有些时候，我们点击关闭按钮之后，窗口并不会直接关闭，而是会弹出一个对话框询问我们是否要退出，比如我们使用记事本编辑完之后未保存就关闭记事本，就会提示我们：
 
-![image-20221028220721666](https://s2.loli.net/2022/10/28/VUshJzZXxC51gpb.png)
+![image-20221028220721666](.\images\VUshJzZXxC51gpb[1].png)
 
 实际上像这样弹出的的一个对话框，在很多时候都很关键，我们也可以使用AWT为我们提供的对话框，比如我们现在希望在关闭窗口时询问我们是否真的要关闭：
 
@@ -748,7 +748,7 @@ frame.addWindowListener(new WindowAdapter() {
 
 当我们点击关闭时：
 
-![image-20221028223431754](https://s2.loli.net/2022/10/28/VmajcUlSD6GPsrv.png)
+![image-20221028223431754](.\images\VmajcUlSD6GPsrv[1].png)
 
 可以看到这里确实弹出了一个对话框（这个对话框无法最小化到图标）也就是说我们只能通过操作对话框来关闭它。
 
@@ -765,7 +765,7 @@ dialog.setSize(200, 80);
 
 这样我们退出时，就有对应的提示了：
 
-![image-20221028224410637](https://s2.loli.net/2022/10/28/3v7ZJio9mMnK8zk.png)
+![image-20221028224410637](.\images\3v7ZJio9mMnK8zk[1].png)
 
 对话框就像一个特殊的窗口一样，各位小伙伴可以自由发挥。
 
@@ -784,7 +784,7 @@ frame.addWindowListener(new WindowAdapter() {
 
 文件对话框是根据操作系统提供的文件选择器决定的：
 
-![image-20221028224815769](https://s2.loli.net/2022/10/28/TuHNLsmokZvMhIR.png)
+![image-20221028224815769](.\images\TuHNLsmokZvMhIR[1].png)
 
 我们可以通过文件对话框选择一个文件：
 
@@ -803,7 +803,7 @@ frame.addWindowListener(new WindowAdapter() {
 
 选择文件之后，我们可以通过对话框直接获取到对应的文件：
 
-![image-20221028225343739](https://s2.loli.net/2022/10/28/uRjWKPgFxCcGUvr.png)
+![image-20221028225343739](.\images\uRjWKPgFxCcGUvr[1].png)
 
 是不是感觉还是挺简单的？
 
@@ -852,7 +852,7 @@ public void paint(Graphics g) {   //各位小伙伴可以将Graphics看做一只
 
 我们来看看最后会绘制成啥样：
 
-![image-20221028232701565](https://s2.loli.net/2022/10/28/qQweM6DprRJjCl7.png)
+![image-20221028232701565](.\images\qQweM6DprRJjCl7[1].png)
 
 可以看到整个组件都被涂成了黑色，我们还可以绘制更多好玩的图形：
 
@@ -868,7 +868,7 @@ public void paint(Graphics g) {
 
 得到的效果就是这样了：
 
-![image-20221028233307877](https://s2.loli.net/2022/10/28/xBsuijLa6beOwJy.png)
+![image-20221028233307877](.\images\xBsuijLa6beOwJy[1].png)
 
 是不是感觉还挺好玩的，就像我们在玩画画游戏一样。这里列一下Graphics接口提供的所有功能：
 
@@ -983,7 +983,7 @@ public class ImageView extends Component {
 
 我们来试试看效果吧：
 
-![image-20221028235756338](https://s2.loli.net/2022/10/28/5adDsGr2iRxywCX.png)
+![image-20221028235756338](.\images\5adDsGr2iRxywCX[1].png)
 
 可以看到图片成功绘制出来了，这样，我们就提供自己编写绘制逻辑，成功完成了一个简单的自定义组件。
 
@@ -1009,7 +1009,7 @@ Application.getApplication().setDockIconImage(image);
 
 窗口修饰实际上就是我们窗口外面添加的边框：
 
-![image-20221026164200924](https://s2.loli.net/2022/10/26/fMQDFCmyqIvJeTl.png)
+![image-20221026164200924](.\images\fMQDFCmyqIvJeTl[1].png)
 
 有些时候，可能我们并不需要系统为我们提供的窗口边框，我们希望能够自己编写窗口的边框，包括各种按钮等，此时我们就可以将窗口设定为非修饰状态：
 
@@ -1024,7 +1024,7 @@ public static void main(String[] args) throws IOException {
 
 非修饰状态下，就只有一个窗口本身了：
 
-![image-20221029111107959](https://s2.loli.net/2022/10/29/u9jSlmAc2GXr4VJ.png)
+![image-20221029111107959](.\images\u9jSlmAc2GXr4VJ[1].png)
 
 并且这个窗口是无法完成拖拽操作的，要实现拖拽还得我们自己编写（太原始了）可以看到，在默认情况下窗口的形状是一个方形的，我们可以将其调整为其他形状：
 
@@ -1042,7 +1042,7 @@ public static void main(String[] args) throws IOException {
 
 可以看到，我们的窗口变成了这样：
 
-![image-20221029111439062](https://s2.loli.net/2022/10/29/areQf2g3I74mlpV.png)
+![image-20221029111439062](.\images\areQf2g3I74mlpV[1].png)
 
 变成了好看的圆角矩形（但是这个圆角处理得不太好，有点毛毛糙糙的）圆角矩形也是现代操作系统窗口的设计语言。
 
@@ -1063,7 +1063,7 @@ Frame frame = new Frame("我是窗口") {    //使用匿名内部类（或者自
 
 我们来看看效果吧：
 
-![image-20221029112035219](https://s2.loli.net/2022/10/29/hQ2YLjSgazM9Wkd.png)
+![image-20221029112035219](.\images\hQ2YLjSgazM9Wkd[1].png)
 
 是不是感觉不依靠操作系统，我们自己也能写一个好看的窗口出来了？
 
@@ -1136,7 +1136,7 @@ public static void main(String[] args) {
 
 Swing不像AWT那样，平台组件长啥样，就用什么，它的组件都是自行绘制的：
 
-![image-20221029120313940](https://s2.loli.net/2022/10/29/dy6R2VNuOYIJamA.png)
+![image-20221029120313940](.\images\dy6R2VNuOYIJamA[1].png)
 
 这样，我们在不同的平台上，看到的组件UI样式，都会是一样的，不会出现长得不一样的情况。并且我们可以为组件自由替换皮肤，我们会在后面进行介绍。
 
@@ -1155,7 +1155,7 @@ frame.add(button);
 frame.setVisible(true);
 ```
 
-![image-20221105171035570](https://s2.loli.net/2022/11/05/RMJWl576CiSDs8b.png)
+![image-20221105171035570](.\images\RMJWl576CiSDs8b[1].png)
 
 这一点确实比AWT好很多，不然咱都不知道不同平台的标题栏到底是多高。至于为什么是这样，这是因为JFrame内部实际上单独维护了一个面板来存放组件，很多操作都被重定向给了内部的面板，这里就不深入说了，知道就行。
 
@@ -1175,7 +1175,7 @@ frame.setVisible(true);
 
 这个菜单也是Swing自己绘制的，如果是AWT的话，不同系统菜单位置还不一样，虽然这里是自己画的，但是效果看着还行：
 
-![image-20221029120737715](https://s2.loli.net/2022/10/29/aMGHTu8sl2Sg4vm.png)
+![image-20221029120737715](.\images\aMGHTu8sl2Sg4vm[1].png)
 
 所以，Swing相关组件在使用上其实和我们之前学习的AWT是差不多的，只要前面AWT学的没问题，这里简直So Easy。
 
@@ -1198,7 +1198,7 @@ Swing除了强化AWT提供的组件之外，还自行实现了各种各样新式
 
 首先是进度条组件：
 
-![image-20221105163846233](https://s2.loli.net/2022/11/05/SY8wjEkdcArvxnQ.png)
+![image-20221105163846233](.\images\SY8wjEkdcArvxnQ[1].png)
 
 很多时候我们都会用到进度条来展示某些任务的完成进度：
 
@@ -1240,7 +1240,7 @@ button.addActionListener(e -> new Thread(() -> {
 
 这样，我们在拷贝文件的时候，就有一个进度条实时显示当前的进度了：
 
-![image-20221105165756172](https://s2.loli.net/2022/11/05/qNoT6OwylH4Y8xc.png)
+![image-20221105165756172](.\images\qNoT6OwylH4Y8xc[1].png)
 
 我们接着来看下一个组件，开关按钮：
 
@@ -1251,11 +1251,11 @@ button.setBounds(20, 50, 100, 30);
 
 它就像：
 
-![image-20221105170052200](https://s2.loli.net/2022/11/05/1fBdjMOy4SnADHu.png)
+![image-20221105170052200](.\images\1fBdjMOy4SnADHu[1].png)
 
 它有着两个状态，我们点击一次会使得其切换到另一种状态：
 
-![image-20221105170125623](https://s2.loli.net/2022/11/05/JXpw64yHb8rCRSg.png)
+![image-20221105170125623](.\images\JXpw64yHb8rCRSg[1].png)
 
 还有一些大型组件，比如颜色选择器：
 
@@ -1266,17 +1266,17 @@ chooser.setBounds(0, 0, 600, 300);
 
 颜色选择器的主要作用顾名思义，就是让用户选择一个颜色：
 
-![image-20221105170623359](https://s2.loli.net/2022/11/05/zsjxuSoYEr9lvZy.png)
+![image-20221105170623359](.\images\zsjxuSoYEr9lvZy[1].png)
 
 这个太高级了，看着就很专业。同样的还有文件选择器JFileChooser：
 
-![image-20221105170745920](https://s2.loli.net/2022/11/05/T6Vld1NMB9AJfct.png)
+![image-20221105170745920](.\images\T6Vld1NMB9AJfct[1].png)
 
 完了，这Mac越用咋越像Windows了。
 
 当然，Swing考虑得不止这些，甚至连工具提示都有，啥是工具提示？
 
-![image-20221105171336948](https://s2.loli.net/2022/11/05/mGaU6X2ILvqQT1g.png)
+![image-20221105171336948](.\images\mGaU6X2ILvqQT1g[1].png)
 
 实际上就是当我们鼠标移动到某个组件上时，会给出一个漂浮提示，告诉我们这个组件是干嘛用的。
 
@@ -1286,13 +1286,13 @@ button.setBounds(50, 50, 100, 30);
 button.setToolTipText("这个按钮是用来解决你毕设的！");
 ```
 
-![image-20221105171453445](https://s2.loli.net/2022/11/05/izpvcCbVA3Ut81u.png)
+![image-20221105171453445](.\images\izpvcCbVA3Ut81u[1].png)
 
 `setToolTipText`方法是`JComponent`就带有的，因此任何组件都可以设置这样的工具提示，是不是感觉很高级？
 
 还有文件树，我们经常在窗口中看到这样的：
 
-![image-20221105171728838](https://s2.loli.net/2022/11/05/gcCnLterFaqPvkK.png)
+![image-20221105171728838](.\images\gcCnLterFaqPvkK[1].png)
 
 我们的文件实际上在硬盘上就是以树形存储的，而Swing也为我们提供了能够显示树形关系的组件：
 
@@ -1301,7 +1301,7 @@ JTree tree = new JTree();
 tree.setBounds(0, 0, 200, 200);
 ```
 
-![image-20221105171813979](https://s2.loli.net/2022/11/05/IvjYykGRXiOAMtK.png)
+![image-20221105171813979](.\images\IvjYykGRXiOAMtK[1].png)
 
 这样，我们就可以用它来做一个文件资源管理器了：
 
@@ -1320,7 +1320,7 @@ tree.setBounds(0, 0, 200, 200);
 
 来看看效果吧：
 
-![image-20221105172802572](https://s2.loli.net/2022/11/05/YN4gKJbfstpRSCE.png)
+![image-20221105172802572](.\images\YN4gKJbfstpRSCE[1].png)
 
 你就说有没有内味吧。
 
@@ -1328,7 +1328,7 @@ tree.setBounds(0, 0, 200, 200);
 
 前面我们介绍了Swing为我们提供的丰富组件，我们接着来看多面板。
 
-![image-20221105173345221](https://s2.loli.net/2022/11/05/keDg2pnsJolaUZH.png)
+![image-20221105173345221](.\images\keDg2pnsJolaUZH[1].png)
 
 多面板顾名思义，就是为了在一个窗口中展示多个面板，但是面板是可以自由切换的，在顶部会有一个小小的标签，我们点击之后就可以切换到对应的面板了：
 
@@ -1343,7 +1343,7 @@ JTabbedPane跟我们之前认识的Panel很像，相当于也是将我们的组�
 
 这里我们创建两个面板，将一号面板设定为橙色，二号面板设定为粉色，分别添加到里面：
 
-![image-20221105173821177](https://s2.loli.net/2022/11/05/4jp1N9LnmwJGtOl.png)
+![image-20221105173821177](.\images\4jp1N9LnmwJGtOl[1].png)
 
 这样，我们就可以布置一号面板做某些事情，二号面板做另外一些事情了：
 
@@ -1356,15 +1356,15 @@ pane.addTab("二号", new JFileChooser());    //二号面板当文件选择器
 
 高级感一下就出来了不是：
 
-![image-20221105174105955](https://s2.loli.net/2022/11/05/QBPn8lk9tFd6sgH.png)
+![image-20221105174105955](.\images\QBPn8lk9tFd6sgH[1].png)
 
 除了多面板这样的特殊面板组件之外，我们也可以使用分割面板：
 
-![image-20221105174239436](https://s2.loli.net/2022/11/05/2gMxOrFGkHCJ73o.png)
+![image-20221105174239436](.\images\2gMxOrFGkHCJ73o[1].png)
 
 分割面板将一块完整的面板分割为两个部分，这样，我们就可以分别在左右两边进行操作了，而且中间的分割线是可以拖动的，实际上我们的IDEA也是这样的：
 
-![image-20221105174326135](https://s2.loli.net/2022/11/05/21l4GHg75fCaFzP.png)
+![image-20221105174326135](.\images\21l4GHg75fCaFzP[1].png)
 
 IDEA的左边是文件管理器，右边就是编辑区域，同样支持拖动中间的分割线，这样的设计是非常人性化的。
 
@@ -1378,7 +1378,7 @@ pane.setLeftComponent(new JPanel(){{setBackground(Color.ORANGE);}});
 pane.setRightComponent(new JPanel(){{setBackground(Color.PINK);}});
 ```
 
-![image-20221105174609500](https://s2.loli.net/2022/11/05/3VjoCckOZG2qNIf.png)
+![image-20221105174609500](.\images\3VjoCckOZG2qNIf[1].png)
 
 配合我们之前的JTree组件和JTextArea组件，我们也可以写一个简单的IDEA软件出来：
 
@@ -1409,7 +1409,7 @@ pane.setRightComponent(new JScrollPane(area));
 
 我们来看看我们自己写的IDEA软件怎么样吧：
 
-![image-20221105180609195](https://s2.loli.net/2022/11/05/rwik4EqaOeMYWfz.png)
+![image-20221105180609195](.\images\rwik4EqaOeMYWfz[1].png)
 
 嗯，真不错，各位小伙伴赶紧去JetBrains投简历吧！
 
@@ -1433,7 +1433,7 @@ frame.addWindowListener(new WindowAdapter() {   //我们自己来实现窗口关
 
 我们之前要实现这样的一个功能，非常麻烦，但是现在就很简单了：
 
-![image-20221106162732123](https://s2.loli.net/2022/11/06/ekOZLQnUR2dMXTN.png)
+![image-20221106162732123](.\images\ekOZLQnUR2dMXTN[1].png)
 
 官方已经给我们预设好了一个对话框，我们直接用就可以了。当然，还有各种类型的，我们可以自己定义窗口的标题、图标等：
 
@@ -1447,7 +1447,7 @@ JOptionPane.showConfirmDialog(frame, "你真的要退出吗？", "退出程序",
 JOptionPane.showMessageDialog(frame, "我是简单的提示消息！");
 ```
 
-![image-20221106165351473](https://s2.loli.net/2022/11/06/YH8dgDRunsG9jPv.png)
+![image-20221106165351473](.\images\YH8dgDRunsG9jPv[1].png)
 
 还有用户输入文本的输入对话框：
 
@@ -1464,7 +1464,7 @@ frame.addWindowListener(new WindowAdapter() {
 });
 ```
 
-![image-20221106165324954](https://s2.loli.net/2022/11/06/ZwGfv1HqOjikEPn.png)
+![image-20221106165324954](.\images\ZwGfv1HqOjikEPn[1].png)
 
 通过灵活使用这些对话框，用户与我们的交互就更加亲密了。
 
@@ -1488,13 +1488,13 @@ UIManager.setLookAndFeel(new AquaLookAndFeel());
 
 这里我们将皮肤设定为MacOS的冰雪节限定皮肤AquaLookAndFeel：
 
-![image-20221106170921703](https://s2.loli.net/2022/11/06/L7HyUlVpA5P9iTZ.png)
+![image-20221106170921703](.\images\L7HyUlVpA5P9iTZ[1].png)
 
 是不是感觉视觉上和之前的皮肤不太一样？我们可以多看看其他的皮肤：
 
-![image-20221106171046755](https://s2.loli.net/2022/11/06/EGrWzIZuRfejXN2.png)
+![image-20221106171046755](.\images\EGrWzIZuRfejXN2[1].png)
 
-![image-20221106171110930](https://s2.loli.net/2022/11/06/BOtWrIe7CuklMcZ.png)
+![image-20221106171110930](.\images\BOtWrIe7CuklMcZ[1].png)
 
 实际上Swing组件的绘制并不是由组件本身编写的，而是在各个UI实现类中编写的，所以说要修改组件样式只需要更换皮肤即可。
 
@@ -1506,7 +1506,7 @@ System.out.println(tree.getUI());
 
 这里得到的是：
 
-![image-20221106224348544](https://s2.loli.net/2022/11/06/2NChELXRkoqJGMQ.png)
+![image-20221106224348544](.\images\2NChELXRkoqJGMQ[1].png)
 
 我们可以自己编写一个UI样式来为组件进行设定：
 
@@ -1534,7 +1534,7 @@ button.setUI(new TestJButtonUI());   //将UI设定为我们自己定义的即可
 
 这样就换成我们自己的皮肤了：
 
-![image-20221106231437842](https://s2.loli.net/2022/11/06/53kHx2zTZ7wtUfC.png)
+![image-20221106231437842](.\images\53kHx2zTZ7wtUfC[1].png)
 
 各位小伙伴甚至可以编写一套自己的UI，并制作成一个LookAndFeel，这样我们写出来的程序就非常个性化了。
 
