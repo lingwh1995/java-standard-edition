@@ -5,7 +5,7 @@ import java.awt.*;
 
 /**
  * @author lingwh
- * @desc Frame 测试程序
+ * @desc 窗体的创建
  * @date 2025/8/4 18:17
  */
 public class _002_FrameTest {

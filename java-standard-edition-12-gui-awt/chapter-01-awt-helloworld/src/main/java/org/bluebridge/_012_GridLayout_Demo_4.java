@@ -5,14 +5,14 @@ import java.awt.*;
 
 /**
  * @author lingwh
- * @desc Grid布局 - 上半部分面板设定为流式布局，下半部分面板设定为网格布局
+ * @desc 表格布局案例四 - 上半部分面板设定为流式布局，下半部分面板设定为网格布局
  * @date 2026/1/29 21:06
  */
 public class _012_GridLayout_Demo_4 {
 
     public static void main(String[] args) {
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - lambda 表达式调用
-        // SwingUtilities.invokeLater(() -> new _010_GridLayout_Demo_4().createAndShowGUIUseGridLayout());
+        // SwingUtilities.invokeLater(() -> new _012_GridLayout_Demo_4().createAndShowGUIUseGridLayout());
 
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - 方法引用调用
         SwingUtilities.invokeLater(new _012_GridLayout_Demo_4()::createAndShowGUIUseGridLayout);

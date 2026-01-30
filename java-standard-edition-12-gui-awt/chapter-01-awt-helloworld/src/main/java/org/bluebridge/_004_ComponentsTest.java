@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 /**
  * @author lingwh
- * @desc 组件测试程序
+ * @desc 常用组件 - 标签、文本框、单选框、复选框、按钮、文本区域
  * @date 2025/8/4 18:11
  */
 public class _004_ComponentsTest {

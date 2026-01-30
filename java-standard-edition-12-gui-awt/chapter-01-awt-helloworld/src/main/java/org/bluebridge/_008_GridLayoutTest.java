@@ -5,7 +5,7 @@ import java.awt.*;
 
 /**
  * @author lingwh
- * @desc 表格布局测试程序
+ * @desc 表格布局
  * @date 2025/1/26 16:32
  */
 public class _008_GridLayoutTest {

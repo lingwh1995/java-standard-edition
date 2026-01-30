@@ -5,14 +5,14 @@ import java.awt.*;
 
 /**
  * @author lingwh
- * @desc Grid布局 - 把容器分成两行，每一行里面都有几个按钮
+ * @desc 表格布局案例二 - 把容器分成两行，每一行里面都有几个按钮
  * @date 2026/1/29 21:06
  */
 public class _010_GridLayout_Demo_2 {
 
     public static void main(String[] args) {
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - lambda 表达式调用
-        // SwingUtilities.invokeLater(() -> new _009_GridLayout_Demo_2().createAndShowGUIUseGridLayout());
+        // SwingUtilities.invokeLater(() -> new _010_GridLayout_Demo_2().createAndShowGUIUseGridLayout());
 
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT) - 方法引用调用
         SwingUtilities.invokeLater(new _010_GridLayout_Demo_2()::createAndShowGUIUseGridLayout);
