@@ -3,8 +3,8 @@ package org.bluebridge;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author think
@@ -28,13 +28,13 @@ public class _019_CustomComponentTest {
         // 创建窗体
         Frame frame = new Frame();
         // 设置窗体位置和尺寸
-        frame.setBounds(500, 500, 500, 300);
+        frame.setBounds(500, 500, 650, 400);
         // 禁用布局管理器，使用绝对定位
         frame.setLayout(null);
 
         // 添加自定义组件
         MyCustomComponent myCustomComponent = new MyCustomComponent();
-        myCustomComponent.setBounds(50, 50, 150, 150);
+        myCustomComponent.setBounds(50, 100, 250, 250);
         frame.add(myCustomComponent);
 
 
@@ -44,11 +44,16 @@ public class _019_CustomComponentTest {
         ImageView imageView = null;
         try {
             // 注意：运行报错的话把当前路径下 gas_meter_dial.jpeg 复制到D盘指定位置
-            imageView = new ImageView("D:\\images\\gas_meter_dial.jpeg");
+            //String imagePath = "D:\\images\\gas_meter_dial.jpeg";
+            //InputStream inputStream = new FileInputStream(imagePath);
+
+            // 也可以直接获取resources下的gas_meter_dial.jpeg的路径
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("gas_meter_dial.jpeg");
+            imageView = new ImageView(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        imageView.setBounds(250, 50, 150, 150);
+        imageView.setBounds(350, 100, 250, 250);
         frame.add(imageView);
 
         // 设置窗体可见
@@ -99,10 +104,9 @@ class ImageView extends Component {
 
     private final Image image;
 
-    public ImageView(String filename) throws IOException {
-        File file = new File(filename);
+    public ImageView(InputStream inputStream) throws IOException {
         // 我们可以使用ImageIO类来快速将图片文件读取为Image对象
-        image = ImageIO.read(file);
+        image = ImageIO.read(inputStream);
         // 注意，在MacOS下加上下面一行，程序就不会报错了
         // Application.getApplication().setDockIconImage(image);
     }
