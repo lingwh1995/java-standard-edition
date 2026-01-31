@@ -20,6 +20,7 @@
 
     <modules>
         <module>chapter-01-swing-helloworld</module>
+        <module>chapter-02-swing-intellij</module>
         <module>chapter-02-swing-flatlaf-helloworld</module>
     </modules>
 </project>

@@ -2,21 +2,19 @@ package org.bluebridge;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * @author lingwh
  * @desc Swing 组件示例
  * @date 2025/8/4 18:17
  */
-public class SwingComponents {
+public class _019_SwingComponentsTest {
 
     public static void main(String[] args) {
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
         // SwingUtilities.invokeLater(() -> new SwingComponents().createAndShowGUI());
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
-        SwingUtilities.invokeLater(new SwingComponents()::createAndShowGUI);
+        SwingUtilities.invokeLater(new _019_SwingComponentsTest()::createAndShowGUI);
     }
 
     /**

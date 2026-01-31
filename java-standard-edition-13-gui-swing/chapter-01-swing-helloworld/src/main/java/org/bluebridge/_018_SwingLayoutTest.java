@@ -7,13 +7,13 @@ import java.awt.*;
  * @desc
  * @date 2025/8/4 18:24
  */
-public class SwingLayouts {
+public class _018_SwingLayoutTest {
 
     public static void main(String[] args) {
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
         // SwingUtilities.invokeLater(() -> new SwingLayouts().createAndShowGUI());
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
-        SwingUtilities.invokeLater(new SwingLayouts()::createAndShowGUI);
+        SwingUtilities.invokeLater(new _018_SwingLayoutTest()::createAndShowGUI);
     }
 
     /**

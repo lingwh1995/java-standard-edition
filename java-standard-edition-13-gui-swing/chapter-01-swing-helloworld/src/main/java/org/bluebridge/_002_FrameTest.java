@@ -13,7 +13,8 @@ public class _002_FrameTest {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new _002_FrameTest()::createAndShowGUI);
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
-        // SwingUtilities.invokeLater(() -> new JFrameTest().createAndShowGUI());
+        // SwingUtilities.invokeLater(() -> new _002_FrameTest().createAndShowGUI());
+
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
         SwingUtilities.invokeLater(new _002_FrameTest()::createAndShowGUI);
     }
