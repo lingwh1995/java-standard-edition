@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-02-swing-flatlaf-helloworld</artifactId>
+    <artifactId>chapter-03-swing-flatlaf-helloworld</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
