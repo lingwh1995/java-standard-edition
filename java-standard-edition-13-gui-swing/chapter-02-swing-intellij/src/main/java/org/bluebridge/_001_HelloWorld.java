@@ -7,6 +7,8 @@ import javax.swing.*;
  * @desc Swing HelloWorld程序
  * @date 2025/8/4 18:17
  */
+
+// https://github.com/itbaima-study/Intellij-IDEA-Extreme
 public class _001_HelloWorld {
 
     public static void main(String[] args) {
