@@ -12,7 +12,7 @@
     <artifactId>java-standard-edition-14-gui-javafx</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>chapter-01-javafx-helloworld</module>
+        <module>chapter-01-javafx-docs</module>
     </modules>
 
     <properties>
