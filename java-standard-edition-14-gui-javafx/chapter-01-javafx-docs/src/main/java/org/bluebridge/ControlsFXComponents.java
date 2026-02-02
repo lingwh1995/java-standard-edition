@@ -16,6 +16,7 @@ import org.controlsfx.control.Rating;
  * @date 2026/1/22 13:45
  */
 public class ControlsFXComponents extends Application {
+
     @Override
     public void start(Stage stage) {
         VBox root = new VBox(20);
@@ -48,4 +49,5 @@ public class ControlsFXComponents extends Application {
     }
 
     public static void main(String[] args) { launch(args); }
+
 }

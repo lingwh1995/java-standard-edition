@@ -7,6 +7,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
 /**
  * @author lingwh
  * @desc
@@ -61,5 +62,6 @@ public class JavaFXLayouts extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
 

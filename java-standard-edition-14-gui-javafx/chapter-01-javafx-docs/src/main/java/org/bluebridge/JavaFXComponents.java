@@ -8,6 +8,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 /**
  * @author lingwh
  * @desc
@@ -65,4 +66,5 @@ public class JavaFXComponents extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

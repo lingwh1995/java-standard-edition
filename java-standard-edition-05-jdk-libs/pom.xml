@@ -11,6 +11,7 @@
 
     <artifactId>java-standard-edition-05-jdk-libs</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>chapter-01-lombok</module>
         <module>chapter-02-hsqldb</module>
