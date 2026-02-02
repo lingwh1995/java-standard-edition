@@ -19,6 +19,6 @@
     </properties>
 
     <modules>
-        <module>chapter-01-awt-helloworld</module>
+        <module>chapter-01-awt-docs</module>
     </modules>
 </project>
