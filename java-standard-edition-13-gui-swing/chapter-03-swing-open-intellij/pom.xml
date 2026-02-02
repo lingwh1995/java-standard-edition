@@ -9,18 +9,27 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-02-swing-intellij</artifactId>
+    <artifactId>chapter-03-swing-open-intellij</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>org.bluebridge._002_FrameTest</main.class>
-        <launch.class>org.bluebridge.AppLauncher</launch.class>
+        <main.class>org.bluebridge.test.Application</main.class>
+        <launch.class>org.bluebridge.test.AppLauncher</launch.class>
         <shaded.jar.name>${project.artifactId}-${project.version}-shaded.jar</shaded.jar.name>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+        </dependency>
+        <!-- macos风格 + svg格式图片支持 -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf-extras</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

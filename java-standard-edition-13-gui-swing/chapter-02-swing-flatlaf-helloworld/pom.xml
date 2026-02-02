@@ -9,13 +9,13 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter-03-swing-flatlaf-helloworld</artifactId>
+    <artifactId>chapter-02-swing-flatlaf-helloworld</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>org.bluebridge._002_FrameTest</main.class>
+        <main.class>org.bluebridge.HelloWorld</main.class>
         <launch.class>org.bluebridge.AppLauncher</launch.class>
         <shaded.jar.name>${project.artifactId}-${project.version}-shaded.jar</shaded.jar.name>
     </properties>
@@ -24,13 +24,11 @@
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
-            <version>3.4.1</version>
         </dependency>
         <!-- macos风格 + svg格式图片支持 -->
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf-extras</artifactId>
-            <version>3.4.1</version>
         </dependency>
     </dependencies>
 

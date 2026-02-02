@@ -16,11 +16,28 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <flatlaf.version>3.4.1</flatlaf.version>
     </properties>
 
     <modules>
         <module>chapter-01-swing-helloworld</module>
-        <module>chapter-02-swing-intellij</module>
-        <module>chapter-03-swing-flatlaf-helloworld</module>
+        <module>chapter-02-swing-flatlaf-helloworld</module>
+        <module>chapter-03-swing-open-intellij</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.formdev</groupId>
+                <artifactId>flatlaf</artifactId>
+                <version>${flatlaf.version}</version>
+            </dependency>
+            <!-- macos风格 + svg格式图片支持 -->
+            <dependency>
+                <groupId>com.formdev</groupId>
+                <artifactId>flatlaf-extras</artifactId>
+                <version>${flatlaf.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
