@@ -1,4 +1,4 @@
-package org.bluebridge.test;
+package org.bluebridge;
 
 /**
  * @author think
@@ -13,7 +13,7 @@ import java.awt.*;
  * 模仿IntelliJ IDEA界面布局的简单实现
  * 仅实现布局结构，无具体功能逻辑
  */
-public class Application extends JFrame {
+public class Application {
 
     // 核心窗口容器（组合而非继承）
     private final JFrame mainFrame;

@@ -1,4 +1,4 @@
-package org.bluebridge.test;
+package org.bluebridge;
 
 /**
  * @author lingwh
@@ -9,7 +9,7 @@ public class AppLauncher {
 
     public static void main(String[] args) throws Exception {
         // 这里的 HelloWorld 是你原本继承了 Application 的启动类
-        MyApplication.main(args);
+        Application.main(args);
     }
 
 }
