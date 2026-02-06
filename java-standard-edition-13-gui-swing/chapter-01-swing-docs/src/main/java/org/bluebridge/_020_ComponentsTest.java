@@ -8,13 +8,13 @@ import java.awt.*;
  * @desc Swing 组件示例
  * @date 2025/8/4 18:17
  */
-public class _019_SwingComponentsTest {
+public class _020_ComponentsTest {
 
     public static void main(String[] args) {
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
         // SwingUtilities.invokeLater(() -> new SwingComponents().createAndShowGUI());
         // 使用 invokeLater 将 UI 任务推送到事件分发线程 (EDT)
-        SwingUtilities.invokeLater(new _019_SwingComponentsTest()::createAndShowGUI);
+        SwingUtilities.invokeLater(new _020_ComponentsTest()::createAndShowGUI);
     }
 
     /**

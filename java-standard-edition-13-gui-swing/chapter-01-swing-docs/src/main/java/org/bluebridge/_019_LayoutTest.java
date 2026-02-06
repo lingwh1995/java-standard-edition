@@ -7,9 +7,9 @@ import java.awt.*;
  * 高级布局管理器演示程序
  * 演示多种常用的布局管理器及其特点，包含更多教学示例
  */
-public class AdvancedLayoutDemo extends JFrame {
+public class _019_LayoutTest extends JFrame {
     
-    public AdvancedLayoutDemo() {
+    public _019_LayoutTest() {
         initializeFrame();
         setupMainPanel();
     }
@@ -661,7 +661,7 @@ public class AdvancedLayoutDemo extends JFrame {
         // 在事件调度线程中创建和显示GUI
         SwingUtilities.invokeLater(() -> {
             try {
-                new AdvancedLayoutDemo().setVisible(true);
+                new _019_LayoutTest().setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }
