@@ -9,7 +9,7 @@ public class AppLauncher {
 
     public static void main(String[] args) throws Exception {
         // 这里的 HelloWorld 是你原本继承了 Application 的启动类
-        Application.main(args);
+        MyApplication.main(args);
     }
 
 }
