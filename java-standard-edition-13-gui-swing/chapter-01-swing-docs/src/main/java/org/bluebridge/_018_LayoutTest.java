@@ -37,7 +37,6 @@ public class _018_LayoutTest {
         borderPanel.add(new JButton("中"), BorderLayout.CENTER);
         tabbedPane.addTab("BorderLayout", borderPanel);
 
-
         // FlowLayout示例
         JPanel flowPanel = new JPanel(new FlowLayout());
         for (int i = 1; i <= 10; i++) {
@@ -45,14 +44,12 @@ public class _018_LayoutTest {
         }
         tabbedPane.addTab("FlowLayout", flowPanel);
 
-
         // GridLayout示例
         JPanel gridPanel = new JPanel(new GridLayout(3, 3));
         for (int i = 1; i <= 8; i++) {
             gridPanel.add(new JButton("格子" + i));
         }
         tabbedPane.addTab("GridLayout", gridPanel);
-
 
         // 使用垂直Box布局作为主容器
         JPanel boxPanel = new JPanel();
@@ -62,13 +59,16 @@ public class _018_LayoutTest {
         // 创建水平布局的第一个子面板
         JPanel horizontalPanel1 = new JPanel();
         horizontalPanel1.setLayout(new BoxLayout(horizontalPanel1, BoxLayout.X_AXIS));
-        horizontalPanel1.setAlignmentX(Component.LEFT_ALIGNMENT); // 左对齐
+        // 左对齐
+        horizontalPanel1.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         // 向第一个水平面板添加组件
         horizontalPanel1.add(new JButton("水平1"));
-        horizontalPanel1.add(Box.createRigidArea(new Dimension(10, 0))); // 固定间隔
+        // 固定间隔
+        horizontalPanel1.add(Box.createRigidArea(new Dimension(10, 0)));
         horizontalPanel1.add(new JButton("水平2"));
-        horizontalPanel1.add(Box.createHorizontalGlue()); // 弹性间隔
+        // 弹性间隔
+        horizontalPanel1.add(Box.createHorizontalGlue());
         horizontalPanel1.add(new JButton("水平3"));
 
         // 将第一个水平面板添加到主面板
