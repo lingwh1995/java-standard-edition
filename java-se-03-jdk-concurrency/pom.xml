@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.bluebridge</groupId>
+        <artifactId>java-standard-edition</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>java-se-03-jdk-concurrency</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>chapter-01-concurrency_thread</module>
+        <module>chapter-02-concurrency_stackframe</module>
+        <module>chapter-03-concurrency_lock</module>
+        <module>chapter-04-concurrency_jmm</module>
+        <module>chapter-05-concurrency_cas</module>
+        <module>chapter-06-concurrency_unsafe</module>
+        <module>chapter-07-concurrency_immutable</module>
+        <module>chapter-08-concurrency_final</module>
+        <module>chapter-09-concurrency_designpattern</module>
+        <module>chapter-10-concurrency_thread_pool</module>
+        <module>chapter-11-concurrency_aqs</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>4.12</junit.version>
+        <lombok.version>1.18.30</lombok.version>
+        <logback.version>1.2.3</logback.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
