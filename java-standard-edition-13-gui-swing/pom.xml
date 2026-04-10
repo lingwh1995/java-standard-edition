@@ -20,7 +20,7 @@
     </properties>
 
     <modules>
-        <module>chapter-01-swing-docs</module>
+        <module>chapter-01-swing-tutorial</module>
         <module>chapter-02-swing-flatlaf-theme</module>
         <module>chapter-03-swing-open-intellij</module>
     </modules>

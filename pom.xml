@@ -16,7 +16,7 @@
     </properties>
 
     <modules>
-        <module>java-standard-edition-01-jdk-docs</module>
+        <module>java-standard-edition-01-jdk-tutorial</module>
         <module>java-standard-edition-02-jdk-features</module>
         <module>java-standard-edition-03-jdk-concurrency</module>
         <module>java-standard-edition-04-jdk-source</module>
