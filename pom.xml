@@ -16,19 +16,19 @@
     </properties>
 
     <modules>
-        <module>javase-01-jdk-lib</module>
-        <module>javase-02-jdk-features</module>
-        <module>javase-03-jdk-concurrency</module>
-        <module>javase-04-jdk-source</module>
-        <module>javase-05-jdk-libs</module>
-        <module>javase-06-jdk-github</module>
-        <module>javase-07-8bit-data_structure</module>
-        <module>javase-08-8bit-algorithm</module>
-        <module>javase-09-8bit-design_patterns</module>
-        <module>javase-10-8bit-senior</module>
-        <module>javase-11-8bit-exercises</module>
-        <module>javase-12-gui-awt</module>
-        <module>javase-13-gui-swing</module>
-        <module>javase-14-gui-javafx</module>
+        <module>01-jdk-lib</module>
+        <module>02-jdk-features</module>
+        <module>03-jdk-concurrency</module>
+        <module>04-jdk-source</module>
+        <module>05-jdk-libs</module>
+        <module>06-jdk-github</module>
+        <module>07-data_structure</module>
+        <module>08-algorithm</module>
+        <module>09-design_patterns</module>
+        <module>10-advanced</module>
+        <module>1-exercises</module>
+        <module>12-gui-awt</module>
+        <module>13-gui-swing</module>
+        <module>14-gui-javafx</module>
     </modules>
 </project>
