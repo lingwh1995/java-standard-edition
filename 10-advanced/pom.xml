@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>10-senior</artifactId>
+    <artifactId>10-advanced</artifactId>
     <packaging>pom</packaging>
 
     <modules>
