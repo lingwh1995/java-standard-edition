@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>08-8bit-algorithm</artifactId>
+    <artifactId>08-algorithm</artifactId>
 
     <dependencies>
         <dependency>

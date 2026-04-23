@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>07-8bit-data_structure</artifactId>
+    <artifactId>07-data_structure</artifactId>
 
     <dependencies>
         <dependency>
