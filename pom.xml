@@ -16,7 +16,7 @@
     </properties>
 
     <modules>
-        <module>01-jdk-lib</module>
+        <module>01-jdk-doc</module>
         <module>02-jdk-features</module>
         <module>03-jdk-concurrency</module>
         <module>04-jdk-source</module>
