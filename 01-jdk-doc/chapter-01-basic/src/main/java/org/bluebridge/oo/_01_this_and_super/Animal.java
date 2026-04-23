@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author lingwh
- * @desc 动物抽象类
+ * @desc
  * @date 2025/11/12 10:00
  */
 @Slf4j
